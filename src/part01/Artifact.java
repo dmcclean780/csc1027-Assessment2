@@ -8,11 +8,17 @@ public class Artifact {
     private int engagementTime;
     private static int nextID = 0;
 
-    public Artifact(String name, String type, int engagementTime){
+    public Artifact(String name, String type, int engagementTime) throws TimeIsNegativeException{
         this.id = nextID;
         this.name=name;
         this.type= type;
-        this.engagementTime= engagementTime;
+        if(engagementTime >0){
+            this.engagementTime= engagementTime;
+        }
+        else{
+            throw new TimeIsNegativeException();
+        }
+        
         nextID++;
     }
 
