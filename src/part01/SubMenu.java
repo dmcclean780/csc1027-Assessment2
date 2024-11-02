@@ -4,6 +4,10 @@ public class SubMenu extends Menu {
 
     private final String type;
 
+    /**
+     * Constructor
+     * @param type - the item the sub menu is for - artifacts or exhibits
+     */
     public SubMenu(String type){
         this.type=type;
         String menuTitle = "Manage "+type+"s";
@@ -14,6 +18,10 @@ public class SubMenu extends Menu {
         super(menuTitle, menuOptions);
     }
 
+    /**
+     * 
+     * @return the item the sub menu is for - artifacts or exhibits
+     */
     public String getType() {
         return this.type;
     }

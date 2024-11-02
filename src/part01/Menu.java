@@ -7,12 +7,20 @@ public class Menu {
 	private String title;
 	private Scanner input;
 
+	/**
+	 * Constructor
+	 * @param title - the menu title
+	 * @param data - the options that make up the menu
+	 */
 	public Menu(String title, String data[]) {
 		this.title = title;
 		this.items = data;
 		this.input = new Scanner(System.in);
 	}
 
+	/**
+	 * prints the title with a row of + the same length followed by a numbered list of the options
+	 */
 	private void display() {
 		System.out.println(title);
 		for (int count = 0; count < title.length(); count++) {
@@ -25,6 +33,10 @@ public class Menu {
 		System.out.println();
 	}
 
+	/**
+	 * Displays the menu and takes the users selection from it
+	 * @return the value entered by the user
+	 */
 	public int getUserChoice() {
 		boolean ok = false;
 		int value = 0;

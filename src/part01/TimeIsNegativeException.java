@@ -1,10 +1,17 @@
 package part01;
-
+/**
+ * Exception thrown whenever a value for a time is made negative
+ */
 public class TimeIsNegativeException extends Exception{
-    // Parameterless Constructor
+   /**
+    * Constructor 
+    */
     public TimeIsNegativeException() {}
 
-    // Constructor that accepts a message
+   /**
+    * 
+    * @param message - string exception message
+    */
     public TimeIsNegativeException(String message)
     {
        super(message);
