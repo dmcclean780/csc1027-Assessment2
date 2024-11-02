@@ -1,10 +1,8 @@
 package part01;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.function.Function;
 
 public class QUBMuseum {
     private static ArrayList<Artifact> artifacts = new ArrayList<Artifact>();
@@ -17,19 +15,15 @@ public class QUBMuseum {
 
     public static void main(String[] args) {
         Menu generalMenu = new Menu(generalMenuTitle, generalMenuOptions);
-        useMenu(generalMenu, QUBMuseum::processGeneralMenuChoice);
-        System.out.println("All done - Goodbye!");
-    }
-
-    private static void useMenu(Menu menu, Function<Integer, Boolean> choiceFunction) {
         while (true) {
-            int choice = menu.getUserChoice();
-            boolean quit = choiceFunction.apply(choice);
+            int choice = generalMenu.getUserChoice();
+            boolean quit = processGeneralMenuChoice(choice);
             if (quit) {
                 break;
             }
 
         }
+        System.out.println("All done - Goodbye!");
     }
 
     private static boolean processGeneralMenuChoice(int choice) {
@@ -54,20 +48,42 @@ public class QUBMuseum {
     private static void manageArtifacts() {
         System.out.println();
         SubMenu menu = new SubMenu("Artifact");
-        useMenu(menu, QUBMuseum::processArtifactMenuChoice);
+        while (true) {
+            int choice = menu.getUserChoice();
+            boolean quit = processArtifactMenuChoice(choice);
+            if (quit) {
+                break;
+            }
+
+        }
     }
 
     private static boolean processArtifactMenuChoice(int choice) {
         boolean quit = false;
+        Menu artifactMenu = artifactsMenu();
         switch (choice) {
             case 1:
                 addArtifact();
                 break;
             case 2:
-                artifactsMenu(QUBMuseum::viewArtifact);
+                while (true) {
+                    int artifactChoice = artifactMenu.getUserChoice();
+                    boolean quitViewing = viewArtifact(artifactChoice);
+                    if (quitViewing) {
+                        break;
+                    }
+
+                }
                 break;
             case 3:
-                artifactsMenu(QUBMuseum::updateArtifact);
+                while (true) {
+                    int artifactChoice = artifactMenu.getUserChoice();
+                    boolean quitViewing = updateArtifact(artifactChoice);
+                    if (quitViewing) {
+                        break;
+                    }
+
+                }
                 break;
             case 4:
                 deleteArtifact();
@@ -117,8 +133,7 @@ public class QUBMuseum {
         if (choice - 1 == artifacts.size()) {
             return true;
         }
-        Artifact a = artifacts.get(choice-1);
-        //Field[] f= a.getClass().getDeclaredFields();
+        Artifact a = artifacts.get(choice - 1);
         return false;
     }
 
@@ -134,12 +149,12 @@ public class QUBMuseum {
         System.out.println("Manage Annual plan");
     }
 
-    private static void artifactsMenu(Function<Integer, Boolean> choiceFunction) {
+    private static Menu artifactsMenu() {
         String[] artifactNames = artifactsToArray(true);
         String[] quit = { "Quit" };
         String[] artifactOptions = concat(artifactNames, quit);
         Menu artifactMenu = new Menu("Artifacts", artifactOptions);
-        useMenu(artifactMenu, choiceFunction);
+        return artifactMenu;
     }
 
     private static Artifact[] artifactsToArray() {
