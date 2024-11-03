@@ -82,7 +82,7 @@ public class QUBMuseum {
                     System.out.print("Update ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     boolean quitViewing = updateArtifact(artifactChoice);
-                    artifactMenu=artifactsMenu();
+                    artifactMenu = artifactsMenu();
                     if (quitViewing) {
                         break;
                     }
@@ -90,7 +90,16 @@ public class QUBMuseum {
                 }
                 break;
             case 4:
-                deleteArtifact();
+                while (true) {
+                    System.out.print("Update ");
+                    int artifactChoice = artifactMenu.getUserChoice();
+                    boolean quitViewing = deleteArtifact(artifactChoice);
+                    artifactMenu = artifactsMenu();
+                    if (quitViewing) {
+                        break;
+                    }
+
+                }
                 break;
             case 5:
                 quit = true;
@@ -124,7 +133,7 @@ public class QUBMuseum {
     }
 
     private static boolean viewArtifact(int choice) {
-       
+
         if (choice - 1 == artifacts.size()) {
             return true;
         }
@@ -141,20 +150,20 @@ public class QUBMuseum {
         System.out.println("Enter new data or press RETURN to leave unchanged");
         System.out.print("Enter Artifact Name:");
         String name = input.nextLine();
-        if(name!=""){
+        if (name != "") {
             a.setName(name);
         }
         System.out.print("Enter Artifact Type:");
         String type = input.nextLine();
-        if(type!=""){
+        if (type != "") {
             a.setType(type);
         }
         while (true) {
             try {
                 System.out.print("Enter Artifact Expected Engagement Time:");
                 String engagementTimeString = input.nextLine();
-                if(engagementTimeString!=""){
-                    int engagementTime=Integer.parseInt(engagementTimeString);
+                if (engagementTimeString != "") {
+                    int engagementTime = Integer.parseInt(engagementTimeString);
                     a.setEngagementTime(engagementTime);
                 }
                 break;
@@ -162,15 +171,19 @@ public class QUBMuseum {
                 System.out.println("Please enter an Integer");
             } catch (NumberFormatException e) {
                 System.out.println("Please enter an Integer");
-            } catch (TimeIsNegativeException e){
+            } catch (TimeIsNegativeException e) {
                 System.out.println("Enter a Positive Time");
             }
         }
         return false;
     }
 
-    private static void deleteArtifact() {
-        System.out.println("delete Artifact");
+    private static boolean deleteArtifact(int choice) {
+        if (choice - 1 == artifacts.size()) {
+            return true;
+        }
+        artifacts.remove(choice - 1);
+        return false;
     }
 
     private static void manageExhibits() {
@@ -187,14 +200,6 @@ public class QUBMuseum {
         String[] artifactOptions = concat(artifactNames, quit);
         Menu artifactMenu = new Menu("Artifacts", artifactOptions);
         return artifactMenu;
-    }
-
-    private static Artifact[] artifactsToArray() {
-        Artifact[] artifactArray = new Artifact[artifacts.size()];
-        for (int i = 0; i < artifactArray.length; i++) {
-            artifactArray[i] = artifacts.get(i);
-        }
-        return artifactArray;
     }
 
     private static String[] artifactsToArray(boolean ofNames) {
