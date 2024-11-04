@@ -24,6 +24,7 @@ public class Exhibit {
             throw new Exception("route and artifacts not consistant");
         }
         this.id = nextID;
+        this.name=name;
         this.artifactsID= new ArrayList<Integer>();
         for (int i: artifactsID){
             this.artifactsID.add(i);
@@ -108,12 +109,7 @@ public class Exhibit {
     }
 
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", name='" + getName() + "'" +
-            ", artifactsID='" + getArtifactsID() + "'" +
-            ", route='" + getRoute() + "'" +
-            "}";
+        return " ID: '" + getId() + "\tName: '" + getName();
     }
 
 
@@ -154,6 +150,20 @@ public class Exhibit {
             return false;
         }
         return true;
+    }
+
+    public Artifact[] getArtifacts(ArrayList<Artifact> artifacts){
+        ArrayList<Integer> artifactsID= getArtifactsID();
+        Artifact[] artifactArray = new Artifact[artifactsID.size()];
+        for(int i=0; i<artifactsID.size(); i++){
+            try{
+                Artifact a = Utils.findArtifact(artifactsID.get(i), artifacts);
+                artifactArray[i]=a;
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }   
+        }
+        return artifactArray;
     }
 
 }

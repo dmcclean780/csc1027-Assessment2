@@ -8,7 +8,7 @@ public class ArtifactManagement {
     private static Scanner input = new Scanner(System.in);
 
     public static void manageArtifacts(ArrayList<Artifact> artifacts) {
-        System.out.println();
+        System.out.println("Manage Artifacts");
         SubMenu menu = new SubMenu("Artifact");
         while (true) {
             int choice = menu.getUserChoice();
@@ -155,7 +155,7 @@ public class ArtifactManagement {
         return false;
     }
 
-    private static Menu artifactsMenu(Artifact[] artifactArray) {
+    public static Menu artifactsMenu(Artifact[] artifactArray) {
         String[] artifactNames = artifactArrayToNameArray(artifactArray);
         String[] quit = { "Quit" };
         String[] artifactOptions = Utils.concat(artifactNames, quit);
@@ -163,7 +163,7 @@ public class ArtifactManagement {
         return artifactMenu;
     }
 
-    private static Artifact[] artifactsToArray(ArrayList<Artifact> artifacts) {
+    public static Artifact[] artifactsToArray(ArrayList<Artifact> artifacts) {
         Artifact[] artifactArray = new Artifact[artifacts.size()];
         for (int i = 0; i < artifactArray.length; i++) {
             artifactArray[i] = artifacts.get(i);
@@ -171,7 +171,7 @@ public class ArtifactManagement {
         return artifactArray;
     }
 
-    private static String[] artifactArrayToNameArray(Artifact[] artifactArray) {
+    public static String[] artifactArrayToNameArray(Artifact[] artifactArray) {
         String[] nameArray = new String[artifactArray.length];
         for (int i = 0; i < artifactArray.length; i++) {
             nameArray[i] = artifactArray[i].getName();
@@ -179,7 +179,7 @@ public class ArtifactManagement {
         return nameArray;
     }
 
-    private static Artifact[] sort(Artifact[] array){
+    public static Artifact[] sort(Artifact[] array){
         for(int i=0; i<array.length; i++){
             for(int j=0; j<array.length-1; j++){
                 if( array[j].getName().compareTo(array[j+1].getName()) > 0){
