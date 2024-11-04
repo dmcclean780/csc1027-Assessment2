@@ -30,7 +30,7 @@ public class QUBMuseum {
         boolean quit = false;
         switch (choice) {
             case 1:
-                manageArtifacts();
+                ArtifactManagement.manageArtifacts(artifacts);
                 break;
             case 2:
                 manageExhibits();
@@ -45,179 +45,133 @@ public class QUBMuseum {
         return quit;
     }
 
-    private static void manageArtifacts() {
-        System.out.println();
-        SubMenu menu = new SubMenu("Artifact");
-        while (true) {
-            int choice = menu.getUserChoice();
-            boolean quit = processArtifactMenuChoice(choice);
-            if (quit) {
-                break;
-            }
-
-        }
-    }
-
-    private static boolean processArtifactMenuChoice(int choice) {
-        boolean quit = false;
-        Menu artifactMenu = artifactsMenu();
-        System.out.println();
-        switch (choice) {
-            case 1:
-                addArtifact();
-                break;
-            case 2:
-                while (true) {
-                    System.out.print("View ");
-                    int artifactChoice = artifactMenu.getUserChoice();
-                    boolean quitViewing = viewArtifact(artifactChoice);
-                    if (quitViewing) {
-                        break;
-                    }
-
-                }
-                break;
-            case 3:
-                while (true) {
-                    System.out.print("Update ");
-                    int artifactChoice = artifactMenu.getUserChoice();
-                    boolean quitViewing = updateArtifact(artifactChoice);
-                    artifactMenu = artifactsMenu();
-                    if (quitViewing) {
-                        break;
-                    }
-
-                }
-                break;
-            case 4:
-                while (true) {
-                    System.out.print("Update ");
-                    int artifactChoice = artifactMenu.getUserChoice();
-                    boolean quitViewing = deleteArtifact(artifactChoice);
-                    artifactMenu = artifactsMenu();
-                    if (quitViewing) {
-                        break;
-                    }
-
-                }
-                break;
-            case 5:
-                quit = true;
-        }
-        return quit;
-    }
-
-    private static void addArtifact() {
-        System.out.println("Add Artifact");
-        System.out.print("Enter Artifact Name:");
-        String name = input.nextLine();
-        System.out.print("Enter Artifact Type:");
-        String type = input.nextLine();
-        System.out.print("Enter Artifact Expected Engagement Time:");
-        while (true) {
-            try {
-                int engagementTime = input.nextInt();
-                Artifact art = new Artifact(name, type, engagementTime);
-                artifacts.add(art);
-                System.out.println();
-                break;
-            } catch (InputMismatchException e) {
-                input.nextLine();
-                System.out.println("Please enter an Integer");
-            } catch (TimeIsNegativeException e) {
-                input.nextLine();
-                System.out.println("Time must be Positive");
-            }
-        }
-        input.nextLine();
-    }
-
-    private static boolean viewArtifact(int choice) {
-
-        if (choice - 1 == artifacts.size()) {
-            return true;
-        }
-        System.out.println(artifacts.get(choice - 1));
-        System.out.println();
-        return false;
-    }
-
-    private static boolean updateArtifact(int choice) {
-        if (choice - 1 == artifacts.size()) {
-            return true;
-        }
-        Artifact a = artifacts.get(choice - 1);
-        System.out.println("Enter new data or press RETURN to leave unchanged");
-        System.out.print("Enter Artifact Name:");
-        String name = input.nextLine();
-        if (name != "") {
-            a.setName(name);
-        }
-        System.out.print("Enter Artifact Type:");
-        String type = input.nextLine();
-        if (type != "") {
-            a.setType(type);
-        }
-        while (true) {
-            try {
-                System.out.print("Enter Artifact Expected Engagement Time:");
-                String engagementTimeString = input.nextLine();
-                if (engagementTimeString != "") {
-                    int engagementTime = Integer.parseInt(engagementTimeString);
-                    a.setEngagementTime(engagementTime);
-                }
-                break;
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter an Integer");
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter an Integer");
-            } catch (TimeIsNegativeException e) {
-                System.out.println("Enter a Positive Time");
-            }
-        }
-        return false;
-    }
-
-    private static boolean deleteArtifact(int choice) {
-        if (choice - 1 == artifacts.size()) {
-            return true;
-        }
-        artifacts.remove(choice - 1);
-        return false;
-    }
+    
 
     private static void manageExhibits() {
         System.out.println("Manage Exhibits");
+        // SubMenu menu = new SubMenu("Exhibit");
+        // while (true) {
+        //     int choice = menu.getUserChoice();
+        //     boolean quit = processExhibitMenuChoice(choice);
+        //     if (quit) {
+        //         break;
+        //     }
+
+        // }
     }
+
+    // private static boolean processExhibitMenuChoice(int choice) {
+    //     boolean quit = false;
+    //     Menu exhibitMenu = exhibitsMenu();
+    //     System.out.println();
+    //     switch (choice) {
+    //         case 1:
+    //             addExhibit();
+    //             break;
+    //         case 2:
+    //             while (true) {
+    //                 System.out.print("View ");
+    //                 int exhibitChoice = exhibitMenu.getUserChoice();
+    //                 boolean quitViewing = viewExhibit(exhibitChoice);
+    //                 if (quitViewing) {
+    //                     break;
+    //                 }
+
+    //             }
+    //             break;
+    //         case 3:
+    //             while (true) {
+    //                 System.out.print("Update ");
+    //                 int exhibitChoice = exhibitMenu.getUserChoice();
+    //                 boolean quitUpdating = updateExhibit(exhibitChoice);
+    //                 exhibitMenu = exhibitsMenu();
+    //                 if (quitUpdating) {
+    //                     break;
+    //                 }
+
+    //             }
+    //             break;
+    //         case 4:
+    //             while (true) {
+    //                 System.out.print("Delete ");
+    //                 int exhibitChoice = exhibitMenu.getUserChoice();
+    //                 boolean quitDeleting = deleteExhibit(exhibitChoice);
+    //                 exhibitMenu = exhibitsMenu();
+    //                 if (quitDeleting) {
+    //                     break;
+    //                 }
+
+    //             }
+    //             break;
+    //         case 5:
+    //             quit = true;
+    //     }
+    //     return quit;
+    // }
+
+    // private static void addExhibit() {
+    //     System.out.println("Add Exhibit");
+    //     System.out.print("Enter Exhibit Name:");
+    //     String name = input.nextLine();
+    //     System.out.print("Select What Artifacts to Include:");
+    //     Menu artifactMenu = artifactsMenu();
+    //     ArrayList<Integer> exhibitArtifacts = new ArrayList<Integer>();
+    //     while (true) {
+    //         int artifactChoice = artifactMenu.getUserChoice();
+    //         exhibitArtifacts.add(artifactChoice);
+    //         boolean quitAdding = artifactChoice - 1 == artifacts.size();
+    //         if (quitAdding) {
+    //             break;
+    //         }
+    //     }
+
+    // }
+
+    // private static boolean viewExhibit(int choice) {
+
+    //     if (choice - 1 == exhibits.size()) {
+    //         return true;
+    //     }
+    //     System.out.println(exhibits.get(choice - 1));
+    //     System.out.println();
+    //     return false;
+    // }
+
+    // private static boolean updateExhibit(int choice) {
+    //     if (choice - 1 == artifacts.size()) {
+    //         return true;
+    //     }
+
+    //     return false;
+    // }
+
+    // private static boolean deleteExhibit(int choice) {
+    //     if (choice - 1 == artifacts.size()) {
+    //         return true;
+    //     }
+    //     artifacts.remove(choice - 1);
+    //     return false;
+    // }
+
+    // private static Menu exhibitsMenu() {
+    //     String[] artifactNames = exhibitsToArray(true);
+    //     String[] quit = { "Quit" };
+    //     String[] artifactOptions = concat(artifactNames, quit);
+    //     Menu artifactMenu = new Menu("Artifacts", artifactOptions);
+    //     return artifactMenu;
+    // }
+
+    // private static String[] exhibitsToArray(boolean ofNames) {
+    //     String[] exhibitArray = new String[exhibits.size()];
+    //     for (int i = 0; i < exhibitArray.length; i++) {
+    //         exhibitArray[i] = exhibits.get(i).getName();
+    //     }
+    //     return exhibitArray;
+    // }
 
     private static void manageAnnualPlan() {
         System.out.println("Manage Annual plan");
     }
 
-    private static Menu artifactsMenu() {
-        String[] artifactNames = artifactsToArray(true);
-        String[] quit = { "Quit" };
-        String[] artifactOptions = concat(artifactNames, quit);
-        Menu artifactMenu = new Menu("Artifacts", artifactOptions);
-        return artifactMenu;
-    }
-
-    private static String[] artifactsToArray(boolean ofNames) {
-        String[] artifactArray = new String[artifacts.size()];
-        for (int i = 0; i < artifactArray.length; i++) {
-            artifactArray[i] = artifacts.get(i).getName();
-        }
-        return artifactArray;
-    }
-
-    private static String[] concat(String[] a, String[] b) {
-        String[] c = new String[a.length + b.length];
-        for (int i = 0; i < a.length; i++) {
-            c[i] = a[i];
-        }
-        for (int i = a.length; i < b.length + a.length; i++) {
-            c[i] = b[i - a.length];
-        }
-        return c;
-    }
+    
 }

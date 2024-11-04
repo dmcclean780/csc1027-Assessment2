@@ -107,6 +107,16 @@ public class Exhibit {
         }
     }
 
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", name='" + getName() + "'" +
+            ", artifactsID='" + getArtifactsID() + "'" +
+            ", route='" + getRoute() + "'" +
+            "}";
+    }
+
+
     /**
      * 
      * @param route
