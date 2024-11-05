@@ -29,7 +29,7 @@ public class QUBMuseum {
         boolean quit = false;
         switch (choice) {
             case 1:
-                ArtifactManagement.manageArtifacts(artifacts);
+                ArtifactManagement.manageArtifacts(artifacts, exhibits);
                 break;
             case 2:
                 ExhibitManagement.manageExhibits(exhibits, artifacts);

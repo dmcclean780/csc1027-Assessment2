@@ -92,7 +92,7 @@ public class Artifact {
 
     @Override
     public String toString() {
-        return "ID: " + getId() +"\tName: "+getName()+"\tType: "+getType()+"\tEngagement Time: "+getEngagementTime();
+        return "ID: " + getId() +",\tName: "+getName()+",\tType: "+getType()+",\tEngagement Time: "+getEngagementTime()+" minutes";
     }
 
 

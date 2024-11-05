@@ -46,7 +46,7 @@ public class ExhibitManagement {
                 while (true) {
                     System.out.print("Update ");
                     int exhibitChoice = exhibitMenu.getUserChoice();
-                    boolean quitUpdating = updateExhibit(exhibitChoice, exhibits);
+                    boolean quitUpdating = updateExhibit(exhibitChoice, exhibits, artifacts);
                     exhibitArray = exhibitsToArray(exhibits);
                     exhibitArray = sort(exhibitArray);
                     exhibitMenu = exhibitsMenu(exhibitArray);
@@ -81,7 +81,7 @@ public class ExhibitManagement {
         System.out.print("Enter Exhibit Name:");
         String name = input.nextLine();
 
-        System.out.print("Select What Artifacts to Include:");
+        System.out.print("Select What Artifacts to Include in the Order They Are in the Exhibit:");
         Artifact[] artifactArray = ArtifactManagement.artifactsToArray(artifacts);
         artifactArray = ArtifactManagement.sort(artifactArray);
         Menu artifactMenu = ArtifactManagement.artifactsMenu(artifactArray);
@@ -89,24 +89,33 @@ public class ExhibitManagement {
         ArrayList<Integer> exhibitArtifacts = new ArrayList<Integer>();
         while (true) {
             int artifactChoice = artifactMenu.getUserChoice();
-            boolean quitAdding = artifactChoice - 1 == artifacts.size();
-            if (quitAdding) {
+            if (artifactChoice - 3 == artifactArray.length) {
                 break;
             }
-            if(!Utils.contains(artifactArray[artifactChoice - 1].getId(), exhibitArtifacts)){
-                exhibitArtifacts.add(artifactArray[artifactChoice - 1].getId());
+            if (artifactChoice - 1 == artifactArray.length) {
+                artifactArray = ArtifactManagement.searchArtifacts(artifactArray);
+                artifactArray = ArtifactManagement.sort(artifactArray);
+                artifactMenu = ArtifactManagement.artifactsMenu(artifactArray);
+                continue;
             }
-            else{
+            if (artifactChoice - 2 == artifactArray.length) {
+                artifactArray = ArtifactManagement.artifactsToArray(artifacts);
+                artifactArray = ArtifactManagement.sort(artifactArray);
+                artifactMenu = ArtifactManagement.artifactsMenu(artifactArray);
+                continue;
+            }
+            if (!Utils.contains(artifactArray[artifactChoice - 1].getId(), exhibitArtifacts)) {
+                exhibitArtifacts.add(artifactArray[artifactChoice - 1].getId());
+            } else {
                 System.out.println("Artifact Already in Exhibit");
             }
-            
 
         }
 
         ArrayList<String> exhibitRoute = new ArrayList<String>();
         System.out.println("Enter text for the sign on the route at each artifact");
         for (int i = 0; i < exhibitArtifacts.size(); i++) {
-            System.out.print("Artifact " + (i+1) + ": ");
+            System.out.print("Artifact " + (i + 1) + ": ");
             String sign = input.nextLine();
             exhibitRoute.add(sign);
         }
@@ -126,30 +135,78 @@ public class ExhibitManagement {
         if (choice - 1 == exhibits.size()) {
             return true;
         }
-        Exhibit exhibit = exhibits.get(choice-1);
+        Exhibit exhibit = exhibits.get(choice - 1);
 
-        Artifact[] artifactArray=exhibit.getArtifacts(artifacts);
+        Artifact[] artifactArray = exhibit.getArtifacts(artifacts);
 
         ArrayList<String> route = exhibit.getRoute();
         String[] routeArray = routeToArray(route);
 
-        String exhibitString = exhibit.toString() + "\nArtifacts for the Exhibit\n"  ;
-        for(int i=0; i<artifactArray.length; i++){
-            exhibitString+=artifactArray[i].getName()+"\n";
+        String exhibitString = exhibit.toString() + "\nArtifacts for the Exhibit\n";
+        for (int i = 0; i < artifactArray.length; i++) {
+            exhibitString += artifactArray[i].getName() + "\n";
         }
-        exhibitString+="\nRoute:\nSteps:\tSigns\n";
-        for(int i=0; i<artifactArray.length; i++){
-            exhibitString+= (i+1)+". "+artifactArray[i].getName()+"\t"+routeArray[i]+"\n";
+        exhibitString += "\nRoute:\nSteps:\tSigns\n";
+        for (int i = 0; i < artifactArray.length; i++) {
+            exhibitString += (i + 1) + ". " + artifactArray[i].getName() + "\t" + routeArray[i] + "\n";
         }
         System.out.println(exhibitString);
         System.out.println();
         return false;
     }
 
-    private static boolean updateExhibit(int choice, ArrayList<Exhibit> exhibits) {
+    private static boolean updateExhibit(int choice, ArrayList<Exhibit> exhibits, ArrayList<Artifact> artifacts) {
         if (choice - 1 == exhibits.size()) {
             return true;
         }
+
+        // Exhibit exhibit = exhibits.get(choice-1);
+        // System.out.println("Update Exhibit");
+        // System.out.println("Enter new data or press RETURN to leave unchanged");
+
+        // System.out.print("Enter Exhibit Name:");
+        // String name = input.nextLine();
+        // if (name != "") {
+        // exhibit.setName(name);
+        // }
+
+        // System.out.print("Select What Artifacts to Include:");
+        // Artifact[] artifactArray = ArtifactManagement.artifactsToArray(artifacts);
+        // artifactArray = ArtifactManagement.sort(artifactArray);
+        // Menu artifactMenu = ArtifactManagement.artifactsMenu(artifactArray);
+
+        // ArrayList<Integer> exhibitArtifacts = new ArrayList<Integer>();
+        // while (true) {
+        // int artifactChoice = artifactMenu.getUserChoice();
+        // boolean quitAdding = artifactChoice - 1 == artifacts.size();
+        // if (quitAdding) {
+        // break;
+        // }
+        // if(!Utils.contains(artifactArray[artifactChoice - 1].getId(),
+        // exhibitArtifacts)){
+        // exhibitArtifacts.add(artifactArray[artifactChoice - 1].getId());
+        // }
+        // else{
+        // System.out.println("Artifact Already in Exhibit");
+        // }
+
+        // }
+
+        // ArrayList<String> exhibitRoute = new ArrayList<String>();
+        // System.out.println("Enter text for the sign on the route at each artifact");
+        // for (int i = 0; i < exhibitArtifacts.size(); i++) {
+        // System.out.print("Artifact " + (i+1) + ": ");
+        // String sign = input.nextLine();
+        // exhibitRoute.add(sign);
+        // }
+        // try {
+        // System.out.println(name);
+        // Exhibit exhibit = new Exhibit(name, exhibitArtifacts, exhibitRoute);
+        // exhibits.add(exhibit);
+        // System.out.println();
+        // } catch (Exception e) {
+        // System.out.println("Bad Data");
+        // }
 
         return false;
     }
@@ -199,7 +256,7 @@ public class ExhibitManagement {
         return array;
     }
 
-    private static String[] routeToArray(ArrayList<String> route){
+    private static String[] routeToArray(ArrayList<String> route) {
         String[] routeArray = new String[route.size()];
         for (int i = 0; i < routeArray.length; i++) {
             routeArray[i] = route.get(i);
