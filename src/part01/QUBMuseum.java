@@ -1,12 +1,8 @@
 package part01;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class QUBMuseum {
-    private static ArrayList<Artifact> artifacts = new ArrayList<Artifact>();
-    private static ArrayList<Exhibit> exhibits= new ArrayList<Exhibit>();
+    private static ArtifactManagement artifactManagement = new ArtifactManagement();
+    private static  ExhibitManagement exhibitManagement = new ExhibitManagement();
 
     private static final String generalMenuTitle = "QUB Museum";
     private static final String[] generalMenuOptions = { "Manage Artifacts", "Manage Exhibits", "Mangage Annual Plan",
@@ -29,10 +25,10 @@ public class QUBMuseum {
         boolean quit = false;
         switch (choice) {
             case 1:
-                ArtifactManagement.manageArtifacts(artifacts, exhibits);
+                artifactManagement.manageArtifacts(exhibitManagement.getExhibits());
                 break;
             case 2:
-                ExhibitManagement.manageExhibits(exhibits, artifacts);
+                exhibitManagement.manageExhibits(artifactManagement, artifactManagement.getArtifacts());
                 break;
             case 3:
                 manageAnnualPlan();

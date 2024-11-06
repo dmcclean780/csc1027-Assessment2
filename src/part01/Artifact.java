@@ -1,7 +1,7 @@
 package part01;
 
-public class Artifact {
-    private final int id;
+public class Artifact{
+    private final int ID;
     private String name;
     private String type;
     private int engagementTime;
@@ -15,7 +15,7 @@ public class Artifact {
      * @throws TimeIsNegativeException
      */
     public Artifact(String name, String type, int engagementTime) throws TimeIsNegativeException{
-        this.id = nextID;
+        this.ID = nextID;
         this.name=name;
         this.type= type;
         if(engagementTime >0){
@@ -33,7 +33,7 @@ public class Artifact {
      * @return int
      */
     public int getId() {
-        return this.id;
+        return this.ID;
     }
 
     

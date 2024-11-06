@@ -1,18 +1,26 @@
 package part01;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ArtifactManagement {
     private static Scanner input = new Scanner(System.in);
+    private ArrayList<Artifact> artifacts;
 
-    public static void manageArtifacts(ArrayList<Artifact> artifacts, ArrayList<Exhibit> exhibits) {
+    public ArtifactManagement() {
+        this.artifacts = new ArrayList<Artifact>();
+    }
+
+    public ArrayList<Artifact> getArtifacts() {
+        return this.artifacts;
+    }
+
+    public void manageArtifacts(ArrayList<Exhibit> exhibits) {
         System.out.println("Manage Artifacts");
         SubMenu menu = new SubMenu("Artifact");
         while (true) {
             int choice = menu.getUserChoice();
-            boolean quit = processArtifactMenuChoice(choice, artifacts, exhibits);
+            boolean quit = processArtifactMenuChoice(choice, exhibits);
             if (quit) {
                 break;
             }
@@ -20,34 +28,33 @@ public class ArtifactManagement {
         }
     }
 
-    private static boolean processArtifactMenuChoice(int choice, ArrayList<Artifact> artifacts,
-            ArrayList<Exhibit> exhibits) {
+    private boolean processArtifactMenuChoice(int choice, ArrayList<Exhibit> exhibits) {
         boolean quit = false;
-        Artifact[] artifactArray = artifactsToArray(artifacts);
+        Artifact[] artifactArray = artifactsToArray();
         artifactArray = sort(artifactArray);
         Menu artifactMenu = artifactsMenu(artifactArray);
         System.out.println();
         switch (choice) {
             case 1:
-                addArtifact(artifacts);
+                addArtifact();
                 break;
             case 2:
                 while (true) {
                     System.out.print("View ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     if (artifactChoice - 1 == artifactArray.length) {
-                        artifactArray=searchArtifacts(artifactArray);
+                        artifactArray = searchArtifacts(artifactArray);
                         artifactArray = sort(artifactArray);
                         artifactMenu = artifactsMenu(artifactArray);
                         continue;
                     }
-                    if (artifactChoice-2 == artifactArray.length){
-                        artifactArray = artifactsToArray(artifacts);
+                    if (artifactChoice - 2 == artifactArray.length) {
+                        artifactArray = artifactsToArray();
                         artifactArray = sort(artifactArray);
                         artifactMenu = artifactsMenu(artifactArray);
                         continue;
                     }
-                   
+
                     boolean quitViewing = viewArtifact(artifactChoice, artifactArray);
                     if (quitViewing) {
                         break;
@@ -60,22 +67,22 @@ public class ArtifactManagement {
                     System.out.print("Update ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     if (artifactChoice - 1 == artifactArray.length) {
-                        artifactArray=searchArtifacts(artifactArray);
+                        artifactArray = searchArtifacts(artifactArray);
                         artifactArray = sort(artifactArray);
                         artifactMenu = artifactsMenu(artifactArray);
                         continue;
                     }
-                    if (artifactChoice-2 == artifactArray.length){
-                        artifactArray = artifactsToArray(artifacts);
+                    if (artifactChoice - 2 == artifactArray.length) {
+                        artifactArray = artifactsToArray();
                         artifactArray = sort(artifactArray);
                         artifactMenu = artifactsMenu(artifactArray);
                         continue;
                     }
-                    boolean quitViewing = updateArtifact(artifactChoice, artifactArray, artifacts);
-                    artifactArray = artifactsToArray(artifacts);
+                    boolean quitUpdating = updateArtifact(artifactChoice, artifactArray);
+                    artifactArray = artifactsToArray();
                     artifactArray = sort(artifactArray);
                     artifactMenu = artifactsMenu(artifactArray);
-                    if (quitViewing) {
+                    if (quitUpdating) {
                         break;
                     }
 
@@ -86,22 +93,22 @@ public class ArtifactManagement {
                     System.out.print("Delete ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     if (artifactChoice - 1 == artifactArray.length) {
-                        artifactArray=searchArtifacts(artifactArray);
+                        artifactArray = searchArtifacts(artifactArray);
                         artifactArray = sort(artifactArray);
                         artifactMenu = artifactsMenu(artifactArray);
                         continue;
                     }
-                    if (artifactChoice-2 == artifactArray.length){
-                        artifactArray = artifactsToArray(artifacts);
+                    if (artifactChoice - 2 == artifactArray.length) {
+                        artifactArray = artifactsToArray();
                         artifactArray = sort(artifactArray);
                         artifactMenu = artifactsMenu(artifactArray);
                         continue;
                     }
-                    boolean quitViewing = deleteArtifact(artifactChoice, artifactArray, artifacts, exhibits);
-                    artifactArray = artifactsToArray(artifacts);
+                    boolean quitDeleting = deleteArtifact(artifactChoice, artifactArray, exhibits);
+                    artifactArray = artifactsToArray();
                     artifactArray = sort(artifactArray);
                     artifactMenu = artifactsMenu(artifactArray);
-                    if (quitViewing) {
+                    if (quitDeleting) {
                         break;
                     }
 
@@ -113,7 +120,7 @@ public class ArtifactManagement {
         return quit;
     }
 
-    private static void addArtifact(ArrayList<Artifact> artifacts) {
+    private void addArtifact() {
         System.out.println("Add Artifact");
         System.out.print("Enter Artifact Name:");
         String name = input.nextLine();
@@ -124,7 +131,7 @@ public class ArtifactManagement {
             try {
                 int engagementTime = input.nextInt();
                 Artifact art = new Artifact(name, type, engagementTime);
-                artifacts.add(art);
+                this.artifacts.add(art);
                 System.out.println();
                 break;
             } catch (TimeIsNegativeException e) {
@@ -138,18 +145,18 @@ public class ArtifactManagement {
         input.nextLine();
     }
 
-    private static boolean viewArtifact(int choice, Artifact[] artifactArray) {
+    private boolean viewArtifact(int choice, Artifact[] artifactArray) {
 
         if (choice - 3 == artifactArray.length) {
             return true;
         }
-        
+
         System.out.println(artifactArray[choice - 1]);
         System.out.println();
         return false;
     }
 
-    private static boolean updateArtifact(int choice, Artifact[] artifactArray, ArrayList<Artifact> artifacts) {
+    private boolean updateArtifact(int choice, Artifact[] artifactArray) {
         if (choice - 3 == artifactArray.length) {
             return true;
         }
@@ -174,8 +181,6 @@ public class ArtifactManagement {
                     artifact.setEngagementTime(engagementTime);
                 }
                 break;
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter an Integer");
             } catch (NumberFormatException e) {
                 System.out.println("Please enter an Integer");
             } catch (TimeIsNegativeException e) {
@@ -185,8 +190,7 @@ public class ArtifactManagement {
         return false;
     }
 
-    private static boolean deleteArtifact(int choice, Artifact[] artifactArray, ArrayList<Artifact> artifacts,
-            ArrayList<Exhibit> exhibits) {
+    private boolean deleteArtifact(int choice, Artifact[] artifactArray, ArrayList<Exhibit> exhibits) {
         if (choice - 3 == artifactArray.length) {
             return true;
         }
@@ -205,7 +209,7 @@ public class ArtifactManagement {
         return false;
     }
 
-    public static Menu artifactsMenu(Artifact[] artifactArray) {
+    public Menu artifactsMenu(Artifact[] artifactArray) {
         String[] artifactNames = artifactArrayToNameArray(artifactArray);
         String[] quit = { "Search", "Clear", "Quit" };
         String[] artifactOptions = Utils.concat(artifactNames, quit);
@@ -213,7 +217,15 @@ public class ArtifactManagement {
         return artifactMenu;
     }
 
-    public static Artifact[] artifactsToArray(ArrayList<Artifact> artifacts) {
+    public Artifact[] artifactsToArray() {
+        Artifact[] artifactArray = new Artifact[this.artifacts.size()];
+        for (int i = 0; i < artifactArray.length; i++) {
+            artifactArray[i] = artifacts.get(i);
+        }
+        return artifactArray;
+    }
+
+    public Artifact[] artifactsToArray(ArrayList<Artifact> artifacts) {
         Artifact[] artifactArray = new Artifact[artifacts.size()];
         for (int i = 0; i < artifactArray.length; i++) {
             artifactArray[i] = artifacts.get(i);
@@ -221,7 +233,7 @@ public class ArtifactManagement {
         return artifactArray;
     }
 
-    public static String[] artifactArrayToNameArray(Artifact[] artifactArray) {
+    public String[] artifactArrayToNameArray(Artifact[] artifactArray) {
         String[] nameArray = new String[artifactArray.length];
         for (int i = 0; i < artifactArray.length; i++) {
             nameArray[i] = artifactArray[i].getName();
@@ -229,7 +241,7 @@ public class ArtifactManagement {
         return nameArray;
     }
 
-    public static Artifact[] sort(Artifact[] array) {
+    public Artifact[] sort(Artifact[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length - 1; j++) {
                 if (array[j].getName().compareTo(array[j + 1].getName()) > 0) {
@@ -242,7 +254,7 @@ public class ArtifactManagement {
         return array;
     }
 
-    public static Artifact[] searchArtifacts(Artifact[] artifactArray) {
+    public Artifact[] searchArtifacts(Artifact[] artifactArray) {
         String[] searchCriteriaOptions = { "ID", "Name", "Type", "Engagement Time", "Cancel" };
         Menu searchCriteria = new Menu("Select Search Criteria", searchCriteriaOptions);
         int criteriaChoice = searchCriteria.getUserChoice();
@@ -276,10 +288,9 @@ public class ArtifactManagement {
                         searchResults.add(artifactArray[i]);
                     }
                 }
-                if(searchResults.size() == 0){
+                if (searchResults.size() == 0) {
                     System.out.println("No matching results");
-                }
-                else{
+                } else {
                     artifactArray = artifactsToArray(searchResults);
                 }
                 break;
@@ -293,10 +304,9 @@ public class ArtifactManagement {
                         searchResults.add(artifactArray[i]);
                     }
                 }
-                if(searchResults.size() == 0){
+                if (searchResults.size() == 0) {
                     System.out.println("No matching results");
-                }
-                else{
+                } else {
                     artifactArray = artifactsToArray(searchResults);
                 }
                 break;
@@ -311,10 +321,9 @@ public class ArtifactManagement {
                                 searchResults.add(artifactArray[i]);
                             }
                         }
-                        if(searchResults.size() == 0){
+                        if (searchResults.size() == 0) {
                             System.out.println("No matching results");
-                        }
-                        else{
+                        } else {
                             artifactArray = artifactsToArray(searchResults);
                         }
                         break;
@@ -322,11 +331,11 @@ public class ArtifactManagement {
                         input.nextLine();
                         System.out.println("Please enter an Integer");
                     }
-                    
+
                 }
                 break;
         }
-       
+
         return artifactArray;
     }
 }

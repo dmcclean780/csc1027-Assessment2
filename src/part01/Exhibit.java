@@ -2,13 +2,13 @@ package part01;
 
 import java.util.ArrayList;
 
-public class Exhibit {
+public class Exhibit{
 
-    public final int id;
-    public String name;
-    public ArrayList<Integer> artifactsID;
-    public ArrayList<String> route;
-    public static int nextID = 0;
+    private final int ID;
+    private String name;
+    private ArrayList<Integer> artifactsID;
+    private ArrayList<String> route;
+    private static int nextID = 0;
 
     /**
      * Constructor
@@ -25,7 +25,7 @@ public class Exhibit {
         if (!valid) {
             throw new Exception("route and artifacts not consistant");
         }
-        this.id = nextID;
+        this.ID = nextID;
         this.name = name;
         this.artifactsID = new ArrayList<Integer>();
         for (int i : artifactsID) {
@@ -43,7 +43,7 @@ public class Exhibit {
      * @return id
      */
     public int getId() {
-        return this.id;
+        return this.ID;
     }
 
     /**
