@@ -111,7 +111,7 @@ public class Exhibit{
     }
 
     public String toString() {
-        return " ID: '" + getId() + "\tName: '" + getName();
+        return " ID: " + getId() + "\tName: " + getName();
     }
 
     /**
@@ -183,6 +183,14 @@ public class Exhibit{
         }
         return -1;
 
+    }
+
+    public String[] getRouteArray() {
+        String[] routeArray = new String[this.route.size()];
+        for (int i = 0; i < routeArray.length; i++) {
+            routeArray[i] = this.route.get(i);
+        }
+        return routeArray;
     }
 
 }
