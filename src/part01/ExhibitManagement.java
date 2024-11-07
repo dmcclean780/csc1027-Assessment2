@@ -1,7 +1,6 @@
 package part01;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ExhibitManagement {
 
@@ -25,12 +24,13 @@ public class ExhibitManagement {
         return getExhibitArray().length;
     }
 
-    public void addExhibit(String name, ArrayList<Integer> artifacts, ArrayList<String> route) {
+    public boolean addExhibit(String name, ArrayList<Integer> artifacts, ArrayList<String> route) {
         try {
             Exhibit exhibit = new Exhibit(name, artifacts, route);
             this.exhibits.add(exhibit);
+            return true;
         } catch (Exception e) {
-            System.out.println("Bad Data");
+            return false;
         }
 
     }
@@ -80,30 +80,25 @@ public class ExhibitManagement {
         return array;
     }
 
-    public boolean searchExhibits(Scanner input, int criteriaChoice, String searchValue) {
+    public boolean searchExhibits(int criteriaChoice, String searchValue) {
 
         ArrayList<Exhibit> searchResults = new ArrayList<Exhibit>();
         switch (criteriaChoice) {
             case 1:
-                while (true) {
-                    int id = Integer.valueOf(searchValue);
-                    for (int i = 0; i < this.exhibitArray.length; i++) {
-                        if (this.exhibitArray[i].getId() == id) {
-                            searchResults.add(exhibitArray[i]);
-                        }
+                int id = Integer.valueOf(searchValue);
+                for (int i = 0; i < this.exhibitArray.length; i++) {
+                    if (this.exhibitArray[i].getId() == id) {
+                        searchResults.add(this.exhibitArray[i]);
                     }
-                    break;
                 }
                 break;
-
             case 2:
-                for (int i = 0; i < exhibitArray.length; i++) {
-                    String exhibitName = exhibitArray[i].getName();
+                for (int i = 0; i < this.exhibitArray.length; i++) {
+                    String exhibitName = this.exhibitArray[i].getName();
                     if (exhibitName.equals(searchValue)) {
-                        searchResults.add(exhibitArray[i]);
+                        searchResults.add(this.exhibitArray[i]);
                     }
                 }
-
                 break;
         }
         if (searchResults.size() == 0) {
@@ -156,41 +151,54 @@ public class ExhibitManagement {
         return artifactNames;
     }
 
-    public Menu getExhibitArtifactMenu(int exhibitChoice, ArtifactManagement artifactManagement){
+    public Menu getExhibitArtifactMenu(int exhibitChoice, ArtifactManagement artifactManagement) {
         String[] artifactNames = getExhibitArtifactNames(exhibitChoice, artifactManagement);
-        String[] quitOption = {"Quit"};
+        String[] quitOption = { "Quit" };
         String[] artifactOptions = Utils.concat(artifactNames, quitOption);
         return new Menu("Artifact To Change", artifactOptions);
     }
 
-    public int getArtifactNumber(int exhibitChoice){
+    public int getArtifactNumber(int exhibitChoice) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
         return exhibit.getArtifactsID().size();
     }
 
-    public ArrayList<String> getExhibitRoute(int exhibitChoice){
+    public ArrayList<String> getExhibitRoute(int exhibitChoice) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
         return exhibit.getRoute();
     }
 
-    public ArrayList<Integer> getExhibitArtifacts(int exhibitChoice){
+    public ArrayList<Integer> getExhibitArtifacts(int exhibitChoice) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
         return exhibit.getArtifactsID();
     }
 
-    public boolean updateExhibit(int exhibitChoice, String name, ArrayList<Integer> artifacts, ArrayList<String> route){
+    public boolean updateExhibit(int exhibitChoice, String name, ArrayList<Integer> artifacts,
+            ArrayList<String> route) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
-        
-        try{
+
+        try {
             exhibit.setArtifactsID(artifacts);
             exhibit.setRoute(route);
-            if(name != ""){
+            if (name != "") {
                 exhibit.setName(name);
             }
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
             return false;
         }
-       
+
+    }
+
+    public void removeArtifactsWithID(int id){
+        for (int i = 0; i < exhibits.size(); i++) {
+            Exhibit exhibit = exhibits.get(i);
+            int artifactIndex = exhibit.findArtifactIndex(id);
+            if (artifactIndex != -1) {
+                exhibit.removeArtifact(id);
+                exhibit.removeSign(artifactIndex);
+            }
+
+        }
     }
 }
