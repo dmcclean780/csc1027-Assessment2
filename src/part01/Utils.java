@@ -24,13 +24,6 @@ public class Utils {
         return false;
     }
 
-    public static Artifact findArtifact(int id, ArrayList<Artifact> artifacts) throws Exception{
-        for(int i=0; i<artifacts.size(); i++){
-            if(artifacts.get(i).getId() == id){
-                return artifacts.get(i);
-            }
-        }
-        throw new Exception("No mathcing id in list");
-    }
+    
     
 }

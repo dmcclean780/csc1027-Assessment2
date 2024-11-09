@@ -205,13 +205,13 @@ public class QUBMuseum {
     }
 
     private static boolean deleteArtifact(int choice, ArtifactManagement artifactManagement,
-        ExhibitManagement exhibitManagement) {
+            ExhibitManagement exhibitManagement) {
         if (choice - 3 == artifactManagement.getArtifactArrayLength()) {
             return true;
         }
-        int id = artifactManagement.getArtifactID(choice-1);
+        int id = artifactManagement.getArtifactID(choice - 1);
         exhibitManagement.removeArtifactsWithID(id);
-        artifactManagement.removeArtifact(choice-1);
+        artifactManagement.removeArtifact(choice - 1);
         return false;
     }
 
@@ -315,28 +315,27 @@ public class QUBMuseum {
         String name = input.nextLine();
 
         System.out.print("Select What Artifacts to Include in the Order They Are in the Exhibit:");
-        Artifact[] artifactArray = artifactManagement.artifactsToArray();
-        artifactArray = artifactManagement.sort(artifactArray);
-        Menu artifactMenu = artifactManagement.artifactsMenu(artifactArray);
+        artifactManagement.refreshArtifactArray();
+        Menu artifactMenu = artifactManagement.getArtifactMenu();
 
         ArrayList<Integer> exhibitArtifacts = new ArrayList<Integer>();
         while (true) {
             int artifactChoice = artifactMenu.getUserChoice();
-            if (artifactChoice - 3 == artifactArray.length) {
-                break;
-            }
-            if (artifactChoice - 1 == artifactArray.length) {
+            if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
                 searchArtifacts();
                 artifactMenu = artifactManagement.getArtifactMenu();
                 continue;
             }
-            if (artifactChoice - 2 == artifactArray.length) {
+            if (artifactChoice - 2 == artifactManagement.getArtifactArrayLength()) {
                 artifactManagement.refreshArtifactArray();
                 artifactMenu = artifactManagement.getArtifactMenu();
                 continue;
             }
-            if (!Utils.contains(artifactArray[artifactChoice - 1].getId(), exhibitArtifacts)) {
-                exhibitArtifacts.add(artifactArray[artifactChoice - 1].getId());
+            if (artifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
+                break;
+            }
+            if (!Utils.contains(artifactManagement.getArtifactArray()[artifactChoice - 1].getId(), exhibitArtifacts)) {
+                exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getId());
             } else {
                 System.out.println("Artifact Already in Exhibit");
             }
@@ -382,8 +381,87 @@ public class QUBMuseum {
         System.out.print("Enter Exhibit Name:");
         String name = input.nextLine();
 
-        ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
+        String[] artifactModifications = { "Add", "Remove", "Update", "End" };
+        Menu artifactActionMenu = new Menu("Change Exhibit Artifacts", artifactModifications);
+        while (true) {
+            int artifactAction = artifactActionMenu.getUserChoice();
+            if (artifactAction == 4) {
+                break;
+            }
+            if (artifactAction == 3) {
+                updateExhibitArtifacts(choice, name);
+            }
+            if (artifactAction == 2) {
+                removeExhibitArtifacts(choice, name);
+            }
+            if (artifactAction == 1) {
+                addExhibitArtifact(choice, name);
+            }
+        }
 
+        return false;
+    }
+
+    private static void addExhibitArtifact(int choice, String name) {
+        ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
+        ArrayList<Integer> exhibitArtifacts = exhibitManagement.getExhibitArtifacts(choice - 1);
+        artifactManagement.refreshArtifactArray();
+        Menu artifactMenu = artifactManagement.getArtifactMenu();
+        while (true) {
+            System.out.println("Select new Artifact");
+
+            int artifactChoice = artifactMenu.getUserChoice();
+            if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
+                searchArtifacts();
+                artifactMenu = artifactManagement.getArtifactMenu();
+                continue;
+            }
+            if (artifactChoice - 2 == artifactManagement.getArtifactArrayLength()) {
+                artifactManagement.refreshArtifactArray();
+                artifactMenu = artifactManagement.getArtifactMenu();
+                continue;
+            }
+            if (artifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
+                break;
+            }
+            if (!Utils.contains(artifactManagement.getArtifactArray()[artifactChoice - 1].getId(), exhibitArtifacts)) {
+                exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getId());
+                break;
+            } else {
+                System.out.println("Artifact Already in Exhibit");
+            }
+        }
+        System.out.print("Enter new Sign: ");
+        String sign = input.nextLine();
+        route.add(sign);
+        boolean validData = exhibitManagement.updateExhibit(choice - 1, name, exhibitArtifacts, route);
+        if (!validData) {
+            System.out.println("Bad Data");
+        }
+    }
+
+    private static void removeExhibitArtifacts(int choice, String name) {
+        ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
+        while (true) {
+            Menu artifactMenu = exhibitManagement.getExhibitArtifactMenu(choice - 1, artifactManagement);
+            int artifactCount = exhibitManagement.getArtifactNumber(choice - 1);
+            int artifactChoice = artifactMenu.getUserChoice();
+            if (artifactChoice - 1 == artifactCount) {
+                break;
+            }
+            ArrayList<Integer> exhibitArtifacts = exhibitManagement.getExhibitArtifacts(choice - 1);
+            exhibitArtifacts.remove(artifactChoice - 1);
+            route.remove(artifactChoice - 1);
+            boolean validData = exhibitManagement.updateExhibit(choice - 1, name, exhibitArtifacts, route);
+            if (!validData) {
+                System.out.println("Bad Data");
+            }
+        }
+
+    }
+
+    private static void updateExhibitArtifacts(int choice, String name) {
+        ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
         while (true) {
             Menu artifactMenu = exhibitManagement.getExhibitArtifactMenu(choice - 1, artifactManagement);
             int artifactCount = exhibitManagement.getArtifactNumber(choice - 1);
@@ -393,31 +471,29 @@ public class QUBMuseum {
                 break;
             }
             ArrayList<Integer> exhibitArtifacts = exhibitManagement.getExhibitArtifacts(choice - 1);
+            artifactManagement.refreshArtifactArray();
+            Menu allArtifactMenu = artifactManagement.getArtifactMenu();
             while (true) {
-                System.out.print("Select new Artifact");
-
-                Artifact[] allArtifactArray = artifactManagement.artifactsToArray(artifactManagement.getArtifacts());
-                allArtifactArray = artifactManagement.sort(allArtifactArray);
-                Menu allArtifactMenu = artifactManagement.artifactsMenu(allArtifactArray);
+                System.out.println("Select new Artifact");
 
                 int newArtifactChoice = allArtifactMenu.getUserChoice();
-                if (newArtifactChoice - 3 == allArtifactArray.length) {
+                if (newArtifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
+                    searchArtifacts();
+                    allArtifactMenu = artifactManagement.getArtifactMenu();
+                    continue;
+                }
+                if (newArtifactChoice - 2 == artifactManagement.getArtifactArrayLength()) {
+                    artifactManagement.refreshArtifactArray();
+                    allArtifactMenu = artifactManagement.getArtifactMenu();
+                    continue;
+                }
+                if (newArtifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                     break;
                 }
-                if (newArtifactChoice - 1 == allArtifactArray.length) {
-                    searchArtifacts();
-                    artifactMenu = artifactManagement.getArtifactMenu();
-                    continue;
-                }
-                if (newArtifactChoice - 2 == allArtifactArray.length) {
-                    artifactManagement.refreshArtifactArray();
-                    artifactMenu = artifactManagement.getArtifactMenu();
-                    continue;
-                }
-                if (!Utils.contains(allArtifactArray[newArtifactChoice - 1].getId(),
+                if (!Utils.contains(artifactManagement.getArtifactArray()[newArtifactChoice - 1].getId(),
                         exhibitArtifacts)) {
-                    exhibitArtifacts.remove(artifactChoice - 1);
-                    exhibitArtifacts.add(artifactChoice - 1, allArtifactArray[newArtifactChoice - 1].getId());
+                    exhibitArtifacts.remove(artifactChoice-1);
+                    exhibitArtifacts.add(artifactChoice-1, artifactManagement.getArtifactArray()[newArtifactChoice - 1].getId());
                     break;
                 } else {
                     System.out.println("Artifact Already in Exhibit");
@@ -432,8 +508,6 @@ public class QUBMuseum {
                 System.out.println("Bad Data");
             }
         }
-
-        return false;
     }
 
     private static boolean deleteExhibit(int choice, ExhibitManagement exhibitManagement) {
@@ -493,7 +567,7 @@ public class QUBMuseum {
         }
         boolean searchStatus = artifactManagement.searchArtifacts(criteriaChoice, searchValue);
         if (!searchStatus) {
-            System.out.println("No matching Exhibits");
+            System.out.println("No matching Artifacts");
         }
     }
 

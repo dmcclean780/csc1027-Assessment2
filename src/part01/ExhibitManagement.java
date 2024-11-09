@@ -1,6 +1,7 @@
 package part01;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ExhibitManagement {
 
@@ -125,6 +126,7 @@ public class ExhibitManagement {
         Artifact[] artifactArray = exhibit.getArtifacts(artifactManagement.getArtifacts());
 
         String[] routeArray = exhibit.getRouteArray();
+        System.out.println(Arrays.toString(routeArray));
 
         String exhibitString = exhibit.toString() + "\nArtifacts for the Exhibit\n";
         for (int i = 0; i < artifactArray.length; i++) {

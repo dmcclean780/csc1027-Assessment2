@@ -158,7 +158,7 @@ public class Exhibit{
         Artifact[] artifactArray = new Artifact[artifactsID.size()];
         for (int i = 0; i < artifactsID.size(); i++) {
             try {
-                Artifact a = Utils.findArtifact(artifactsID.get(i), artifacts);
+                Artifact a = findArtifact(artifactsID.get(i), artifacts);
                 artifactArray[i] = a;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -191,6 +191,15 @@ public class Exhibit{
             routeArray[i] = this.route.get(i);
         }
         return routeArray;
+    }
+
+    public Artifact findArtifact(int id, ArrayList<Artifact> artifacts) throws Exception{
+        for(int i=0; i<artifacts.size(); i++){
+            if(artifacts.get(i).getId() == id){
+                return artifacts.get(i);
+            }
+        }
+        throw new Exception("No mathcing id in list");
     }
 
 }
