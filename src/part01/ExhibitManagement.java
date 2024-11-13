@@ -1,7 +1,6 @@
 package part01;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ExhibitManagement {
 
@@ -11,6 +10,11 @@ public class ExhibitManagement {
     public ExhibitManagement() {
         this.exhibits = new ArrayList<Exhibit>();
         this.exhibitArray = exhibitsToArray();
+    }
+
+    public ExhibitManagement(ArrayList<Exhibit> exhibits) {
+        this.exhibits=exhibits;
+        this.exhibitArray=exhibitsToArray();
     }
 
     public ArrayList<Exhibit> getExhibits() {
@@ -40,7 +44,7 @@ public class ExhibitManagement {
         String[] exhibitNames = exhibitArrayToNameArray(exhibitArray);
         String[] quit = { "Search", "Clear", "Quit" };
         String[] exhibitOptions = Utils.concat(exhibitNames, quit);
-        Menu artifactMenu = new Menu("Artifacts", exhibitOptions);
+        Menu artifactMenu = new Menu("Exhibits", exhibitOptions);
         return artifactMenu;
     }
 
@@ -96,7 +100,7 @@ public class ExhibitManagement {
             case 2:
                 for (int i = 0; i < this.exhibitArray.length; i++) {
                     String exhibitName = this.exhibitArray[i].getName();
-                    if (exhibitName.equals(searchValue)) {
+                    if (exhibitName.contains(searchValue)) {
                         searchResults.add(this.exhibitArray[i]);
                     }
                 }
@@ -123,16 +127,15 @@ public class ExhibitManagement {
     public String getExhibitString(int exhibitChoice, ArtifactManagement artifactManagement) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
 
-        Artifact[] artifactArray = exhibit.getArtifacts(artifactManagement.getArtifacts());
+        Artifact[] artifactArray = artifactManagement.getExhibitArtifacts(exhibit.getArtifactsID());
 
         String[] routeArray = exhibit.getRouteArray();
-        System.out.println(Arrays.toString(routeArray));
 
         String exhibitString = exhibit.toString() + "\nArtifacts for the Exhibit\n";
         for (int i = 0; i < artifactArray.length; i++) {
             exhibitString += artifactArray[i].getName() + "\n";
         }
-        exhibitString += "\nRoute:\nSteps:\tSigns\n";
+        exhibitString += "\nRoute:\nSteps\t\tSigns\n";
         for (int i = 0; i < artifactArray.length; i++) {
             exhibitString += (i + 1) + ". " + artifactArray[i].getName() + "\t" + routeArray[i] + "\n";
         }
@@ -145,7 +148,7 @@ public class ExhibitManagement {
 
     public String[] getExhibitArtifactNames(int exhibitChoice, ArtifactManagement artifactManagement) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
-        Artifact[] artifactArray = exhibit.getArtifacts(artifactManagement.getArtifacts());
+        Artifact[] artifactArray = artifactManagement.getExhibitArtifacts(exhibit.getArtifactsID());
         String[] artifactNames = new String[artifactArray.length];
         for (int i = 0; i < artifactArray.length; i++) {
             artifactNames[i] = artifactArray[i].getName();
@@ -202,5 +205,45 @@ public class ExhibitManagement {
             }
 
         }
+    }
+
+    public String[] getExhibitionExhibtNames(int[] exhibitIDs){
+        String[] exhibitNames = new String[exhibitIDs.length];
+        for(int i=0; i<exhibitIDs.length; i++){
+            for(int j=0; j<this.exhibits.size(); j++){
+                if(this.exhibits.get(j).getId() == exhibitIDs[i]){
+                    exhibitNames[i]=this.exhibits.get(j).getName();
+                }
+            }
+        }
+        return exhibitNames;
+    }
+
+    public String[][] getExhibitionExhibtNames(int[][] exhibitIDs){
+        String[][] exhibitNames = new String[exhibitIDs.length][exhibitIDs[0].length];
+        for(int i=0; i<exhibitIDs.length; i++){
+            for( int j=0; j<exhibitIDs[i].length; j++){
+                for(int k=0; k<this.exhibits.size(); k++){
+                    if(this.exhibits.get(k).getId() == exhibitIDs[i][j]){
+                        exhibitNames[i][j]=this.exhibits.get(k).getName();
+                    }
+                }
+            }
+            
+        }
+        return exhibitNames;
+    }
+
+    public Exhibit findExhibit(int id) throws Exception{
+        for(int i=0; i<this.exhibits.size(); i++){
+            if(this.exhibits.get(i).getId() == id){
+                return exhibits.get(i);
+            }
+        }
+        throw new Exception("No mathcing id in list");
+    }
+
+    public int getExhibitID(int choice){
+        return this.exhibitArray[choice].getId();
     }
 }

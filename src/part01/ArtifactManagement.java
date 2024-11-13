@@ -12,6 +12,11 @@ public class ArtifactManagement {
         this.artifactArray = artifactsToArray();
     }
 
+    public  ArtifactManagement(ArrayList<Artifact> artifacts) {
+        this.artifacts=artifacts;
+        this.artifactArray=artifactsToArray();
+    }
+
     public ArrayList<Artifact> getArtifacts() {
         return this.artifacts;
     }
@@ -121,7 +126,7 @@ public class ArtifactManagement {
             case 2:
                 for (int i = 0; i < this.artifactArray.length; i++) {
                     String artifactName = this.artifactArray[i].getName();
-                    if (artifactName.equals(searchValue)) {
+                    if (artifactName.contains(searchValue)) {
                         searchResults.add(this.artifactArray[i]);
                     }
                 }
@@ -129,7 +134,7 @@ public class ArtifactManagement {
             case 3:
                 for (int i = 0; i < this.artifactArray.length; i++) {
                     String artifactType = this.artifactArray[i].getType();
-                    if (artifactType.equals(searchValue)) {
+                    if (artifactType.contains(searchValue)) {
                         searchResults.add(this.artifactArray[i]);
                     }
                 }
@@ -165,5 +170,27 @@ public class ArtifactManagement {
 
     public void removeArtifact(int artifactChoice){
         artifacts.remove(artifactChoice);
+    }
+
+    public Artifact[] getExhibitArtifacts(ArrayList<Integer> artifactsID) {
+        Artifact[] artifactArray = new Artifact[artifactsID.size()];
+        for (int i = 0; i < artifactsID.size(); i++) {
+            try {
+                Artifact a = findArtifact(artifactsID.get(i));
+                artifactArray[i] = a;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return artifactArray;
+    }
+
+    public Artifact findArtifact(int id) throws Exception{
+        for(int i=0; i<this.artifacts.size(); i++){
+            if(this.artifacts.get(i).getId() == id){
+                return artifacts.get(i);
+            }
+        }
+        throw new Exception("No mathcing id in list");
     }
 }
