@@ -3,8 +3,6 @@ package part01;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.plaf.multi.MultiButtonUI;
-
 public class QUBMuseum {
     private static ArtifactManagement artifactManagement = popArtifacts();
     private static ExhibitManagement exhibitManagement = popExhibits();
@@ -149,8 +147,17 @@ public class QUBMuseum {
 
     private static void addArtifact(ArtifactManagement artifactManagement) {
         System.out.println("Add Artifact");
-        System.out.print("Enter Artifact Name:");
-        String name = input.nextLine();
+
+        String name;
+        while (true) {
+            System.out.print("Enter Exhibit Name:");
+            name = input.nextLine();
+            if (name.length() < 40) {
+                break;
+            }
+            System.out.println("Name must be less than 40 Characters");
+        }
+
         System.out.print("Enter Artifact Type:");
         String type = input.nextLine();
         System.out.print("Enter Artifact Expected Engagement Time:");
@@ -317,8 +324,16 @@ public class QUBMuseum {
 
     private static void addExhibit(ExhibitManagement exhibitManagement, ArtifactManagement artifactManagement) {
         System.out.println("Add Exhibit");
-        System.out.print("Enter Exhibit Name:");
-        String name = input.nextLine();
+
+        String name;
+        while (true) {
+            System.out.print("Enter Exhibit Name:");
+            name = input.nextLine();
+            if (name.length() < 40) {
+                break;
+            }
+            System.out.println("Name must be less than 40 Characters");
+        }
 
         System.out.print("Select What Artifacts to Include in the Order They Are in the Exhibit:");
         artifactManagement.refreshArtifactArray();
@@ -340,7 +355,7 @@ public class QUBMuseum {
             if (artifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                 break;
             }
-            if (!Utils.contains(artifactManagement.getArtifactArray()[artifactChoice - 1].getId(), exhibitArtifacts)) {
+            if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
                 exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getId());
             } else {
                 System.out.println("Artifact Already in Exhibit");
@@ -384,9 +399,15 @@ public class QUBMuseum {
         System.out.println("Update Exhibit");
         System.out.println("Enter new data or press RETURN to leave unchanged");
 
-        System.out.print("Enter Exhibit Name:");
-        String name = input.nextLine();
-
+        String name;
+        while (true) {
+            System.out.print("Enter Exhibit Name:");
+            name = input.nextLine();
+            if (name.length() < 40) {
+                break;
+            }
+            System.out.println("Name must be less than 40 Characters");
+        }
         String[] artifactModifications = { "Add", "Remove", "Update", "End" };
         Menu artifactActionMenu = new Menu("Change Exhibit Artifacts", artifactModifications);
         while (true) {
@@ -431,8 +452,8 @@ public class QUBMuseum {
             if (artifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                 break;
             }
-            if (!Utils.contains(artifactManagement.getArtifactArray()[artifactChoice - 1].getId(), exhibitArtifacts)) {
-                exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getId());
+            if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
+                exhibitArtifacts.add(artifactManagement.getArtifactID(artifactChoice-1));
                 break;
             } else {
                 System.out.println("Artifact Already in Exhibit");
@@ -499,11 +520,9 @@ public class QUBMuseum {
                 if (newArtifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                     break;
                 }
-                if (!Utils.contains(artifactManagement.getArtifactArray()[newArtifactChoice - 1].getId(),
-                        exhibitArtifacts)) {
+                if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
                     exhibitArtifacts.remove(artifactChoice - 1);
-                    exhibitArtifacts.add(artifactChoice - 1,
-                            artifactManagement.getArtifactArray()[newArtifactChoice - 1].getId());
+                    exhibitArtifacts.add(artifactChoice - 1, artifactManagement.getArtifactID(artifactChoice-1));
                     break;
                 } else {
                     System.out.println("Artifact Already in Exhibit");
@@ -542,7 +561,7 @@ public class QUBMuseum {
                     viewAnnualPlan(exhibitionPlan, exhibitManagement);
                     break;
                 case 3:
-                    exhibitionPlan =  updateAnnualPlan(exhibitionPlan, exhibitManagement);
+                    exhibitionPlan = updateAnnualPlan(exhibitionPlan, exhibitManagement);
                     break;
                 case 4:
                     quit = true;
@@ -647,7 +666,7 @@ public class QUBMuseum {
         int month;
         String[] hallOptions = new String[exhibitionPlan.getNumberOfHalls()];
         for (int i = 0; i < hallOptions.length; i++) {
-            hallOptions[i] = "Exhibit Hall " + (i+1);
+            hallOptions[i] = "Exhibit Hall " + (i + 1);
         }
         Menu hallMenu = new Menu("Choose Exhibit Hall", hallOptions);
         int hall;
@@ -694,16 +713,16 @@ public class QUBMuseum {
                             continue;
                         }
                         if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
-                           break;
+                            break;
                         } else {
                             exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), month, i + 1);
-                            
+
                         }
                     }
                     break;
                 case 3:
                     hall = hallMenu.getUserChoice();
-                   for(int i=0; i<Months.values().length; i++) {
+                    for (int i = 0; i < Months.values().length; i++) {
                         int exhibitChoice = exhibitMenu.getUserChoice();
                         if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
                             searchExhibits(exhibitManagement);

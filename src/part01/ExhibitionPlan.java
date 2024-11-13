@@ -80,9 +80,6 @@ public class ExhibitionPlan {
         for (int i = 0; i < exhibits.length; i++) {
             int[] monthExhibits = exhibits[i];
             String[] montExhibitNames = getExhibitNamesString(monthExhibits, exhibitManagement);
-            if (montExhibitNames == null) {
-                return null;
-            }
             exhibitNames[i] = montExhibitNames;
 
         }
@@ -95,10 +92,11 @@ public class ExhibitionPlan {
             Exhibit ex;
             try {
                 ex = exhibitManagement.findExhibit(exhibits[j]);
+                exhibitNames[j] = ex.getName();
             } catch (Exception e) {
-                return null;
+                exhibitNames[j] = "Exhibit Not Found";
             }
-            exhibitNames[j] = ex.getName();
+            
 
         }
         return exhibitNames;
@@ -132,16 +130,25 @@ public class ExhibitionPlan {
         if(exhibitNames == null){
             return "Exhibit in Plan not found in Exhibits";
         }
-        String exhibitionPlan="\t";
+        String exhibitionPlan="             ";
         for (int i=0; i<exhibitNames[0].length; i++){
-            exhibitionPlan+="Exhibit Hall "+i+"\t";
+            exhibitionPlan+="Exhibit Hall "+(i+1);
+            for(int j=0; j<40-14; j++){
+                exhibitionPlan+=" ";
+            }
         }
         exhibitionPlan+="\n";
         Months[] months = Months.values();
         for(int i=0; i<exhibitNames.length; i++){
-            exhibitionPlan+=months[i]+"\t";
+            exhibitionPlan+=months[i];
+            for(int j=0; j<13-months[i].toString().length(); j++){
+                exhibitionPlan+=" ";
+            }
             for( int j=0; j<exhibitNames[i].length; j++){
-                exhibitionPlan+=exhibitNames[i][j]+"\t";
+                exhibitionPlan+=exhibitNames[i][j];
+                for(int k=0; k<40-exhibitNames[i][j].length(); k++){
+                    exhibitionPlan+=" ";
+                }
             }
             exhibitionPlan+="\n";
         }

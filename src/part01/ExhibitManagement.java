@@ -135,9 +135,13 @@ public class ExhibitManagement {
         for (int i = 0; i < artifactArray.length; i++) {
             exhibitString += artifactArray[i].getName() + "\n";
         }
-        exhibitString += "\nRoute:\nSteps\t\tSigns\n";
+        exhibitString += "\nRoute:\nSteps                                      Signs\n";
         for (int i = 0; i < artifactArray.length; i++) {
-            exhibitString += (i + 1) + ". " + artifactArray[i].getName() + "\t" + routeArray[i] + "\n";
+            exhibitString += (i + 1) + ". " + artifactArray[i].getName();
+            for(int j=0; j<40-artifactArray[i].getName().length(); j++){
+                exhibitString+=" ";
+            }
+            exhibitString+=routeArray[i]+"\n";
         }
         return exhibitString;
     }

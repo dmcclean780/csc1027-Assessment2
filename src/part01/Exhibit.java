@@ -111,7 +111,7 @@ public class Exhibit{
     }
 
     public String toString() {
-        return " ID: " + getId() + "\tName: " + getName();
+        return "ID: " + getId() + "\tName: " + getName();
     }
 
     /**
