@@ -127,22 +127,24 @@ public class ExhibitManagement {
     public String getExhibitString(int exhibitChoice, ArtifactManagement artifactManagement) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
 
-        Artifact[] artifactArray = artifactManagement.getExhibitArtifacts(exhibit.getArtifactsID());
+        String[] artifactNames = artifactManagement.getArtifactNames(exhibit.getArtifactsID());
+        int totalEngagementTime = artifactManagement.getExhibitEngagmentTime(exhibit.getArtifactsID());
 
         String[] routeArray = exhibit.getRouteArray();
 
         String exhibitString = exhibit.toString() + "\nArtifacts for the Exhibit\n";
-        for (int i = 0; i < artifactArray.length; i++) {
-            exhibitString += artifactArray[i].getName() + "\n";
+        for (int i = 0; i < artifactNames.length; i++) {
+            exhibitString += artifactNames[i] + "\n";
         }
         exhibitString += "\nRoute:\nSteps                                      Signs\n";
-        for (int i = 0; i < artifactArray.length; i++) {
-            exhibitString += (i + 1) + ". " + artifactArray[i].getName();
-            for(int j=0; j<40-artifactArray[i].getName().length(); j++){
+        for (int i = 0; i < artifactNames.length; i++) {
+            exhibitString += (i + 1) + ". " + artifactNames[i];
+            for(int j=0; j<40-artifactNames[i].length(); j++){
                 exhibitString+=" ";
             }
             exhibitString+=routeArray[i]+"\n";
         }
+        exhibitString+="\nTotal Engagement Time: "+totalEngagementTime+" minutes\n";
         return exhibitString;
     }
 

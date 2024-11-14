@@ -193,4 +193,22 @@ public class ArtifactManagement {
         }
         throw new Exception("No mathcing id in list");
     }
+
+    public String[] getArtifactNames(ArrayList<Integer> artifactIDs){
+        Artifact[] exhibitArtifacts = getExhibitArtifacts(artifactIDs);
+        String[] artifactNames = new String[exhibitArtifacts.length];
+        for(int i=0; i<exhibitArtifacts.length; i++){
+            artifactNames[i] = exhibitArtifacts[i].getName();
+        }
+        return artifactNames;
+    }
+
+    public int getExhibitEngagmentTime(ArrayList<Integer> artifactIDs){
+        Artifact[] exhibitArtifacts = getExhibitArtifacts(artifactIDs);
+        int totalEngagementTime = 0;
+        for (Artifact artifact : exhibitArtifacts) {
+            totalEngagementTime += artifact.getEngagementTime();
+        }
+        return totalEngagementTime;
+    }
 }
