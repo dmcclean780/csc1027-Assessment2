@@ -834,16 +834,16 @@ public class QUBMuseum {
     }
 
     private static ArtifactManagement popArtifacts() {
-        return new ArtifactManagement(DefalultData.populateArtifacts());
+        return new ArtifactManagement(DefaultData.populateArtifacts());
     }
 
     private static ExhibitManagement popExhibits() {
-        return new ExhibitManagement(DefalultData.populateExhibits());
+        return new ExhibitManagement(DefaultData.populateExhibits());
     }
 
     private static ExhibitionPlan popPlan() {
         try {
-            return new ExhibitionPlan(DefalultData.populateExhibitionPlan());
+            return new ExhibitionPlan(DefaultData.populateExhibitionPlan());
         } catch (Exception e) {
             System.out.println("Bad Data");
             return null;

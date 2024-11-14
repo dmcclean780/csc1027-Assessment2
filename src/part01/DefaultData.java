@@ -2,7 +2,7 @@ package part01;
 
 import java.util.ArrayList;
 
-public class DefalultData {
+public class DefaultData {
     private static ArrayList<Artifact> artifcats = new ArrayList<Artifact>();
     private static ArrayList<Exhibit> exhibits = new ArrayList<Exhibit>();
 
