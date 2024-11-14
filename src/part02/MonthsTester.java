@@ -27,7 +27,8 @@ public class MonthsTester {
 
             Months month = Months.values()[i];
             String expectedString = months[i];
-            boolean thisPassed = expectedString.equals(month.toString());
+            String result = month.toString();
+            boolean thisPassed = result.equals(expectedString);
             allPassed &= thisPassed;
 
             if (!thisPassed) {
@@ -38,7 +39,7 @@ public class MonthsTester {
                 System.out.println("Then: " + months[i] + " is returned");
                 System.out.println("Passed: " + thisPassed);
                 System.out.println("Expected Value: " + expectedString);
-                System.out.println("Given Value: " + month.toString());
+                System.out.println("Given Value: " + result);
                 System.out.println();
             }
 
@@ -58,7 +59,8 @@ public class MonthsTester {
 
             Months month = Months.values()[i];
             int expectedId = expectedIds[i];
-            boolean thisPassed = expectedId == month.getId();
+            int result = month.getId();
+            boolean thisPassed = expectedId == result;
             allPassed &= thisPassed;
 
             if (!thisPassed) {
@@ -69,7 +71,7 @@ public class MonthsTester {
                 System.out.println("Then: " + expectedId + " is returned");
                 System.out.println("Passed: " + thisPassed);
                 System.out.println("Expected Value: " + expectedId);
-                System.out.println("Given Value: " + month.getId());
+                System.out.println("Given Value: " + result);
                 System.out.println();
             }
 
@@ -89,7 +91,8 @@ public class MonthsTester {
         for (int i = 0; i < Months.values().length; i++) {
             String monthString = months[i];
             Months month = Months.values()[i];
-            boolean thisPassed = Months.get(monthString) == month;
+            Months result = Months.get(monthString);
+            boolean thisPassed = result == month;
             allPassed &= thisPassed;
 
             if (!thisPassed) {
@@ -100,7 +103,7 @@ public class MonthsTester {
                 System.out.println("Then: m is " + month);
                 System.out.println("Passed: " + allPassed);
                 System.out.println("Expected Value: " + month);
-                System.out.println("Given Value: " + Months.get(monthString));
+                System.out.println("Given Value: " + result);
                 System.out.println();
             }
         }
@@ -117,7 +120,8 @@ public class MonthsTester {
         int[] expectedIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
         for (int i = 0; i < Months.values().length; i++) {
             Months month = Months.values()[i];
-            boolean thisPassed = Months.get(expectedIds[i]) == month;
+            Months result = Months.get(expectedIds[i]);
+            boolean thisPassed =  result== month;
             allPassed &= thisPassed;
 
             if (!thisPassed) {
@@ -128,7 +132,7 @@ public class MonthsTester {
                 System.out.println("Then: m is " + month);
                 System.out.println("Passed: " + thisPassed);
                 System.out.println("Expected Value: " + month);
-                System.out.println("Given Value: " + Months.get(expectedIds[i]));
+                System.out.println("Given Value: " + result);
                 System.out.println();
             }
         }
@@ -144,8 +148,8 @@ public class MonthsTester {
         boolean allPassed = true;
         String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
                 "October", "November", "December" };
-        String[] monthsArray = Months.toArray();
-        boolean thisPassed = ArraysMethods.equals(monthsArray, months);
+        String[] result = Months.toArray();
+        boolean thisPassed = ArraysMethods.equals(result, months);
         allPassed &= thisPassed;
 
         if (!thisPassed) {
@@ -156,7 +160,7 @@ public class MonthsTester {
             System.out.println("Then: array is " + ArraysMethods.toString(months));
             System.out.println("Passed: " + thisPassed);
             System.out.println("Expected Value: " + ArraysMethods.toString(months));
-            System.out.println("Given Value: " + ArraysMethods.toString(monthsArray));
+            System.out.println("Given Value: " + ArraysMethods.toString(result));
             System.out.println();
         }
         System.out.println("Feature Passed: " + allPassed);

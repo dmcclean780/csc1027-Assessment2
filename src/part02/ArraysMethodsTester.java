@@ -37,7 +37,8 @@ public class ArraysMethodsTester {
     }
 
     public static boolean stringToStringTestCase(String[] testStringArr, String expectedResult, String scenario) {
-        boolean thisPassed = ArraysMethods.toString(testStringArr).equals(expectedResult);
+        String result = ArraysMethods.toString(testStringArr);
+        boolean thisPassed = result.equals(expectedResult);
 
         if (!thisPassed) {
             System.out.println();
@@ -47,7 +48,7 @@ public class ArraysMethodsTester {
             System.out.println("Then: result is " + expectedResult);
             System.out.println("Passed: " + thisPassed);
             System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + ArraysMethods.toString(testStringArr));
+            System.out.println("Given Value: " + result);
             System.out.println();
         }
 
@@ -78,7 +79,8 @@ public class ArraysMethodsTester {
     }
 
     public static boolean intToStringTestCase(int[] testIntArr, String expectedResult, String scenario) {
-        boolean thisPassed = ArraysMethods.toString(testIntArr).equals(expectedResult);
+        String result = ArraysMethods.toString(testIntArr);
+        boolean thisPassed = result.equals(expectedResult);
 
         if (!thisPassed) {
             System.out.println();
@@ -88,7 +90,7 @@ public class ArraysMethodsTester {
             System.out.println("Then: result is " + expectedResult);
             System.out.println("Passed: " + thisPassed);
             System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + ArraysMethods.toString(testIntArr));
+            System.out.println("Given Value: " + result);
             System.out.println();
         }
 
@@ -132,18 +134,19 @@ public class ArraysMethodsTester {
     }
 
     public static boolean stringEqualsTestCase(String[] testStringArr1, String[] testStringArr2, boolean expectedResult, String scenario){
-        boolean thisPassed = ArraysMethods.equals(testStringArr1, testStringArr2) == expectedResult;
+        boolean result = ArraysMethods.equals(testStringArr1, testStringArr2);
+        boolean thisPassed =  result == expectedResult;
 
         if (!thisPassed) {
             System.out.println();
             System.out.println("Scenario: "+scenario);
             System.out.println("Given: array 1 is " + ArraysMethods.toString(testStringArr1));
-            System.out.println("Given: array 2 is " + ArraysMethods.toString(testStringArr2));
+            System.out.println("And: array 2 is " + ArraysMethods.toString(testStringArr2));
             System.out.println("When: toString is called");
             System.out.println("Then: result is " + expectedResult);
             System.out.println("Passed: " + thisPassed);
             System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + ArraysMethods.equals(testStringArr1, testStringArr2));
+            System.out.println("Given Value: " + result);
             System.out.println();
         }
 
