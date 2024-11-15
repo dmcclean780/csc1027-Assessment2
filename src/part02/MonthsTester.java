@@ -16,6 +16,11 @@ public class MonthsTester {
 
     }
 
+    /**
+     * Test that each of the Months enums give the expected String
+     * 
+     * @return pass status of the entire test suite
+     */
     public static boolean testToString() {
         System.out.println("Feature: Months enum toString");
 
@@ -50,6 +55,11 @@ public class MonthsTester {
         return allPassed;
     }
 
+    /**
+     * Test that every Months enum gives the correct int
+     * 
+     * @return
+     */
     public static boolean testGetId() {
         System.out.println("Feature: Months enum getId");
 
@@ -82,30 +92,47 @@ public class MonthsTester {
         return allPassed;
     }
 
+    /**
+     * Test the get by String method
+     * 
+     * @return
+     */
     public static boolean testGetByString() {
         System.out.println("Feature: Get Months enum by String");
 
         boolean allPassed = true;
-        String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
-                "October", "November", "December" };
-        for (int i = 0; i < Months.values().length; i++) {
-            String monthString = months[i];
-            Months month = Months.values()[i];
-            Months result = Months.get(monthString);
-            boolean thisPassed = result == month;
-            allPassed &= thisPassed;
-
-            if (!thisPassed) {
-                System.out.println();
-                System.out.println("Scenario: String given is " + monthString);
-                System.out.println("Given: expected months are " + ArraysMethods.toString(months));
-                System.out.println("When: Months.get() called with " + monthString);
-                System.out.println("Then: m is " + month);
-                System.out.println("Passed: " + allPassed);
-                System.out.println("Expected Value: " + month);
-                System.out.println("Given Value: " + result);
-                System.out.println();
+        /**
+         * Test each month can be got by its expected String
+         */
+        {
+            String[] givenMonths = { "January", "February", "March", "April", "May", "June", "July", "August",
+                    "September",
+                    "October", "November", "December" };
+            ;
+            for (int i = 0; i < Months.values().length; i++) {
+                Months expectedResult = Months.values()[i];
+                String givenString = givenMonths[i];
+                String scenario = "valid String";
+                allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
             }
+        }
+        /**
+         * Test an invalid String gives null;
+         */
+        {
+            String givenString = "abcdce";
+            Months expectedResult = null;
+            String scenario = "invalid id given";
+            allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
+        }
+        /**
+         * Test a null String gives null
+         */
+        {
+            String givenString = null;
+            Months expectedResult = null;
+            String scenario = "invalid id given";
+            allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
         }
         System.out.println("Feature Passed: " + allPassed);
         System.out.println();
@@ -113,28 +140,36 @@ public class MonthsTester {
 
     }
 
+    /**
+     * Test the get by int method
+     * 
+     * @return
+     */
     public static boolean testGetById() {
         System.out.println("Feature: Get Months enum by id");
 
         boolean allPassed = true;
-        int[] expectedIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-        for (int i = 0; i < Months.values().length; i++) {
-            Months month = Months.values()[i];
-            Months result = Months.get(expectedIds[i]);
-            boolean thisPassed =  result== month;
-            allPassed &= thisPassed;
-
-            if (!thisPassed) {
-                System.out.println();
-                System.out.println("Scenario: id given is " + i);
-                System.out.println("Given: expected ids are " + ArraysMethods.toString(expectedIds));
-                System.out.println("When: Months.get() called with " + expectedIds[i]);
-                System.out.println("Then: m is " + month);
-                System.out.println("Passed: " + thisPassed);
-                System.out.println("Expected Value: " + month);
-                System.out.println("Given Value: " + result);
-                System.out.println();
+        /**
+         * Test each get return the correct Months enum for every
+         * expected int
+         */
+        {
+            int[] givenIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+            for (int i = 0; i < Months.values().length; i++) {
+                Months expectedResult = Months.values()[i];
+                int givenId = givenIds[i];
+                String scenario = "valid id";
+                allPassed &= getbyIDTestCase(givenId, expectedResult, scenario);
             }
+        }
+        /**
+         * Test an invalid int returns null
+         */
+        {
+            int givenID = 12;
+            Months expectedResult = null;
+            String scenario = "invalid id given";
+            allPassed &= getbyIDTestCase(givenID, expectedResult, scenario);
         }
         System.out.println("Feature Passed: " + allPassed);
         System.out.println();
@@ -142,6 +177,11 @@ public class MonthsTester {
 
     }
 
+    /**
+     * Test the toArray method returns the expected array
+     * 
+     * @return
+     */
     public static boolean testToArray() {
         System.out.println("Feature: toArray gives array of month names");
 
@@ -167,6 +207,42 @@ public class MonthsTester {
         System.out.println();
         return allPassed;
 
+    }
+
+    public static boolean getbyStringTestCase(String givenString, Months expectedResult, String scenario) {
+        Months result = Months.get(givenString);
+        boolean thisPassed = result == expectedResult;
+
+        if (!thisPassed) {
+            System.out.println();
+            System.out.println("Scenario:" + scenario);
+            System.out.println("Given: given id is " + givenString);
+            System.out.println("When: Months.get() called with " + givenString);
+            System.out.println("Then: m is " + expectedResult);
+            System.out.println("Passed: " + thisPassed);
+            System.out.println("Expected Value: " + expectedResult);
+            System.out.println("Given Value: " + result);
+            System.out.println();
+        }
+        return thisPassed;
+    }
+
+    public static boolean getbyIDTestCase(int givenID, Months expectedResult, String scenario) {
+        Months result = Months.get(givenID);
+        boolean thisPassed = result == expectedResult;
+
+        if (!thisPassed) {
+            System.out.println();
+            System.out.println("Scenario:" + scenario);
+            System.out.println("Given: given id is " + givenID);
+            System.out.println("When: Months.get() called with " + givenID);
+            System.out.println("Then: m is " + expectedResult);
+            System.out.println("Passed: " + thisPassed);
+            System.out.println("Expected Value: " + expectedResult);
+            System.out.println("Given Value: " + result);
+            System.out.println();
+        }
+        return thisPassed;
     }
 
 }

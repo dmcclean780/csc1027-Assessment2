@@ -13,10 +13,18 @@ public class UtilsTester {
         System.out.println("All Features Passed: " + allPassed);
     }
 
+    /**
+     * Test the concat two String[] method
+     * 
+     * @return
+     */
     public static boolean testStringConcat() {
         System.out.println("Feature: concat 2 String[] arrays");
         boolean allPassed = true;
 
+        /**
+         * Two normal arrays
+         */
         {
             String[] testArr1 = { "This", "is", "a" };
             String[] testArr2 = { "test", "string" };
@@ -26,6 +34,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * Normal and empty array
+         */
         {
             String[] testArr1 = { "This", "is", "a" };
             String[] testArr2 = {};
@@ -35,6 +46,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * normal array and array of null values
+         */
         {
             String[] testArr1 = { "This", "is", "a" };
             String[] testArr2 = { null, null, null };
@@ -44,6 +58,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * normal array and array of mix of null and String
+         */
         {
             String[] testArr1 = { "This", "is", "a" };
             String[] testArr2 = { null, "test", null, "string", null };
@@ -53,6 +70,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * normal array and null
+         */
         {
             String[] testArr1 = { "This", "is", "a" };
             String[] testArr2 = null;
@@ -62,6 +82,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * empty array and normal array
+         */
         {
             String[] testArr1 = {};
             String[] testArr2 = { "test", "string" };
@@ -71,6 +94,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * empty array and empty array
+         */
         {
             String[] testArr1 = {};
             String[] testArr2 = {};
@@ -80,6 +106,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * empty array and array of null values
+         */
         {
             String[] testArr1 = {};
             String[] testArr2 = { null, null, null };
@@ -89,6 +118,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * emoty array and array of null and String mix
+         */
         {
             String[] testArr1 = {};
             String[] testArr2 = { null, "test", null, "string", null };
@@ -98,6 +130,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * empty array and null
+         */
         {
             String[] testArr1 = {};
             String[] testArr2 = null;
@@ -107,6 +142,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null array and normal array
+         */
         {
             String[] testArr1 = { null, null, null };
             String[] testArr2 = { "test", "string" };
@@ -116,6 +154,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null array and emoty array
+         */
         {
             String[] testArr1 = { null, null, null };
             String[] testArr2 = {};
@@ -125,6 +166,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null array and null array
+         */
         {
             String[] testArr1 = { null, null, null };
             String[] testArr2 = { null, null, null };
@@ -134,6 +178,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null array and null and String mix array
+         */
         {
             String[] testArr1 = { null, null, null };
             String[] testArr2 = { null, "test", null, "string", null };
@@ -143,6 +190,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null array and null
+         */
         {
             String[] testArr1 = { null, null, null };
             String[] testArr2 = null;
@@ -152,6 +202,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and String mix array and normal array
+         */
         {
             String[] testArr1 = { null, "test", null, "string", null };
             String[] testArr2 = { "test", "string" };
@@ -161,6 +214,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and String mix array and empty array
+         */
         {
             String[] testArr1 = { null, "test", null, "string", null };
             String[] testArr2 = {};
@@ -170,6 +226,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and String mix array and null array
+         */
         {
             String[] testArr1 = { null, "test", null, "string", null };
             String[] testArr2 = { null, null, null };
@@ -179,6 +238,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and String mix array and null and String mix array
+         */
         {
             String[] testArr1 = { null, "test", null, "string", null };
             String[] testArr2 = { null, "test", null, "string", null };
@@ -188,6 +250,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and String mix array and null
+         */
         {
             String[] testArr1 = { null, "test", null, "string", null };
             String[] testArr2 = null;
@@ -197,6 +262,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and normal array
+         */
         {
             String[] testArr1 = null;
             String[] testArr2 = { "test", "string" };
@@ -206,6 +274,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and empty array
+         */
         {
             String[] testArr1 = null;
             String[] testArr2 = {};
@@ -215,6 +286,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and null array
+         */
         {
             String[] testArr1 = null;
             String[] testArr2 = { null, null, null };
@@ -224,6 +298,9 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /**
+         * null and null and String mix array
+         */
         {
             String[] testArr1 = null;
             String[] testArr2 = { null, "test", null, "string", null };
@@ -233,6 +310,7 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
+        /** null and null */
         {
             String[] testArr1 = null;
             String[] testArr2 = null;
@@ -240,6 +318,124 @@ public class UtilsTester {
             String scenario = "2 nulls";
 
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+        }
+
+        System.out.println("Feature Passed: " + allPassed);
+        System.out.println();
+        return allPassed;
+
+    }
+
+    public static boolean testContains() {
+        System.out.println("Feature: ArrayList<Integer> contains an int");
+        boolean allPassed = true;
+
+        /**
+         * valid seacrch
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                testArrayList.add(i);
+            }
+            int searchInt = 5;
+            boolean expectedResult = true;
+            String scenario = "int in normal list";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * value not presant
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                testArrayList.add(i);
+            }
+            int searchInt = 11;
+            boolean expectedResult = false;
+            String scenario = "int not in normal list";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list is empty
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            int searchInt = 5;
+            boolean expectedResult = false;
+            String scenario = "int not in empty list";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list is null
+         */
+        {
+            ArrayList<Integer> testArrayList = null;
+            int searchInt = 5;
+            boolean expectedResult = false;
+            String scenario = "int not in null";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list contains only null
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                testArrayList.add(null);
+            }
+            int searchInt = 11;
+            boolean expectedResult = false;
+            String scenario = "int in null list";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list contains a null value and number is there
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                testArrayList.add(i);
+            }
+            testArrayList.add(null);
+            int searchInt = 5;
+            boolean expectedResult = true;
+            String scenario = "int in list containing a null";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list contains a null and value is not there
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                testArrayList.add(i);
+            }
+            testArrayList.add(null);
+            int searchInt = 11;
+            boolean expectedResult = false;
+            String scenario = "int not in list containing a null";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list is negative
+         */
+        {
+            ArrayList<Integer> testArrayList = new ArrayList<>();
+            for (int i = -10; i < 0; i++) {
+                testArrayList.add(i);
+            }
+            int searchInt = -5;
+            boolean expectedResult = true;
+            String scenario = "int in normal list";
+            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         System.out.println("Feature Passed: " + allPassed);
@@ -268,100 +464,6 @@ public class UtilsTester {
         }
 
         return thisPassed;
-    }
-
-    public static boolean testContains() {
-        System.out.println("Feature: ArrayList<Integer> contains an int");
-        boolean allPassed = true;
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                testArrayList.add(i);
-            }
-            int searchInt = 5;
-            boolean expectedResult = true;
-            String scenario = "int in normal list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                testArrayList.add(i);
-            }
-            int searchInt = 11;
-            boolean expectedResult = false;
-            String scenario = "int not in normal list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            int searchInt = 5;
-            boolean expectedResult = false;
-            String scenario = "int not in empty list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = null;
-            int searchInt = 5;
-            boolean expectedResult = false;
-            String scenario = "int not in null";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                testArrayList.add(null);
-            }
-            int searchInt = 11;
-            boolean expectedResult = false;
-            String scenario = "int in null list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                testArrayList.add(i);
-            }
-            testArrayList.add(null);
-            int searchInt = 5;
-            boolean expectedResult = true;
-            String scenario = "int in list containing a null";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                testArrayList.add(i);
-            }
-            testArrayList.add(null);
-            int searchInt = 11;
-            boolean expectedResult = false;
-            String scenario = "int not in list containing a null";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        {
-            ArrayList<Integer> testArrayList = new ArrayList<>();
-            for (int i = -10; i < 0; i++) {
-                testArrayList.add(i);
-            }
-            int searchInt = -5;
-            boolean expectedResult = true;
-            String scenario = "int in normal list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
-        }
-
-        System.out.println("Feature Passed: " + allPassed);
-        System.out.println();
-        return allPassed;
-
     }
 
     public static boolean containsTestCase(ArrayList<Integer> testArrayList, int searchInt, boolean expectedResult,
