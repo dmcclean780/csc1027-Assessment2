@@ -7,7 +7,7 @@ public class ArraysMethodsTester {
         boolean allPassed = true;
         allPassed &= testStringtoString();
         allPassed &= testIntToString();
-        allPassed&= testStringEquals();
+        allPassed &= testStringEquals();
         System.out.println("All Features Passed: " + allPassed);
     }
 
@@ -18,7 +18,7 @@ public class ArraysMethodsTester {
 
         {
             String[] testStringArr = { "This", "is", "a", "test", "string" };
-            String expectedResult = "[This, is, a, test, string]";
+            String expectedResult = "[\"This\", \"is\", \"a\", \"test\", \"string\"]";
             String scenario = "normal array";
             allPassed &= stringToStringTestCase(testStringArr, expectedResult, scenario);
         }
@@ -27,6 +27,27 @@ public class ArraysMethodsTester {
             String[] testStringArr = {};
             String expectedResult = "[]";
             String scenario = "empty array";
+            allPassed &= stringToStringTestCase(testStringArr, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr = null;
+            String expectedResult = "null";
+            String scenario = "null";
+            allPassed &= stringToStringTestCase(testStringArr, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr = { null, null, null };
+            String expectedResult = "[null, null, null]";
+            String scenario = "array of null";
+            allPassed &= stringToStringTestCase(testStringArr, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr = { null, "test", null, "array", null, "string" };
+            String expectedResult = "[null, \"test\", null, \"array\", null, \"string\"]";
+            String scenario = "array of null";
             allPassed &= stringToStringTestCase(testStringArr, expectedResult, scenario);
         }
 
@@ -42,7 +63,7 @@ public class ArraysMethodsTester {
 
         if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario: "+scenario);
+            System.out.println("Scenario: " + scenario);
             System.out.println("Given: array is " + ArraysMethods.toString(testStringArr));
             System.out.println("When: toString is called");
             System.out.println("Then: result is " + expectedResult);
@@ -55,7 +76,7 @@ public class ArraysMethodsTester {
         return thisPassed;
     }
 
-    public static boolean testIntToString(){
+    public static boolean testIntToString() {
         System.out.println("Feature: int[] to String");
         boolean allPassed = true;
 
@@ -73,6 +94,13 @@ public class ArraysMethodsTester {
             allPassed &= intToStringTestCase(testIntArr, expectedResult, scenario);
         }
 
+        {
+            int[] testIntArr = null;
+            String expectedResult = "null";
+            String scenario = "empty array";
+            allPassed &= intToStringTestCase(testIntArr, expectedResult, scenario);
+        }
+
         System.out.println("Feature Passed: " + allPassed);
         System.out.println();
         return allPassed;
@@ -84,7 +112,7 @@ public class ArraysMethodsTester {
 
         if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario: "+scenario);
+            System.out.println("Scenario: " + scenario);
             System.out.println("Given: array is " + ArraysMethods.toString(testIntArr));
             System.out.println("When: toString is called");
             System.out.println("Then: result is " + expectedResult);
@@ -97,7 +125,7 @@ public class ArraysMethodsTester {
         return thisPassed;
     }
 
-    public static boolean testStringEquals(){
+    public static boolean testStringEquals() {
         System.out.println("Feature: int[] to String");
         boolean allPassed = true;
 
@@ -111,8 +139,8 @@ public class ArraysMethodsTester {
         }
 
         {
-            String[] testStringArr1 = {  };
-            String[] testStringArr2 = {  };
+            String[] testStringArr1 = {};
+            String[] testStringArr2 = {};
             boolean expectedResult = true;
             String scenario = "both arrays are empty";
 
@@ -123,7 +151,196 @@ public class ArraysMethodsTester {
             String[] testStringArr1 = { "This", "is", "a", "test", "string" };
             String[] testStringArr2 = { "This", "is", "not", "a", "test", "string" };
             boolean expectedResult = false;
-            String scenario = "Arrays are not equal";
+            String scenario = "Arrays are not equal length";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { "This", "is", "a", "test", "string" };
+            String[] testStringArr2 = { "This", "is", "not", "a", "string" };
+            boolean expectedResult = false;
+            String scenario = "Arrays are not equal of same length";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = null;
+            String[] testStringArr2 = { "This", "is", "a", "test", "string" };
+            boolean expectedResult = false;
+            String scenario = "null array and normal array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = null;
+            String[] testStringArr2 = {};
+            boolean expectedResult = false;
+            String scenario = "null and empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { "This", "is", "a", "test", "string" };
+            String[] testStringArr2 = null;
+            boolean expectedResult = false;
+            String scenario = "normal array and null";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = {};
+            String[] testStringArr2 = null;
+            boolean expectedResult = false;
+            String scenario = "empty array and null";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = null;
+            String[] testStringArr2 = null;
+            boolean expectedResult = true;
+            String scenario = "both null";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, null, null };
+            String[] testStringArr2 = { null, null, null };
+            boolean expectedResult = true;
+            String scenario = "both arrays of null";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, null, null };
+            String[] testStringArr2 = { null, null, null, null };
+            boolean expectedResult = false;
+            String scenario = "both arrays of null of different length";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, null, null };
+            String[] testStringArr2 = { "This", "is", "a", "test", "string" };
+            boolean expectedResult = false;
+            String scenario = "array of null and normal array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { "This", "is", "a", "test", "string" };
+            String[] testStringArr2 = { null, null, null };
+            boolean expectedResult = false;
+            String scenario = "normal array and array of null";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, null, null };
+            String[] testStringArr2 = {};
+            boolean expectedResult = false;
+            String scenario = "array of null and empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = {};
+            String[] testStringArr2 = { null, null, null };
+            boolean expectedResult = false;
+            String scenario = "empty array and array of null";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, "test", null, "array", null, "string" };
+            String[] testStringArr2 = { null, "test", null, "array", null, "string" };
+            boolean expectedResult = true;
+            String scenario = "2 arrays mix of nulls and strings";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, "test", null, "array", null, "string" };
+            String[] testStringArr2 = { null, "test", null, "array", null, "string", null };
+            boolean expectedResult = false;
+            String scenario = "2 arrays mix of nulls and strings of different length";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, "test", null, "array", null, "string" };
+            String[] testStringArr2 = { null, "test", null, "array", "string", null };
+            boolean expectedResult = false;
+            String scenario = "2 arrays mix of nulls and strings of different length";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, "test", null, "array", null, "string" };
+            String[] testStringArr2 = {};
+            boolean expectedResult = false;
+            String scenario = "array mix of nulls and strings amd empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, "test", null, "array", null, "string" };
+            String[] testStringArr2 = null;
+            boolean expectedResult = false;
+            String scenario = "array mix of nulls and strings amd empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr2 = { null, "test", null, "array", null, "string" };
+            String[] testStringArr1 = { null, null, null };
+            boolean expectedResult = false;
+            String scenario = "array mix of nulls and strings amd empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = {};
+            String[] testStringArr2 = { null, "test", null, "array", null, "string" };
+            boolean expectedResult = false;
+            String scenario = "array mix of nulls and strings amd empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = null;
+            String[] testStringArr2 = { null, "test", null, "array", null, "string" };
+            boolean expectedResult = false;
+            String scenario = "array mix of nulls and strings amd empty array";
+
+            allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
+        }
+
+        {
+            String[] testStringArr1 = { null, null, null };
+            String[] testStringArr2 = { null, "test", null, "array", null, "string" };
+            boolean expectedResult = false;
+            String scenario = "array mix of nulls and strings amd empty array";
 
             allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
         }
@@ -133,13 +350,14 @@ public class ArraysMethodsTester {
         return allPassed;
     }
 
-    public static boolean stringEqualsTestCase(String[] testStringArr1, String[] testStringArr2, boolean expectedResult, String scenario){
+    public static boolean stringEqualsTestCase(String[] testStringArr1, String[] testStringArr2, boolean expectedResult,
+            String scenario) {
         boolean result = ArraysMethods.equals(testStringArr1, testStringArr2);
-        boolean thisPassed =  result == expectedResult;
+        boolean thisPassed = result == expectedResult;
 
         if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario: "+scenario);
+            System.out.println("Scenario: " + scenario);
             System.out.println("Given: array 1 is " + ArraysMethods.toString(testStringArr1));
             System.out.println("And: array 2 is " + ArraysMethods.toString(testStringArr2));
             System.out.println("When: toString is called");
