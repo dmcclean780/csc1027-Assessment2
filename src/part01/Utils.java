@@ -33,6 +33,18 @@ public class Utils {
         return false;
     }
 
+    public static boolean contains(int i, int[] list){
+        if(list == null ){
+            return false;
+        }
+        for (int integer : list) {
+            if(i == integer){
+                return true;
+            }
+        }
+        return false;
+    }
+
     
     
 }

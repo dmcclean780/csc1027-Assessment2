@@ -13,8 +13,8 @@ public class ExhibitManagement {
     }
 
     public ExhibitManagement(ArrayList<Exhibit> exhibits) {
-        this.exhibits=exhibits;
-        this.exhibitArray=exhibitsToArray();
+        this.exhibits = exhibits;
+        this.exhibitArray = exhibitsToArray();
     }
 
     public ArrayList<Exhibit> getExhibits() {
@@ -139,12 +139,12 @@ public class ExhibitManagement {
         exhibitString += "\nRoute:\nSteps                                      Signs\n";
         for (int i = 0; i < artifactNames.length; i++) {
             exhibitString += (i + 1) + ". " + artifactNames[i];
-            for(int j=0; j<40-artifactNames[i].length(); j++){
-                exhibitString+=" ";
+            for (int j = 0; j < 40 - artifactNames[i].length(); j++) {
+                exhibitString += " ";
             }
-            exhibitString+=routeArray[i]+"\n";
+            exhibitString += routeArray[i] + "\n";
         }
-        exhibitString+="\nTotal Engagement Time: "+totalEngagementTime+" minutes\n";
+        exhibitString += "\nTotal Engagement Time: " + totalEngagementTime + " minutes\n";
         return exhibitString;
     }
 
@@ -201,7 +201,7 @@ public class ExhibitManagement {
 
     }
 
-    public void removeArtifactsWithID(int id){
+    public void removeArtifactsWithID(int id) {
         for (int i = 0; i < exhibits.size(); i++) {
             Exhibit exhibit = exhibits.get(i);
             int artifactIndex = exhibit.findArtifactIndex(id);
@@ -213,43 +213,75 @@ public class ExhibitManagement {
         }
     }
 
-    public String[] getExhibitionExhibtNames(int[] exhibitIDs){
+    public String[] getExhibitionExhibtNames(int[] exhibitIDs) {
         String[] exhibitNames = new String[exhibitIDs.length];
-        for(int i=0; i<exhibitIDs.length; i++){
-            for(int j=0; j<this.exhibits.size(); j++){
-                if(this.exhibits.get(j).getId() == exhibitIDs[i]){
-                    exhibitNames[i]=this.exhibits.get(j).getName();
+        for (int i = 0; i < exhibitIDs.length; i++) {
+            for (int j = 0; j < this.exhibits.size(); j++) {
+                if (this.exhibits.get(j).getId() == exhibitIDs[i]) {
+                    exhibitNames[i] = this.exhibits.get(j).getName();
                 }
             }
         }
         return exhibitNames;
     }
 
-    public String[][] getExhibitionExhibtNames(int[][] exhibitIDs){
+    public String[][] getExhibitionExhibtNames(int[][] exhibitIDs) {
         String[][] exhibitNames = new String[exhibitIDs.length][exhibitIDs[0].length];
-        for(int i=0; i<exhibitIDs.length; i++){
-            for( int j=0; j<exhibitIDs[i].length; j++){
-                for(int k=0; k<this.exhibits.size(); k++){
-                    if(this.exhibits.get(k).getId() == exhibitIDs[i][j]){
-                        exhibitNames[i][j]=this.exhibits.get(k).getName();
+        for (int i = 0; i < exhibitIDs.length; i++) {
+            for (int j = 0; j < exhibitIDs[i].length; j++) {
+                for (int k = 0; k < this.exhibits.size(); k++) {
+                    if (this.exhibits.get(k).getId() == exhibitIDs[i][j]) {
+                        exhibitNames[i][j] = this.exhibits.get(k).getName();
                     }
                 }
             }
-            
+
         }
         return exhibitNames;
     }
 
-    public Exhibit findExhibit(int id) throws Exception{
-        for(int i=0; i<this.exhibits.size(); i++){
-            if(this.exhibits.get(i).getId() == id){
+    public Exhibit findExhibit(int id) throws Exception {
+        for (int i = 0; i < this.exhibits.size(); i++) {
+            if (this.exhibits.get(i).getId() == id) {
                 return exhibits.get(i);
             }
         }
         throw new Exception("No mathcing id in list");
     }
 
-    public int getExhibitID(int choice){
+    public int getExhibitID(int choice) {
         return this.exhibitArray[choice].getId();
+    }
+
+    public boolean anyDuplicateArtifcats(int[] exhibits) {
+        ArrayList<Integer> hallArtifacts = new ArrayList<>();
+        for (int exhibit : exhibits) {
+            ArrayList<Integer> exhibitArtifacts = getExhibitArtifacts(exhibit);
+            for (Integer artifact : exhibitArtifacts) {
+                if (Utils.contains(artifact, hallArtifacts)) {
+                    return true;
+                }
+                hallArtifacts.add(artifact);
+            }
+        }
+        return false;
+    }
+
+    public boolean anyDuplicateArtifcats(int[] ogExhibits, int newExhibit, int newExhibitLoc) {
+        ArrayList<Integer> hallArtifacts = getExhibitArtifacts(newExhibit);
+        for (int i=0; i<ogExhibits.length; i++) {
+            int exhibit = ogExhibits[i];
+            if(i == newExhibitLoc){
+                continue;
+            }
+            ArrayList<Integer> exhibitArtifacts = getExhibitArtifacts(exhibit);
+            for (Integer artifact : exhibitArtifacts) {
+                if (Utils.contains(artifact, hallArtifacts)) {
+                    return true;
+                }
+                hallArtifacts.add(artifact);
+            }
+        }
+        return false;
     }
 }

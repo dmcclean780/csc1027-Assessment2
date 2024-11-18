@@ -453,7 +453,7 @@ public class QUBMuseum {
                 break;
             }
             if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
-                exhibitArtifacts.add(artifactManagement.getArtifactID(artifactChoice-1));
+                exhibitArtifacts.add(artifactManagement.getArtifactID(artifactChoice - 1));
                 break;
             } else {
                 System.out.println("Artifact Already in Exhibit");
@@ -522,7 +522,7 @@ public class QUBMuseum {
                 }
                 if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
                     exhibitArtifacts.remove(artifactChoice - 1);
-                    exhibitArtifacts.add(artifactChoice - 1, artifactManagement.getArtifactID(artifactChoice-1));
+                    exhibitArtifacts.add(artifactChoice - 1, artifactManagement.getArtifactID(artifactChoice - 1));
                     break;
                 } else {
                     System.out.println("Artifact Already in Exhibit");
@@ -587,37 +587,40 @@ public class QUBMuseum {
             }
         }
         exhibitionExhibits = new int[12][noOfHalls];
-        exhibitManagement.refreshExhibitArray();
-        Menu exhibitMenu = exhibitManagement.getExhibitMenu();
-        for (int i = 0; i < exhibitionExhibits.length; i++) {
-            System.out.println("Select Exhibits for " + Months.get(i));
-            for (int j = 0; j < exhibitionExhibits[i].length; j++) {
-                int exhibitChoice = exhibitMenu.getUserChoice();
-                if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                    searchExhibits(exhibitManagement);
-                    exhibitMenu = exhibitManagement.getExhibitMenu();
-                    j--;
-                    continue;
-                }
-                if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
-                    exhibitManagement.refreshExhibitArray();
-                    exhibitMenu = exhibitManagement.getExhibitMenu();
-                    j--;
-                    continue;
-                }
-                if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
-                    exhibitionExhibits[i][j] = -1;
-                } else {
-                    exhibitionExhibits[i][j] = exhibitManagement.getExhibitID(exhibitChoice - 1);
+        while (true) {
+
+            exhibitManagement.refreshExhibitArray();
+            Menu exhibitMenu = exhibitManagement.getExhibitMenu();
+            for (int i = 0; i < exhibitionExhibits.length; i++) {
+                System.out.println("Select Exhibits for " + Months.get(i));
+                for (int j = 0; j < exhibitionExhibits[i].length; j++) {
+                    int exhibitChoice = exhibitMenu.getUserChoice();
+                    if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
+                        searchExhibits(exhibitManagement);
+                        exhibitMenu = exhibitManagement.getExhibitMenu();
+                        j--;
+                        continue;
+                    }
+                    if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
+                        exhibitManagement.refreshExhibitArray();
+                        exhibitMenu = exhibitManagement.getExhibitMenu();
+                        j--;
+                        continue;
+                    }
+                    if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
+                        exhibitionExhibits[i][j] = -1;
+                    } else {
+                        exhibitionExhibits[i][j] = exhibitManagement.getExhibitID(exhibitChoice - 1);
+                    }
                 }
             }
-        }
-        try {
-            return exhibitionPlan = new ExhibitionPlan(exhibitionExhibits);
-        } catch (Exception e) {
+            try {
+                return exhibitionPlan = new ExhibitionPlan(exhibitionExhibits, exhibitManagement);
+            } catch (Exception e) {
 
-            System.out.println("Bad Data");
-            return null;
+                System.out.println("Exhibits that Share Artifacts in the same Month, try again");
+                System.out.println();
+            }
         }
 
     }
@@ -676,78 +679,110 @@ public class QUBMuseum {
                 case 1:
                     month = monthMenu.getUserChoice() - 1;
                     hall = hallMenu.getUserChoice();
-                    while (true) {
-                        int exhibitChoice = exhibitMenu.getUserChoice();
-                        if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                            searchExhibits(exhibitManagement);
-                            exhibitMenu = exhibitManagement.getExhibitMenu();
-                            continue;
-                        }
-                        if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
-                            exhibitManagement.refreshExhibitArray();
-                            exhibitMenu = exhibitManagement.getExhibitMenu();
-                            continue;
-                        }
-                        if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
-                            break;
-                        } else {
-                            exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), month, hall);
-                            break;
-                        }
-                    }
+                    exhibitionPlan = changeExhibit(exhibitMenu, month, hall, exhibitionPlan, exhibitManagement);
                     break;
                 case 2:
                     month = monthMenu.getUserChoice() - 1;
-                    for (int i = 0; i < exhibitionPlan.getNumberOfHalls(); i++) {
-                        int exhibitChoice = exhibitMenu.getUserChoice();
-                        if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                            searchExhibits(exhibitManagement);
-                            exhibitMenu = exhibitManagement.getExhibitMenu();
-                            i--;
-                            continue;
-                        }
-                        if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
-                            exhibitManagement.refreshExhibitArray();
-                            exhibitMenu = exhibitManagement.getExhibitMenu();
-                            i--;
-                            continue;
-                        }
-                        if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
-                            break;
-                        } else {
-                            exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), month, i + 1);
-
-                        }
-                    }
+                    exhibitionPlan = changeMonth(exhibitMenu, month, exhibitionPlan, exhibitManagement);
                     break;
                 case 3:
                     hall = hallMenu.getUserChoice();
-                    for (int i = 0; i < Months.values().length; i++) {
-                        int exhibitChoice = exhibitMenu.getUserChoice();
-                        if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                            searchExhibits(exhibitManagement);
-                            exhibitMenu = exhibitManagement.getExhibitMenu();
-                            i--;
-                            continue;
-                        }
-                        if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
-                            exhibitManagement.refreshExhibitArray();
-                            exhibitMenu = exhibitManagement.getExhibitMenu();
-                            i--;
-                            continue;
-                        }
-                        if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
-                            break;
-                        } else {
-                            exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), i, hall);
-                        }
-                    }
+                    exhibitionPlan = changeHall(exhibitMenu, hall, exhibitionPlan, exhibitManagement);
                     break;
                 case 4:
                     quit = true;
                     break;
                 default:
                     break;
+            }
+        }
+        return exhibitionPlan;
+    }
+
+    private static ExhibitionPlan changeExhibit(Menu exhibitMenu, int month, int hall , ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement){
+        while (true) {
+            int exhibitChoice = exhibitMenu.getUserChoice();
+            if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
+                searchExhibits(exhibitManagement);
+                exhibitMenu = exhibitManagement.getExhibitMenu();
+                continue;
+            }
+            if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
+                exhibitManagement.refreshExhibitArray();
+                exhibitMenu = exhibitManagement.getExhibitMenu();
+                continue;
+            }
+            if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
+                break;
+            } else {
+                try{
+                    exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), month, hall, exhibitManagement);
+                    break;
+                } catch (Exception e){
+                    System.out.println("Exhibts Share Artifacts");
+                }
+                
+            }
+        }
+        return exhibitionPlan;
+    }
+
+    private static ExhibitionPlan changeMonth(Menu exhibitMenu, int month, ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement){
+        for (int i = 0; i < exhibitionPlan.getNumberOfHalls(); i++) {
+            int exhibitChoice = exhibitMenu.getUserChoice();
+            if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
+                searchExhibits(exhibitManagement);
+                exhibitMenu = exhibitManagement.getExhibitMenu();
+                i--;
+                continue;
+            }
+            if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
+                exhibitManagement.refreshExhibitArray();
+                exhibitMenu = exhibitManagement.getExhibitMenu();
+                i--;
+                continue;
+            }
+            if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
+                break;
+            } else {
+                try{
+                    exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), month, i + 1, exhibitManagement);
+                } catch (Exception e){
+                    System.out.println("Exhibits Share Artifacts");
+                    i--;
+                }
+                
+
+            }
+        }
+        return exhibitionPlan;
+    }
+
+    private static ExhibitionPlan changeHall(Menu exhibitMenu, int hall, ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement){
+        for (int i = 0; i < Months.values().length; i++) {
+            int exhibitChoice = exhibitMenu.getUserChoice();
+            if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
+                searchExhibits(exhibitManagement);
+                exhibitMenu = exhibitManagement.getExhibitMenu();
+                i--;
+                continue;
+            }
+            if (exhibitChoice - 2 == exhibitManagement.getExhibitArrayLength()) {
+                exhibitManagement.refreshExhibitArray();
+                exhibitMenu = exhibitManagement.getExhibitMenu();
+                i--;
+                continue;
+            }
+            if (exhibitChoice - 3 == exhibitManagement.getExhibitArrayLength()) {
+                break;
+            } else {
+                try{
+                    exhibitionPlan.addExhibit(exhibitManagement.getExhibitID(exhibitChoice - 1), i, hall, exhibitManagement);
+                } catch (Exception e){
+                    System.out.println("Exhibits Share Artifacts");
+                    i--;
+                }
+               
             }
         }
         return exhibitionPlan;
@@ -843,7 +878,7 @@ public class QUBMuseum {
 
     private static ExhibitionPlan popPlan() {
         try {
-            return new ExhibitionPlan(DefaultData.populateExhibitionPlan());
+            return new ExhibitionPlan(DefaultData.populateExhibitionPlan(), exhibitManagement);
         } catch (Exception e) {
             System.out.println("Bad Data");
             return null;
