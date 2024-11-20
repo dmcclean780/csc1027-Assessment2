@@ -10,12 +10,14 @@ public class MenuTester {
 
     public static void main(String[] args) {
         boolean allPassed = true;
+        System.out.println("Class in Test: Menu");
+        System.out.println();
         allPassed &= testGetUserChoice();
         System.out.println("All Features Passed: " + allPassed);
     }
 
     public static boolean testGetUserChoice() {
-        System.out.println("Feature: Menu getUserChoice");
+        System.out.println("\tFeature: Menu getUserChoice");
 
         boolean allPassed = true;
         /**
@@ -135,7 +137,7 @@ public class MenuTester {
             allPassed &= getUserChoiceTestCase(testMenu, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 

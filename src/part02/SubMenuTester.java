@@ -10,13 +10,15 @@ public class SubMenuTester {
 
     public static void main(String[] args) {
         boolean allPassed = true;
+        System.out.println("Class in Test: SubMenu");
+        System.out.println();
         allPassed &= testConstructor();
         allPassed &= testGetType();
         System.out.println("All Features Passed: " + allPassed);
     }
 
     public static boolean testConstructor() {
-        System.out.println("Feature: SubMenu constructor via getUserChoice");
+        System.out.println("\tFeature: SubMenu constructor via getUserChoice");
 
         boolean allPassed = true;
 
@@ -64,13 +66,13 @@ public class SubMenuTester {
             allPassed &= getUserChoiceTestCase(testMenu, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
     }
 
     public static boolean testGetType() {
-        System.out.println("Feature: SubMenu getType");
+        System.out.println("\tFeature: SubMenu getType");
 
         boolean allPassed = true;
 
@@ -96,7 +98,7 @@ public class SubMenuTester {
             allPassed &= getTypeTestCase(testMenu, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 

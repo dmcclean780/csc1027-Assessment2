@@ -8,8 +8,11 @@ import part01.Utils;
 public class UtilsTester {
     public static void main(String[] args) {
         boolean allPassed = true;
+        System.out.println("Class in Test: Utils");
+        System.out.println();
         allPassed &= testStringConcat();
-        allPassed &= testContains();
+        allPassed &= testArrayListContains();
+        allPassed &= testArrayContains();
         System.out.println("All Features Passed: " + allPassed);
     }
 
@@ -19,7 +22,7 @@ public class UtilsTester {
      * @return
      */
     public static boolean testStringConcat() {
-        System.out.println("Feature: concat 2 String[] arrays");
+        System.out.println("\tFeature: concat 2 String[] arrays");
         boolean allPassed = true;
 
         /**
@@ -320,14 +323,79 @@ public class UtilsTester {
             allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 
     }
 
-    public static boolean testContains() {
-        System.out.println("Feature: ArrayList<Integer> contains an int");
+    public static boolean testArrayListContains() {
+        System.out.println("\tFeature: ArrayList<Integer> contains an int");
+        boolean allPassed = true;
+
+        /**
+         * valid seacrch
+         */
+        {
+            int[] testArray = {1,2,3,4,5,6,7,8,9};
+            int searchInt = 5;
+            boolean expectedResult = true;
+            String scenario = "int in normal list";
+            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * value not presant
+         */
+        {
+            int[] testArray = {1,2,3,4,5,6,7,8,9};
+            int searchInt = 11;
+            boolean expectedResult = false;
+            String scenario = "int not in normal list";
+            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list is empty
+         */
+        {
+            int[] testArray = {};
+            int searchInt = 5;
+            boolean expectedResult = false;
+            String scenario = "int not in empty list";
+            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list is null
+         */
+        {
+            int[] testArray = null;
+            int searchInt = 5;
+            boolean expectedResult = false;
+            String scenario = "int not in null";
+            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+        }
+
+        /**
+         * list is negative
+         */
+        {
+            int[] testArray = {-1,-2,-3,-4,-5,-6,-7,-8,-9};
+            int searchInt = -5;
+            boolean expectedResult = true;
+            String scenario = "int in normal list";
+            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+        }
+
+        System.out.println("\tFeature Passed: " + allPassed);
+        System.out.println();
+        return allPassed;
+
+    }
+
+    public static boolean testArrayContains(){
+        System.out.println("\tFeature: ArrayList<Integer> contains an int");
         boolean allPassed = true;
 
         /**
@@ -438,7 +506,7 @@ public class UtilsTester {
             allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 
@@ -476,6 +544,28 @@ public class UtilsTester {
             System.out.println();
             System.out.println("Scenario: " + scenario);
             System.out.println("Given: list is " + testArrayList);
+            System.out.println("And: search term is " + searchInt);
+            System.out.println("When: contains() is called");
+            System.out.println("Then: result is " + expectedResult);
+            System.out.println("Passed: " + thisPassed);
+            System.out.println("Expected Value: " + expectedResult);
+            System.out.println("Given Value: " + result);
+            System.out.println();
+        }
+
+        return thisPassed;
+    }
+
+    public static boolean containsTestCase(int[] testArray, int searchInt, boolean expectedResult,
+            String scenario) {
+
+        boolean result = Utils.contains(searchInt, testArray);
+        boolean thisPassed = result == expectedResult;
+
+        if (!thisPassed) {
+            System.out.println();
+            System.out.println("Scenario: " + scenario);
+            System.out.println("Given: list is " + ArraysMethods.toString(testArray));
             System.out.println("And: search term is " + searchInt);
             System.out.println("When: contains() is called");
             System.out.println("Then: result is " + expectedResult);

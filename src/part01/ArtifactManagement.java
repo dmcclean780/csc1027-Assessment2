@@ -30,7 +30,7 @@ public class ArtifactManagement {
     }
 
     public int getArtifactID(int artifactChoice){
-        return this.artifactArray[artifactChoice].getId();
+        return this.artifactArray[artifactChoice].getID();
     }
 
     public boolean addArtifact(String name, String type, int engagementTime) {
@@ -117,7 +117,7 @@ public class ArtifactManagement {
             case 1:
                 int id = Integer.valueOf(searchValue);
                 for (int i = 0; i < this.artifactArray.length; i++) {
-                    if (this.artifactArray[i].getId() == id) {
+                    if (this.artifactArray[i].getID() == id) {
                         searchResults.add(this.artifactArray[i]);
                     }
                 }
@@ -187,7 +187,7 @@ public class ArtifactManagement {
 
     public Artifact findArtifact(int id) throws Exception{
         for(int i=0; i<this.artifacts.size(); i++){
-            if(this.artifacts.get(i).getId() == id){
+            if(this.artifacts.get(i).getID() == id){
                 return artifacts.get(i);
             }
         }

@@ -7,6 +7,8 @@ public class MonthsTester {
 
     public static void main(String[] args) {
         boolean allPassed = true;
+        System.out.println("Class in Test: Months");
+        System.out.println();
         allPassed &= testToString();
         allPassed &= testGetId();
         allPassed &= testGetByString();
@@ -22,7 +24,7 @@ public class MonthsTester {
      * @return pass status of the entire test suite
      */
     public static boolean testToString() {
-        System.out.println("Feature: Months enum toString");
+        System.out.println("\tFeature: Months enum toString");
 
         boolean allPassed = true;
         String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
@@ -50,7 +52,7 @@ public class MonthsTester {
 
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
     }
@@ -61,7 +63,7 @@ public class MonthsTester {
      * @return
      */
     public static boolean testGetId() {
-        System.out.println("Feature: Months enum getId");
+        System.out.println("\tFeature: Months enum getId");
 
         boolean allPassed = true;
         int[] expectedIds = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
@@ -87,7 +89,7 @@ public class MonthsTester {
 
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
     }
@@ -98,7 +100,7 @@ public class MonthsTester {
      * @return
      */
     public static boolean testGetByString() {
-        System.out.println("Feature: Get Months enum by String");
+        System.out.println("\tFeature: Get Months enum by String");
 
         boolean allPassed = true;
         /**
@@ -134,7 +136,7 @@ public class MonthsTester {
             String scenario = "invalid id given";
             allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
         }
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 
@@ -146,7 +148,7 @@ public class MonthsTester {
      * @return
      */
     public static boolean testGetById() {
-        System.out.println("Feature: Get Months enum by id");
+        System.out.println("\tFeature: Get Months enum by id");
 
         boolean allPassed = true;
         /**
@@ -171,7 +173,7 @@ public class MonthsTester {
             String scenario = "invalid id given";
             allPassed &= getbyIDTestCase(givenID, expectedResult, scenario);
         }
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 
@@ -183,7 +185,7 @@ public class MonthsTester {
      * @return
      */
     public static boolean testToArray() {
-        System.out.println("Feature: toArray gives array of month names");
+        System.out.println("\tFeature: toArray gives array of month names");
 
         boolean allPassed = true;
         String[] months = { "January", "February", "March", "April", "May", "June", "July", "August", "September",
@@ -203,7 +205,7 @@ public class MonthsTester {
             System.out.println("Given Value: " + ArraysMethods.toString(result));
             System.out.println();
         }
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 

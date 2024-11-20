@@ -356,7 +356,7 @@ public class QUBMuseum {
                 break;
             }
             if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
-                exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getId());
+                exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getID());
             } else {
                 System.out.println("Artifact Already in Exhibit");
             }

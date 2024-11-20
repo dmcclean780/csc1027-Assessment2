@@ -5,6 +5,8 @@ import part01.ArraysMethods;
 public class ArraysMethodsTester {
     public static void main(String[] args) {
         boolean allPassed = true;
+        System.out.println("Class in Test: ArraysMethods");
+        System.out.println();
         allPassed &= testStringtoString();
         allPassed &= testIntToString();
         allPassed &= testStringEquals();
@@ -18,7 +20,7 @@ public class ArraysMethodsTester {
      */
     public static boolean testStringtoString() {
 
-        System.out.println("Feature: String[] to String");
+        System.out.println("\tFeature: String[] to String");
         boolean allPassed = true;
 
         /**
@@ -71,7 +73,7 @@ public class ArraysMethodsTester {
             allPassed &= stringToStringTestCase(testStringArr, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 
@@ -83,7 +85,7 @@ public class ArraysMethodsTester {
      * @return
      */
     public static boolean testIntToString() {
-        System.out.println("Feature: int[] to String");
+        System.out.println("\tFeature: int[] to String");
         boolean allPassed = true;
 
         /**
@@ -116,13 +118,13 @@ public class ArraysMethodsTester {
             allPassed &= intToStringTestCase(testIntArr, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
     }
 
     public static boolean testStringEquals() {
-        System.out.println("Feature: int[] to String");
+        System.out.println("\tFeature: int[] to String");
         boolean allPassed = true;
 
         /**
@@ -413,7 +415,7 @@ public class ArraysMethodsTester {
             allPassed &= stringEqualsTestCase(testStringArr1, testStringArr2, expectedResult, scenario);
         }
 
-        System.out.println("Feature Passed: " + allPassed);
+        System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
     }

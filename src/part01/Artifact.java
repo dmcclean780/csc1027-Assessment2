@@ -27,12 +27,11 @@ public class Artifact{
         
         nextID++;
     }
-
     
     /** 
      * @return int
      */
-    public int getId() {
+    public int getID() {
         return this.ID;
     }
 
@@ -92,7 +91,7 @@ public class Artifact{
 
     @Override
     public String toString() {
-        return "ID: " + getId() +",\tName: "+getName()+",\tType: "+getType()+",\tEngagement Time: "+getEngagementTime()+" minutes";
+        return "ID: " + getID() +",\tName: "+getName()+",\tType: "+getType()+",\tEngagement Time: "+getEngagementTime()+" minutes";
     }
 
 
