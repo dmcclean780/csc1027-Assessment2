@@ -92,7 +92,7 @@ public class ExhibitManagement {
             case 1:
                 int id = Integer.valueOf(searchValue);
                 for (int i = 0; i < this.exhibitArray.length; i++) {
-                    if (this.exhibitArray[i].getId() == id) {
+                    if (this.exhibitArray[i].getID() == id) {
                         searchResults.add(this.exhibitArray[i]);
                     }
                 }
@@ -206,8 +206,11 @@ public class ExhibitManagement {
             Exhibit exhibit = exhibits.get(i);
             int artifactIndex = exhibit.findArtifactIndex(id);
             if (artifactIndex != -1) {
-                exhibit.removeArtifact(id);
-                exhibit.removeSign(artifactIndex);
+                try{
+                    exhibit.removeArtifact(artifactIndex);
+                } catch(Exception e){
+                    removeArtifactsWithID(id); // Try Again
+                }
             }
 
         }
@@ -217,7 +220,7 @@ public class ExhibitManagement {
         String[] exhibitNames = new String[exhibitIDs.length];
         for (int i = 0; i < exhibitIDs.length; i++) {
             for (int j = 0; j < this.exhibits.size(); j++) {
-                if (this.exhibits.get(j).getId() == exhibitIDs[i]) {
+                if (this.exhibits.get(j).getID() == exhibitIDs[i]) {
                     exhibitNames[i] = this.exhibits.get(j).getName();
                 }
             }
@@ -230,7 +233,7 @@ public class ExhibitManagement {
         for (int i = 0; i < exhibitIDs.length; i++) {
             for (int j = 0; j < exhibitIDs[i].length; j++) {
                 for (int k = 0; k < this.exhibits.size(); k++) {
-                    if (this.exhibits.get(k).getId() == exhibitIDs[i][j]) {
+                    if (this.exhibits.get(k).getID() == exhibitIDs[i][j]) {
                         exhibitNames[i][j] = this.exhibits.get(k).getName();
                     }
                 }
@@ -242,7 +245,7 @@ public class ExhibitManagement {
 
     public Exhibit findExhibit(int id) throws Exception {
         for (int i = 0; i < this.exhibits.size(); i++) {
-            if (this.exhibits.get(i).getId() == id) {
+            if (this.exhibits.get(i).getID() == id) {
                 return exhibits.get(i);
             }
         }
@@ -250,7 +253,7 @@ public class ExhibitManagement {
     }
 
     public int getExhibitID(int choice) {
-        return this.exhibitArray[choice].getId();
+        return this.exhibitArray[choice].getID();
     }
 
     public boolean anyDuplicateArtifcats(int[] exhibits) {

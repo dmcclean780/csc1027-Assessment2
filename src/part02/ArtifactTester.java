@@ -5,7 +5,7 @@ import part01.Artifact;
 public class ArtifactTester {
     public static void main(String[] args) {
         boolean allPassed = true;
-        System.out.println("Class in Test: Menu");
+        System.out.println("Class in Test: Artifact");
         System.out.println();
         allPassed &= testConstructor();
         allPassed &= testGetId();

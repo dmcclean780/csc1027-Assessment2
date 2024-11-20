@@ -42,7 +42,7 @@ public class Exhibit{
      * 
      * @return id
      */
-    public int getId() {
+    public int getID() {
         return this.ID;
     }
 
@@ -111,7 +111,7 @@ public class Exhibit{
     }
 
     public String toString() {
-        return "ID: " + getId() + "\tName: " + getName();
+        return "ID: " + getID() + "\tName: " + getName();
     }
 
     /**
@@ -155,12 +155,26 @@ public class Exhibit{
 
     
 
-    public void removeArtifact(Integer id) {
-        this.artifactsID.remove(id);
+    public void removeArtifact(int i) throws Exception {
+        if(i>0 && i<this.artifactsID.size()){
+            this.artifactsID.remove(i);
+            this.route.remove(i);
+            if(!checkArtifacts(this.artifactsID)){
+                throw new Exception("artifacts do not match route");
+            }
+        }
+        
     }
 
-    public void removeSign(int i){
-        this.route.remove(i);
+    public void removeSign(int i) throws Exception{
+        if(i>0 && i<this.route.size()){
+            this.route.remove(i);
+            this.artifactsID.remove(i);
+            if(!checkArtifacts(this.artifactsID)){
+                throw new Exception("route does not match artifacts");
+            }
+        }
+
     }
 
     public int findArtifactIndex(Integer id) {
