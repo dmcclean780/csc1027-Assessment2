@@ -60,7 +60,7 @@ public class MonthsTester {
     /**
      * Test that every Months enum gives the correct int
      * 
-     * @return
+     * @return passed
      */
     public static boolean testGetId() {
         System.out.println("\tFeature: Months enum getId");
@@ -97,7 +97,7 @@ public class MonthsTester {
     /**
      * Test the get by String method
      * 
-     * @return
+     * @return passed
      */
     public static boolean testGetByString() {
         System.out.println("\tFeature: Get Months enum by String");
@@ -145,7 +145,7 @@ public class MonthsTester {
     /**
      * Test the get by int method
      * 
-     * @return
+     * @return passed
      */
     public static boolean testGetById() {
         System.out.println("\tFeature: Get Months enum by id");
@@ -182,7 +182,7 @@ public class MonthsTester {
     /**
      * Test the toArray method returns the expected array
      * 
-     * @return
+     * @return passed
      */
     public static boolean testToArray() {
         System.out.println("\tFeature: toArray gives array of month names");
@@ -211,6 +211,13 @@ public class MonthsTester {
 
     }
 
+    /**
+     * Test for get by a name
+     * @param givenString
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean getbyStringTestCase(String givenString, Months expectedResult, String scenario) {
         Months result = Months.get(givenString);
         boolean thisPassed = result == expectedResult;
@@ -229,6 +236,13 @@ public class MonthsTester {
         return thisPassed;
     }
 
+    /**
+     * Test for get with an id
+     * @param givenID
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean getbyIDTestCase(int givenID, Months expectedResult, String scenario) {
         Months result = Months.get(givenID);
         boolean thisPassed = result == expectedResult;

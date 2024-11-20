@@ -19,7 +19,7 @@ public class UtilsTester {
     /**
      * Test the concat two String[] method
      * 
-     * @return
+     * @return all tests passed
      */
     public static boolean testStringConcat() {
         System.out.println("\tFeature: concat 2 String[] arrays");
@@ -329,6 +329,10 @@ public class UtilsTester {
 
     }
 
+    /**
+     * Test Suit for the contains method for ArrayLists
+     * @return all tests passed
+     */
     public static boolean testArrayListContains() {
         System.out.println("\tFeature: ArrayList<Integer> contains an int");
         boolean allPassed = true;
@@ -394,6 +398,10 @@ public class UtilsTester {
 
     }
 
+    /**
+     * Test Suit for the contains method with Arrays
+     * @return all tests passed
+     */
     public static boolean testArrayContains(){
         System.out.println("\tFeature: ArrayList<Integer> contains an int");
         boolean allPassed = true;
@@ -512,6 +520,14 @@ public class UtilsTester {
 
     }
 
+    /**
+     * Test for concat with String arrays
+     * @param testArr1
+     * @param testArr2
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean stringConcatTestCase(String[] testArr1, String[] testArr2, String[] expectedResult,
             String scenario) {
 
@@ -534,6 +550,14 @@ public class UtilsTester {
         return thisPassed;
     }
 
+    /**
+     * Test for contains with Integer ArrayLists
+     * @param testArrayList
+     * @param searchInt
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean containsTestCase(ArrayList<Integer> testArrayList, int searchInt, boolean expectedResult,
             String scenario) {
 
@@ -556,6 +580,14 @@ public class UtilsTester {
         return thisPassed;
     }
 
+    /**
+     * Test for contains with int arrays
+     * @param testArray
+     * @param searchInt
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean containsTestCase(int[] testArray, int searchInt, boolean expectedResult,
             String scenario) {
 

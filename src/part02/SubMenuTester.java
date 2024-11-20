@@ -17,6 +17,10 @@ public class SubMenuTester {
         System.out.println("All Features Passed: " + allPassed);
     }
 
+    /**
+     * Test Suit for the constructor using the print of getUserChoice
+     * @return all tests passed
+     */
     public static boolean testConstructor() {
         System.out.println("\tFeature: SubMenu constructor via getUserChoice");
 
@@ -71,6 +75,10 @@ public class SubMenuTester {
         return allPassed;
     }
 
+    /**
+     * Test Suit for the getType method
+     * @return all tests passed
+     */
     public static boolean testGetType() {
         System.out.println("\tFeature: SubMenu getType");
 
@@ -104,6 +112,13 @@ public class SubMenuTester {
 
     }
 
+    /**
+     * Tets for getUserChoice printing correctly
+     * @param testMenu
+     * @param expectedResult
+     * @param scenario
+     * @return choice
+     */
     public static boolean getUserChoiceTestCase(SubMenu testMenu, String expectedResult, String scenario) {
 
         PrintStream stdout = System.out;
@@ -133,6 +148,13 @@ public class SubMenuTester {
         return thisPassed;
     }
 
+    /**
+     * Test for getType
+     * @param testMenu
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean getTypeTestCase(SubMenu testMenu, String expectedResult, String scenario){
         String result = testMenu.getType();
 

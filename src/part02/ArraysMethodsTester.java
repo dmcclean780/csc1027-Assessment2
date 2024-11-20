@@ -16,7 +16,7 @@ public class ArraysMethodsTester {
     /**
      * Test String[] toString()
      * 
-     * @return
+     * @return all tests passed
      */
     public static boolean testStringtoString() {
 
@@ -82,7 +82,7 @@ public class ArraysMethodsTester {
     /**
      * test int toString()
      * 
-     * @return
+     * @return all tests passed
      */
     public static boolean testIntToString() {
         System.out.println("\tFeature: int[] to String");
@@ -123,6 +123,10 @@ public class ArraysMethodsTester {
         return allPassed;
     }
 
+    /**
+     * Test suit for the equals method for string arrays
+     * @return all tests passed
+     */
     public static boolean testStringEquals() {
         System.out.println("\tFeature: int[] to String");
         boolean allPassed = true;
@@ -420,6 +424,13 @@ public class ArraysMethodsTester {
         return allPassed;
     }
 
+    /**
+     * Test the toString method for string arrays
+     * @param testStringArr
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean stringToStringTestCase(String[] testStringArr, String expectedResult, String scenario) {
         String result = ArraysMethods.toString(testStringArr);
         boolean thisPassed = result.equals(expectedResult);
@@ -439,6 +450,13 @@ public class ArraysMethodsTester {
         return thisPassed;
     }
 
+    /**
+     * Test the toString method for int arrays
+     * @param testIntArr
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean intToStringTestCase(int[] testIntArr, String expectedResult, String scenario) {
         String result = ArraysMethods.toString(testIntArr);
         boolean thisPassed = result.equals(expectedResult);
@@ -458,6 +476,14 @@ public class ArraysMethodsTester {
         return thisPassed;
     }
 
+    /**
+     * Test the equals method for String arrays
+     * @param testStringArr1
+     * @param testStringArr2
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean stringEqualsTestCase(String[] testStringArr1, String[] testStringArr2, boolean expectedResult,
             String scenario) {
         boolean result = ArraysMethods.equals(testStringArr1, testStringArr2);

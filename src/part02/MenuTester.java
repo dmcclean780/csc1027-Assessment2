@@ -16,6 +16,10 @@ public class MenuTester {
         System.out.println("All Features Passed: " + allPassed);
     }
 
+    /**
+     * Test Suit for the getUserChoice method
+     * @return all tests passed
+     */
     public static boolean testGetUserChoice() {
         System.out.println("\tFeature: Menu getUserChoice");
 
@@ -125,6 +129,9 @@ public class MenuTester {
             allPassed &= getUserChoiceTestCase(testMenu, expectedResult, scenario);
         }
 
+        /**
+         * Check it returns the correct choice
+         */
         {
 
             String input = "2\n";
@@ -143,6 +150,13 @@ public class MenuTester {
 
     }
 
+    /**
+     * Test getUserChoice method prints correctly
+     * @param testMenu
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean getUserChoiceTestCase(Menu testMenu, String expectedResult, String scenario) {
 
         PrintStream stdout = System.out;
@@ -172,6 +186,13 @@ public class MenuTester {
         return thisPassed;
     }
 
+    /**
+     * Test getUserChoice method returns correct choice
+     * @param testMenu
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
     public static boolean getUserChoiceTestCase(Menu testMenu, int expectedResult, String scenario) {
         PrintStream stdout = System.out;
         ByteArrayOutputStream result = new ByteArrayOutputStream();
