@@ -1,4 +1,4 @@
-package part01;
+package part02;
 
 public class ArraysMethods {
     public static String toString(String[] array){
@@ -56,5 +56,52 @@ public class ArraysMethods {
             
         }
         return equal;
+    }
+
+    public static boolean deepEquals(int[][] arr1, int[][] arr2){
+        if(arr1 == null || arr2 == null){
+            if(arr1 == null && arr2==null){
+                return true;
+            }
+            return false;
+        }
+        if(arr1.length != arr2.length){
+            return false;
+        }
+        for (int i=0; i<arr1.length; i++) {
+            if(arr1[i] == null || arr2[i] == null){
+                if(!(arr1[i] == null && arr2[i] ==null)){
+                    return false;
+                }
+            }
+            if(arr1[i].length != arr2[i].length){
+                return false;
+            }
+            for(int j=0; j<arr1[i].length; j++){
+                if(arr1[i][j] != arr2[i][j]){
+                    return false;
+                }
+            }
+            
+        }
+        return true;
+    }
+
+    public static String deepToString(int[][] arr){
+        if(arr == null ){
+            return "null";
+        }
+        if(arr.length == 0){
+            return "[]";
+        }
+        String str = "[ ";
+        for (int[] subArr : arr) {
+            str+="[";
+            for (int i : subArr) {
+                str += i+", ";
+            }
+            str = str.substring(0,str.length()-2)+"], ";
+        }
+        return str.substring(0,str.length()-2)+']';
     }
 }

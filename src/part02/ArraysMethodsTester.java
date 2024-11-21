@@ -1,7 +1,5 @@
 package part02;
 
-import part01.ArraysMethods;
-
 public class ArraysMethodsTester {
     public static void main(String[] args) {
         boolean allPassed = true;
@@ -436,15 +434,15 @@ public class ArraysMethodsTester {
         boolean thisPassed = result.equals(expectedResult);
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario: " + scenario);
-            System.out.println("Given: array is " + ArraysMethods.toString(testStringArr));
-            System.out.println("When: toString is called");
-            System.out.println("Then: result is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario: " + scenario);
+            System.err.println("Given: array is " + ArraysMethods.toString(testStringArr));
+            System.err.println("When: toString is called");
+            System.err.println("Then: result is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
 
         return thisPassed;
@@ -462,15 +460,15 @@ public class ArraysMethodsTester {
         boolean thisPassed = result.equals(expectedResult);
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario: " + scenario);
-            System.out.println("Given: array is " + ArraysMethods.toString(testIntArr));
-            System.out.println("When: toString is called");
-            System.out.println("Then: result is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario: " + scenario);
+            System.err.println("Given: array is " + ArraysMethods.toString(testIntArr));
+            System.err.println("When: toString is called");
+            System.err.println("Then: result is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
 
         return thisPassed;
@@ -490,16 +488,16 @@ public class ArraysMethodsTester {
         boolean thisPassed = result == expectedResult;
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario: " + scenario);
-            System.out.println("Given: array 1 is " + ArraysMethods.toString(testStringArr1));
-            System.out.println("And: array 2 is " + ArraysMethods.toString(testStringArr2));
-            System.out.println("When: toString is called");
-            System.out.println("Then: result is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario: " + scenario);
+            System.err.println("Given: array 1 is " + ArraysMethods.toString(testStringArr1));
+            System.err.println("And: array 2 is " + ArraysMethods.toString(testStringArr2));
+            System.err.println("When: toString is called");
+            System.err.println("Then: result is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
 
         return thisPassed;

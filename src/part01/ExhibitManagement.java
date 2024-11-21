@@ -287,4 +287,11 @@ public class ExhibitManagement {
         }
         return false;
     }
+
+
+    @Override
+    public String toString() {
+        return getExhibits().toString(); 
+    }
+
 }

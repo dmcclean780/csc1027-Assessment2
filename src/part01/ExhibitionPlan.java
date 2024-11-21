@@ -5,7 +5,7 @@ public class ExhibitionPlan {
 
     public ExhibitionPlan(int[][] exhibitionPlan, ExhibitManagement exhibitManagement) throws Exception {
         if (exhibitionPlan.length != 12) {
-            throw new Exception("Too Many Months");
+            throw new Exception("Incorrect number of Months");
         }
         for (int[] monthExhibits : exhibitionPlan) {
             if (exhibitManagement.anyDuplicateArtifcats(monthExhibits)) {

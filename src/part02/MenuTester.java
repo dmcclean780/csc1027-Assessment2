@@ -173,15 +173,15 @@ public class MenuTester {
         System.setOut(stdout);
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: given Menu is " + testMenu);
-            System.out.println("When: menu.getUserChoice called");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: given Menu is " + testMenu);
+            System.err.println("When: menu.getUserChoice called");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -206,15 +206,15 @@ public class MenuTester {
 
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: given Menu is " + testMenu);
-            System.out.println("When: menu.getUserChoice called");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + choice);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: given Menu is " + testMenu);
+            System.err.println("When: menu.getUserChoice called");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + choice);
+            System.err.println();
         }
         return thisPassed;
     }

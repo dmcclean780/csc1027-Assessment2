@@ -480,17 +480,17 @@ public class ArtifactTester {
         }
         boolean thisPassed = result.equals(expectedResult);
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: artifact name is " + testName);
-            System.out.println("AND: artifact type is " + testType);
-            System.out.println("AND: artifact engagementTime is " + testEngagementTime);
-            System.out.println("When: new Artifact");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: artifact name is " + testName);
+            System.err.println("AND: artifact type is " + testType);
+            System.err.println("AND: artifact engagementTime is " + testEngagementTime);
+            System.err.println("When: new Artifact");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -506,15 +506,15 @@ public class ArtifactTester {
         int result = testArtifact.getID();
         boolean thisPassed = result == expectedResult;
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.getID");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.getID");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -530,15 +530,15 @@ public class ArtifactTester {
         String result = testArtifact.getName();
         boolean thisPassed = result == null ? expectedResult == null : result.equals(expectedResult);
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.getName");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.getName");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -558,15 +558,15 @@ public class ArtifactTester {
         String result = testArtifact.getName();
         boolean thisPassed = result == null ? expectedResult == null : result.equals(expectedResult);
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.setName called with " + newName);
-            System.out.println("Then: output of getName is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.setName called with " + newName);
+            System.err.println("Then: output of getName is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -582,15 +582,15 @@ public class ArtifactTester {
         String result = testArtifact.getType();
         boolean thisPassed = result == null ? expectedResult == null : result.equals(expectedResult);
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.getType()");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.getType()");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -610,15 +610,15 @@ public class ArtifactTester {
         String result = testArtifact.getType();
         boolean thisPassed = result == null ? expectedResult == null : result.equals(expectedResult);
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.setType() called with " + newName);
-            System.out.println("Then: output of getType() is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.setType() called with " + newName);
+            System.err.println("Then: output of getType() is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -634,15 +634,15 @@ public class ArtifactTester {
         int result = testArtifact.getEngagementTime();
         boolean thisPassed = result == expectedResult;
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.getEngagementTime()");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.getEngagementTime()");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -668,15 +668,15 @@ public class ArtifactTester {
 
         boolean thisPassed = result == expectedResult;
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.setEngagementTime() called with " + newEngagementTime);
-            System.out.println("Then: output of getEngagementTime() is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.setEngagementTime() called with " + newEngagementTime);
+            System.err.println("Then: output of getEngagementTime() is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -693,15 +693,15 @@ public class ArtifactTester {
 
         boolean thisPassed = result.equals(expectedResult);
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testArtifact " + testArtifact);
-            System.out.println("When: testArtifact.toString()");
-            System.out.println("Then: output of toString() is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testArtifact " + testArtifact);
+            System.err.println("When: testArtifact.toString()");
+            System.err.println("Then: output of toString() is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }

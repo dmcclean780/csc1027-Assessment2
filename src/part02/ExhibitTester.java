@@ -2,7 +2,6 @@ package part02;
 
 import java.util.ArrayList;
 
-import part01.ArraysMethods;
 import part01.Exhibit;
 
 public class ExhibitTester {
@@ -208,7 +207,7 @@ public class ExhibitTester {
          * Normal getID()
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int expectedResult = 2;
             String scenario = "normal Exhibit";
 
@@ -220,9 +219,9 @@ public class ExhibitTester {
          */
         {
 
-            Exhibit testExhibit = createTestExhibit();
-            Exhibit testExhibit2 = createTestExhibit();
-            Exhibit testExhibit3 = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
+            Exhibit testExhibit2 = Resources.createTestExhibit();
+            Exhibit testExhibit3 = Resources.createTestExhibit();
             int expectedResult = 3; // starts at 1 as an artifact was created by the previous test case
             String scenario = "multiple Exhibits iterate the ID";
 
@@ -251,7 +250,7 @@ public class ExhibitTester {
          * Normal getID()
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             String expectedResult = "test";
             String scenario = "normal Exhibit";
 
@@ -276,7 +275,7 @@ public class ExhibitTester {
          * Normal setName()
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             String newName = "set name test";
             String expectedResult = "set name test";
             String scenario = "normal exhibit";
@@ -288,7 +287,7 @@ public class ExhibitTester {
          * New Name is null
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             String newName = null;
             String expectedResult = null;
             String scenario = "set name to null";
@@ -314,7 +313,7 @@ public class ExhibitTester {
          * Test the normal use of the method
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             ArrayList<Integer> expectedResult = new ArrayList<>();
             expectedResult.add(0);
             expectedResult.add(1);
@@ -360,7 +359,7 @@ public class ExhibitTester {
          * Normal use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
 
             ArrayList<Integer> newArtifacts = new ArrayList<>();
             newArtifacts.add(4);
@@ -382,7 +381,7 @@ public class ExhibitTester {
          * Too Few Artifacts
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
 
             ArrayList<Integer> newArtifacts = new ArrayList<>();
             newArtifacts.add(4);
@@ -399,7 +398,7 @@ public class ExhibitTester {
          * Too many artifacts
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
 
             ArrayList<Integer> newArtifacts = new ArrayList<>();
             newArtifacts.add(4);
@@ -432,7 +431,7 @@ public class ExhibitTester {
          * Normal Use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             ArrayList<String> expectedResult = new ArrayList<>();
             expectedResult.add("a");
             expectedResult.add("b");
@@ -478,7 +477,7 @@ public class ExhibitTester {
          * Normal Use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
 
             ArrayList<String> newRoute = new ArrayList<>();
             newRoute.add("e");
@@ -500,7 +499,7 @@ public class ExhibitTester {
          * Route too short
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
 
             ArrayList<String> newRoute = new ArrayList<>();
             newRoute.add("e");
@@ -517,7 +516,7 @@ public class ExhibitTester {
          * Route too long
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
 
             ArrayList<String> newRoute = new ArrayList<>();
             newRoute.add("e");
@@ -550,7 +549,7 @@ public class ExhibitTester {
          * Normal use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             String expectedResult = "ID: 19\tName: test";
             String scenario = "normal exhibit toString";
             allPassed &= toStringTestCase(testExhibit, expectedResult, scenario);
@@ -574,7 +573,7 @@ public class ExhibitTester {
          * Normal Use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int artifactToRemoveIndex = 2;
             ArrayList<Integer> expectedResult = new ArrayList<>();
             expectedResult.add(0);
@@ -589,7 +588,7 @@ public class ExhibitTester {
          * Index out of range
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int artifactToRemoveIndex = 4;
             ArrayList<Integer> expectedResult = new ArrayList<>();
             expectedResult.add(0);
@@ -605,7 +604,7 @@ public class ExhibitTester {
          * Index is neagtive
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int artifactToRemoveIndex = -1;
             ArrayList<Integer> expectedResult = new ArrayList<>();
             expectedResult.add(0);
@@ -635,7 +634,7 @@ public class ExhibitTester {
          * Normal Use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int artifactToRemoveIndex = 2;
             ArrayList<String> expectedResult = new ArrayList<>();
             expectedResult.add("a");
@@ -650,7 +649,7 @@ public class ExhibitTester {
          * Index out of range
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int artifactToRemoveIndex = 4;
             ArrayList<String> expectedResult = new ArrayList<>();
             expectedResult.add("a");
@@ -666,7 +665,7 @@ public class ExhibitTester {
          * Index is neagtive
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int artifactToRemoveIndex = -1;
             ArrayList<String> expectedResult = new ArrayList<>();
             expectedResult.add("a");
@@ -696,7 +695,7 @@ public class ExhibitTester {
          * Normal use, Artifact is there
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int testArtifactID = 0;
             int expectedResult = 0;
             String scenario = "normal use";
@@ -709,7 +708,7 @@ public class ExhibitTester {
          * artifact is not there
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             int testArtifactID = 5;
             int expectedResult = -1;
             String scenario = "normal use";
@@ -736,7 +735,7 @@ public class ExhibitTester {
          * Normal use
          */
         {
-            Exhibit testExhibit = createTestExhibit();
+            Exhibit testExhibit = Resources.createTestExhibit();
             String[] expectedResult = { "a", "b", "c", "d" };
             String scenario = "normal use";
 
@@ -1028,15 +1027,15 @@ public class ExhibitTester {
         }
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.setRoute called with " + newRoute);
-            System.out.println("Then: output of getRoute is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.setRoute called with " + newRoute);
+            System.err.println("Then: output of getRoute is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -1065,15 +1064,15 @@ public class ExhibitTester {
         }
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.setRoute called with " + newRoute);
-            System.out.println("Then: output of getRoute is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.setRoute called with " + newRoute);
+            System.err.println("Then: output of getRoute is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -1091,15 +1090,15 @@ public class ExhibitTester {
         boolean thisPassed = result.equals(expectedResult);
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.toString");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.toString");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -1127,15 +1126,15 @@ public class ExhibitTester {
             result = "Exception Thrown";
         }
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.removeArtifact called with " + artifactToRemoveIndex);
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.removeArtifact called with " + artifactToRemoveIndex);
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
 
@@ -1164,15 +1163,15 @@ public class ExhibitTester {
             result = "Exception Thrown";
         }
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.removeSign called with " + signToRemoveIndex);
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.removeSign called with " + signToRemoveIndex);
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
 
@@ -1192,15 +1191,15 @@ public class ExhibitTester {
         int result = testExhibit.findArtifactIndex(testArtifactID);
         boolean thisPassed = result == expectedResult;
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.findArtifactID called with " + testArtifactID);
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.findArtifactID called with " + testArtifactID);
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -1218,41 +1217,19 @@ public class ExhibitTester {
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.getRouteArray");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: testExhibit " + testExhibit);
+            System.err.println("When: testExhibit.getRouteArray");
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
         }
         return thisPassed;
 
     }
 
-    /**
-     * Helper method to create an exhibit for testing
-     * 
-     * @return new Exhibit
-     */
-    private static Exhibit createTestExhibit() {
-        String testName = "test";
-        ArrayList<Integer> testArtifacts = new ArrayList<>();
-        testArtifacts.add(0);
-        testArtifacts.add(1);
-        testArtifacts.add(2);
-        testArtifacts.add(3);
-        ArrayList<String> testRoute = new ArrayList<>();
-        testRoute.add("a");
-        testRoute.add("b");
-        testRoute.add("c");
-        testRoute.add("d");
-        try {
-            return new Exhibit(testName, testArtifacts, testRoute);
-        } catch (Exception e) {
-            return null;
-        }
-    }
+    
 }

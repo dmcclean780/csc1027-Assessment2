@@ -2,7 +2,6 @@ package part02;
 
 import java.util.ArrayList;
 
-import part01.ArraysMethods;
 import part01.Utils;
 
 public class UtilsTester {
@@ -535,16 +534,16 @@ public class UtilsTester {
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario: " + scenario);
-            System.out.println("Given: array 1 is " + ArraysMethods.toString(testArr1));
-            System.out.println("And: array 2 is " + ArraysMethods.toString(testArr2));
-            System.out.println("When: toString is called");
-            System.out.println("Then: result is " + ArraysMethods.toString(expectedResult));
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + ArraysMethods.toString(expectedResult));
-            System.out.println("Given Value: " + ArraysMethods.toString(result));
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario: " + scenario);
+            System.err.println("Given: array 1 is " + ArraysMethods.toString(testArr1));
+            System.err.println("And: array 2 is " + ArraysMethods.toString(testArr2));
+            System.err.println("When: toString is called");
+            System.err.println("Then: result is " + ArraysMethods.toString(expectedResult));
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + ArraysMethods.toString(expectedResult));
+            System.err.println("Given Value: " + ArraysMethods.toString(result));
+            System.err.println();
         }
 
         return thisPassed;
@@ -565,16 +564,16 @@ public class UtilsTester {
         boolean thisPassed = result == expectedResult;
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario: " + scenario);
-            System.out.println("Given: list is " + testArrayList);
-            System.out.println("And: search term is " + searchInt);
-            System.out.println("When: contains() is called");
-            System.out.println("Then: result is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario: " + scenario);
+            System.err.println("Given: list is " + testArrayList);
+            System.err.println("And: search term is " + searchInt);
+            System.err.println("When: contains() is called");
+            System.err.println("Then: result is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
 
         return thisPassed;
@@ -595,16 +594,16 @@ public class UtilsTester {
         boolean thisPassed = result == expectedResult;
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario: " + scenario);
-            System.out.println("Given: list is " + ArraysMethods.toString(testArray));
-            System.out.println("And: search term is " + searchInt);
-            System.out.println("When: contains() is called");
-            System.out.println("Then: result is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario: " + scenario);
+            System.err.println("Given: list is " + ArraysMethods.toString(testArray));
+            System.err.println("And: search term is " + searchInt);
+            System.err.println("When: contains() is called");
+            System.err.println("Then: result is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
 
         return thisPassed;

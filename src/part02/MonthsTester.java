@@ -1,6 +1,5 @@
 package part02;
 
-import part01.ArraysMethods;
 import part01.Months;
 
 public class MonthsTester {
@@ -195,15 +194,15 @@ public class MonthsTester {
         allPassed &= thisPassed;
 
         if (!thisPassed) {
-            System.out.println();
+            System.err.println();
             System.out.println("Scenario: toArray called");
-            System.out.println("Given: expected months are " + ArraysMethods.toString(months));
-            System.out.println("When: toArray is called");
-            System.out.println("Then: array is " + ArraysMethods.toString(months));
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + ArraysMethods.toString(months));
-            System.out.println("Given Value: " + ArraysMethods.toString(result));
-            System.out.println();
+            System.err.println("Given: expected months are " + ArraysMethods.toString(months));
+            System.err.println("When: toArray is called");
+            System.err.println("Then: array is " + ArraysMethods.toString(months));
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + ArraysMethods.toString(months));
+            System.err.println("Given Value: " + ArraysMethods.toString(result));
+            System.err.println();
         }
         System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
@@ -223,15 +222,15 @@ public class MonthsTester {
         boolean thisPassed = result == expectedResult;
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: given id is " + givenString);
-            System.out.println("When: Months.get() called with " + givenString);
-            System.out.println("Then: m is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: given id is " + givenString);
+            System.err.println("When: Months.get() called with " + givenString);
+            System.err.println("Then: m is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
         return thisPassed;
     }
@@ -248,15 +247,15 @@ public class MonthsTester {
         boolean thisPassed = result == expectedResult;
 
         if (!thisPassed) {
-            System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: given id is " + givenID);
-            System.out.println("When: Months.get() called with " + givenID);
-            System.out.println("Then: m is " + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value: " + expectedResult);
-            System.out.println("Given Value: " + result);
-            System.out.println();
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: given id is " + givenID);
+            System.err.println("When: Months.get() called with " + givenID);
+            System.err.println("Then: m is " + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value: " + expectedResult);
+            System.err.println("Given Value: " + result);
+            System.err.println();
         }
         return thisPassed;
     }
