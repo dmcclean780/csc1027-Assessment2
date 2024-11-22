@@ -114,7 +114,7 @@ public class MonthsTester {
                 Months expectedResult = Months.values()[i];
                 String givenString = givenMonths[i];
                 String scenario = "valid String";
-                allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
+                allPassed &= MonthsTestCases.getbyStringTestCase(givenString, expectedResult, scenario);
             }
         }
         /**
@@ -124,7 +124,7 @@ public class MonthsTester {
             String givenString = "abcdce";
             Months expectedResult = null;
             String scenario = "invalid id given";
-            allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
+            allPassed &= MonthsTestCases.getbyStringTestCase(givenString, expectedResult, scenario);
         }
         /**
          * Test a null String gives null
@@ -133,7 +133,7 @@ public class MonthsTester {
             String givenString = null;
             Months expectedResult = null;
             String scenario = "invalid id given";
-            allPassed &= getbyStringTestCase(givenString, expectedResult, scenario);
+            allPassed &= MonthsTestCases.getbyStringTestCase(givenString, expectedResult, scenario);
         }
         System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
@@ -160,7 +160,7 @@ public class MonthsTester {
                 Months expectedResult = Months.values()[i];
                 int givenId = givenIds[i];
                 String scenario = "valid id";
-                allPassed &= getbyIDTestCase(givenId, expectedResult, scenario);
+                allPassed &= MonthsTestCases.getbyIDTestCase(givenId, expectedResult, scenario);
             }
         }
         /**
@@ -170,7 +170,7 @@ public class MonthsTester {
             int givenID = 12;
             Months expectedResult = null;
             String scenario = "invalid id given";
-            allPassed &= getbyIDTestCase(givenID, expectedResult, scenario);
+            allPassed &= MonthsTestCases.getbyIDTestCase(givenID, expectedResult, scenario);
         }
         System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
@@ -208,56 +208,6 @@ public class MonthsTester {
         System.out.println();
         return allPassed;
 
-    }
-
-    /**
-     * Test for get by a name
-     * @param givenString
-     * @param expectedResult
-     * @param scenario
-     * @return passed
-     */
-    public static boolean getbyStringTestCase(String givenString, Months expectedResult, String scenario) {
-        Months result = Months.get(givenString);
-        boolean thisPassed = result == expectedResult;
-
-        if (!thisPassed) {
-            System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: given id is " + givenString);
-            System.err.println("When: Months.get() called with " + givenString);
-            System.err.println("Then: m is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
-            System.err.println();
-        }
-        return thisPassed;
-    }
-
-    /**
-     * Test for get with an id
-     * @param givenID
-     * @param expectedResult
-     * @param scenario
-     * @return passed
-     */
-    public static boolean getbyIDTestCase(int givenID, Months expectedResult, String scenario) {
-        Months result = Months.get(givenID);
-        boolean thisPassed = result == expectedResult;
-
-        if (!thisPassed) {
-            System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: given id is " + givenID);
-            System.err.println("When: Months.get() called with " + givenID);
-            System.err.println("Then: m is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
-            System.err.println();
-        }
-        return thisPassed;
     }
 
 }

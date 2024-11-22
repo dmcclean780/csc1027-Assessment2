@@ -2,8 +2,6 @@ package part02;
 
 import java.util.ArrayList;
 
-import part01.Utils;
-
 public class UtilsTester {
     public static void main(String[] args) {
         boolean allPassed = true;
@@ -33,7 +31,7 @@ public class UtilsTester {
             String[] expectedResult = { "This", "is", "a", "test", "string" };
             String scenario = "2 normal arrays";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -45,7 +43,7 @@ public class UtilsTester {
             String[] expectedResult = { "This", "is", "a" };
             String scenario = "empty array to normal array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -57,7 +55,7 @@ public class UtilsTester {
             String[] expectedResult = { "This", "is", "a", null, null, null };
             String scenario = "null array to normal array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -69,7 +67,7 @@ public class UtilsTester {
             String[] expectedResult = { "This", "is", "a", null, "test", null, "string", null };
             String scenario = "string and null array to normal array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -81,7 +79,7 @@ public class UtilsTester {
             String[] expectedResult = { "This", "is", "a" };
             String scenario = "null to normal array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -93,7 +91,7 @@ public class UtilsTester {
             String[] expectedResult = { "test", "string" };
             String scenario = "normal array to empty array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -105,7 +103,7 @@ public class UtilsTester {
             String[] expectedResult = {};
             String scenario = "2 empty arrays";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -117,7 +115,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null };
             String scenario = "null array to empty array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -129,7 +127,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null };
             String scenario = "null and string array to empty array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -141,7 +139,7 @@ public class UtilsTester {
             String[] expectedResult = {};
             String scenario = "null to empty array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -153,7 +151,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null, "test", "string" };
             String scenario = "normal array to null array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -165,7 +163,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null };
             String scenario = "empty array to null array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -177,7 +175,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null, null, null, null };
             String scenario = "2 null arrays";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -189,7 +187,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null, null, "test", null, "string", null };
             String scenario = "null and string array to null array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -201,7 +199,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null };
             String scenario = "null to null array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -213,7 +211,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null, "test", "string" };
             String scenario = "normal array to null and string array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -225,7 +223,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null };
             String scenario = "empty array to null and string array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -237,7 +235,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null, null, null, null };
             String scenario = "null array to null and string array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -249,7 +247,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null, null, "test", null, "string", null };
             String scenario = "2 null and string arrays";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -261,7 +259,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null };
             String scenario = "null to null and string array";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -273,7 +271,7 @@ public class UtilsTester {
             String[] expectedResult = { "test", "string" };
             String scenario = "normal array to null";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -285,7 +283,7 @@ public class UtilsTester {
             String[] expectedResult = {};
             String scenario = "empty array to null";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -297,7 +295,7 @@ public class UtilsTester {
             String[] expectedResult = { null, null, null };
             String scenario = "null array to null";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /**
@@ -309,7 +307,7 @@ public class UtilsTester {
             String[] expectedResult = { null, "test", null, "string", null };
             String scenario = "null and string array to null";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         /** null and null */
@@ -319,7 +317,7 @@ public class UtilsTester {
             String[] expectedResult = null;
             String scenario = "2 nulls";
 
-            allPassed &= stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
+            allPassed &= UtilsTestCases.stringConcatTestCase(testArr1, testArr2, expectedResult, scenario);
         }
 
         System.out.println("\tFeature Passed: " + allPassed);
@@ -344,7 +342,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = true;
             String scenario = "int in normal list";
-            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArray, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -355,7 +353,7 @@ public class UtilsTester {
             int searchInt = 11;
             boolean expectedResult = false;
             String scenario = "int not in normal list";
-            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArray, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -366,7 +364,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = false;
             String scenario = "int not in empty list";
-            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArray, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -377,7 +375,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = false;
             String scenario = "int not in null";
-            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArray, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -388,7 +386,7 @@ public class UtilsTester {
             int searchInt = -5;
             boolean expectedResult = true;
             String scenario = "int in normal list";
-            allPassed &= containsTestCase(testArray, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArray, searchInt, expectedResult, scenario);
         }
 
         System.out.println("\tFeature Passed: " + allPassed);
@@ -416,7 +414,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = true;
             String scenario = "int in normal list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -430,7 +428,7 @@ public class UtilsTester {
             int searchInt = 11;
             boolean expectedResult = false;
             String scenario = "int not in normal list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -441,7 +439,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = false;
             String scenario = "int not in empty list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -452,7 +450,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = false;
             String scenario = "int not in null";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -466,7 +464,7 @@ public class UtilsTester {
             int searchInt = 11;
             boolean expectedResult = false;
             String scenario = "int in null list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -481,7 +479,7 @@ public class UtilsTester {
             int searchInt = 5;
             boolean expectedResult = true;
             String scenario = "int in list containing a null";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -496,7 +494,7 @@ public class UtilsTester {
             int searchInt = 11;
             boolean expectedResult = false;
             String scenario = "int not in list containing a null";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         /**
@@ -510,102 +508,12 @@ public class UtilsTester {
             int searchInt = -5;
             boolean expectedResult = true;
             String scenario = "int in normal list";
-            allPassed &= containsTestCase(testArrayList, searchInt, expectedResult, scenario);
+            allPassed &= UtilsTestCases.containsTestCase(testArrayList, searchInt, expectedResult, scenario);
         }
 
         System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;
 
-    }
-
-    /**
-     * Test for concat with String arrays
-     * @param testArr1
-     * @param testArr2
-     * @param expectedResult
-     * @param scenario
-     * @return passed
-     */
-    public static boolean stringConcatTestCase(String[] testArr1, String[] testArr2, String[] expectedResult,
-            String scenario) {
-
-        String[] result = Utils.concat(testArr1, testArr2);
-        boolean thisPassed = ArraysMethods.equals(result, expectedResult);
-
-        if (!thisPassed) {
-            System.err.println();
-            System.err.println("Scenario: " + scenario);
-            System.err.println("Given: array 1 is " + ArraysMethods.toString(testArr1));
-            System.err.println("And: array 2 is " + ArraysMethods.toString(testArr2));
-            System.err.println("When: toString is called");
-            System.err.println("Then: result is " + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value: " + ArraysMethods.toString(result));
-            System.err.println();
-        }
-
-        return thisPassed;
-    }
-
-    /**
-     * Test for contains with Integer ArrayLists
-     * @param testArrayList
-     * @param searchInt
-     * @param expectedResult
-     * @param scenario
-     * @return passed
-     */
-    public static boolean containsTestCase(ArrayList<Integer> testArrayList, int searchInt, boolean expectedResult,
-            String scenario) {
-
-        boolean result = Utils.contains(searchInt, testArrayList);
-        boolean thisPassed = result == expectedResult;
-
-        if (!thisPassed) {
-            System.err.println();
-            System.err.println("Scenario: " + scenario);
-            System.err.println("Given: list is " + testArrayList);
-            System.err.println("And: search term is " + searchInt);
-            System.err.println("When: contains() is called");
-            System.err.println("Then: result is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
-            System.err.println();
-        }
-
-        return thisPassed;
-    }
-
-    /**
-     * Test for contains with int arrays
-     * @param testArray
-     * @param searchInt
-     * @param expectedResult
-     * @param scenario
-     * @return passed
-     */
-    public static boolean containsTestCase(int[] testArray, int searchInt, boolean expectedResult,
-            String scenario) {
-
-        boolean result = Utils.contains(searchInt, testArray);
-        boolean thisPassed = result == expectedResult;
-
-        if (!thisPassed) {
-            System.err.println();
-            System.err.println("Scenario: " + scenario);
-            System.err.println("Given: list is " + ArraysMethods.toString(testArray));
-            System.err.println("And: search term is " + searchInt);
-            System.err.println("When: contains() is called");
-            System.err.println("Then: result is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
-            System.err.println();
-        }
-
-        return thisPassed;
     }
 }
