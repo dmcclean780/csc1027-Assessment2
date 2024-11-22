@@ -289,7 +289,7 @@ public class ExhibitManagement {
             if(i == newExhibitLoc){
                 continue;
             }
-            ArrayList<Integer> exhibitArtifacts = getExhibitArtifacts(exhibit);
+            ArrayList<Integer> exhibitArtifacts = getExhibitArtifactsByID(exhibit);
             for (Integer artifact : exhibitArtifacts) {
                 if (Utils.contains(artifact, hallArtifacts)) {
                     return true;
