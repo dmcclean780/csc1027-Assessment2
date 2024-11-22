@@ -7,6 +7,11 @@ import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
 import part01.Months;
 
+
+/**
+ * Tests for ExhibitionPlan
+ * No tests for addExhibitsToMonth or addExhibitsToHall as these will only fail in ways that have been tested by other methods
+ */
 public class ExhibitionPlanTester {
 
     private static int testRan = 0;
