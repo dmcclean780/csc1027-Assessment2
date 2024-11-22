@@ -75,15 +75,30 @@ public class ExhibitionPlan {
 
     public int[] getExibitsInMonth(String month) {
         Months monthEnum = Months.get(month);
+        if(monthEnum == null){
+            System.err.println("Not a valid month provided");
+            int[] result = {};
+            return result;
+        }
         return this.exhibitionPlan[monthEnum.getId()];
     }
 
     public int[] getExibitsInMonth(int month) {
+        if(month < 0 || month > 11){
+            System.err.println("Not a valid month provided");
+            int[] result = {};
+            return result;
+        }
         return this.exhibitionPlan[month];
     }
 
     public int[] getExhibitsInHall(int hallNo) {
         hallNo -= 1;
+        if(hallNo < 0 || hallNo >= exhibitionPlan[0].length){
+            System.err.println("Not a valid hall provided");
+            int[] result = {};
+            return result;
+        }
         int[] hallExhibits = new int[exhibitionPlan.length];
         for (int i = 0; i < exhibitionPlan.length; i++) {
             hallExhibits[i] = exhibitionPlan[i][hallNo];
@@ -178,7 +193,7 @@ public class ExhibitionPlan {
         }
         String exhibitionPlan = "\t";
         for (int i = 0; i < exhibitNames.length; i++) {
-            exhibitionPlan += "Exhibit Hall " + i + "\t";
+            exhibitionPlan += "Exhibit Hall " + (i+1) + "\t";
         }
         exhibitionPlan += "\n";
         String monthName = Months.get(month).toString();
@@ -196,7 +211,7 @@ public class ExhibitionPlan {
         }
         String exhibitionPlan = "\t";
         for (int i = 0; i < exhibitNames.length; i++) {
-            exhibitionPlan += "Exhibit Hall " + i + "\t";
+            exhibitionPlan += "Exhibit Hall " + (i+1) + "\t";
         }
         exhibitionPlan += "\n";
         exhibitionPlan += month + "\t";
@@ -213,7 +228,7 @@ public class ExhibitionPlan {
         }
         String exhibitionPlan = "\t";
         for (int i = 0; i < exhibitNames.length; i++) {
-            exhibitionPlan += "Exhibit Hall " + i + "\t";
+            exhibitionPlan += "Exhibit Hall " + (i+1) + "\t";
         }
         exhibitionPlan += "\n";
         exhibitionPlan += month + "\t";
@@ -223,7 +238,7 @@ public class ExhibitionPlan {
         return exhibitionPlan;
     }
 
-    public String getHallPlanstring(ExhibitManagement exhibitManagement, int hallNo) {
+    public String getHallPlanString(ExhibitManagement exhibitManagement, int hallNo) {
         String[] exhibitNames = getExhibitNamesInHall(exhibitManagement, hallNo);
         if (exhibitNames == null) {
             return "Exhibit in Plan not found in Exhibits";

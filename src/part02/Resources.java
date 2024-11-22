@@ -8,6 +8,8 @@ import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
 
 public class Resources {
+    private static int managementFirstID = 0;
+
     /**
      * Helper method to create an exhibit for testing
      * 
@@ -69,28 +71,38 @@ public class Resources {
         for (int i = 0; i < 10; i++) {
             testExhibits.add(createTestExhibit(i));
         }
+        managementFirstID = testExhibits.get(0).getID();
         return new ExhibitManagement(testExhibits);
     }
 
-    public static ExhibitionPlan createTestExhibitionPlan() {
-        int[][] testExhibionPlan = { { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 },
-                { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 }, { 0, 1, 2 } };
-        ExhibitManagement exhibitManagement = createTestExhibitManagement();
-        try{
+    public static ExhibitionPlan createTestExhibitionPlan(ExhibitManagement exhibitManagement) {
+        int[][] testExhibionPlan = { { managementFirstID + 0, managementFirstID + 1, managementFirstID + 2 },
+                { managementFirstID + 0, managementFirstID + 2, managementFirstID + 1 },
+                { managementFirstID + 1, managementFirstID + 0, managementFirstID + 2 },
+                { managementFirstID + 1, managementFirstID + 2, managementFirstID + 0 },
+                { managementFirstID + 2, managementFirstID + 0, managementFirstID + 1 },
+                { managementFirstID + 2, managementFirstID + 1, managementFirstID + 0 },
+                { managementFirstID + 0, managementFirstID + 1, managementFirstID + 3 },
+                { managementFirstID + 0, managementFirstID + 3, managementFirstID + 1 },
+                { managementFirstID + 1, managementFirstID + 0, managementFirstID + 3 },
+                { managementFirstID + 1, managementFirstID + 3, managementFirstID + 0 },
+                { managementFirstID + 3, managementFirstID + 1, managementFirstID + 0 },
+                { managementFirstID + 3, managementFirstID + 0, managementFirstID + 1 } };
+        try {
             return new ExhibitionPlan(testExhibionPlan, exhibitManagement);
-        } catch(Exception e){
+        } catch (Exception e) {
+            System.out.println(e);
             System.out.println("Construction Failed");
             return null;
         }
 
     }
 
-    public static ExhibitionPlan createTestExhibitionPlan(boolean empty) {
-        int[][] testExhibionPlan= { {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} };
-        ExhibitManagement exhibitManagement = createTestExhibitManagement();
-        try{
+    public static ExhibitionPlan createTestExhibitionPlan(boolean empty,  ExhibitManagement exhibitManagement) {
+        int[][] testExhibionPlan = { {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} };
+        try {
             return new ExhibitionPlan(testExhibionPlan, exhibitManagement);
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Construction Failed");
             return null;
         }

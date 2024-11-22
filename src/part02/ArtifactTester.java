@@ -451,7 +451,7 @@ public class ArtifactTester {
             } catch (Exception e) {
 
             }
-            String expectedResult = "ID: 19,\tName: test,\tType: artifact,\tEngagement Time: 10 minutes";
+            String expectedResult = "ID: "+testArtifact.getID()+",\tName: test,\tType: artifact,\tEngagement Time: 10 minutes";
             String scenario = "normal use";
             allPassed &= toStringTestCase(testArtifact, expectedResult, scenario);
         }

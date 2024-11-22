@@ -184,6 +184,18 @@ public class ExhibitManagement {
         return exhibit.getArtifactsID();
     }
 
+    public ArrayList<Integer> getExhibitArtifactsByID(int exhibitID) {
+        for(int i=0; i<exhibitArray.length; i++){
+            if(exhibitArray[i].getID() == exhibitID){
+                Exhibit exhibit = this.exhibitArray[i];
+                return exhibit.getArtifactsID();
+            }
+        }
+        return new ArrayList<Integer>();
+       
+        
+    }
+
     public boolean updateExhibit(int exhibitChoice, String name, ArrayList<Integer> artifacts,
             ArrayList<String> route) {
         Exhibit exhibit = this.exhibitArray[exhibitChoice];
@@ -259,7 +271,7 @@ public class ExhibitManagement {
     public boolean anyDuplicateArtifcats(int[] exhibits) {
         ArrayList<Integer> hallArtifacts = new ArrayList<>();
         for (int exhibit : exhibits) {
-            ArrayList<Integer> exhibitArtifacts = getExhibitArtifacts(exhibit);
+            ArrayList<Integer> exhibitArtifacts = getExhibitArtifactsByID(exhibit);
             for (Integer artifact : exhibitArtifacts) {
                 if (Utils.contains(artifact, hallArtifacts)) {
                     return true;
@@ -271,7 +283,7 @@ public class ExhibitManagement {
     }
 
     public boolean anyDuplicateArtifcats(int[] ogExhibits, int newExhibit, int newExhibitLoc) {
-        ArrayList<Integer> hallArtifacts = getExhibitArtifacts(newExhibit);
+        ArrayList<Integer> hallArtifacts = getExhibitArtifactsByID(newExhibit);
         for (int i=0; i<ogExhibits.length; i++) {
             int exhibit = ogExhibits[i];
             if(i == newExhibitLoc){

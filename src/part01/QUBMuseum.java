@@ -647,7 +647,7 @@ public class QUBMuseum {
                     }
                     Menu hallMenu = new Menu("Choose Exhibit Hall", hallOptions);
                     int hall = hallMenu.getUserChoice();
-                    System.out.println(exhibitionPlan.getHallPlanstring(exhibitManagement, hall));
+                    System.out.println(exhibitionPlan.getHallPlanString(exhibitManagement, hall));
                     break;
                 case 4:
                     quit = true;

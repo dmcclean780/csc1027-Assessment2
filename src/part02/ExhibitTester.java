@@ -550,7 +550,7 @@ public class ExhibitTester {
          */
         {
             Exhibit testExhibit = Resources.createTestExhibit();
-            String expectedResult = "ID: 19\tName: test";
+            String expectedResult = "ID: "+testExhibit.getID()+"\tName: test";
             String scenario = "normal exhibit toString";
             allPassed &= toStringTestCase(testExhibit, expectedResult, scenario);
         }
