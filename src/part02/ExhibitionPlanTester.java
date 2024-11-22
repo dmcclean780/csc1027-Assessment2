@@ -35,6 +35,7 @@ public class ExhibitionPlanTester {
         allPassed &= testGetMonthPlanString();
         allPassed &= testGetHallPlanString();
         allPassed &= testAddExhibit();
+        allPassed &= testAddExhibitsToMonth();
         System.out.println("All Features Passed: " + allPassed);
     }
 
@@ -1255,6 +1256,147 @@ public class ExhibitionPlanTester {
     }
 
     /**
+     * Test Suit for addExhibitsToMonth method
+     * @return all tests passed
+     */
+    public static boolean testAddExhibitsToMonth(){
+        System.out.println("\tFeature: ExhibitionPlan addExhibitsToMonth");
+        boolean allPassed = true;
+
+
+        /**
+         * Normal Use with int month
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            int month = 0;
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "no exception";
+            String scenario = "normal use, int Month";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+         /**
+         * invalid Use with int month, month too large
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            int month = 12;
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "exception thrown";
+            String scenario = "invalid Use with int month, month too large";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+        /**
+         * invalid Use with int month, month too small
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            int month = -5;
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "exception thrown";
+            String scenario = "invalid Use with int month, month too small";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+
+        /**
+         * valid Use with String month
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            String month = "May";
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "no exception";
+            String scenario = "valid Use with String month";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+        /**
+         * invalid Use with String month, not a month
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            String month = "not a month";
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "exception thrown";
+            String scenario = "invalid Use with String month, not a month";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+        /**
+         * invalid Use with String month, null
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            String month = null;
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "exception thrown";
+            String scenario = "invalid Use with String month, null";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+         /**
+         * valid Use with Months month
+         */
+        {
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+
+            ExhibitionPlan testExhibitionPlan = Resources.createTestExhibitionPlan(true, exhibitManagement);
+            Months month = Months.AUG;
+            int[] newExhibit = {testRan + 4, testRan + 5, testRan + 6};
+            testRan += 10;
+            String expectedResult = "no exception";
+            String scenario = "valid Use with Months month";
+
+
+            allPassed &= addExhibitsToMonthTestCase(testExhibitionPlan, newExhibit, month,
+                    expectedResult, scenario);
+        }
+
+        System.out.println("\tFeature Passed: " + allPassed);
+        System.out.println();
+        return allPassed;
+    }
+
+    /**
      * Test for ExhibitionPlan constructor
      * 
      * @param testExhibionPlan
@@ -1916,6 +2058,124 @@ public class ExhibitionPlanTester {
             System.err.println("AND: " + month);
             System.err.println("AND: " + hall);
             System.err.println("AND: " + newExhibit);
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
+        }
+        return thisPassed;
+    }
+
+
+     /**
+     * Test for addExhibitsToMonth with int month
+     * 
+     * @param testExhibitionPlan
+     * @param exhibitManagement
+     * @param newExhibit
+     * @param month
+     * @param hall
+     * @param expectedResult
+     * @param scenario
+     * @return
+     */
+    public static boolean addExhibitsToMonthTestCase(ExhibitionPlan testExhibitionPlan,
+            int[] newExhibit, int month, String expectedResult, String scenario) {
+
+        String result = "";
+        try {
+            testExhibitionPlan.addExhibitsToMonth(newExhibit, month);
+            result = "no exception";
+        } catch (Exception e) {
+            result = "exception thrown";
+        }
+        boolean thisPassed = result.trim().equals(expectedResult.trim());
+
+        if (!thisPassed) {
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("AND: " + month);
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
+        }
+        return thisPassed;
+    }
+
+    /**
+     * Test for addExhibitsToMonth with Months month
+     * 
+     * @param testExhibitionPlan
+     * @param exhibitManagement
+     * @param newExhibit
+     * @param month
+     * @param hall
+     * @param expectedResult
+     * @param scenario
+     * @return
+     */
+    public static boolean addExhibitsToMonthTestCase(ExhibitionPlan testExhibitionPlan,
+            int[] newExhibit, Months month, String expectedResult, String scenario) {
+
+        String result = "";
+        try {
+            testExhibitionPlan.addExhibitsToMonth(newExhibit, month);
+            result = "no exception";
+        } catch (Exception e) {
+            result = "exception thrown";
+        }
+        boolean thisPassed = result.trim().equals(expectedResult.trim());
+
+        if (!thisPassed) {
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("AND: " + month);
+            System.err.println("Then: output is:\n" + expectedResult);
+            System.err.println("Passed: " + thisPassed);
+            System.err.println("Expected Value:\n" + expectedResult);
+            System.err.println("Given Value:\n" + result);
+            System.err.println();
+        }
+        return thisPassed;
+    }
+
+    /**
+     * Test for addExhibitsToMonth with String month
+     * 
+     * @param testExhibitionPlan
+     * @param exhibitManagement
+     * @param newExhibit
+     * @param month
+     * @param hall
+     * @param expectedResult
+     * @param scenario
+     * @return
+     */
+    public static boolean addExhibitsToMonthTestCase(ExhibitionPlan testExhibitionPlan,
+            int[] newExhibit, String month, String expectedResult, String scenario) {
+
+        String result = "";
+        try {
+            testExhibitionPlan.addExhibitsToMonth(newExhibit, month);
+            result = "no exception";
+        } catch (Exception e) {
+            result = "exception thrown";
+        }
+        boolean thisPassed = result.trim().equals(expectedResult.trim());
+
+        if (!thisPassed) {
+            System.err.println();
+            System.err.println("Scenario:" + scenario);
+            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("AND: " + month);
             System.err.println("Then: output is:\n" + expectedResult);
             System.err.println("Passed: " + thisPassed);
             System.err.println("Expected Value:\n" + expectedResult);
