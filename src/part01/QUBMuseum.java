@@ -4,22 +4,30 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class QUBMuseum {
-    private static ArtifactManagement artifactManagement = popArtifacts();
-    private static ExhibitManagement exhibitManagement = popExhibits();
-    private static ExhibitionPlan exhibitionPlan = popPlan();
+    private  ArtifactManagement artifactManagement ;
+    private  ExhibitManagement exhibitManagement ;
+    private  ExhibitionPlan exhibitionPlan;
 
     private static Scanner input = new Scanner(System.in);
 
-    private static final String generalMenuTitle = "QUB Museum";
+    private String generalMenuTitle;
     private static final String[] generalMenuOptions = { "Manage Artifacts", "Manage Exhibits", "Mangage Annual Plan",
             "Quit" };
 
     public static void main(String[] args) {
+        QUBMuseum museum = new QUBMuseum();
+        museum.generalMenuTitle="QUB Museum";
+        museum.popArtifacts();
+        museum.popExhibits();
+        museum.popPlan();
+        museum.runMuseumApplication();
+    }
 
+    private void runMuseumApplication(){
         Menu generalMenu = new Menu(generalMenuTitle, generalMenuOptions);
         while (true) {
             int choice = generalMenu.getUserChoice();
-            boolean quit = processGeneralMenuChoice(choice, artifactManagement, exhibitManagement, exhibitionPlan);
+            boolean quit = processGeneralMenuChoice(choice);
             if (quit) {
                 break;
             }
@@ -28,18 +36,17 @@ public class QUBMuseum {
         System.out.println("All done - Goodbye!");
     }
 
-    private static boolean processGeneralMenuChoice(int choice, ArtifactManagement artifactManagement,
-            ExhibitManagement exhibitManagement, ExhibitionPlan exhibitionPlan) {
+    private  boolean processGeneralMenuChoice(int choice) {
         boolean quit = false;
         switch (choice) {
             case 1:
-                manageArtifacts(artifactManagement, exhibitManagement);
+                manageArtifacts();
                 break;
             case 2:
-                manageExhibits(exhibitManagement, artifactManagement);
+                manageExhibits();
                 break;
             case 3:
-                exhibitionPlan = manageAnnualPlan(exhibitionPlan, exhibitManagement);
+                exhibitionPlan = manageAnnualPlan();
                 break;
             case 4:
 
@@ -48,12 +55,12 @@ public class QUBMuseum {
         return quit;
     }
 
-    public static void manageArtifacts(ArtifactManagement artifactManagement, ExhibitManagement exhibitManagement) {
+    public  void manageArtifacts() {
         System.out.println("Manage Artifacts");
         SubMenu menu = new SubMenu("Artifact");
         while (true) {
             int choice = menu.getUserChoice();
-            boolean quit = processArtifactMenuChoice(choice, artifactManagement, exhibitManagement);
+            boolean quit = processArtifactMenuChoice(choice);
             if (quit) {
                 break;
             }
@@ -61,22 +68,21 @@ public class QUBMuseum {
         }
     }
 
-    private static boolean processArtifactMenuChoice(int choice, ArtifactManagement artifactManagement,
-            ExhibitManagement exhibitManagement) {
+    private  boolean processArtifactMenuChoice(int choice) {
         boolean quit = false;
         artifactManagement.refreshArtifactArray();
         Menu artifactMenu = artifactManagement.getArtifactMenu();
         System.out.println();
         switch (choice) {
             case 1:
-                addArtifact(artifactManagement);
+                addArtifact();
                 break;
             case 2:
                 while (true) {
                     System.out.print("View ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
-                        searchArtifacts(artifactManagement);
+                        searchArtifacts();
                         artifactMenu = artifactManagement.getArtifactMenu();
                         continue;
                     }
@@ -86,7 +92,7 @@ public class QUBMuseum {
                         continue;
                     }
 
-                    boolean quitViewing = viewArtifact(artifactChoice, artifactManagement);
+                    boolean quitViewing = viewArtifact(artifactChoice);
                     if (quitViewing) {
                         break;
                     }
@@ -98,7 +104,7 @@ public class QUBMuseum {
                     System.out.print("Update ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
-                        searchArtifacts(artifactManagement);
+                        searchArtifacts();
                         artifactMenu = artifactManagement.getArtifactMenu();
                         continue;
                     }
@@ -107,7 +113,7 @@ public class QUBMuseum {
                         artifactMenu = artifactManagement.getArtifactMenu();
                         continue;
                     }
-                    boolean quitUpdating = updateArtifact(artifactChoice, artifactManagement);
+                    boolean quitUpdating = updateArtifact(artifactChoice);
                     artifactManagement.refreshArtifactArray();
                     artifactMenu = artifactManagement.getArtifactMenu();
                     if (quitUpdating) {
@@ -120,7 +126,7 @@ public class QUBMuseum {
                     System.out.print("Delete ");
                     int artifactChoice = artifactMenu.getUserChoice();
                     if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
-                        searchArtifacts(artifactManagement);
+                        searchArtifacts();
                         artifactMenu = artifactManagement.getArtifactMenu();
                         continue;
                     }
@@ -129,8 +135,7 @@ public class QUBMuseum {
                         artifactMenu = artifactManagement.getArtifactMenu();
                         continue;
                     }
-                    boolean quitDeleting = deleteArtifact(artifactChoice, artifactManagement,
-                            exhibitManagement);
+                    boolean quitDeleting = deleteArtifact(artifactChoice);
                     artifactManagement.refreshArtifactArray();
                     artifactMenu = artifactManagement.getArtifactMenu();
                     if (quitDeleting) {
@@ -145,7 +150,7 @@ public class QUBMuseum {
         return quit;
     }
 
-    private static void addArtifact(ArtifactManagement artifactManagement) {
+    private  void addArtifact() {
         System.out.println("Add Artifact");
 
         String name;
@@ -181,7 +186,7 @@ public class QUBMuseum {
         input.nextLine();
     }
 
-    private static boolean viewArtifact(int choice, ArtifactManagement artifactManagement) {
+    private  boolean viewArtifact(int choice) {
 
         if (choice - 3 == artifactManagement.getArtifactArrayLength()) {
             return true;
@@ -192,7 +197,7 @@ public class QUBMuseum {
         return false;
     }
 
-    private static boolean updateArtifact(int choice, ArtifactManagement artifactManagement) {
+    private  boolean updateArtifact(int choice) {
         if (choice - 3 == artifactManagement.getArtifactArrayLength()) {
             return true;
         }
@@ -217,8 +222,7 @@ public class QUBMuseum {
         return false;
     }
 
-    private static boolean deleteArtifact(int choice, ArtifactManagement artifactManagement,
-            ExhibitManagement exhibitManagement) {
+    private  boolean deleteArtifact(int choice) {
         if (choice - 3 == artifactManagement.getArtifactArrayLength()) {
             return true;
         }
@@ -228,12 +232,12 @@ public class QUBMuseum {
         return false;
     }
 
-    public static void manageExhibits(ExhibitManagement exhibitManagement, ArtifactManagement artifactManagement) {
+    public  void manageExhibits() {
         System.out.println("Manage Exhibits");
         SubMenu menu = new SubMenu("Exhibit");
         while (true) {
             int choice = menu.getUserChoice();
-            boolean quit = processExhibitMenuChoice(choice, exhibitManagement, artifactManagement);
+            boolean quit = processExhibitMenuChoice(choice);
             if (quit) {
                 break;
             }
@@ -241,22 +245,21 @@ public class QUBMuseum {
         }
     }
 
-    private static boolean processExhibitMenuChoice(int choice, ExhibitManagement exhibitManagement,
-            ArtifactManagement artifactManagement) {
+    private  boolean processExhibitMenuChoice(int choice) {
         boolean quit = false;
         exhibitManagement.refreshExhibitArray();
         Menu exhibitMenu = exhibitManagement.getExhibitMenu();
         System.out.println();
         switch (choice) {
             case 1:
-                addExhibit(exhibitManagement, artifactManagement);
+                addExhibit();
                 break;
             case 2:
                 while (true) {
                     System.out.print("View ");
                     int exhibitChoice = exhibitMenu.getUserChoice();
                     if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                        searchExhibits(exhibitManagement);
+                        searchExhibits();
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         continue;
                     }
@@ -265,7 +268,7 @@ public class QUBMuseum {
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         continue;
                     }
-                    boolean quitViewing = viewExhibit(exhibitChoice, artifactManagement, exhibitManagement);
+                    boolean quitViewing = viewExhibit(exhibitChoice);
                     if (quitViewing) {
                         break;
                     }
@@ -277,7 +280,7 @@ public class QUBMuseum {
                     System.out.print("Update ");
                     int exhibitChoice = exhibitMenu.getUserChoice();
                     if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                        searchExhibits(exhibitManagement);
+                        searchExhibits();
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         continue;
                     }
@@ -286,7 +289,7 @@ public class QUBMuseum {
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         continue;
                     }
-                    boolean quitUpdating = updateExhibit(exhibitChoice, artifactManagement, exhibitManagement);
+                    boolean quitUpdating = updateExhibit(exhibitChoice);
                     exhibitManagement.refreshExhibitArray();
                     exhibitMenu = exhibitManagement.getExhibitMenu();
                     if (quitUpdating) {
@@ -299,7 +302,7 @@ public class QUBMuseum {
                     System.out.print("Delete ");
                     int exhibitChoice = exhibitMenu.getUserChoice();
                     if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                        searchExhibits(exhibitManagement);
+                        searchExhibits();
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         continue;
                     }
@@ -308,7 +311,7 @@ public class QUBMuseum {
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         continue;
                     }
-                    boolean quitDeleting = deleteExhibit(exhibitChoice, exhibitManagement);
+                    boolean quitDeleting = deleteExhibit(exhibitChoice);
                     exhibitManagement.refreshExhibitArray();
                     exhibitMenu = exhibitManagement.getExhibitMenu();
                     if (quitDeleting) {
@@ -322,7 +325,7 @@ public class QUBMuseum {
         return quit;
     }
 
-    private static void addExhibit(ExhibitManagement exhibitManagement, ArtifactManagement artifactManagement) {
+    private  void addExhibit() {
         System.out.println("Add Exhibit");
 
         String name;
@@ -343,7 +346,7 @@ public class QUBMuseum {
         while (true) {
             int artifactChoice = artifactMenu.getUserChoice();
             if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
-                searchArtifacts(artifactManagement);
+                searchArtifacts();
                 artifactMenu = artifactManagement.getArtifactMenu();
                 continue;
             }
@@ -379,8 +382,7 @@ public class QUBMuseum {
 
     }
 
-    private static boolean viewExhibit(int choice, ArtifactManagement artifactManagement,
-            ExhibitManagement exhibitManagement) {
+    private  boolean viewExhibit(int choice) {
 
         if (choice - 3 == exhibitManagement.getExhibitArrayLength()) {
             return true;
@@ -390,8 +392,7 @@ public class QUBMuseum {
         return false;
     }
 
-    private static boolean updateExhibit(int choice, ArtifactManagement artifactManagement,
-            ExhibitManagement exhibitManagement) {
+    private boolean updateExhibit(int choice) {
         if (choice - 3 == exhibitManagement.getExhibitArrayLength()) {
             return true;
         }
@@ -416,21 +417,20 @@ public class QUBMuseum {
                 break;
             }
             if (artifactAction == 3) {
-                updateExhibitArtifacts(choice, name, exhibitManagement, artifactManagement);
+                updateExhibitArtifacts(choice, name);
             }
             if (artifactAction == 2) {
-                removeExhibitArtifacts(choice, name, exhibitManagement, artifactManagement);
+                removeExhibitArtifacts(choice, name);
             }
             if (artifactAction == 1) {
-                addExhibitArtifact(choice, name, exhibitManagement, artifactManagement);
+                addExhibitArtifact(choice, name);
             }
         }
 
         return false;
     }
 
-    private static void addExhibitArtifact(int choice, String name, ExhibitManagement exhibitManagement,
-            ArtifactManagement artifactManagement) {
+    private void addExhibitArtifact(int choice, String name) {
         ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
         ArrayList<Integer> exhibitArtifacts = exhibitManagement.getExhibitArtifacts(choice - 1);
         artifactManagement.refreshArtifactArray();
@@ -440,7 +440,7 @@ public class QUBMuseum {
 
             int artifactChoice = artifactMenu.getUserChoice();
             if (artifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
-                searchArtifacts(artifactManagement);
+                searchArtifacts();
                 artifactMenu = artifactManagement.getArtifactMenu();
                 continue;
             }
@@ -468,8 +468,7 @@ public class QUBMuseum {
         }
     }
 
-    private static void removeExhibitArtifacts(int choice, String name, ExhibitManagement exhibitManagement,
-            ArtifactManagement artifactManagement) {
+    private void removeExhibitArtifacts(int choice, String name) {
         ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
         while (true) {
             Menu artifactMenu = exhibitManagement.getExhibitArtifactMenu(choice - 1, artifactManagement);
@@ -489,8 +488,7 @@ public class QUBMuseum {
 
     }
 
-    private static void updateExhibitArtifacts(int choice, String name, ExhibitManagement exhibitManagement,
-            ArtifactManagement artifactManagement) {
+    private void updateExhibitArtifacts(int choice, String name) {
         ArrayList<String> route = exhibitManagement.getExhibitRoute(choice - 1);
         while (true) {
             Menu artifactMenu = exhibitManagement.getExhibitArtifactMenu(choice - 1, artifactManagement);
@@ -508,7 +506,7 @@ public class QUBMuseum {
 
                 int newArtifactChoice = allArtifactMenu.getUserChoice();
                 if (newArtifactChoice - 1 == artifactManagement.getArtifactArrayLength()) {
-                    searchArtifacts(artifactManagement);
+                    searchArtifacts();
                     allArtifactMenu = artifactManagement.getArtifactMenu();
                     continue;
                 }
@@ -539,7 +537,7 @@ public class QUBMuseum {
         }
     }
 
-    private static boolean deleteExhibit(int choice, ExhibitManagement exhibitManagement) {
+    private boolean deleteExhibit(int choice) {
         if (choice - 3 == exhibitManagement.getExhibitArrayLength()) {
             return true;
         }
@@ -547,7 +545,7 @@ public class QUBMuseum {
         return false;
     }
 
-    private static ExhibitionPlan manageAnnualPlan(ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement) {
+    private ExhibitionPlan manageAnnualPlan() {
         String[] annualPlanOptions = { "Create", "View", "Update", "Quit" };
         Menu annualPlanMenu = new Menu("Manage Annual Plan", annualPlanOptions);
         boolean quit = false;
@@ -555,13 +553,13 @@ public class QUBMuseum {
             int choice = annualPlanMenu.getUserChoice();
             switch (choice) {
                 case 1:
-                    exhibitionPlan = createAnnualPlan(exhibitionPlan, exhibitManagement);
+                    exhibitionPlan = createAnnualPlan();
                     break;
                 case 2:
-                    viewAnnualPlan(exhibitionPlan, exhibitManagement);
+                    viewAnnualPlan();
                     break;
                 case 3:
-                    exhibitionPlan = updateAnnualPlan(exhibitionPlan, exhibitManagement);
+                    exhibitionPlan = updateAnnualPlan();
                     break;
                 case 4:
                     quit = true;
@@ -573,7 +571,7 @@ public class QUBMuseum {
         return exhibitionPlan;
     }
 
-    public static ExhibitionPlan createAnnualPlan(ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement) {
+    public  ExhibitionPlan createAnnualPlan() {
         int noOfHalls;
         int[][] exhibitionExhibits;
         while (true) {
@@ -596,7 +594,7 @@ public class QUBMuseum {
                 for (int j = 0; j < exhibitionExhibits[i].length; j++) {
                     int exhibitChoice = exhibitMenu.getUserChoice();
                     if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                        searchExhibits(exhibitManagement);
+                        searchExhibits();
                         exhibitMenu = exhibitManagement.getExhibitMenu();
                         j--;
                         continue;
@@ -625,7 +623,7 @@ public class QUBMuseum {
 
     }
 
-    private static void viewAnnualPlan(ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement) {
+    private void viewAnnualPlan() {
         String[] viewOptions = { "Entire Plan", "Choose Month", "Choose Hall", "Quit" };
         Menu viewMenu = new Menu("Select what to View", viewOptions);
         boolean quit = false;
@@ -659,7 +657,7 @@ public class QUBMuseum {
 
     }
 
-    private static ExhibitionPlan updateAnnualPlan(ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement) {
+    private ExhibitionPlan updateAnnualPlan() {
         String[] updateOptions = { "Individual Exhibit", "Entire Month", "Entire Hall", "Quit" };
         Menu updateMenu = new Menu("Select Update to Do", updateOptions);
         boolean quit = false;
@@ -679,15 +677,15 @@ public class QUBMuseum {
                 case 1:
                     month = monthMenu.getUserChoice() - 1;
                     hall = hallMenu.getUserChoice();
-                    exhibitionPlan = changeExhibit(exhibitMenu, month, hall, exhibitionPlan, exhibitManagement);
+                    exhibitionPlan = changeExhibit(exhibitMenu, month, hall);
                     break;
                 case 2:
                     month = monthMenu.getUserChoice() - 1;
-                    exhibitionPlan = changeMonth(exhibitMenu, month, exhibitionPlan, exhibitManagement);
+                    exhibitionPlan = changeMonth(exhibitMenu, month);
                     break;
                 case 3:
                     hall = hallMenu.getUserChoice();
-                    exhibitionPlan = changeHall(exhibitMenu, hall, exhibitionPlan, exhibitManagement);
+                    exhibitionPlan = changeHall(exhibitMenu, hall);
                     break;
                 case 4:
                     quit = true;
@@ -699,11 +697,11 @@ public class QUBMuseum {
         return exhibitionPlan;
     }
 
-    private static ExhibitionPlan changeExhibit(Menu exhibitMenu, int month, int hall , ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement){
+    private  ExhibitionPlan changeExhibit(Menu exhibitMenu, int month, int hall){
         while (true) {
             int exhibitChoice = exhibitMenu.getUserChoice();
             if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                searchExhibits(exhibitManagement);
+                searchExhibits();
                 exhibitMenu = exhibitManagement.getExhibitMenu();
                 continue;
             }
@@ -727,11 +725,11 @@ public class QUBMuseum {
         return exhibitionPlan;
     }
 
-    private static ExhibitionPlan changeMonth(Menu exhibitMenu, int month, ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement){
+    private  ExhibitionPlan changeMonth(Menu exhibitMenu, int month){
         for (int i = 0; i < exhibitionPlan.getNumberOfHalls(); i++) {
             int exhibitChoice = exhibitMenu.getUserChoice();
             if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                searchExhibits(exhibitManagement);
+                searchExhibits();
                 exhibitMenu = exhibitManagement.getExhibitMenu();
                 i--;
                 continue;
@@ -758,11 +756,11 @@ public class QUBMuseum {
         return exhibitionPlan;
     }
 
-    private static ExhibitionPlan changeHall(Menu exhibitMenu, int hall, ExhibitionPlan exhibitionPlan, ExhibitManagement exhibitManagement){
+    private  ExhibitionPlan changeHall(Menu exhibitMenu, int hall){
         for (int i = 0; i < Months.values().length; i++) {
             int exhibitChoice = exhibitMenu.getUserChoice();
             if (exhibitChoice - 1 == exhibitManagement.getExhibitArrayLength()) {
-                searchExhibits(exhibitManagement);
+                searchExhibits();
                 exhibitMenu = exhibitManagement.getExhibitMenu();
                 i--;
                 continue;
@@ -788,7 +786,7 @@ public class QUBMuseum {
         return exhibitionPlan;
     }
 
-    private static void searchArtifacts(ArtifactManagement artifactManagement) {
+    private  void searchArtifacts() {
         String[] searchCriteriaOptions = { "ID", "Name", "Type", "Engagement Time", "Cancel" };
         Menu searchCriteria = new Menu("Select Search Criteria", searchCriteriaOptions);
         int criteriaChoice = searchCriteria.getUserChoice();
@@ -837,7 +835,7 @@ public class QUBMuseum {
         }
     }
 
-    private static void searchExhibits(ExhibitManagement exhibitManagement) {
+    private  void searchExhibits() {
         String[] searchCriteriaOptions = { "ID", "Name", "Cancel" };
         Menu searchCriteria = new Menu("Select Search Criteria", searchCriteriaOptions);
         int criteriaChoice = searchCriteria.getUserChoice();
@@ -868,20 +866,19 @@ public class QUBMuseum {
         }
     }
 
-    private static ArtifactManagement popArtifacts() {
-        return new ArtifactManagement(DefaultData.populateArtifacts());
+    private  void popArtifacts() {
+        this.artifactManagement= new ArtifactManagement(DefaultData.populateArtifacts());
     }
 
-    private static ExhibitManagement popExhibits() {
-        return new ExhibitManagement(DefaultData.populateExhibits());
+    private  void popExhibits() {
+       this.exhibitManagement= new ExhibitManagement(DefaultData.populateExhibits());
     }
 
-    private static ExhibitionPlan popPlan() {
+    private  void popPlan() {
         try {
-            return new ExhibitionPlan(DefaultData.populateExhibitionPlan(), exhibitManagement);
+            this.exhibitionPlan = new ExhibitionPlan(DefaultData.populateExhibitionPlan(), exhibitManagement);
         } catch (Exception e) {
             System.out.println("Bad Data");
-            return null;
         }
     }
 
