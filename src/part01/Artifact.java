@@ -94,7 +94,7 @@ public class Artifact{
         return "ID: " + getID() +",\tName: "+getName()+",\tType: "+getType()+",\tEngagement Time: "+getEngagementTime()+" minutes";
     }
 
-    private static void reset(){
+    protected static void reset(){
         nextID = 0;
     }
 

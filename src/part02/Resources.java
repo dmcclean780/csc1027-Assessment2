@@ -112,6 +112,52 @@ public class Resources {
         }
     }
 
+     /**
+     * Helper Method to create Exhibit with random artifact IDs based on a seed
+     * 
+     * @param i
+     * @return new Exhibit
+     */
+    public static Exhibit createTestExhibitWithRealArtifacts(int i) {
+        String testName = "test";
+        ArrayList<Integer> testArtifacts = new ArrayList<>();
+        testArtifacts.add(i);
+        ArrayList<String> testRoute = new ArrayList<>();
+        testRoute.add("a");
+        try {
+            return new Exhibit(testName, testArtifacts, testRoute);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
+     * Create test exhibit management filled with artifacts from an artifact management
+     * @param artifactManagement
+     * @return
+     */
+    public static ExhibitManagement createTestExhibitManagement(ArtifactManagement artifactManagement){
+        ArrayList<Exhibit> testExhibits = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            testExhibits.add(createTestExhibitWithRealArtifacts(artifactManagementFirstID+i));
+        }
+        exhibitManagementFirstID = testExhibits.get(0).getID();
+        try{
+            return new ExhibitManagement(testExhibits);
+        } catch(Exception e){
+            return null;
+        }
+    }
+
+    /**
+     * Create empty test exhibit management
+     * @param artifactManagement
+     * @return
+     */
+    public static ExhibitManagement createEmptyTestExhibitManagement(){
+        return new ExhibitManagement();
+    }
+
     /**
      * Helper method to create an Exhibit Managemnet filled with exhibits with
      * random artifacts
@@ -124,7 +170,11 @@ public class Resources {
             testExhibits.add(createTestExhibit(i));
         }
         exhibitManagementFirstID = testExhibits.get(0).getID();
-        return new ExhibitManagement(testExhibits);
+        try{
+            return new ExhibitManagement(testExhibits);
+        } catch(Exception e){
+            return null;
+        }
     }
 
     public static ExhibitionPlan createTestExhibitionPlan(ExhibitManagement exhibitManagement) {

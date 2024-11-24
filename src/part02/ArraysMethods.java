@@ -1,6 +1,7 @@
 package part02;
 
 import part01.Artifact;
+import part01.Exhibit;
 
 public class ArraysMethods {
     public static String toString(String[] array){
@@ -32,6 +33,26 @@ public class ArraysMethods {
         }
         String str = "[";
         for (Artifact a : array) {
+            if(a != null){
+                str+="{"+a.toString()+"}, ";
+            }
+            else{
+                str+=a+", ";
+            }
+            
+        }
+        return str.substring(0,str.length()-2)+']';
+    }
+
+    public static String toString(Exhibit[] array){
+        if(array == null ){
+            return "null";
+        }
+        if(array.length == 0){
+            return "[]";
+        }
+        String str = "[";
+        for (Exhibit a : array) {
             if(a != null){
                 str+="{"+a.toString()+"}, ";
             }
@@ -125,6 +146,38 @@ public class ArraysMethods {
             equal &= nameEqual;
             equal &= typeEqual;
             equal &= timeEqual;
+            
+        }
+        return equal;
+    }
+
+    public static boolean equals(Exhibit[] arr1, Exhibit[] arr2){
+        if(arr1 == null || arr2 == null){
+            if(arr1 == null && arr2==null){
+                return true;
+            }
+            return false;
+        }
+        if(arr1.length != arr2.length){
+            return false;
+        }
+        boolean equal = true;
+        for (int i=0; i<arr1.length; i++) {
+            if(arr1[i] == null || arr2[i] == null){
+                if(arr1[i] == null && arr2[i]==null){
+                    equal &=true;
+                    continue;
+                }
+                return false;
+            }
+            boolean idEqual = arr1[i].getID() == arr2[i].getID();
+            boolean nameEqual = arr1[i].getName().equals(arr2[i].getName());
+            boolean artifactsEqual = arr1[i].getArtifactsID().equals(arr2[i].getArtifactsID());
+            boolean routeEqual = arr1[i].getRoute() == arr2[i].getRoute();
+            equal &= idEqual;
+            equal &= nameEqual;
+            equal &= artifactsEqual;
+            equal &= routeEqual;
             
         }
         return equal;

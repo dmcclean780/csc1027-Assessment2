@@ -891,7 +891,11 @@ public class QUBMuseum {
     }
 
     private  void popExhibits() {
-       this.exhibitManagement= new ExhibitManagement(DefaultData.populateExhibits());
+        try{
+            this.exhibitManagement= new ExhibitManagement(DefaultData.populateExhibits());
+        } catch(Exception e){
+            System.err.println("null in artifacts");
+        }
     }
 
     private  void popPlan() {

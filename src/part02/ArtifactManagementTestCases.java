@@ -53,7 +53,7 @@ public class ArtifactManagementTestCases {
             System.err.println();
             System.err.println("Scenario:" + scenario);
             System.err.println("When: new ArtifactManagement() called");
-            System.err.println("Then: output of getArtifactArray() is:\n" + expectedResult);
+            System.err.println("Then: output of getArtifacts() is:\n" + expectedResult);
             System.err.println("Passed: " + thisPassed);
             System.err.println("Expected Value:\n" + expectedResult);
             System.err.println("Given Value:\n" + result);
@@ -120,7 +120,7 @@ public class ArtifactManagementTestCases {
             System.err.println();
             System.err.println("Scenario:" + scenario);
             System.err.println("When: new ArtifactManagement() called with " + artifactManagementData);
-            System.err.println("Then: output of getArtifactArray() is:\n" + expectedResult);
+            System.err.println("Then: output of getArtifacts() is:\n" + expectedResult);
             System.err.println("Passed: " + thisPassed);
             System.err.println("Expected Value:\n" + expectedResult);
             System.err.println("Given Value:\n" + result);
@@ -145,6 +145,7 @@ public class ArtifactManagementTestCases {
         try {
             testArtifactManagement = new ArtifactManagement(artifactManagementData);
             ArrayList<Artifact> resultArray = testArtifactManagement.getArtifacts();
+
             result = resultArray.toString();
         } catch (Exception e) {
             result = e.getMessage();
@@ -156,7 +157,7 @@ public class ArtifactManagementTestCases {
             System.err.println();
             System.err.println("Scenario:" + scenario);
             System.err.println("When: new ArtifactManagement() called with " + artifactManagementData);
-            System.err.println("Then: output of getArtifactArray() is:\n" + expectedResult);
+            System.err.println("Then: output of getArtifacts() is:\n" + expectedResult);
             System.err.println("Passed: " + thisPassed);
             System.err.println("Expected Value:\n" + expectedResult);
             System.err.println("Given Value:\n" + result);
@@ -407,7 +408,7 @@ public class ArtifactManagementTestCases {
      * @param scenario
      * @return
      */
-    public static boolean getArtifactsMenuTestCase(ArtifactManagement testArtifactManagement, String expectedResult,
+    public static boolean artifactsMenuTestCase(ArtifactManagement testArtifactManagement, String expectedResult,
             String scenario) {
 
         String input = "1\n";
@@ -419,7 +420,7 @@ public class ArtifactManagementTestCases {
         ByteArrayOutputStream result = new ByteArrayOutputStream();
         System.setOut(new PrintStream(result));
 
-        Menu artifactMenu = testArtifactManagement.getArtifactMenu();
+        Menu artifactMenu = testArtifactManagement.artifactsMenu();
         artifactMenu.getUserChoice();
         boolean thisPassed = false;
         try {

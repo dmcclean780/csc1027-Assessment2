@@ -19,7 +19,7 @@ public class ArtifactManagementTester {
         allPassed &= testAddArtifact();
         allPassed &= testUpdateArtifact();
         allPassed &= testGetArtifactString();
-        allPassed &= testGetArtifactsMenu();
+        allPassed &= testArtifactsMenu();
         allPassed &= testArtifactsToArray();
         allPassed &= testArtifactArrayToNameArray();
         allPassed &= testSortArtifactArray();
@@ -565,7 +565,7 @@ public class ArtifactManagementTester {
      * 
      * @return all tests passed
      */
-    public static boolean testGetArtifactsMenu() {
+    public static boolean testArtifactsMenu() {
         System.out.println("\tFeature: ArtifactManagement getArtifactsMenu");
         boolean allPassed = true;
 
@@ -591,7 +591,7 @@ public class ArtifactManagementTester {
                     "Enter Selection:";
             String scenario = "normal use";
 
-            allPassed &= ArtifactManagementTestCases.getArtifactsMenuTestCase(testArtifactManagement, expectedResult,
+            allPassed &= ArtifactManagementTestCases.artifactsMenuTestCase(testArtifactManagement, expectedResult,
                     scenario);
         }
 
@@ -609,7 +609,7 @@ public class ArtifactManagementTester {
                     "Enter Selection:";
             String scenario = "empty artifactManagement use";
 
-            allPassed &= ArtifactManagementTestCases.getArtifactsMenuTestCase(testArtifactManagement, expectedResult,
+            allPassed &= ArtifactManagementTestCases.artifactsMenuTestCase(testArtifactManagement, expectedResult,
                     scenario);
         }
 
@@ -1319,7 +1319,7 @@ public class ArtifactManagementTester {
                     "Enter Selection:";
             String scenario = "normal use";
 
-            allPassed &= ArtifactManagementTestCases.getArtifactsMenuTestCase(testArtifactManagement, expectedResult,
+            allPassed &= ArtifactManagementTestCases.artifactsMenuTestCase(testArtifactManagement, expectedResult,
                     scenario);
         }
 
@@ -1337,7 +1337,7 @@ public class ArtifactManagementTester {
                     "Enter Selection:";
             String scenario = "empty artifactManagement use";
 
-            allPassed &= ArtifactManagementTestCases.getArtifactsMenuTestCase(testArtifactManagement, expectedResult,
+            allPassed &= ArtifactManagementTestCases.artifactsMenuTestCase(testArtifactManagement, expectedResult,
                     scenario);
         }
 

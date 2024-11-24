@@ -79,7 +79,7 @@ public class ArtifactManagement {
         
     }
 
-    public Menu artifactsMenu(Artifact[] artifactArray) {
+    public Menu artifactsMenu() {
         String[] artifactNames = artifactArrayToNameArray(artifactArray);
         String[] quit = { "Search", "Clear", "Quit" };
         String[] artifactOptions = Utils.concat(artifactNames, quit);
@@ -181,7 +181,7 @@ public class ArtifactManagement {
 
     public Menu getArtifactMenu() {
         sortArtifactArray();
-        return artifactsMenu(this.artifactArray);
+        return artifactsMenu();
     }
 
     public boolean removeArtifact(int artifactChoice){

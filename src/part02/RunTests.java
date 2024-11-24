@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import part01.Artifact;
 
-public class UnitTests {
+public class RunTests {
     public static void main(String[] args) {
         try {
             Method resetArtifact = Artifact.class.getDeclaredMethod("reset");

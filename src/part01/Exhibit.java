@@ -195,7 +195,7 @@ public class Exhibit{
         return routeArray;
     }
 
-    private static void reset(){
+    protected static void reset(){
         nextID = 0;
     }
 

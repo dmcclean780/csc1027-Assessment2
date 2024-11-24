@@ -12,7 +12,12 @@ public class ExhibitManagement {
         this.exhibitArray = exhibitsToArray();
     }
 
-    public ExhibitManagement(ArrayList<Exhibit> exhibits) {
+    public ExhibitManagement(ArrayList<Exhibit> exhibits) throws Exception{
+        for (Exhibit exhibit : exhibits) {
+            if(exhibit == null){
+                throw new Exception("exhibits cannot contain null");
+            }
+        }
         this.exhibits = exhibits;
         this.exhibitArray = exhibitsToArray();
     }
@@ -40,8 +45,8 @@ public class ExhibitManagement {
 
     }
 
-    public static Menu exhibitsMenu(Exhibit[] exhibitArray) {
-        String[] exhibitNames = exhibitArrayToNameArray(exhibitArray);
+    public Menu exhibitsMenu() {
+        String[] exhibitNames = exhibitArrayToNameArray();
         String[] quit = { "Search", "Clear", "Quit" };
         String[] exhibitOptions = Utils.concat(exhibitNames, quit);
         Menu artifactMenu = new Menu("Exhibits", exhibitOptions);
@@ -64,7 +69,7 @@ public class ExhibitManagement {
         return exhibitArray;
     }
 
-    public static String[] exhibitArrayToNameArray(Exhibit[] exhibitArray) {
+    public String[] exhibitArrayToNameArray() {
         String[] nameArray = new String[exhibitArray.length];
         for (int i = 0; i < exhibitArray.length; i++) {
             nameArray[i] = exhibitArray[i].getName();
@@ -72,17 +77,16 @@ public class ExhibitManagement {
         return nameArray;
     }
 
-    public static Exhibit[] sort(Exhibit[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length - 1; j++) {
-                if (array[j].getName().compareTo(array[j + 1].getName()) > 0) {
-                    Exhibit temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+    public void sortExhibitArray() {
+        for (int i = 0; i < exhibitArray.length; i++) {
+            for (int j = 0; j < exhibitArray.length - 1; j++) {
+                if (exhibitArray[j].getName().compareTo(exhibitArray[j + 1].getName()) > 0) {
+                    Exhibit temp = exhibitArray[j];
+                    exhibitArray[j] = exhibitArray[j + 1];
+                    exhibitArray[j + 1] = temp;
                 }
             }
         }
-        return array;
     }
 
     public boolean searchExhibits(int criteriaChoice, String searchValue) {
@@ -120,8 +124,8 @@ public class ExhibitManagement {
     }
 
     public Menu getExhibitMenu() {
-        this.exhibitArray = sort(this.exhibitArray);
-        return exhibitsMenu(this.exhibitArray);
+        sortExhibitArray();
+        return exhibitsMenu();
     }
 
     public String getExhibitString(int exhibitChoice, ArtifactManagement artifactManagement) {
