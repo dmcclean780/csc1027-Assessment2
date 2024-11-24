@@ -12,7 +12,12 @@ public class ArtifactManagement {
         this.artifactArray = artifactsToArray();
     }
 
-    public  ArtifactManagement(ArrayList<Artifact> artifacts) {
+    public  ArtifactManagement(ArrayList<Artifact> artifacts)  throws Exception{
+        for (Artifact artifact : artifacts) {
+            if(artifact == null){
+                throw new Exception("artifacts cannot contain null");
+            }
+        }
         this.artifacts=artifacts;
         this.artifactArray=artifactsToArray();
     }
@@ -29,7 +34,10 @@ public class ArtifactManagement {
         return getArtifactArray().length;
     }
 
-    public int getArtifactID(int artifactChoice){
+    public int getArtifactID(int artifactChoice) throws Exception{
+        if(artifactChoice < 0 || artifactChoice >= this.artifactArray.length){
+            throw new Exception("Artifact Choice Out of Range");
+        }
         return this.artifactArray[artifactChoice].getID();
     }
 
@@ -44,8 +52,9 @@ public class ArtifactManagement {
     }
 
     public boolean updateArtifact(int artifactChoice, String name, String type, String engagementTime){
-        Artifact artifact = this.artifactArray[artifactChoice];
+        
         try{
+            Artifact artifact = this.artifactArray[artifactChoice];
             if(engagementTime != ""){
                 artifact.setEngagementTime(Integer.parseInt(engagementTime));
             }
@@ -62,7 +71,12 @@ public class ArtifactManagement {
     }
 
     public String getArtifactString(int artifactChoice){
-        return this.artifactArray[artifactChoice].toString();
+        try{
+            return this.artifactArray[artifactChoice].toString();
+        } catch(Exception e){
+            return "Not A Valid Artifact Choice";
+        }
+        
     }
 
     public Menu artifactsMenu(Artifact[] artifactArray) {
@@ -81,7 +95,7 @@ public class ArtifactManagement {
         return artifactArray;
     }
 
-    public Artifact[] artifactsToArray(ArrayList<Artifact> artifacts) {
+    public static Artifact[] artifactsToArray(ArrayList<Artifact> artifacts) {
         Artifact[] artifactArray = new Artifact[artifacts.size()];
         for (int i = 0; i < artifactArray.length; i++) {
             artifactArray[i] = artifacts.get(i);
@@ -89,7 +103,10 @@ public class ArtifactManagement {
         return artifactArray;
     }
 
-    public String[] artifactArrayToNameArray(Artifact[] artifactArray) {
+    public static String[] artifactArrayToNameArray(Artifact[] artifactArray) {
+        if(artifactArray == null){
+            return null;
+        }
         String[] nameArray = new String[artifactArray.length];
         for (int i = 0; i < artifactArray.length; i++) {
             nameArray[i] = artifactArray[i].getName();
@@ -97,17 +114,16 @@ public class ArtifactManagement {
         return nameArray;
     }
 
-    public Artifact[] sort(Artifact[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length - 1; j++) {
-                if (array[j].getName().compareTo(array[j + 1].getName()) > 0) {
-                    Artifact temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+    public void sortArtifactArray() {
+        for (int i = 0; i < artifactArray.length; i++) {
+            for (int j = 0; j < artifactArray.length - 1; j++) {
+                if (artifactArray[j].getName().compareTo(artifactArray[j + 1].getName()) > 0) {
+                    Artifact temp = artifactArray[j];
+                    artifactArray[j] = artifactArray[j + 1];
+                    artifactArray[j + 1] = temp;
                 }
             }
         }
-        return array;
     }
 
     public boolean searchArtifacts(int criteriaChoice, String searchValue) {
@@ -164,25 +180,34 @@ public class ArtifactManagement {
     }
 
     public Menu getArtifactMenu() {
-        this.artifactArray = sort(this.artifactArray);
+        sortArtifactArray();
         return artifactsMenu(this.artifactArray);
     }
 
-    public void removeArtifact(int artifactChoice){
-        artifacts.remove(artifactChoice);
+    public boolean removeArtifact(int artifactChoice){
+        try{
+            artifacts.remove(artifactChoice);
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+        
     }
 
     public Artifact[] getExhibitArtifacts(ArrayList<Integer> artifactsID) {
-        Artifact[] artifactArray = new Artifact[artifactsID.size()];
+        ArrayList<Artifact> artifactArray = new ArrayList<>();
         for (int i = 0; i < artifactsID.size(); i++) {
             try {
                 Artifact a = findArtifact(artifactsID.get(i));
-                artifactArray[i] = a;
+                if(a!=null){
+                    artifactArray.add(a);
+                }
+                
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
-        return artifactArray;
+        return artifactsToArray(artifactArray);
     }
 
     public Artifact findArtifact(int id) throws Exception{
@@ -191,7 +216,7 @@ public class ArtifactManagement {
                 return artifacts.get(i);
             }
         }
-        throw new Exception("No mathcing id in list");
+        throw new Exception("No matching id in list");
     }
 
     public String[] getArtifactNames(ArrayList<Integer> artifactIDs){
@@ -210,5 +235,9 @@ public class ArtifactManagement {
             totalEngagementTime += artifact.getEngagementTime();
         }
         return totalEngagementTime;
+    }
+
+    public String toString(){
+        return this.artifacts.toString();
     }
 }

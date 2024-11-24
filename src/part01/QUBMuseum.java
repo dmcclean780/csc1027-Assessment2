@@ -226,9 +226,14 @@ public class QUBMuseum {
         if (choice - 3 == artifactManagement.getArtifactArrayLength()) {
             return true;
         }
-        int id = artifactManagement.getArtifactID(choice - 1);
-        exhibitManagement.removeArtifactsWithID(id);
-        artifactManagement.removeArtifact(choice - 1);
+        int id;
+        try{
+            id = artifactManagement.getArtifactID(choice - 1);
+            exhibitManagement.removeArtifactsWithID(id);
+            artifactManagement.removeArtifact(choice - 1);
+        } catch(Exception e){
+            System.out.println("Artifact Choice Out Of Range");
+        }
         return false;
     }
 
@@ -358,11 +363,16 @@ public class QUBMuseum {
             if (artifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                 break;
             }
-            if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
-                exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getID());
-            } else {
-                System.out.println("Artifact Already in Exhibit");
+            try{
+                if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
+                    exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getID());
+                } else {
+                    System.out.println("Artifact Already in Exhibit");
+                }
+            } catch (Exception e){
+                System.out.println("Artifact Choice Out Of Range");
             }
+            
 
         }
 
@@ -452,11 +462,14 @@ public class QUBMuseum {
             if (artifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                 break;
             }
-            if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
-                exhibitArtifacts.add(artifactManagement.getArtifactID(artifactChoice - 1));
-                break;
-            } else {
-                System.out.println("Artifact Already in Exhibit");
+            try{
+                if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
+                    exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getID());
+                } else {
+                    System.out.println("Artifact Already in Exhibit");
+                }
+            } catch (Exception e){
+                System.out.println("Artifact Choice Out Of Range");
             }
         }
         System.out.print("Enter new Sign: ");
@@ -518,12 +531,14 @@ public class QUBMuseum {
                 if (newArtifactChoice - 3 == artifactManagement.getArtifactArrayLength()) {
                     break;
                 }
-                if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
-                    exhibitArtifacts.remove(artifactChoice - 1);
-                    exhibitArtifacts.add(artifactChoice - 1, artifactManagement.getArtifactID(artifactChoice - 1));
-                    break;
-                } else {
-                    System.out.println("Artifact Already in Exhibit");
+                try{
+                    if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
+                        exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getID());
+                    } else {
+                        System.out.println("Artifact Already in Exhibit");
+                    }
+                } catch (Exception e){
+                    System.out.println("Artifact Choice Out Of Range");
                 }
             }
             System.out.print("Enter new Sign: ");
@@ -822,6 +837,7 @@ public class QUBMuseum {
                         new Exception();
                     }
                     searchValue = String.valueOf(time);
+                    Integer.valueOf(searchValue);
                     break;
                 } catch (Exception e) {
                     input.nextLine();
@@ -867,7 +883,11 @@ public class QUBMuseum {
     }
 
     private  void popArtifacts() {
-        this.artifactManagement= new ArtifactManagement(DefaultData.populateArtifacts());
+        try{
+            this.artifactManagement= new ArtifactManagement(DefaultData.populateArtifacts());
+        } catch(Exception e){
+            System.err.println("null in artifacts");
+        }
     }
 
     private  void popExhibits() {

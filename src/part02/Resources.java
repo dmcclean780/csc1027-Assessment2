@@ -3,12 +3,64 @@ package part02;
 import java.util.ArrayList;
 import java.util.Random;
 
+import part01.Artifact;
+import part01.ArtifactManagement;
 import part01.Exhibit;
 import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
 
 public class Resources {
-    private static int managementFirstID = 0;
+    private static int exhibitManagementFirstID = 0;
+    private static int artifactManagementFirstID = 0;
+
+    /**
+     * Helper method to create an Artifact
+     * @return
+     */
+    public static Artifact createTestArtifact(){
+        try{
+            return new Artifact("test", "artifact", 4);
+        } catch(Exception e){
+            return null;
+        }
+    }
+
+    /**
+     * Helper method to create an Artifact with a unique property
+     * @return
+     */
+    public static Artifact createTestArtifact(int unique){
+        try{
+            return new Artifact("test"+unique, "artifact"+unique, 4+unique);
+        } catch(Exception e){
+            return null;
+        }
+    }
+
+    /**
+     * Helper Method to create artifactManagement
+     * @return
+     */
+    public static ArtifactManagement createTestArtifactManagement(){
+        ArrayList<Artifact> testArtifacts = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            testArtifacts.add(createTestArtifact());
+        }
+        artifactManagementFirstID = testArtifacts.get(0).getID();
+        try{
+            return new ArtifactManagement(testArtifacts);
+        } catch(Exception e){
+            return null;
+        }
+    }
+
+    /**
+     * Helper Method to create a the default artifactManagement
+     * @return 
+     */
+    public static ArtifactManagement createEmptyTestArtifactManagement(){
+        return new ArtifactManagement();
+    }
 
     /**
      * Helper method to create an exhibit for testing
@@ -71,23 +123,23 @@ public class Resources {
         for (int i = 0; i < 10; i++) {
             testExhibits.add(createTestExhibit(i));
         }
-        managementFirstID = testExhibits.get(0).getID();
+        exhibitManagementFirstID = testExhibits.get(0).getID();
         return new ExhibitManagement(testExhibits);
     }
 
     public static ExhibitionPlan createTestExhibitionPlan(ExhibitManagement exhibitManagement) {
-        int[][] testExhibionPlan = { { managementFirstID + 0, managementFirstID + 1, managementFirstID + 2 },
-                { managementFirstID + 0, managementFirstID + 2, managementFirstID + 1 },
-                { managementFirstID + 1, managementFirstID + 0, managementFirstID + 2 },
-                { managementFirstID + 1, managementFirstID + 2, managementFirstID + 0 },
-                { managementFirstID + 2, managementFirstID + 0, managementFirstID + 1 },
-                { managementFirstID + 2, managementFirstID + 1, managementFirstID + 0 },
-                { managementFirstID + 0, managementFirstID + 1, managementFirstID + 3 },
-                { managementFirstID + 0, managementFirstID + 3, managementFirstID + 1 },
-                { managementFirstID + 1, managementFirstID + 0, managementFirstID + 3 },
-                { managementFirstID + 1, managementFirstID + 3, managementFirstID + 0 },
-                { managementFirstID + 3, managementFirstID + 1, managementFirstID + 0 },
-                { managementFirstID + 3, managementFirstID + 0, managementFirstID + 1 } };
+        int[][] testExhibionPlan = { { exhibitManagementFirstID + 0, exhibitManagementFirstID + 1, exhibitManagementFirstID + 2 },
+                { exhibitManagementFirstID + 0, exhibitManagementFirstID + 2, exhibitManagementFirstID + 1 },
+                { exhibitManagementFirstID + 1, exhibitManagementFirstID + 0, exhibitManagementFirstID + 2 },
+                { exhibitManagementFirstID + 1, exhibitManagementFirstID + 2, exhibitManagementFirstID + 0 },
+                { exhibitManagementFirstID + 2, exhibitManagementFirstID + 0, exhibitManagementFirstID + 1 },
+                { exhibitManagementFirstID + 2, exhibitManagementFirstID + 1, exhibitManagementFirstID + 0 },
+                { exhibitManagementFirstID + 0, exhibitManagementFirstID + 1, exhibitManagementFirstID + 3 },
+                { exhibitManagementFirstID + 0, exhibitManagementFirstID + 3, exhibitManagementFirstID + 1 },
+                { exhibitManagementFirstID + 1, exhibitManagementFirstID + 0, exhibitManagementFirstID + 3 },
+                { exhibitManagementFirstID + 1, exhibitManagementFirstID + 3, exhibitManagementFirstID + 0 },
+                { exhibitManagementFirstID + 3, exhibitManagementFirstID + 1, exhibitManagementFirstID + 0 },
+                { exhibitManagementFirstID + 3, exhibitManagementFirstID + 0, exhibitManagementFirstID + 1 } };
         try {
             return new ExhibitionPlan(testExhibionPlan, exhibitManagement);
         } catch (Exception e) {
