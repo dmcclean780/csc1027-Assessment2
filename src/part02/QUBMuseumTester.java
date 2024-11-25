@@ -65,6 +65,7 @@ public class QUBMuseumTester {
                         // For unexpected crashes, print the stack trace
                         System.err.println("The program crashed with an exception:");
                         e.printStackTrace();
+                        // Write inputs and the output from QUBMuseum to test files in the event of unexpected crashes
                         writeFile("input_sequence.txt", randomInput);
                         writeFile("debug_Output.txt", result.toString());
                         allPassed = false;
@@ -86,7 +87,10 @@ public class QUBMuseumTester {
 
     /**
      * Generates a random string of input for testing.
-     *
+     * 
+     * Created with assitance from ChatGPT-4o
+     * 24/11/2024
+     * 
      * @param length The length of the input string to generate.
      * @return A random string representing fuzzed user input.
      */
