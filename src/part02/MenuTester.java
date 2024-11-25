@@ -12,6 +12,7 @@ public class MenuTester {
         System.out.println();
         allPassed &= testGetUserChoice();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

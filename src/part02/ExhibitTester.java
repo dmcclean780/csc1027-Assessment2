@@ -23,6 +23,7 @@ public class ExhibitTester {
         allPassed &= testFindArtifactIndex();
         allPassed &= testGetRouteArray();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

@@ -6,7 +6,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -44,7 +43,7 @@ public class QUBMuseumTester {
 
                 try {
                     // Generate random input and pass it to the QUBMuseum application
-                    randomInput = generateRandomInput(1_000_000); // Generate 1 billion characters of random input
+                    randomInput = generateRandomInput(1_000_000); // Generate 1 million characters of random input
                     InputStream inputStream = new ByteArrayInputStream(randomInput.getBytes());
 
                     // Redirect System.in to the random input stream
@@ -110,6 +109,12 @@ public class QUBMuseumTester {
         return inputBuilder.toString();
     }
 
+    /**
+     * Copied from Canvas Example Code
+     * Fun.java
+     * @param filename
+     * @param contents
+     */
     public static void writeFile(String filename, String contents) {
         // Try-with-resources to ensure the BufferedWriter is closed properly
         try (BufferedWriter bw = Files.newBufferedWriter(Paths.get(filename))) {

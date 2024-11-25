@@ -31,6 +31,7 @@ public class ArtifactManagementTester {
         allPassed &= testGetArtifactNames();
         allPassed &= testGetExhibitEngagmentTime();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

@@ -17,6 +17,7 @@ public class ArtifactTester {
         allPassed &= testSetEngagementTime();
         allPassed &= testToString();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

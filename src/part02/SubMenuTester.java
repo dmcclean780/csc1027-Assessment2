@@ -13,6 +13,7 @@ public class SubMenuTester {
         allPassed &= testConstructor();
         allPassed &= testGetType();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

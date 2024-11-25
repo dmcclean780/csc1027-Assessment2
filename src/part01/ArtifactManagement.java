@@ -56,7 +56,7 @@ public class ArtifactManagement {
 
     /**
      * Get the ID of an artifact at a specific index inn the Array
-     * @param artifactChoice
+     * @param artifactChoice index of artifact in artifactArray
      * @return artifact ID
      * @throws Exception if artifact chosen is outside the range of the Array
      */
@@ -86,10 +86,10 @@ public class ArtifactManagement {
 
     /**
      * Update the properties of an artifact at a chosen index in the array
-     * @param artifactChoice
-     * @param name
-     * @param type
-     * @param engagementTime
+     * @param artifactChoice index of artifact in artifactArray
+     * @param name -> "" will leave unchanged
+     * @param type -> "" will leave unchanged
+     * @param engagementTime -> "" will leave unchanged
      * @return boolean if update was successful
      */
     public boolean updateArtifact(int artifactChoice, String name, String type, String engagementTime){
@@ -113,7 +113,7 @@ public class ArtifactManagement {
 
     /**
      * Get the String form of an Artifact at an index in the Array
-     * @param artifactChoice
+     * @param artifactChoice index of artifact in artifactArray
      * @return
      */
     public String getArtifactString(int artifactChoice){

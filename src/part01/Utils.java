@@ -4,6 +4,12 @@ import java.util.ArrayList;
 
 public class Utils {
     
+    /**
+     * joins two arrays
+     * @param a first array
+     * @param b second array
+     * @return array a then array b as one array
+     */
     public static String[] concat(String[] a, String[] b) {
         if(a == null){
             return b;
@@ -21,6 +27,12 @@ public class Utils {
         return c;
     }
 
+    /**
+     * Checks if an ArrayList contains a given value
+     * @param i value to look for
+     * @param list to look in
+     * @return true if found
+     */
     public static boolean contains(int i, ArrayList<Integer> list){
         if(list == null ){
             return false;
@@ -33,6 +45,12 @@ public class Utils {
         return false;
     }
 
+    /**
+     * Checks if an array contains a value
+     * @param i value to look for
+     * @param list array to look in
+     * @return true if found
+     */
     public static boolean contains(int i, int[] list){
         if(list == null ){
             return false;

@@ -33,6 +33,7 @@ public class ExhibitionPlanTester {
         allPassed &= testAddExhibitsToMonth();
         allPassed &= testAddExhibitsToHall();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

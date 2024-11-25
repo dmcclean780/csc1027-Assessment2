@@ -14,6 +14,7 @@ public class MonthsTester {
         allPassed &= testGetById();
         allPassed &= testToArray();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
 
     }
 

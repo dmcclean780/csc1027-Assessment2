@@ -11,6 +11,7 @@ public class UtilsTester {
         allPassed &= testArrayListContains();
         allPassed &= testArrayContains();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**

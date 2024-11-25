@@ -40,6 +40,7 @@ public class ExhibitManagementTester {
         allPassed &= testGetExhibitID();
         allPassed &= testAnyDuplicateArtifacts();
         System.out.println("All Features Passed: " + allPassed);
+        System.out.println();
     }
 
     /**
@@ -1047,10 +1048,11 @@ public class ExhibitManagementTester {
             ArrayList<Exhibit> expectedResult = new ArrayList<>();
             expectedResult.add(a0);
             expectedResult.add(a1);
+            expectedResult.add(a2);
             expectedResult.add(a3);
-            expectedResult.add(a4);
+          
 
-            int artifactChoice = 2;
+            int artifactChoice = exhibitsCreated;
             String scenario = "normal use";
 
             allPassed &= ExhibitManagementTestCases.removeExhibitTestCase(testExhibitManagement, artifactChoice,
