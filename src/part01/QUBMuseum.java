@@ -1179,6 +1179,9 @@ public class QUBMuseum {
         }
     }
 
+    /**
+     * populate artifactManagement with the default artifacts
+     */
     private void popArtifacts() {
         try {
             this.artifactManagement = new ArtifactManagement(DefaultData.populateArtifacts());
@@ -1187,6 +1190,9 @@ public class QUBMuseum {
         }
     }
 
+    /**
+     * populate exhibitManagement with the default exhibits
+     */
     private void popExhibits() {
         try {
             this.exhibitManagement = new ExhibitManagement(DefaultData.populateExhibits());
@@ -1195,6 +1201,9 @@ public class QUBMuseum {
         }
     }
 
+    /**
+     * Populate exhibitionPlan with the default exhibits
+     */
     private void popPlan() {
         try {
             this.exhibitionPlan = new ExhibitionPlan(DefaultData.populateExhibitionPlan(), exhibitManagement);
