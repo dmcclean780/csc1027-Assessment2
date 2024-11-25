@@ -12,9 +12,9 @@ public class ExhibitManagement {
         this.exhibitArray = exhibitsToArray();
     }
 
-    public ExhibitManagement(ArrayList<Exhibit> exhibits) throws Exception{
+    public ExhibitManagement(ArrayList<Exhibit> exhibits) throws Exception {
         for (Exhibit exhibit : exhibits) {
-            if(exhibit == null){
+            if (exhibit == null) {
                 throw new Exception("exhibits cannot contain null");
             }
         }
@@ -104,7 +104,7 @@ public class ExhibitManagement {
             case 2:
                 for (int i = 0; i < this.exhibitArray.length; i++) {
                     String exhibitName = this.exhibitArray[i].getName();
-                    if (exhibitName.contains(searchValue)) {
+                    if (exhibitName.toLowerCase().contains(searchValue.toLowerCase())) {
                         searchResults.add(this.exhibitArray[i]);
                     }
                 }
@@ -129,10 +129,18 @@ public class ExhibitManagement {
     }
 
     public String getExhibitString(int exhibitChoice, ArtifactManagement artifactManagement) {
-        Exhibit exhibit = this.exhibitArray[exhibitChoice];
 
-        String[] artifactNames = artifactManagement.getArtifactNames(exhibit.getArtifactsID());
-        int totalEngagementTime = artifactManagement.getExhibitEngagmentTime(exhibit.getArtifactsID());
+        Exhibit exhibit = null;
+        try {
+            exhibit = this.exhibitArray[exhibitChoice];
+        } catch (Exception e) {
+            return "exhibit choice out of range";
+        }
+
+        String[] artifactNames = (artifactManagement == null) ? new String[0]
+                : artifactManagement.getArtifactNames(exhibit.getArtifactsID());
+        int totalEngagementTime = (artifactManagement == null) ? 0
+                : artifactManagement.getExhibitEngagmentTime(exhibit.getArtifactsID());
 
         String[] routeArray = exhibit.getRouteArray();
 
@@ -150,15 +158,29 @@ public class ExhibitManagement {
         }
         exhibitString += "\nTotal Engagement Time: " + totalEngagementTime + " minutes\n";
         return exhibitString;
+
     }
 
-    public void removeExhibit(int exhibitChoice) {
-        this.exhibits.remove(exhibitChoice);
+    public boolean removeExhibit(int exhibitChoice) {
+        try {
+            this.exhibits.remove(exhibitChoice);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public String[] getExhibitArtifactNames(int exhibitChoice, ArtifactManagement artifactManagement) {
-        Exhibit exhibit = this.exhibitArray[exhibitChoice];
-        Artifact[] artifactArray = artifactManagement.getExhibitArtifacts(exhibit.getArtifactsID());
+        Exhibit exhibit = null;
+        try {
+            exhibit = this.exhibitArray[exhibitChoice];
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return new String[0];
+        }
+
+        Artifact[] artifactArray = (artifactManagement == null) ? new Artifact[0]
+                : artifactManagement.getExhibitArtifacts(exhibit.getArtifactsID());
         String[] artifactNames = new String[artifactArray.length];
         for (int i = 0; i < artifactArray.length; i++) {
             artifactNames[i] = artifactArray[i].getName();
@@ -174,39 +196,60 @@ public class ExhibitManagement {
     }
 
     public int getArtifactNumber(int exhibitChoice) {
-        Exhibit exhibit = this.exhibitArray[exhibitChoice];
-        return exhibit.getArtifactsID().size();
+        try {
+            Exhibit exhibit = this.exhibitArray[exhibitChoice];
+            return exhibit.getArtifactsID().size();
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return -1;
+        }
     }
 
     public ArrayList<String> getExhibitRoute(int exhibitChoice) {
-        Exhibit exhibit = this.exhibitArray[exhibitChoice];
-        return exhibit.getRoute();
+        try {
+            Exhibit exhibit = this.exhibitArray[exhibitChoice];
+            return exhibit.getRoute();
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return new ArrayList<>();
+        }
     }
 
     public ArrayList<Integer> getExhibitArtifacts(int exhibitChoice) {
-        Exhibit exhibit = this.exhibitArray[exhibitChoice];
-        return exhibit.getArtifactsID();
+        try {
+            Exhibit exhibit = this.exhibitArray[exhibitChoice];
+            return exhibit.getArtifactsID();
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return new ArrayList<>();
+        }
     }
 
     public ArrayList<Integer> getExhibitArtifactsByID(int exhibitID) {
-        for(int i=0; i<exhibitArray.length; i++){
-            if(exhibitArray[i].getID() == exhibitID){
+        for (int i = 0; i < exhibitArray.length; i++) {
+            if (exhibitArray[i].getID() == exhibitID) {
                 Exhibit exhibit = this.exhibitArray[i];
                 return exhibit.getArtifactsID();
             }
         }
         return new ArrayList<Integer>();
-       
-        
+
     }
 
     public boolean updateExhibit(int exhibitChoice, String name, ArrayList<Integer> artifacts,
             ArrayList<String> route) {
-        Exhibit exhibit = this.exhibitArray[exhibitChoice];
+
+        Exhibit exhibit = null;
+        try {
+            exhibit = this.exhibitArray[exhibitChoice];
+
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return false;
+        }
 
         try {
-            exhibit.setArtifactsID(artifacts);
-            exhibit.setRoute(route);
+            exhibit.setArtifactsAndRoute(artifacts, route);
             if (name != "") {
                 exhibit.setName(name);
             }
@@ -222,9 +265,9 @@ public class ExhibitManagement {
             Exhibit exhibit = exhibits.get(i);
             int artifactIndex = exhibit.findArtifactIndex(id);
             if (artifactIndex != -1) {
-                try{
+                try {
                     exhibit.removeArtifact(artifactIndex);
-                } catch(Exception e){
+                } catch (Exception e) {
                     removeArtifactsWithID(id); // Try Again
                 }
             }
@@ -233,6 +276,9 @@ public class ExhibitManagement {
     }
 
     public String[] getExhibitionExhibtNames(int[] exhibitIDs) {
+        if(exhibitIDs == null){
+            return new String[0];
+        }
         String[] exhibitNames = new String[exhibitIDs.length];
         for (int i = 0; i < exhibitIDs.length; i++) {
             for (int j = 0; j < this.exhibits.size(); j++) {
@@ -240,18 +286,41 @@ public class ExhibitManagement {
                     exhibitNames[i] = this.exhibits.get(j).getName();
                 }
             }
+            if(exhibitNames[i] == null){
+                exhibitNames[i] = "Exhibit not Found";
+            }
         }
         return exhibitNames;
     }
 
     public String[][] getExhibitionExhibtNames(int[][] exhibitIDs) {
-        String[][] exhibitNames = new String[exhibitIDs.length][exhibitIDs[0].length];
+        if(exhibitIDs == null){
+            return new String[0][0];
+        }
+        int m=-1;
+        for(int i=0; i<exhibitIDs.length; i++){
+            if(exhibitIDs[i] != null){
+                m=i;
+                break;
+            }
+        }
+        if(m==-1){
+            return new String[0][0];
+        }
+        String[][] exhibitNames = new String[exhibitIDs.length][exhibitIDs[m].length];
         for (int i = 0; i < exhibitIDs.length; i++) {
+            if(exhibitIDs[i] == null){
+                exhibitNames[i] = null;
+                continue;
+            }
             for (int j = 0; j < exhibitIDs[i].length; j++) {
                 for (int k = 0; k < this.exhibits.size(); k++) {
                     if (this.exhibits.get(k).getID() == exhibitIDs[i][j]) {
                         exhibitNames[i][j] = this.exhibits.get(k).getName();
                     }
+                }
+                if(exhibitNames[i][j] == null){
+                    exhibitNames[i][j] = "Exhibit not Found";
                 }
             }
 
@@ -269,7 +338,13 @@ public class ExhibitManagement {
     }
 
     public int getExhibitID(int choice) {
-        return this.exhibitArray[choice].getID();
+        try {
+            Exhibit exhibit = this.exhibitArray[choice];
+            return exhibit.getID();
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return -1;
+        }
     }
 
     public boolean anyDuplicateArtifcats(int[] exhibits) {
@@ -288,9 +363,9 @@ public class ExhibitManagement {
 
     public boolean anyDuplicateArtifcats(int[] ogExhibits, int newExhibit, int newExhibitLoc) {
         ArrayList<Integer> hallArtifacts = getExhibitArtifactsByID(newExhibit);
-        for (int i=0; i<ogExhibits.length; i++) {
+        for (int i = 0; i < ogExhibits.length; i++) {
             int exhibit = ogExhibits[i];
-            if(i == newExhibitLoc){
+            if (i == newExhibitLoc) {
                 continue;
             }
             ArrayList<Integer> exhibitArtifacts = getExhibitArtifactsByID(exhibit);
@@ -304,10 +379,9 @@ public class ExhibitManagement {
         return false;
     }
 
-
     @Override
     public String toString() {
-        return getExhibits().toString(); 
+        return getExhibits().toString();
     }
 
 }

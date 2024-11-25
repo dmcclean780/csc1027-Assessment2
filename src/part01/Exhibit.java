@@ -2,13 +2,14 @@ package part01;
 
 import java.util.ArrayList;
 
-public class Exhibit{
+public class Exhibit {
 
-    private final int ID;
-    private String name;
-    private ArrayList<Integer> artifactsID;
-    private ArrayList<String> route;
-    private static int nextID = 0;
+    private final int ID; // Unique ID
+    private String name; // Name of Exhibit -> Used in UI
+    private ArrayList<Integer> artifactsID; // List of artifact IDs in the order they are in the exhibit
+    private ArrayList<String> route; // List of Signs that correspond to the artifact at that index. i.e sign(1)
+                                     // matches artifact(1)
+    private static int nextID = 0; // the Unique ID of the next exhibit to be created
 
     /**
      * Constructor
@@ -55,6 +56,7 @@ public class Exhibit{
     }
 
     /**
+     * change the exhibit name
      * 
      * @param name
      */
@@ -71,6 +73,7 @@ public class Exhibit{
     }
 
     /**
+     * Change list of artifacts, must be same length
      * 
      * @param artifactsID
      * @throws Exception
@@ -95,6 +98,7 @@ public class Exhibit{
     }
 
     /**
+     * Change the Route, must be same length
      * 
      * @param route
      * @throws Exception
@@ -110,6 +114,32 @@ public class Exhibit{
         }
     }
 
+    /**
+     * Cahnge artifacts and route, new ones must both be the same length as each
+     * other
+     * 
+     * @param artifactsID
+     * @param route
+     * @throws Exception
+     */
+    public void setArtifactsAndRoute(ArrayList<Integer> artifactsID, ArrayList<String> route) throws Exception {
+        boolean valid = checkRouteAndArtifacts(route, artifactsID);
+        if (!valid) {
+            throw new Exception("route and artifacts not consistant");
+        }
+        this.artifactsID = new ArrayList<Integer>();
+        for (int i : artifactsID) {
+            this.artifactsID.add(i);
+        }
+        this.route = new ArrayList<String>();
+        for (String i : route) {
+            this.route.add(i);
+        }
+    }
+
+    /**
+     * Get String form of Exhibit, only includes name and ID
+     */
     public String toString() {
         return "ID: " + getID() + "\tName: " + getName();
     }
@@ -153,30 +183,45 @@ public class Exhibit{
         return true;
     }
 
-    
-
+    /**
+     * Remove an artifact at an index
+     * Will also remove the corrisponding sign
+     * @param i index to remove from
+     * @throws Exception if index is outside the range
+     */
     public void removeArtifact(int i) throws Exception {
-        if(i>0 && i<this.artifactsID.size()){
+        if (i >= 0 && i < this.artifactsID.size()) {
             this.artifactsID.remove(i);
             this.route.remove(i);
-            if(!checkArtifacts(this.artifactsID)){
+            if (!checkArtifacts(this.artifactsID)) {
                 throw new Exception("artifacts do not match route");
             }
         }
-        
+
     }
 
-    public void removeSign(int i) throws Exception{
-        if(i>0 && i<this.route.size()){
+    /**
+     * Remove an sign at an index
+     * Will also remove the corrisponding artifact
+     * @param i index to remove from
+     * @throws Exception if index is outside the range
+     */
+    public void removeSign(int i) throws Exception {
+        if (i > 0 && i < this.route.size()) {
             this.route.remove(i);
             this.artifactsID.remove(i);
-            if(!checkArtifacts(this.artifactsID)){
+            if (!checkArtifacts(this.artifactsID)) {
                 throw new Exception("route does not match artifacts");
             }
         }
 
     }
 
+    /**
+     * Find the index of an artifact based on it id
+     * @param id 
+     * @return index
+     */
     public int findArtifactIndex(Integer id) {
         for (int i = 0; i < this.artifactsID.size(); i++) {
             if (this.artifactsID.get(i) == id) {
@@ -187,6 +232,10 @@ public class Exhibit{
 
     }
 
+    /**
+     * Get a String[] of the route
+     * @return
+     */
     public String[] getRouteArray() {
         String[] routeArray = new String[this.route.size()];
         for (int i = 0; i < routeArray.length; i++) {
@@ -195,10 +244,12 @@ public class Exhibit{
         return routeArray;
     }
 
-    protected static void reset(){
+    /**
+     * Sets the nextID to 0
+     * Should not be used in production - only for testing
+     */
+    protected static void reset() {
         nextID = 0;
     }
-
-    
 
 }

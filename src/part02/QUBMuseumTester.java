@@ -1,8 +1,19 @@
 package part02;
 
+import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Random;
+
+import part01.Artifact;
+import part01.Exhibit;
 import part01.QUBMuseum;
 
 public class QUBMuseumTester {
@@ -10,30 +21,68 @@ public class QUBMuseumTester {
     private static final Random random = new Random();
 
     public static void main(String[] args) {
-        System.out.println("Starting QUBMuseum single long-input fuzz test...");
-
         try {
-            // Generate random input and pass it to the QUBMuseum application
-            String randomInput = generateRandomInput(1_000_000_000); // Generate 1 billion characters of random input
-            InputStream inputStream = new ByteArrayInputStream(randomInput.getBytes());
+            Method resetArtifact = Artifact.class.getDeclaredMethod("reset");
+            resetArtifact.setAccessible(true); // Bypass Java access control
+            resetArtifact.invoke(null);
 
-            // Redirect System.in to the random input stream
-            System.setIn(inputStream);
+            Method resetExhibit = Exhibit.class.getDeclaredMethod("reset");
+            resetExhibit.setAccessible(true); // Bypass Java access control
+            resetExhibit.invoke(null);
 
-            // Run the QUBMuseum application
-            QUBMuseum.main(new String[]{});
-        } catch (Exception e) {
-            // Handle exceptions
-            if (e.getMessage() != null && e.getMessage().equals("No line found")) {
-                System.out.println("End of input stream reached (expected).");
-            } else {
-                // For unexpected crashes, print the stack trace
-                System.err.println("The program crashed with an exception:");
-                e.printStackTrace();
+            System.out.println("Class in Test: QUBMuseum");
+            boolean allPassed = true;
+            for (int i = 0; i < 1000; i++) {
+                String randomInput = "";
+                PrintStream stdout = System.out;
+                ByteArrayOutputStream result = new ByteArrayOutputStream();
+                System.setOut(new PrintStream(result));
+
+                PrintStream sterr = System.err;
+                ByteArrayOutputStream err = new ByteArrayOutputStream();
+                System.setErr(new PrintStream(err));
+
+                try {
+                    // Generate random input and pass it to the QUBMuseum application
+                    randomInput = generateRandomInput(1_000_000); // Generate 1 billion characters of random input
+                    InputStream inputStream = new ByteArrayInputStream(randomInput.getBytes());
+
+                    // Redirect System.in to the random input stream
+                    System.setIn(inputStream);
+
+                    // Run the QUBMuseum application
+                    QUBMuseum.main(new String[] {});
+
+                    System.setOut(stdout);
+                    System.setErr(sterr);
+
+                    System.out.println("\tFuzz test Iteration " + (i + 1) + " Passed");
+                } catch (Exception e) {
+                    System.setOut(stdout);
+                    System.setErr(sterr);
+                    if (e.getMessage() != null && e.getMessage().equals("No line found")) {
+                        System.out.println("\tFuzz test Iteration " + (i + 1) + " Passed");
+                    } else {
+                        // For unexpected crashes, print the stack trace
+                        System.err.println("The program crashed with an exception:");
+                        e.printStackTrace();
+                        writeFile("input_sequence.txt", randomInput);
+                        writeFile("debug_Output.txt", result.toString());
+                        allPassed = false;
+                        break;
+                    }
+                } finally {
+                    System.setOut(stdout);
+                    System.setErr(sterr);
+                    resetArtifact.invoke(null);
+                    resetExhibit.invoke(null);
+                }
             }
-        }
 
-        System.out.println("Test completed. Check the output logs for any errors or crashes.");
+            System.out.println("All Iterations Passed: " + allPassed);
+        } catch (Exception e) {
+
+        }
     }
 
     /**
@@ -59,5 +108,17 @@ public class QUBMuseumTester {
 
         // Return the generated input as a string
         return inputBuilder.toString();
+    }
+
+    public static void writeFile(String filename, String contents) {
+        // Try-with-resources to ensure the BufferedWriter is closed properly
+        try (BufferedWriter bw = Files.newBufferedWriter(Paths.get(filename))) {
+            // Write the content of StringBuilder to the file
+            bw.write(contents);
+            System.out.println("File written successfully to " + filename);
+        } catch (IOException e) {
+            // Handle any I/O exceptions
+            System.err.format("IOException: %s%n", e);
+        }
     }
 }

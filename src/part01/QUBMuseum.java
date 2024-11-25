@@ -230,7 +230,7 @@ public class QUBMuseum {
         try{
             id = artifactManagement.getArtifactID(choice - 1);
             exhibitManagement.removeArtifactsWithID(id);
-            artifactManagement.removeArtifact(choice - 1);
+            artifactManagement.removeArtifact(id);
         } catch(Exception e){
             System.out.println("Artifact Choice Out Of Range");
         }
@@ -412,6 +412,7 @@ public class QUBMuseum {
 
         String name;
         while (true) {
+            input.nextLine();
             System.out.print("Enter Exhibit Name:");
             name = input.nextLine();
             if (name.length() < 40) {
@@ -532,8 +533,10 @@ public class QUBMuseum {
                     break;
                 }
                 try{
-                    if (!Utils.contains(artifactManagement.getArtifactID(artifactChoice - 1), exhibitArtifacts)) {
-                        exhibitArtifacts.add(artifactManagement.getArtifactArray()[artifactChoice - 1].getID());
+                    if (!Utils.contains(artifactManagement.getArtifactID(newArtifactChoice - 1), exhibitArtifacts)) {
+                        exhibitArtifacts.remove(artifactChoice-1);
+                        exhibitArtifacts.add(artifactChoice-1, artifactManagement.getArtifactArray()[newArtifactChoice - 1].getID());
+                        break;
                     } else {
                         System.out.println("Artifact Already in Exhibit");
                     }
@@ -568,13 +571,19 @@ public class QUBMuseum {
             int choice = annualPlanMenu.getUserChoice();
             switch (choice) {
                 case 1:
-                    exhibitionPlan = createAnnualPlan();
+                    ExhibitionPlan createdExhibitionPlan = createAnnualPlan();
+                    if(createdExhibitionPlan != null){
+                        exhibitionPlan = createdExhibitionPlan;
+                    }
                     break;
                 case 2:
                     viewAnnualPlan();
                     break;
                 case 3:
-                    exhibitionPlan = updateAnnualPlan();
+                    ExhibitionPlan updatedExhibitionPlan = updateAnnualPlan();
+                    if(updatedExhibitionPlan != null){
+                        exhibitionPlan = updatedExhibitionPlan;
+                    }
                     break;
                 case 4:
                     quit = true;
@@ -654,12 +663,16 @@ public class QUBMuseum {
                     System.out.println(exhibitionPlan.getMonthPlanString(exhibitManagement, month));
                     break;
                 case 3:
-                    String[] hallOptions = new String[exhibitionPlan.getNumberOfHalls()];
-                    for (int i = 0; i < hallOptions.length; i++) {
+                    String[] hallOptions = new String[exhibitionPlan.getNumberOfHalls() + 1];
+                    for (int i = 0; i < hallOptions.length-1; i++) {
                         hallOptions[i] = "Exhibit Hall " + i;
                     }
+                    hallOptions[hallOptions.length-1] = "Quit";
                     Menu hallMenu = new Menu("Choose Exhibit Hall", hallOptions);
                     int hall = hallMenu.getUserChoice();
+                    if(hall == hallOptions.length){
+                        break;
+                    }
                     System.out.println(exhibitionPlan.getHallPlanString(exhibitManagement, hall));
                     break;
                 case 4:

@@ -1,14 +1,14 @@
 package part01;
 
 public class Artifact{
-    private final int ID;
-    private String name;
-    private String type;
-    private int engagementTime;
+    private final int ID; // Unique ID
+    private String name; // Name String -> Used in menus
+    private String type; // Type String 
+    private int engagementTime; //Int that must be >0
     private static int nextID = 0;
 
     /**
-     * 
+     * Constructor for Artifact
      * @param name - name of the artifact
      * @param type - type of the artifact
      * @param engagementTime - int value of expected engagement time
@@ -29,7 +29,7 @@ public class Artifact{
     }
     
     /** 
-     * @return int
+     * @return unique ID of the Artifact object
      */
     public int getID() {
         return this.ID;
@@ -37,7 +37,7 @@ public class Artifact{
 
     
     /** 
-     * @return String
+     * @return String name of Artifact object
      */
     public String getName() {
         return this.name;
@@ -45,7 +45,7 @@ public class Artifact{
 
     
     /** 
-     * @param name
+     * @param name new name for the Artifact object
      */
     public void setName(String name) {
         this.name = name;
@@ -53,7 +53,7 @@ public class Artifact{
 
     
     /** 
-     * @return String
+     * @return String type of the Artifact object
      */
     public String getType() {
         return this.type;
@@ -61,7 +61,7 @@ public class Artifact{
 
     
     /** 
-     * @param type
+     * @param type new type for the Artifact object
      */
     public void setType(String type) {
         this.type = type;
@@ -69,7 +69,7 @@ public class Artifact{
 
     
     /** 
-     * @return int
+     * @return int EngagementTime for the Artifact object 
      */
     public int getEngagementTime() {
         return this.engagementTime;
@@ -77,7 +77,7 @@ public class Artifact{
 
     
     /** 
-     * @param engagementTime
+     * @param engagementTime for the Artifact object
      */
     public void setEngagementTime(int engagementTime) throws TimeIsNegativeException{
         if(engagementTime >0){
@@ -89,11 +89,18 @@ public class Artifact{
     }
 
 
+    /**
+     * Returns a one line String form of the Artifact object
+     */
     @Override
     public String toString() {
         return "ID: " + getID() +",\tName: "+getName()+",\tType: "+getType()+",\tEngagement Time: "+getEngagementTime()+" minutes";
     }
 
+    /**
+     * Sets the nextID to 0
+     * Should not be used in production - only for testing
+     */
     protected static void reset(){
         nextID = 0;
     }

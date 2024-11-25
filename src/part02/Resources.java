@@ -87,6 +87,30 @@ public class Resources {
     }
 
     /**
+     * Helper method to create an exhibit for testing
+     * 
+     * @return new Exhibit
+     */
+    public static Exhibit createTestExhibitWithName(int i) {
+        String testName = "test"+i;
+        ArrayList<Integer> testArtifacts = new ArrayList<>();
+        testArtifacts.add(0);
+        testArtifacts.add(1);
+        testArtifacts.add(2);
+        testArtifacts.add(3);
+        ArrayList<String> testRoute = new ArrayList<>();
+        testRoute.add("a");
+        testRoute.add("b");
+        testRoute.add("c");
+        testRoute.add("d");
+        try {
+            return new Exhibit(testName, testArtifacts, testRoute);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    /**
      * Helper Method to create Exhibit with random artifact IDs based on a seed
      * 
      * @param i
@@ -168,6 +192,25 @@ public class Resources {
         ArrayList<Exhibit> testExhibits = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             testExhibits.add(createTestExhibit(i));
+        }
+        exhibitManagementFirstID = testExhibits.get(0).getID();
+        try{
+            return new ExhibitManagement(testExhibits);
+        } catch(Exception e){
+            return null;
+        }
+    }
+
+     /**
+     * Helper method to create an Exhibit Managemnet filled with exhibits with
+     * the same artifacts
+     * 
+     * @return
+     */
+    public static ExhibitManagement createTestExhibitManagement(boolean duplicateArtifact) {
+        ArrayList<Exhibit> testExhibits = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            testExhibits.add(createTestExhibit());
         }
         exhibitManagementFirstID = testExhibits.get(0).getID();
         try{

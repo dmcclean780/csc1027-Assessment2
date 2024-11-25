@@ -471,6 +471,13 @@ public class DefaultData {
         }
     }
 
+    /**
+     * Creates a new Artifact with the provided parameters
+     * @param name
+     * @param Type
+     * @param engagementTime
+     * @return
+     */
     private static Artifact createArtifact(String name, String Type, int engagementTime) {
         try {
             return new Artifact(name, Type, engagementTime);
@@ -480,6 +487,13 @@ public class DefaultData {
         }
     }
 
+    /**
+     * Creates a new Exhibit with the provided paremters
+     * @param name
+     * @param artifactsID
+     * @param route
+     * @return
+     */
     private static Exhibit createExhibit(String name, ArrayList<Integer> artifactsID, ArrayList<String> route) {
         try {
             return new Exhibit(name, artifactsID, route);
@@ -489,7 +503,13 @@ public class DefaultData {
         }
     }
 
+    /**
+     * Creates an ArrayList of Artifacts using the large artifacts data set above
+     * @return
+     */
     public static ArrayList<Artifact> populateArtifacts() {
+        artifcats = new ArrayList<Artifact>();
+        
         for (int i = 0; i < artifactData.length; i++) {
             Artifact artifact = createArtifact(artifactData[i][0], artifactData[i][1],
                     Integer.valueOf(artifactData[i][2]));
@@ -498,7 +518,14 @@ public class DefaultData {
         return artifcats;
     }
 
+    /**
+     * Creates an array list of Exhibits using the large dataSet above
+     * @return
+     */
     public static ArrayList<Exhibit> populateExhibits() {
+        exhibits = new ArrayList<Exhibit>();
+        exhibitArtifacts = new ArrayList<>();;
+        exhibitRoutes = new ArrayList<>();;
         createAllExhibitData();
         for (int i = 0; i < exhibitNames.length; i++) {
             Exhibit exhibit = createExhibit(exhibitNames[i], exhibitArtifacts.get(i), exhibitRoutes.get(i));
@@ -507,6 +534,11 @@ public class DefaultData {
         return exhibits;
     }
 
+    /**
+     * Creates a 2D array of 12x3 filled with the numbers 0-35
+     * Matches the exhibit IDs created by populateExhibits
+     * @return
+     */
     public static int[][] populateExhibitionPlan() {
         int[][] exhibitionPlan = new int[12][3];
         int k = 0;

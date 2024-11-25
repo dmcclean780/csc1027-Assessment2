@@ -336,6 +336,10 @@ public class ArtifactManagementTester {
         return allPassed;
     }
 
+    /**
+     * Test Suit for updateArtifact method
+     * @return all tests passed
+     */
     public static boolean testUpdateArtifact() {
         System.out.println("\tFeature: ArtifactManagement updateArtifact");
         boolean allPassed = true;
@@ -832,7 +836,7 @@ public class ArtifactManagementTester {
             ArtifactManagement testArtifactManagement = Resources.createEmptyTestArtifactManagement();
 
             Artifact[] expectedResult = {};
-            String scenario = "normal use";
+            String scenario = "normal use, empty array";
 
             allPassed &= ArtifactManagementTestCases.sortArtifactArrayTestCase(testArtifactManagement, expectedResult,
                     scenario);
@@ -1155,10 +1159,11 @@ public class ArtifactManagementTester {
             ArrayList<Artifact> expectedResult = new ArrayList<>();
             expectedResult.add(a0);
             expectedResult.add(a1);
+            expectedResult.add(a2);
             expectedResult.add(a3);
-            expectedResult.add(a4);
+            
 
-            int artifactChoice = 2;
+            int artifactChoice = artifactsCreated;
             String scenario = "normal use";
 
             allPassed &= ArtifactManagementTestCases.removeArtifactTestCase(testArtifactManagement, artifactChoice,
@@ -1240,7 +1245,7 @@ public class ArtifactManagementTester {
             expectedResult.add(a3);
             expectedResult.add(a4);
 
-            int artifactChoice = 5;
+            int artifactChoice = artifactsCreated+10;
             String scenario = "out of range choice";
 
             allPassed &= ArtifactManagementTestCases.removeArtifactTestCase(testArtifactManagement, artifactChoice,
@@ -1256,7 +1261,7 @@ public class ArtifactManagementTester {
 
             ArrayList<Artifact> expectedResult = new ArrayList<>();
 
-            int artifactChoice = 2;
+            int artifactChoice = artifactsCreated;
             String scenario = "empty artifacts";
 
             allPassed &= ArtifactManagementTestCases.removeArtifactTestCase(testArtifactManagement, artifactChoice,

@@ -678,12 +678,12 @@ public class ArtifactManagementTestCases {
 
         PrintStream stdout = System.err;
         ByteArrayOutputStream error = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(error));
+        System.setErr(new PrintStream(error));
 
         Artifact[] result = testArtifactManagement.getExhibitArtifacts(exhibitArtifacts);
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        System.setOut(stdout);
+        System.setErr(stdout);
         if (!thisPassed) {
             System.err.println();
             System.err.println("Scenario:" + scenario);
@@ -782,12 +782,12 @@ public class ArtifactManagementTestCases {
 
         PrintStream stdout = System.err;
         ByteArrayOutputStream error = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(error));
+        System.setErr(new PrintStream(error));
 
         String[] result = testArtifactManagement.getArtifactNames(exhibitArtifacts);
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        System.setOut(stdout);
+        System.setErr(stdout);
 
         if (!thisPassed) {
             System.err.println();
@@ -817,12 +817,12 @@ public class ArtifactManagementTestCases {
 
         PrintStream stdout = System.err;
         ByteArrayOutputStream error = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(error));
+        System.setErr(new PrintStream(error));
 
         int result = testArtifactManagement.getExhibitEngagmentTime(exhibitArtifacts);
         boolean thisPassed = result == expectedResult;
 
-        System.setOut(stdout);
+        System.setErr(stdout);
 
         if (!thisPassed) {
             System.err.println();

@@ -4,6 +4,12 @@ import part01.Artifact;
 import part01.Exhibit;
 
 public class ArraysMethods {
+
+    /**
+     * converts a String[] to a String
+     * @param array
+     * @return String form
+     */
     public static String toString(String[] array){
         if(array == null ){
             return "null";
@@ -24,6 +30,11 @@ public class ArraysMethods {
         return str.substring(0,str.length()-2)+']';
     }
 
+    /**
+     * converts a Artifact[] to a String
+     * @param array
+     * @return String form
+     */
     public static String toString(Artifact[] array){
         if(array == null ){
             return "null";
@@ -44,6 +55,11 @@ public class ArraysMethods {
         return str.substring(0,str.length()-2)+']';
     }
 
+    /**
+     * converts a Exhibit[] to a String
+     * @param array
+     * @return String form
+     */
     public static String toString(Exhibit[] array){
         if(array == null ){
             return "null";
@@ -64,6 +80,11 @@ public class ArraysMethods {
         return str.substring(0,str.length()-2)+']';
     }
 
+    /**
+     * converts a int[] to a String
+     * @param array
+     * @return String form
+     */
     public static String toString(int[] array){
         if(array == null ){
             return "null";
@@ -78,6 +99,12 @@ public class ArraysMethods {
         return str.substring(0,str.length()-2)+']';
     }
 
+    /**
+     * compares if 2 String[] are identiacal
+     * @param arr1
+     * @param arr2
+     * @return true if equal
+     */
     public static boolean equals(String[] arr1, String[] arr2){
         if(arr1 == null || arr2 == null){
             if(arr1 == null && arr2==null){
@@ -101,6 +128,12 @@ public class ArraysMethods {
         return equal;
     }
 
+    /**
+     * compares if 2 int[] are identiacal
+     * @param arr1
+     * @param arr2
+     * @return true if equal
+     */
     public static boolean equals(int[] arr1, int[] arr2){
         if(arr1 == null || arr2 == null){
             if(arr1 == null && arr2==null){
@@ -119,6 +152,12 @@ public class ArraysMethods {
         return equal;
     }
 
+    /**
+     * compares if 2 Artifact[] are identiacal
+     * @param arr1
+     * @param arr2
+     * @return true if equal
+     */
     public static boolean equals(Artifact[] arr1, Artifact[] arr2){
         if(arr1 == null || arr2 == null){
             if(arr1 == null && arr2==null){
@@ -151,6 +190,12 @@ public class ArraysMethods {
         return equal;
     }
 
+    /**
+     * compares if 2 Exhibit[] are identiacal
+     * @param arr1
+     * @param arr2
+     * @return true if equal
+     */
     public static boolean equals(Exhibit[] arr1, Exhibit[] arr2){
         if(arr1 == null || arr2 == null){
             if(arr1 == null && arr2==null){
@@ -183,6 +228,12 @@ public class ArraysMethods {
         return equal;
     }
 
+    /**
+     * compares if 2 int[][] are identiacal
+     * @param arr1
+     * @param arr2
+     * @return true if equal
+     */
     public static boolean deepEquals(int[][] arr1, int[][] arr2){
         if(arr1 == null || arr2 == null){
             if(arr1 == null && arr2==null){
@@ -212,6 +263,12 @@ public class ArraysMethods {
         return true;
     }
 
+    /**
+     * compares if 2 String[][] are identiacal
+     * @param arr1
+     * @param arr2
+     * @return true if equal
+     */
     public static boolean deepEquals(String[][] arr1, String[][] arr2){
         if(arr1 == null || arr2 == null){
             if(arr1 == null && arr2==null){
@@ -227,8 +284,9 @@ public class ArraysMethods {
                 if(!(arr1[i] == null && arr2[i] ==null)){
                     return false;
                 }
+                continue;
             }
-            if(arr1[i].length != arr2[i].length){
+            else if(arr1[i].length != arr2[i].length){
                 return false;
             }
             for(int j=0; j<arr1[i].length; j++){
@@ -241,6 +299,12 @@ public class ArraysMethods {
         return true;
     }
 
+    /**
+     * converts an int[][] to a String
+     * @param arr1
+     * @param arr2
+     * @return String form
+     */
     public static String deepToString(int[][] arr){
         if(arr == null ){
             return "null";
@@ -250,11 +314,17 @@ public class ArraysMethods {
         }
         String str = "[ ";
         for (int[] subArr : arr) {
-            if(subArr.length==0){
+            if( subArr == null ||subArr.length==0 ){
+                if(subArr == null){
+                    str+="null, ";
+                    continue;
+                }
+                str+="null, ";
                 if(subArr.length == 0){
                     str+="[], ";
                     continue;
                 }
+                
             }
             str+="[";
             for (int i : subArr) {
@@ -265,6 +335,11 @@ public class ArraysMethods {
         return str.substring(0,str.length()-2)+']';
     }
 
+    /**
+     * converts a String[][] to a String
+     * @param arr
+     * @return String form
+     */
     public static String deepToString(String[][] arr){
         if(arr == null ){
             return "null";
@@ -274,9 +349,17 @@ public class ArraysMethods {
         }
         String str = "[";
         for (String[] subArr : arr) {
-            if(subArr.length == 0){
-                str+="[], ";
-                continue;
+            if( subArr == null ||subArr.length==0 ){
+                if(subArr == null){
+                    str+="null, ";
+                    continue;
+                }
+                str+="null, ";
+                if(subArr.length == 0){
+                    str+="[], ";
+                    continue;
+                }
+                
             }
             str+="[";
             for (String i : subArr) {
