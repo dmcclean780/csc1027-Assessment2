@@ -3,7 +3,7 @@ package part01;
 import java.util.Scanner;
 
 public class Menu {
-	private String items[];
+	private String[] items;
 	private String title;
 	private Scanner input;
 

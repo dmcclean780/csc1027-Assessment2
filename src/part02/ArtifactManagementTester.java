@@ -738,22 +738,12 @@ public class ArtifactManagementTester {
          * Normal Use
          */
         {
-            Artifact a0 = Resources.createTestArtifact();
-            artifactsCreated++;
-            Artifact a1 = Resources.createTestArtifact();
-            artifactsCreated++;
-            Artifact a2 = Resources.createTestArtifact();
-            artifactsCreated++;
-            Artifact a3 = Resources.createTestArtifact();
-            artifactsCreated++;
-            Artifact a4 = Resources.createTestArtifact();
-            artifactsCreated++;
-
-            Artifact[] testArray = { a0, a1, a2, a3, a4 };
-            String[] expectedResult = { "test", "test", "test", "test", "test" };
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            artifactsCreated+=10;
+            String[] expectedResult = { "test", "test", "test", "test", "test", "test", "test", "test", "test", "test" };
             String scenario = "normal use";
 
-            allPassed &= ArtifactManagementTestCases.artifactArrayToNameArrayTestCase(testArray, expectedResult,
+            allPassed &= ArtifactManagementTestCases.artifactArrayToNameArrayTestCase(testArtifactManagement, expectedResult,
                     scenario);
         }
 
@@ -762,24 +752,11 @@ public class ArtifactManagementTester {
          */
         {
 
-            Artifact[] testArray = {};
+            ArtifactManagement testArtifactManagement = Resources.createEmptyTestArtifactManagement();
             String[] expectedResult = {};
             String scenario = "empty array";
 
-            allPassed &= ArtifactManagementTestCases.artifactArrayToNameArrayTestCase(testArray, expectedResult,
-                    scenario);
-        }
-
-        /**
-         * null array
-         */
-        {
-
-            Artifact[] testArray = null;
-            String[] expectedResult = null;
-            String scenario = "empty array";
-
-            allPassed &= ArtifactManagementTestCases.artifactArrayToNameArrayTestCase(testArray, expectedResult,
+            allPassed &= ArtifactManagementTestCases.artifactArrayToNameArrayTestCase(testArtifactManagement, expectedResult,
                     scenario);
         }
 

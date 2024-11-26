@@ -5,6 +5,11 @@ import java.util.ArrayList;
 public class Utils {
     
     /**
+     * Prevents Instatiation
+     */
+    private Utils(){}
+
+    /**
      * joins two arrays
      * @param a first array
      * @param b second array

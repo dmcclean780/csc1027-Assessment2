@@ -7,6 +7,11 @@ public class DefaultData {
     private static ArrayList<Exhibit> exhibits = new ArrayList<Exhibit>();
 
     /**
+     * Prevents Instatiation
+     */
+    private DefaultData(){}
+
+    /**
      * Created by ChatGPT
      * Version: GPT-4o
      * Used to Create the large test data

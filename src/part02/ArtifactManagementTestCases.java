@@ -511,16 +511,16 @@ public class ArtifactManagementTestCases {
      * @param scenario
      * @return passed
      */
-    public static boolean artifactArrayToNameArrayTestCase(Artifact[] testArray, String[] expectedResult,
+    public static boolean artifactArrayToNameArrayTestCase(ArtifactManagement testArtifactManagement, String[] expectedResult,
             String scenario) {
-        String[] result = ArtifactManagement.artifactArrayToNameArray(testArray);
+        String[] result = testArtifactManagement.artifactArrayToNameArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
         if (!thisPassed) {
             System.err.println();
             System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testArray is " + ArraysMethods.toString(testArray));
-            System.err.println("When: artifactsToArray called with " + ArraysMethods.toString(testArray));
+            System.err.println("Given: testArtifactManagement is " + testArtifactManagement);
+            System.err.println("When: artifactsToArray called ");
             System.err.println("Then: output is: \n" + ArraysMethods.toString(expectedResult));
             System.err.println("Passed: " + thisPassed);
             System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));

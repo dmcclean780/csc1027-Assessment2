@@ -131,7 +131,7 @@ public class ArtifactManagement {
      * @return Menu of Artifacts
      */
     public Menu artifactsMenu() {
-        String[] artifactNames = artifactArrayToNameArray(artifactArray);
+        String[] artifactNames = artifactArrayToNameArray();
         String[] quit = { "Search", "Clear", "Quit" };
         String[] artifactOptions = Utils.concat(artifactNames, quit);
         Menu artifactMenu = new Menu("Artifacts", artifactOptions);
@@ -168,7 +168,7 @@ public class ArtifactManagement {
      * @param artifactArray
      * @return
      */
-    public static String[] artifactArrayToNameArray(Artifact[] artifactArray) {
+    public String[] artifactArrayToNameArray() {
         if(artifactArray == null){
             return null;
         }

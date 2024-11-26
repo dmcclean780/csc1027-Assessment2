@@ -1,0 +1,231 @@
+@startuml
+skinparam linetype ortho
+
+enum Months{
+    JANUARY
+    FEBRUARY
+    MARCH
+    APRIL
+    MAY
+    JUNE
+    JULY
+    AUGUST
+    SEPTEMBER
+    OCTOBER
+    NOVEMBER
+    DECEMBER
+    -{static} array: String[]
+
+    -Months(String, int)
+    +toString(): String
+    +getID(): int
+    {static} +get(String): Months
+    {static} +get(int): Months
+    {static} +toArray(): String[]
+}
+
+class Artifact{
+    - ID: int
+    - name: String
+    - type String
+    - engagementTime: int
+    {static} -nextID: int
+
+    + Artifact(String, String, int)
+    + getID(): int
+    + getName(): String
+    + setName(String)
+    + getType(): String
+    + setType(String)
+    + getEngagementTime(): int
+    + setEngagementTime(int)
+    + toString(): String
+    # reset()
+}
+
+class Exhibit{
+    - ID: int
+    - name: String
+    - articfactsID: ArrayList<Integer>
+    - route: ArrayList<String>
+    {static} - nextID: int
+
+    + Exhibit(String, ArrayList<Integer>, ArrayList<String>)
+    + getID(): int
+    + getName(): String
+    + setName(): String
+    + getArtifactsID(): ArrayList<Integer>
+    + setArtifactsID(ArrayList<Integer>)
+    + getRoute(): ArrayList<String>
+    + setRoute(ArrayList<String>)
+    + setArtifactsAndRoute(ArrayList<Integer>, ArrayList<String>)
+    + toString(): String
+    - checkRoute(ArrayList<String>): boolean
+    - checkArtifacts(ArrayList<Integer>): boolean
+    - checkRouteAndArtifacts(ArrayList<Integer>, ArrayList<String>): boolean
+    + removeArtifact(int)
+    + removeSign(int)
+    + findArtifactIndex(Integer): int
+    + getRouteArray(): string[]
+    # reset()
+}
+
+class ExhibitionPlan{
+    - exhibitionPlan: int[][]
+
+    + ExhibitionPlan(int[][], ExhibitManagement)
+    + addExhibit(int, int, int, ExhibitManagement)
+    + addExhibit(int, String, int, ExhibitManagement)
+    + addExhibit(int, Months, int, ExhibitManagement)
+    + addExhibitsToMonth(int[], int)
+    + addExhibitsToMonth(int[], String)
+    + addExhibitsToMonth(int[], Months)
+    + addExhibitsToHall(int[], int)
+    + getExhibitionPlan(): int[][]
+    + getExhibitInMonth(Months): int[]
+    + getExhibitInMonth(String): int[]
+    + getExhibitInMonth(int): int[]
+    + getExhibitsInHall(int): int[]
+    + getExhibitNames(ExhibitManagement): String[][]
+    + getExhibitNamesString(int[], ExhibitManagement): String[]
+    + getExhibitNamesInMonth(ExhibitManagement, int): String[]
+    + getExhibitNamesInMonth(ExhibitManagement, Months): String[]
+    + getExhibitNamesInMonth(ExhibitManagement, String): String[]
+    + getExhibitNamesInHall(ExhibitManagement, int): String[]
+    + getPlanString(ExhibitManagement): String
+    + getMonthPlanString(ExhibitManagement, int): String
+    + getMonthPlanString(ExhibitManagement, String): String
+    + getMonthPlanString(ExhibitManagement, Months): String
+    + getHallPlanString(ExhibitManagement, int): String
+    + getNumberOfHalls(): int   
+}
+
+class Menu{
+    - items: String[]
+    - title: String
+    - input: Scanner
+
+    + Menu(String, String[])
+    - display()
+    + getUserChoice(): int
+}
+
+class SubMenu{
+    - type: String
+
+    + SubMenu(String)
+    + getType(): String
+}
+
+class Utils{
+    - Utils()
+    {static} + concat(String[], String[]): String[]
+    {static} + contains(int, ArrayList<Integer>): boolean
+    {static} + conatins(int, int[]): boolean
+}
+
+exception TimeIsNegativeException{
+    + TimeIsNegativeException()
+    + TimeIsNegativeException(String)
+}
+
+class ExhibitManagement{
+    - exhibits: ArrayList<Exhibit>
+    - exhibitArray: Exhibit[]
+
+    + ExhibitManagement()
+    + ExhibitManagement(ArrayList<Exhibit>)
+    + getExhibits(): ArrayList<Exhibit>
+    + getExhibitArray(): Exhibit[]
+    + getExhibitArrayLength(): int
+    + addExhibit(String, ArrayList<Integer>, ArrayList<String>): boolean
+    + exhibitsMenu(): Menu
+    + exhibitsToArray(): Exhibit[]
+    {static} + exhibitsToArray(ArrayList<Exhibit>): Exhibit[]
+    + exhibitArrayToNameArray(): String[]
+    + sortExhibitArray()
+    + searchExhibits(int, String): boolean
+    + refreshExhibitArray()
+    + getExhibitMenu(): Menu
+    + getExhibitString(int, ArtifactManagement): String
+    + removeExhibit(int): boolean
+    + getExhibitArtifactNames(int, ArtifactManagement): String[]
+    + getExhibitArtifactMenu(int, ArtifactManagement): Menu
+    + getArtifactNumber(int): int
+    + getExhibitRoute(int): ArrayList<String>
+    + getExhibitArtifacts(int): ArrayList<Integer>
+    + getExhibitArtifactsByID(int): ArrayList<Integer>
+    + updateExhibit(int, String, ArrayList<Integer>, ArrayList<String>): boolean
+    + removeArtifactsWithID(int)
+    + getExhibitionExhibtNames(int[]): String[]
+    + getExhibitionExhibtNames(int[][]): String[][]
+    + findExhibit(int): Exhibit
+    + getExhibitID(int): int
+    + anyDuplicateArtifcats(int[]): boolean
+    + anyDuplicateArtifcats(int[], int, int): boolean
+    + toString(): String
+}
+
+class ArtifactManagement{
+    - artifacts: ArrayList<Artifact>
+    - artifactArray: Artifact[]
+    
+    + ArtifactManagement()
+    + ArtifactManagement(ArrayList<Artifact)
+    + getArtifacts(): ArrayList<Artifact>
+    + getArtifactArray(): Artifact[]
+    + getArtifactArrayLength(): int
+    + getArtifactID(int): int
+    + addArtifact(String, String, int): boolean
+    + updateArtifact(int, String, String, String): boolean
+    + getArtifactString(int): String
+    + artifactsMenu(): Menu
+    + artifactsToArray(): Artifact[]
+    {static} artifactsToArray(ArrayList<Artifact>): Artifact[]
+    + artifactArrayToNameArray(): String[]
+    + sortArtifactArray()
+    + searchArtifacts(int, String): boolean
+    + refreshArtifactArray()
+    + getArtifactMenu(): Menu
+    + removeArtifact(int): boolean
+    + getExhibitArtifacts(ArrayList<Integer>): Artifact[]
+    + findartifact(int): Artifact
+    + getArtifactNames(ArrayList<Integer>): String[]
+    + getExhibitEngagmentTime(ArrayList<Integer>): int
+    + toString(): String
+}
+
+class DefaultData{
+    {static} - artifacts: ArrayList<Artifact>
+    {static} - exhibits: ArrayList<Exhibit>
+    {static} - artifactData: String[][]
+    {static} - exhibitNames: String[]
+    {static} - exhibitArtifacts: ArrayList<ArrayList<Integers>>
+    {static} - exhibitRoutes: ArrayList<ArrayList<String>>
+
+    - DefaultData()
+    {static} - createAllExhibitData()
+    {static} - createArtifact(String, String, int): Artifact
+    {static} - createExhibit(String, ArrayList<Integer>, ArrayList<String>): Exhibit
+    {static} + populateArtifacts(): ArrayList<Artifact>
+    {static} + populateExhibits(): ArrayList<Exhibit>
+    {static} populateExhibitionPlan(): int[][]
+}
+
+Artifact -> TimeIsNegativeException
+
+Menu <|-- SubMenu
+
+ExhibitManagement *--> "0..*" Exhibit
+ExhibitManagement -> Utils
+ExhibitManagement -> Menu
+ExhibitManagement --> "1..1" ArtifactManagement
+
+ExhibitionPlan -left> Months
+ExhibitionPlan -> "1..1" ExhibitManagement
+
+ArtifactManagement -> Utils
+ArtifactManagement --> Menu
+ArtifactManagement *--> "0..*" Artifact
+
+@enduml
