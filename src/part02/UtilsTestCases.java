@@ -20,18 +20,18 @@ public class UtilsTestCases {
         boolean result = Utils.contains(searchInt, testArray);
         boolean thisPassed = result == expectedResult;
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario: " + scenario);
-            System.err.println("Given: list is " + ArraysMethods.toString(testArray));
-            System.err.println("And: search term is " + searchInt);
-            System.err.println("When: contains() is called");
-            System.err.println("Then: result is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
+            System.err.println("\t\tScenario: " + scenario);
+            System.err.println("\t\tGiven: list is " + ArraysMethods.toString(testArray));
+            System.err.println("\t\tAnd: search term is " + searchInt);
+            System.err.println("\t\tWhen: contains() is called");
+            System.err.println("\t\tThen: result is " + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value: " + expectedResult);
+            System.err.println("\t\tGiven Value: " + result);
             System.err.println();
-        }
+       // }
     
         return thisPassed;
     }
@@ -50,18 +50,18 @@ public class UtilsTestCases {
         boolean result = Utils.contains(searchInt, testArrayList);
         boolean thisPassed = result == expectedResult;
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario: " + scenario);
-            System.err.println("Given: list is " + testArrayList);
-            System.err.println("And: search term is " + searchInt);
-            System.err.println("When: contains() is called");
-            System.err.println("Then: result is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
+            System.err.println("\t\tScenario: " + scenario);
+            System.err.println("\t\tGiven: list is " + testArrayList);
+            System.err.println("\t\tAnd: search term is " + searchInt);
+            System.err.println("\t\tWhen: contains() is called");
+            System.err.println("\t\tThen: result is " + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value: " + expectedResult);
+            System.err.println("\t\tGiven Value: " + result);
             System.err.println();
-        }
+        //}
     
         return thisPassed;
     }
@@ -80,18 +80,18 @@ public class UtilsTestCases {
         String[] result = Utils.concat(testArr1, testArr2);
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario: " + scenario);
-            System.err.println("Given: array 1 is " + ArraysMethods.toString(testArr1));
-            System.err.println("And: array 2 is " + ArraysMethods.toString(testArr2));
-            System.err.println("When: toString is called");
-            System.err.println("Then: result is " + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value: " + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario: " + scenario);
+            System.err.println("\t\tGiven: array 1 is " + ArraysMethods.toString(testArr1));
+            System.err.println("\t\tAnd: array 2 is " + ArraysMethods.toString(testArr2));
+            System.err.println("\t\tWhen: toString is called");
+            System.err.println("\t\tThen: result is " + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value: " + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value: " + ArraysMethods.toString(result));
             System.err.println();
-        }
+       // }
     
         return thisPassed;
     }

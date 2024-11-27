@@ -55,17 +55,17 @@ public class SubMenuTestCases {
     
         System.setOut(stdout);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: given Menu is " + testMenu);
-            System.err.println("When: menu.getUserChoice called");
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: given Menu is " + testMenu);
+            System.err.println("\t\tWhen: menu.getUserChoice called");
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
     

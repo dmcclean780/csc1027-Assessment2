@@ -25,16 +25,16 @@ public class ExhibitManagementTestCases {
         Exhibit[] result = testExhibitManagement.getExhibitArray();
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("When: new ExhibitManagement() called");
-            System.err.println("Then: output of getExhibitArray() is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tWhen: new ExhibitManagement() called");
+            System.err.println("\t\tThen: output of getExhibitArray() is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -50,16 +50,16 @@ public class ExhibitManagementTestCases {
         ArrayList<Exhibit> result = testExhibitManagement.getExhibits();
         boolean thisPassed = result.equals(expectedResult);
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("When: new ExhibitManagement() called");
-            System.err.println("Then: output of getExhibits() is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tWhen: new ExhibitManagement() called");
+            System.err.println("\t\tThen: output of getExhibits() is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -82,16 +82,16 @@ public class ExhibitManagementTestCases {
         Exhibit[] result = testExhibitManagement.getExhibitArray();
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("When: new ExhibitManagement() called with " + exhibitManagementData);
-            System.err.println("Then: output of getExhibitArray() is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tWhen: new ExhibitManagement() called with " + exhibitManagementData);
+            System.err.println("\t\tThen: output of getExhibitArray() is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -118,16 +118,16 @@ public class ExhibitManagementTestCases {
             result = e.getMessage();
         }
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("When: new ExhibitManagement() called with " + exhibitManagementData);
-            System.err.println("Then: output of getExhibits() is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tWhen: new ExhibitManagement() called with " + exhibitManagementData);
+            System.err.println("\t\tThen: output of getExhibits() is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -155,16 +155,16 @@ public class ExhibitManagementTestCases {
             thisPassed = result.equals(expectedResult);
         }
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("When: new ExhibitManagement() called with " + exhibitManagementData);
-            System.err.println("Then: output of getExhibits() is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tWhen: new ExhibitManagement() called with " + exhibitManagementData);
+            System.err.println("\t\tThen: output of getExhibits() is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -181,17 +181,17 @@ public class ExhibitManagementTestCases {
         int result = testExhibitManagement.getExhibitArrayLength();
         boolean thisPassed = result == expectedResult;
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testArtifactManagement is " + testExhibitManagement);
-            System.err.println("When: getArtifactArrayLength called");
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testArtifactManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getArtifactArrayLength called");
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -213,19 +213,19 @@ public class ExhibitManagementTestCases {
         boolean result = testExhibitManagement.addExhibit(testExhibitName, testExhibitArtifacts, testExhibitRoute);
         boolean thisPassed = result == expectedResult;
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitName);
-            System.err.println("When: addExhibit called with " + testExhibitName);
-            System.err.println("And: " + testExhibitArtifacts);
-            System.err.println("And: " + testExhibitRoute);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitName);
+            System.err.println("\t\tWhen: addExhibit called with " + testExhibitName);
+            System.err.println("\t\tAnd: " + testExhibitArtifacts);
+            System.err.println("\t\tAnd: " + testExhibitRoute);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -261,17 +261,17 @@ public class ExhibitManagementTestCases {
         System.setOut(stdout);
         System.setIn(stdin);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: exhibitsMenu called");
-            System.err.println("Then: display of getUserChoice is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: exhibitsMenu called");
+            System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -289,17 +289,17 @@ public class ExhibitManagementTestCases {
         Exhibit[] result = testExhibitManagement.exhibitsToArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: exhibitsToArray called");
-            System.err.println("Then: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: exhibitsToArray called");
+            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -318,17 +318,17 @@ public class ExhibitManagementTestCases {
         Exhibit[] result = ExhibitManagement.exhibitsToArray(testExhibitManagement);
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: exhibitsToArray called");
-            System.err.println("Then: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: exhibitsToArray called");
+            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -346,17 +346,17 @@ public class ExhibitManagementTestCases {
         String[] result = testExhibitManagement.exhibitArrayToNameArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: artifactsToArray called ");
-            System.err.println("Then: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: artifactsToArray called ");
+            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -374,17 +374,17 @@ public class ExhibitManagementTestCases {
         Exhibit[] result = testExhibitManagement.getExhibitArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: sortExhibitArray called ");
-            System.err.println("Then: output of getExhibitArray is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: sortExhibitArray called ");
+            System.err.println("\t\tThen: output of getExhibitArray is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -405,18 +405,18 @@ public class ExhibitManagementTestCases {
         Exhibit[] result = testExhibitManagement.getExhibitArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: searchExhibits called with " + criteriaChoice);
-            System.err.println("And: " + searchValue);
-            System.err.println("Then: output of getExhibitArray is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: searchExhibits called with " + criteriaChoice);
+            System.err.println("\t\tAnd: " + searchValue);
+            System.err.println("\t\tThen: output of getExhibitArray is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -452,17 +452,17 @@ public class ExhibitManagementTestCases {
         System.setOut(stdout);
         System.setIn(stdin);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitMenu called");
-            System.err.println("Then: display of getUserChoice is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitMenu called");
+            System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -489,18 +489,18 @@ public class ExhibitManagementTestCases {
         boolean thisPassed = result.trim().equals(expectedResult.trim());
 
         System.setErr(stdout);
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitString called with " + exhibitChoice);
-            System.err.println("AND: " + artifactManagement);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitString called with " + exhibitChoice);
+            System.err.println("\t\tAND: " + artifactManagement);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -520,7 +520,7 @@ public class ExhibitManagementTestCases {
         ArrayList<Exhibit> result = testExhibitManagement.getExhibits();
         boolean thisPassed = result.equals(expectedResult);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
             System.err.println("Scenario:" + scenario);
             System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
@@ -530,7 +530,7 @@ public class ExhibitManagementTestCases {
             System.err.println("Expected Value:\n" + expectedResult);
             System.err.println("Given Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -560,18 +560,18 @@ public class ExhibitManagementTestCases {
         System.setOut(stdout);
         System.setErr(stderr);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitArtifactNames called with " + exhibitChoice);
-            System.err.println("And: " + artifactManagement);
-            System.err.println("Then: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitArtifactNames called with " + exhibitChoice);
+            System.err.println("\t\tAnd: " + artifactManagement);
+            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
 
     }
@@ -615,17 +615,17 @@ public class ExhibitManagementTestCases {
         System.setIn(stdin);
         System.setErr(sterr);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitArtifactMenu called");
-            System.err.println("Then: display of getUserChoice is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitArtifactMenu called");
+            System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -650,17 +650,17 @@ public class ExhibitManagementTestCases {
 
         System.setErr(sterr);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getArtifactNumber called with " + exhibitChoice);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getArtifactNumber called with " + exhibitChoice);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -684,17 +684,17 @@ public class ExhibitManagementTestCases {
 
         System.setErr(sterr);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitRoute called with " + exhibitChoice);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitRoute called with " + exhibitChoice);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -718,17 +718,17 @@ public class ExhibitManagementTestCases {
 
         System.setErr(sterr);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitArtifacts called with " + exhibitChoice);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitArtifacts called with " + exhibitChoice);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -752,17 +752,17 @@ public class ExhibitManagementTestCases {
 
         System.setErr(sterr);
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitArtifactsByID called with " + exhibitChoice);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitArtifactsByID called with " + exhibitChoice);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -792,20 +792,20 @@ public class ExhibitManagementTestCases {
 
         System.setErr(sterr);
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: updateExhibit called with " + exhibitChoice);
-            System.err.println("And: " + exhibitName);
-            System.err.println("And: " + exhibitArtifacts);
-            System.err.println("And: " + exhibitRoute);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: updateExhibit called with " + exhibitChoice);
+            System.err.println("\t\tAnd: " + exhibitName);
+            System.err.println("\t\tAnd: " + exhibitArtifacts);
+            System.err.println("\t\tAnd: " + exhibitRoute);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -835,18 +835,18 @@ public class ExhibitManagementTestCases {
 
         System.setErr(stdout);
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: removeArtifactsWithID called with " + artifactID);
-            System.err.println("Then: output of getExhibitArtifacts with: \n" + exhibitChoice);
-            System.err.println("is: " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: removeArtifactsWithID called with " + artifactID);
+            System.err.println("\t\tThen: output of getExhibitArtifacts with: \n" + exhibitChoice);
+            System.err.println("\t\tis: " + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
 
     }
@@ -865,17 +865,17 @@ public class ExhibitManagementTestCases {
         String[] result = testExhibitManagement.getExhibitionExhibtNames(exhibitIDs);
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitionExhibtNames called with " + ArraysMethods.toString(exhibitIDs));
-            System.err.println("Then: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitionExhibtNames called with " + ArraysMethods.toString(exhibitIDs));
+            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -893,17 +893,17 @@ public class ExhibitManagementTestCases {
         String[][] result = testExhibitManagement.getExhibitionExhibtNames(exhibitIDs);
         boolean thisPassed = ArraysMethods.deepEquals(expectedResult, result);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitionExhibtNames called with " + ArraysMethods.deepToString(exhibitIDs));
-            System.err.println("Then: output is: \n" + ArraysMethods.deepToString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.deepToString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.deepToString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitionExhibtNames called with " + ArraysMethods.deepToString(exhibitIDs));
+            System.err.println("\t\tThen: output is: \n" + ArraysMethods.deepToString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.deepToString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.deepToString(result));
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -931,17 +931,17 @@ public class ExhibitManagementTestCases {
             result = e.getMessage();
         }
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: findExhibit called with " + exhibitID);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + exhibitID);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: findExhibit called with " + exhibitID);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + exhibitID);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -966,17 +966,17 @@ public class ExhibitManagementTestCases {
             thisPassed = result.equals(expectedResult);
         }
 
-        if (!thisPassed) {
+      //  if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: findExhibit called with " + exhibitID);
-            System.err.println("Then: output is: \n" + expectedResult);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: findExhibit called with " + exhibitID);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
             System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+      //  }
         return thisPassed;
     }
 
@@ -1003,17 +1003,17 @@ public class ExhibitManagementTestCases {
 
         System.setErr(stdout);
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: getExhibitID called with " + exhibitChoice);
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: getExhibitID called with " + exhibitChoice);
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -1031,17 +1031,17 @@ public class ExhibitManagementTestCases {
         boolean result = testExhibitManagement.anyDuplicateArtifcats(exhibits);
         boolean thisPassed = result == expectedResult;
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: anyDuplicateArtifcats called with " + ArraysMethods.toString(exhibits));
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: anyDuplicateArtifcats called with " + ArraysMethods.toString(exhibits));
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -1059,17 +1059,17 @@ public class ExhibitManagementTestCases {
         boolean result = testExhibitManagement.anyDuplicateArtifcats(exhibits);
         boolean thisPassed = result == expectedResult;
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibitManagement is " + testExhibitManagement);
-            System.err.println("When: anyDuplicateArtifcats called with " + ArraysMethods.toString(exhibits));
-            System.err.println("Then: output is: \n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibitManagement is " + testExhibitManagement);
+            System.err.println("\t\tWhen: anyDuplicateArtifcats called with " + ArraysMethods.toString(exhibits));
+            System.err.println("\t\tThen: output is: \n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 }

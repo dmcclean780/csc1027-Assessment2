@@ -5,7 +5,7 @@ public class ArtifactForm {
 
     public ArtifactForm() {
         this.HTML = "<div class = 'flex flex-row justify-center h-full my-10'>";
-            this.HTML += "<form  class = 'flex flex-col justify-around w-2/3 h-full px-8 bg-gray-400' action='add_artifact/create_artifact'>";
+            this.HTML += "<form  class = 'flex flex-col justify-around w-2/3 px-8 bg-gray-400 rounded-lg' action='add_artifact/create_artifact'>";
                 this.HTML += "<div class = 'flex flex-row justify-around my-2 h-1/3'>";
                     this.HTML += "<label for 'myName' class='pr-4 font-bold text-xl'>Name:</label>";
                     this.HTML += "<INPUT  type='text' id='myName' name='myNameInForm' class = 'w-2/3 rounded-md'>";

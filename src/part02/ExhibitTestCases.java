@@ -18,17 +18,17 @@ public class ExhibitTestCases {
         String[] result = testExhibit.getRouteArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.getRouteArray");
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.getRouteArray");
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     
     }
@@ -46,17 +46,17 @@ public class ExhibitTestCases {
             String scenario) {
         int result = testExhibit.findArtifactIndex(testArtifactID);
         boolean thisPassed = result == expectedResult;
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.findArtifactID called with " + testArtifactID);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.findArtifactID called with " + testArtifactID);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -82,17 +82,17 @@ public class ExhibitTestCases {
             thisPassed = false;
             result = "Exception Thrown";
         }
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.removeSign called with " + signToRemoveIndex);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.removeSign called with " + signToRemoveIndex);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     
     }
@@ -119,17 +119,17 @@ public class ExhibitTestCases {
             thisPassed = false;
             result = "Exception Thrown";
         }
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.removeArtifact called with " + artifactToRemoveIndex);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.removeArtifact called with " + artifactToRemoveIndex);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     
     }
@@ -146,17 +146,17 @@ public class ExhibitTestCases {
         String result = testExhibit.toString();
         boolean thisPassed = result.equals(expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.toString");
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.toString");
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -183,17 +183,17 @@ public class ExhibitTestCases {
             thisPassed = result.equals(expectedResult);
         }
     
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.setRoute called with " + newRoute);
-            System.err.println("Then: output of getRoute is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.setRoute called with " + newRoute);
+            System.err.println("\t\tThen: output of getRoute is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -220,17 +220,17 @@ public class ExhibitTestCases {
             thisPassed = false;
         }
     
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: testExhibit " + testExhibit);
-            System.err.println("When: testExhibit.setRoute called with " + newRoute);
-            System.err.println("Then: output of getRoute is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: testExhibit " + testExhibit);
+            System.err.println("\t\tWhen: testExhibit.setRoute called with " + newRoute);
+            System.err.println("\t\tThen: output of getRoute is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -245,17 +245,17 @@ public class ExhibitTestCases {
     public static boolean getRouteTestCase(Exhibit testExhibit, ArrayList<String> expectedResult, String scenario) {
         ArrayList<String> result = testExhibit.getRoute();
         boolean thisPassed = result.equals(expectedResult);
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.getRoute");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.getRoute");
+            System.out.println("\t\tThen: output is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -282,17 +282,17 @@ public class ExhibitTestCases {
             thisPassed = result.equals(expectedResult);
         }
     
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.setArtifactsID called with " + newArtifactsID);
-            System.out.println("Then: output of getArtifactsID is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.setArtifactsID called with " + newArtifactsID);
+            System.out.println("\t\tThen: output of getArtifactsID is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -319,17 +319,17 @@ public class ExhibitTestCases {
             thisPassed = false;
         }
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.setArtifactsID called with " + newArtifactsID);
-            System.out.println("Then: output of getArtifactsID is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.setArtifactsID called with " + newArtifactsID);
+            System.out.println("\t\tThen: output of getArtifactsID is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -345,17 +345,17 @@ public class ExhibitTestCases {
             String scenario) {
         ArrayList<Integer> result = testExhibit.getArtifactsID();
         boolean thisPassed = result.equals(expectedResult);
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.getArtifactsID");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.getArtifactsID");
+            System.out.println("\t\tThen: output is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+      //  }
         return thisPassed;
     }
 
@@ -371,17 +371,17 @@ public class ExhibitTestCases {
         testExhibit.setName(newName);
         String result = testExhibit.getName();
         boolean thisPassed = result == null ? expectedResult == null : result.equals(expectedResult);
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.setName callled with " + newName);
-            System.out.println("Then: output of getName is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.setName callled with " + newName);
+            System.out.println("\t\tThen: output of getName is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -396,17 +396,17 @@ public class ExhibitTestCases {
     public static boolean getNameTestCase(Exhibit testExhibit, String expectedResult, String scenario) {
         String result = testExhibit.getName();
         boolean thisPassed = result == null ? expectedResult == null : result.equals(expectedResult);
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.getName");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.getName");
+            System.out.println("\t\tThen: output is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -430,19 +430,19 @@ public class ExhibitTestCases {
             result = "exception thrown";
         }
         boolean thisPassed = result.equals(expectedResult);
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: exhibit name is " + name);
-            System.out.println("AND: artifacts are " + artifacts);
-            System.out.println("AND: route is " + route);
-            System.out.println("When: new Artifact");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: exhibit name is " + name);
+            System.out.println("\t\tAND: artifacts are " + artifacts);
+            System.out.println("\t\tAND: route is " + route);
+            System.out.println("\t\tWhen: new Artifact");
+            System.out.println("\t\tThen: output is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -457,17 +457,17 @@ public class ExhibitTestCases {
     public static boolean getIDTestCase(Exhibit testExhibit, int expectedResult, String scenario) {
         int result = testExhibit.getID();
         boolean thisPassed = result == expectedResult;
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.out.println();
-            System.out.println("Scenario:" + scenario);
-            System.out.println("Given: testExhibit " + testExhibit);
-            System.out.println("When: testExhibit.getID");
-            System.out.println("Then: output is:\n" + expectedResult);
-            System.out.println("Passed: " + thisPassed);
-            System.out.println("Expected Value:\n" + expectedResult);
-            System.out.println("Given Value:\n" + result);
+            System.out.println("\t\tScenario:" + scenario);
+            System.out.println("\t\tGiven: testExhibit " + testExhibit);
+            System.out.println("\t\tWhen: testExhibit.getID");
+            System.out.println("\t\tThen: output is:\n" + expectedResult);
+            System.out.println("\t\tPassed: " + thisPassed);
+            System.out.println("\t\tExpected Value:\n" + expectedResult);
+            System.out.println("\t\tGiven Value:\n" + result);
             System.out.println();
-        }
+        //}
         return thisPassed;
     }
     

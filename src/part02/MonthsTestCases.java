@@ -15,17 +15,17 @@ public class MonthsTestCases {
         Months result = Months.get(givenID);
         boolean thisPassed = result == expectedResult;
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: given id is " + givenID);
-            System.err.println("When: Months.get() called with " + givenID);
-            System.err.println("Then: m is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: given id is " + givenID);
+            System.err.println("\t\tWhen: Months.get() called with " + givenID);
+            System.err.println("\t\tThen: m is " + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value: " + expectedResult);
+            System.err.println("\t\tGiven Value: " + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -40,17 +40,17 @@ public class MonthsTestCases {
         Months result = Months.get(givenString);
         boolean thisPassed = result == expectedResult;
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: given id is " + givenString);
-            System.err.println("When: Months.get() called with " + givenString);
-            System.err.println("Then: m is " + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + expectedResult);
-            System.err.println("Given Value: " + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: given id is " + givenString);
+            System.err.println("\t\tWhen: Months.get() called with " + givenString);
+            System.err.println("\t\tThen: m is " + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value: " + expectedResult);
+            System.err.println("\t\tGiven Value: " + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
     

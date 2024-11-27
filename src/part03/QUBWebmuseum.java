@@ -4,25 +4,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
+import part01.Artifact;
 import part01.ArtifactManagement;
 import part01.DefaultData;
 import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
-import part01.QUBMuseum;
 import web.Response;
 import web.WebInterface;
 import web.WebRequest;
 
 public class QUBWebmuseum {
 
-    private ArtifactManagement artifactManagement = new ArtifactManagement(); // Manages all direct interactions with artifacts from a museum
+    private ArtifactManagement artifactManagement; // Manages all direct interactions with artifacts from a museum
                                                    // object
     private ExhibitManagement exhibitManagement; // Manages all direct interactions with exhibits from a museum object
     private ExhibitionPlan exhibitionPlan; // Stores the annual plan for the museum
 
     public static void main(String[] args) {
         QUBWebmuseum museum = new QUBWebmuseum();
-        //museum.popArtifacts();
+        museum.popArtifacts();
         //museum.popExhibits();
         //museum.popPlan();
         museum.launchMuseumWebsite("QUB Museum");
@@ -113,6 +113,42 @@ public class QUBWebmuseum {
 							   uri + "</a></body></html>");
 					wr.r.addHeader( "Location", uri );
 
+                } else if(wr.path.equalsIgnoreCase("manage_artifacts/view_artifact")){
+
+                    ArtifactsList artifactsList = new ArtifactsList(artifactManagement, "manage_artifacts/view_artifact");
+                    Page page = new Page(title, artifactsList.toString(), "View Artifact", "manage_artifacts");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if(wr.path.equalsIgnoreCase("manage_artifacts/search_artifact")){
+
+                    String uri = wr.parms.get("currentPage");
+					
+					int searchCriteria = Integer.valueOf(wr.parms.get("criteriaChoice"));
+
+					String SearchValue = wr.parms.get("textInputInForm") + wr.parms.get("numberInputInForm");
+					
+                    artifactManagement.searchArtifacts(searchCriteria, SearchValue);
+					
+					wr.r = new Response( WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+							   "<html><body>Redirected: <a href=\"" + uri + "\">" +
+							   uri + "</a></body></html>");
+					wr.r.addHeader( "Location", uri );
+
+                } else if(wr.path.startsWith("manage_artifacts/view_artifact/")){
+                    int artifactID = Integer.parseInt(wr.path.substring("manage_artifacts/view_artifact/".length()));
+
+                    Page page = new Page(title, "", "View Artifact", "manage_artifacts/view_artifact");
+                    try{
+                        Artifact artifact = artifactManagement.findArtifact(artifactID);
+                        ArtifactView artifactView = new ArtifactView(artifact);
+                        page = new Page(title, artifactView.toString(), artifact.getName(), "manage_artifacts/view_artifact");
+                    } catch(Exception e){
+
+                    }
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+                
                 } else if(wr.path.equalsIgnoreCase("manage_exhibits")){
 
                     String[] menuOptions = {"Add Exhibit", "View Exhibit", "Update Exhibit", "Delete Exhibit"};

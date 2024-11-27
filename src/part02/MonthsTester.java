@@ -38,17 +38,17 @@ public class MonthsTester {
             boolean thisPassed = result.equals(expectedString);
             allPassed &= thisPassed;
 
-            if (!thisPassed) {
+            //if (!thisPassed) {
                 System.out.println();
-                System.out.println("Scenario: Months enum is " + Months.values()[i]);
-                System.out.println("Given: expected months are " + ArraysMethods.toString(months));
-                System.out.println("When: month.toString() called");
-                System.out.println("Then: " + months[i] + " is returned");
-                System.out.println("Passed: " + thisPassed);
-                System.out.println("Expected Value: " + expectedString);
-                System.out.println("Given Value: " + result);
+                System.out.println("\t\tScenario: Months enum is " + Months.values()[i]);
+                System.out.println("\t\tGiven: expected months are " + ArraysMethods.toString(months));
+                System.out.println("\t\tWhen: month.toString() called");
+                System.out.println("\t\tThen: " + months[i] + " is returned");
+                System.out.println("\t\tPassed: " + thisPassed);
+                System.out.println("\t\tExpected Value: " + expectedString);
+                System.out.println("\t\tGiven Value: " + result);
                 System.out.println();
-            }
+            //}
 
         }
 
@@ -75,17 +75,17 @@ public class MonthsTester {
             boolean thisPassed = expectedId == result;
             allPassed &= thisPassed;
 
-            if (!thisPassed) {
+            //if (!thisPassed) {
                 System.out.println();
-                System.out.println("Scenario: Months enum is " + month);
-                System.out.println("Given: expected ids are " + ArraysMethods.toString(expectedIds));
-                System.out.println("When: month.getid() called");
-                System.out.println("Then: " + expectedId + " is returned");
-                System.out.println("Passed: " + thisPassed);
-                System.out.println("Expected Value: " + expectedId);
-                System.out.println("Given Value: " + result);
+                System.out.println("\t\tScenario: Months enum is " + month);
+                System.out.println("\t\tGiven: expected ids are " + ArraysMethods.toString(expectedIds));
+                System.out.println("\t\tWhen: month.getid() called");
+                System.out.println("\t\tThen: " + expectedId + " is returned");
+                System.out.println("\t\tPassed: " + thisPassed);
+                System.out.println("\t\tExpected Value: " + expectedId);
+                System.out.println("\t\tGiven Value: " + result);
                 System.out.println();
-            }
+            //}
 
         }
 
@@ -194,17 +194,17 @@ public class MonthsTester {
         boolean thisPassed = ArraysMethods.equals(result, months);
         allPassed &= thisPassed;
 
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.out.println("Scenario: toArray called");
-            System.err.println("Given: expected months are " + ArraysMethods.toString(months));
-            System.err.println("When: toArray is called");
-            System.err.println("Then: array is " + ArraysMethods.toString(months));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value: " + ArraysMethods.toString(months));
-            System.err.println("Given Value: " + ArraysMethods.toString(result));
+            System.out.println("\t\tScenario: toArray called");
+            System.err.println("\t\tGiven: expected months are " + ArraysMethods.toString(months));
+            System.err.println("\t\tWhen: toArray is called");
+            System.err.println("\t\tThen: array is " + ArraysMethods.toString(months));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value: " + ArraysMethods.toString(months));
+            System.err.println("\t\tGiven Value: " + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         System.out.println("\tFeature Passed: " + allPassed);
         System.out.println();
         return allPassed;

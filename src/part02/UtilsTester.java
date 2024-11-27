@@ -11,7 +11,7 @@ public class UtilsTester {
         allPassed &= testArrayListContains();
         allPassed &= testArrayContains();
         System.out.println("All Features Passed: " + allPassed);
-        System.out.println();
+        
     }
 
     /**
@@ -331,8 +331,8 @@ public class UtilsTester {
      * Test Suit for the contains method for ArrayLists
      * @return all tests passed
      */
-    public static boolean testArrayListContains() {
-        System.out.println("\tFeature: ArrayList<Integer> contains an int");
+    public static boolean testArrayContains() {
+        System.out.println("\tFeature: int[] contains an int");
         boolean allPassed = true;
 
         /**
@@ -400,7 +400,7 @@ public class UtilsTester {
      * Test Suit for the contains method with Arrays
      * @return all tests passed
      */
-    public static boolean testArrayContains(){
+    public static boolean testArrayListContains(){
         System.out.println("\tFeature: ArrayList<Integer> contains an int");
         boolean allPassed = true;
 

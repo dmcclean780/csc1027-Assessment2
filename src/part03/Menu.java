@@ -11,14 +11,6 @@ public class Menu {
            String url = (!current.equals("")) ? current+"/"+option.toLowerCase() : option.toLowerCase();
             this.HTMLString += "<button class='bg-gray-400 flex-grow my-10 text-xl font-bold rounded-lg' onClick='navigate(\""+url+"\")'>" + option + "</button>";
         }
-        this.HTMLString+="<script type='text/javascript'>";
-        this.HTMLString+="function navigate(pageTitle){\n" + //
-                        "    pageTitle= pageTitle.replace(\" \", \"_\")\n" + //
-                        "    console.log(pageTitle)\n" +
-                        "    window.location.href = \"/\"+pageTitle;\n" + //
-                        "\n" + //
-                        "}";
-        this.HTMLString+="</script>";
         this.HTMLString+="</div>";
         this.HTMLString+="</div>";
     }

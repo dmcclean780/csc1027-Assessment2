@@ -21,18 +21,18 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
-            System.err.println("AND: " + hall);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("\t\tAND: " + hall);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -60,18 +60,18 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
-            System.err.println("AND: " + month);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("\t\tAND: " + month);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -99,18 +99,18 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
-            System.err.println("AND: " + month);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("\t\tAND: " + month);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -138,18 +138,18 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
-            System.err.println("AND: " + month);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbitsToMonth called with " + ArraysMethods.toString(newExhibit));
+            System.err.println("\t\tAND: " + month);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -177,20 +177,20 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbit called with " + exhibitManagement);
-            System.err.println("AND: " + month);
-            System.err.println("AND: " + hall);
-            System.err.println("AND: " + newExhibit);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbit called with " + exhibitManagement);
+            System.err.println("\t\tAND: " + month);
+            System.err.println("\t\tAND: " + hall);
+            System.err.println("\t\tAND: " + newExhibit);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -218,20 +218,20 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbit called with " + exhibitManagement);
-            System.err.println("AND: " + month);
-            System.err.println("AND: " + hall);
-            System.err.println("AND: " + newExhibit);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbit called with " + exhibitManagement);
+            System.err.println("\t\tAND: " + month);
+            System.err.println("\t\tAND: " + hall);
+            System.err.println("\t\tAND: " + newExhibit);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -259,20 +259,20 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: addExhbit called with " + exhibitManagement);
-            System.err.println("AND: " + month);
-            System.err.println("AND: " + hall);
-            System.err.println("AND: " + newExhibit);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: addExhbit called with " + exhibitManagement);
+            System.err.println("\t\tAND: " + month);
+            System.err.println("\t\tAND: " + hall);
+            System.err.println("\t\tAND: " + newExhibit);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -298,17 +298,17 @@ public class ExhibitionPlanTestCases {
     
         System.setErr(stderr);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getHallPlanString called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getHallPlanString called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -328,17 +328,17 @@ public class ExhibitionPlanTestCases {
         String result = testExhibitionPlan.getMonthPlanString(exhibitManagement, testMonth);
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getMonthPlanString called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getMonthPlanString called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -358,17 +358,17 @@ public class ExhibitionPlanTestCases {
         String result = testExhibitionPlan.getMonthPlanString(exhibitManagement, testMonth);
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getMonthPlanString called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getMonthPlanString called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -388,17 +388,17 @@ public class ExhibitionPlanTestCases {
         String result = testExhibitionPlan.getMonthPlanString(exhibitManagement, testMonth);
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getMonthPlanString called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getMonthPlanString called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -416,17 +416,17 @@ public class ExhibitionPlanTestCases {
         String result = testExhibitionPlan.getPlanString(exhibitManagement);
         boolean thisPassed = result.trim().equals(expectedResult.trim());
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getPlanString called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getPlanString called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -452,18 +452,18 @@ public class ExhibitionPlanTestCases {
     
         System.setErr(stderr);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitNamesInHall called with hall num " + exhibitManagement);
-            System.err.println("AND: " + hallNo);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitNamesInHall called with hall num " + exhibitManagement);
+            System.err.println("\t\tAND: " + hallNo);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -483,18 +483,18 @@ public class ExhibitionPlanTestCases {
         String[] result = testExhibitionPlan.getExhibitNamesInMonth(exhibitManagement, testMonth);
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitNamesInMonth called with hall num " + exhibitManagement);
-            System.err.println("AND: " + testMonth);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitNamesInMonth called with hall num " + exhibitManagement);
+            System.err.println("\t\tAND: " + testMonth);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -513,18 +513,18 @@ public class ExhibitionPlanTestCases {
         String[] result = testExhibitionPlan.getExhibitNamesInMonth(exhibitManagement, testMonth);
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
     
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitNamesInMonth called with hall num " + exhibitManagement);
-            System.err.println("AND: " + testMonth);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitNamesInMonth called with hall num " + exhibitManagement);
+            System.err.println("\t\tAND: " + testMonth);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+       // }
         return thisPassed;
     }
 
@@ -543,18 +543,18 @@ public class ExhibitionPlanTestCases {
         String[] result = testExhibitionPlan.getExhibitNamesInMonth(exhibitManagement, testMonth);
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitNamesInMonth called with hall num " + exhibitManagement);
-            System.err.println("AND: " + testMonth);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitNamesInMonth called with hall num " + exhibitManagement);
+            System.err.println("\t\tAND: " + testMonth);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -574,17 +574,17 @@ public class ExhibitionPlanTestCases {
         String[] result = testExhibitionPlan.getExhibitNamesString(testExhibits, exhibitManagement);
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitNamesString called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitNamesString called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -602,17 +602,17 @@ public class ExhibitionPlanTestCases {
         String[][] result = testExhibitionPlan.getExhibitNames(exhibitManagement);
         boolean thisPassed = ArraysMethods.deepEquals(result, expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitNames called with " + exhibitManagement);
-            System.err.println("Then: output is:\n" + ArraysMethods.deepToString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.deepToString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.deepToString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitNames called with " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.deepToString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.deepToString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.deepToString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -636,17 +636,17 @@ public class ExhibitionPlanTestCases {
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
         System.setErr(stderr);
     
-        if (!thisPassed) {
+       // if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitsInHall called with hall num " + testHall);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitsInHall called with hall num " + testHall);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -670,17 +670,17 @@ public class ExhibitionPlanTestCases {
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
         System.setErr(stderr);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitsInMonth called with Months enum " + testMonth);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitsInMonth called with Months enum " + testMonth);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -704,17 +704,17 @@ public class ExhibitionPlanTestCases {
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
         System.setErr(stderr);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitsInMonth called with Months enum " + testMonth);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitsInMonth called with Months enum " + testMonth);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -732,17 +732,17 @@ public class ExhibitionPlanTestCases {
         int[] result = testExhibitionPlan.getExibitsInMonth(testMonth);
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitsInMonth called with Months enum " + testMonth);
-            System.err.println("Then: output is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.toString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitsInMonth called with Months enum " + testMonth);
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -759,17 +759,17 @@ public class ExhibitionPlanTestCases {
         int[][] result = testExhibitionPlan.getExhibitionPlan();
         boolean thisPassed = ArraysMethods.deepEquals(result, expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan is " + testExhibitionPlan);
-            System.err.println("When: getExhibitionPlan called");
-            System.err.println("Then: output is:\n" + ArraysMethods.deepToString(expectedResult));
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + ArraysMethods.deepToString(expectedResult));
-            System.err.println("Given Value:\n" + ArraysMethods.deepToString(result));
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan is " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getExhibitionPlan called");
+            System.err.println("\t\tThen: output is:\n" + ArraysMethods.deepToString(expectedResult));
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + ArraysMethods.deepToString(expectedResult));
+            System.err.println("\t\tGiven Value:\n" + ArraysMethods.deepToString(result));
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -786,17 +786,17 @@ public class ExhibitionPlanTestCases {
         int result = testExhibitionPlan.getNumberOfHalls();
         boolean thisPassed = result == expectedResult;
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan data " + testExhibitionPlan);
-            System.err.println("When: getNumberOfHalls called");
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan data " + testExhibitionPlan);
+            System.err.println("\t\tWhen: getNumberOfHalls called");
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     }
 
@@ -826,18 +826,18 @@ public class ExhibitionPlanTestCases {
         }
         boolean thisPassed = result.equals(expectedResult);
     
-        if (!thisPassed) {
+        //if (!thisPassed) {
             System.err.println();
-            System.err.println("Scenario:" + scenario);
-            System.err.println("Given: exhibitionPlan data " + ArraysMethods.deepToString(testExhibitionPlan));
-            System.err.println("When: new ExhibitionPlan with " + ArraysMethods.deepToString(testExhibitionPlan));
-            System.err.print("AND: " + exhibitManagement);
-            System.err.println("Then: output is:\n" + expectedResult);
-            System.err.println("Passed: " + thisPassed);
-            System.err.println("Expected Value:\n" + expectedResult);
-            System.err.println("Given Value:\n" + result);
+            System.err.println("\t\tScenario:" + scenario);
+            System.err.println("\t\tGiven: exhibitionPlan data " + ArraysMethods.deepToString(testExhibitionPlan));
+            System.err.println("\t\tWhen: new ExhibitionPlan with " + ArraysMethods.deepToString(testExhibitionPlan));
+            System.err.print("\t\tAND: " + exhibitManagement);
+            System.err.println("\t\tThen: output is:\n" + expectedResult);
+            System.err.println("\t\tPassed: " + thisPassed);
+            System.err.println("\t\tExpected Value:\n" + expectedResult);
+            System.err.println("\t\tGiven Value:\n" + result);
             System.err.println();
-        }
+        //}
         return thisPassed;
     
     }
