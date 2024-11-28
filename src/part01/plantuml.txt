@@ -178,6 +178,7 @@ class ArtifactManagement{
     + getArtifactID(int): int
     + addArtifact(String, String, int): boolean
     + updateArtifact(int, String, String, String): boolean
+    + updateArtifactByID(String, String, String, int): boolean
     + getArtifactString(int): String
     + artifactsMenu(): Menu
     + artifactsToArray(): Artifact[]

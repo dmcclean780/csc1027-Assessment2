@@ -2,11 +2,11 @@ package part03;
 
 import part01.Artifact;
 
-public class ArtifactView {
+public class ViewArtifact {
     
     private String HTML;
 
-    public ArtifactView(Artifact artifact){
+    public ViewArtifact(Artifact artifact){
         this.HTML  = "<div class = 'flex flex-row h-full justify-center my-10'>";
             this.HTML += "<div  class = 'flex flex-col justify-around w-2/3 h-full px-8'>";
                 this.HTML += "<div class = 'flex flex-row bg-gray-400 p-4 rounded-lg justify-between'>";
@@ -30,7 +30,8 @@ public class ArtifactView {
                             this.HTML += "<div class = 'font-bold text-xl'>" + artifact.getEngagementTime() + "</div>";
                         this.HTML += "</div>";
                     this.HTML += "</div>";
-                    this.HTML += "<div class = 'h-full bg-green-500'> Artifact Image In Future";
+                    this.HTML += "<div class = 'h-full bg-green-500'>";
+                    this.HTML += "<img src='http://localhost:9990/images/artifacts/"+artifact.getID()+".jpeg' class='rounded-md'>";
                     this.HTML += "</div>";
                 this.HTML += "</div>";
             this.HTML += "</div>";

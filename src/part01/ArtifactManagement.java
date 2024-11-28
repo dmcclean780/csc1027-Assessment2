@@ -112,6 +112,33 @@ public class ArtifactManagement {
     }
 
     /**
+     * Update the properties of an artifact chosen by its ID
+     * @param name -> "" will leave unchanged
+     * @param type -> "" will leave unchanged
+     * @param engagementTime -> "" will leave unchanged
+     * @param artifactID -> ID of artifact to update
+     * @return boolean if update was successful
+     */
+    public boolean updateArtifactByID(String name, String type, String engagementTime, int artifactID ){
+        
+        try{
+            Artifact artifact = findArtifact(artifactID);
+            if(engagementTime != ""){
+                artifact.setEngagementTime(Integer.parseInt(engagementTime));
+            }
+            if(name != ""){
+                artifact.setName(name);
+            }
+            if(type != ""){
+                artifact.setType(type);
+            }
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    /**
      * Get the String form of an Artifact at an index in the Array
      * @param artifactChoice index of artifact in artifactArray
      * @return
@@ -274,15 +301,13 @@ public class ArtifactManagement {
      */
     public boolean removeArtifact(int artifactID){
         
-        try{
-            int maxID = artifacts.get(artifacts.size()-1).getID();
-            int idDiff = maxID+1-artifacts.size(); // difference between maxID and length is the amount of artifacts that have been removed 
-                                                  // ID is adjusted by this to get an index
-            artifacts.remove(artifactID-idDiff); //Stored in artifacts in order so id-diff is the index
-            return true;
-        } catch(Exception e){
-            return false;
+        for(int i=0; i<artifacts.size(); i++){
+            if(artifacts.get(i).getID() == artifactID){
+                artifacts.remove(i);
+                return true;
+            }
         }
+        return false;
         
     }
 

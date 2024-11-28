@@ -2,11 +2,21 @@ package part03;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Base64;
+
+import org.apache.commons.io.FileUtils;
 
 import part01.Artifact;
 import part01.ArtifactManagement;
 import part01.DefaultData;
+import part01.Exhibit;
 import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
 import web.Response;
@@ -23,11 +33,11 @@ public class QUBWebmuseum {
     public static void main(String[] args) {
         QUBWebmuseum museum = new QUBWebmuseum();
         museum.popArtifacts();
-        //museum.popExhibits();
-        //museum.popPlan();
+        museum.popExhibits();
+        // museum.popPlan();
         museum.launchMuseumWebsite("QUB Museum");
     }
-    
+
     /**
      * populate artifactManagement with the default artifacts
      */
@@ -60,10 +70,9 @@ public class QUBWebmuseum {
             System.out.println("Bad Data");
         }
     }
-    
-    
+
     public void launchMuseumWebsite(String title) {
-        final String ROOT = "./";
+        final String ROOT = "src/part03/";
         WebInterface winterface = new WebInterface(9990);
         ArrayList<WebRequest> wqueue = new ArrayList<WebRequest>();
 
@@ -77,100 +86,244 @@ public class QUBWebmuseum {
 
                 if (wr.path.equals("")) {
 
-                    String[] menuOptions = {"Manage Artifacts", "Manage Exhibits", "Manage Annual Plan"};
+                    String[] menuOptions = { "Manage Artifacts", "Manage Exhibits", "Manage Annual Plan" };
                     Menu mainMenu = new Menu(menuOptions, "");
                     Page page = new Page(title, mainMenu.toString(), "Main Menu", "");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
-                } else if(wr.path.equalsIgnoreCase("manage_artifacts")){
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts")) {
 
-                    String[] menuOptions = {"Add Artifact", "View Artifact", "Update Artifact", "Delete Artifact"};
+                    String[] menuOptions = { "Add Artifact", "View Artifact", "Update Artifact", "Delete Artifact" };
                     Menu mainMenu = new Menu(menuOptions, "manage_artifacts");
                     Page page = new Page(title, mainMenu.toString(), "Artifact Management", "");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
-                } else if(wr.path.equalsIgnoreCase("manage_artifacts/add_artifact")){
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/add_artifact")) {
 
-                    ArtifactForm artifactForm = new ArtifactForm();
+                    AddArtifact artifactForm = new AddArtifact();
                     Page page = new Page(title, artifactForm.toString(), "Add Artifact", "manage_artifacts");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
-                } else if(wr.path.equalsIgnoreCase("manage_artifacts/add_artifact/create_artifact")){
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/add_artifact/create_artifact")) {
 
-                    String uri = "/manage_artifacts/add_artifact";
-					
-					String myName = wr.parms.get("myNameInForm");
-					String myType = wr.parms.get("myTypeInForm");
+                    String url = "/manage_artifacts/add_artifact";
+
+                    String myName = wr.parms.get("myNameInForm");
+                    String myType = wr.parms.get("myTypeInForm");
                     int myTime = Integer.valueOf(wr.parms.get("myTimeInForm"));
-					
+
+                    String image = wr.parms.get("image");
+                    System.out.println(image);
+                    Path source = FileSystems.getDefault().getPath(image);
+                    Path target = FileSystems.getDefault().getPath(ROOT, "images", "artifacts", Artifact.getNextID()+".jpeg");
+                    try{
+                        Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+                        FileUtils.cleanDirectory(new File(ROOT+"images/temp"));
+                    } catch (Exception e){
+
+                    }
                     artifactManagement.addArtifact(myName, myType, myTime);
-					
-					wr.r = new Response( WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
-							   "<html><body>Redirected: <a href=\"" + uri + "\">" +
-							   uri + "</a></body></html>");
-					wr.r.addHeader( "Location", uri );
+                    artifactManagement.refreshArtifactArray();
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
 
-                } else if(wr.path.equalsIgnoreCase("manage_artifacts/view_artifact")){
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/view_artifact")) {
 
-                    ArtifactsList artifactsList = new ArtifactsList(artifactManagement, "manage_artifacts/view_artifact");
+                    ArtifactsList artifactsList = new ArtifactsList(artifactManagement,
+                            "manage_artifacts/view_artifact");
                     Page page = new Page(title, artifactsList.toString(), "View Artifact", "manage_artifacts");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
-                } else if(wr.path.equalsIgnoreCase("manage_artifacts/search_artifact")){
-
-                    String uri = wr.parms.get("currentPage");
-					
-					int searchCriteria = Integer.valueOf(wr.parms.get("criteriaChoice"));
-
-					String SearchValue = wr.parms.get("textInputInForm") + wr.parms.get("numberInputInForm");
-					
-                    artifactManagement.searchArtifacts(searchCriteria, SearchValue);
-					
-					wr.r = new Response( WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
-							   "<html><body>Redirected: <a href=\"" + uri + "\">" +
-							   uri + "</a></body></html>");
-					wr.r.addHeader( "Location", uri );
-
-                } else if(wr.path.startsWith("manage_artifacts/view_artifact/")){
+                } else if (wr.path.startsWith("manage_artifacts/view_artifact/")) {
                     int artifactID = Integer.parseInt(wr.path.substring("manage_artifacts/view_artifact/".length()));
 
                     Page page = new Page(title, "", "View Artifact", "manage_artifacts/view_artifact");
-                    try{
+                    try {
                         Artifact artifact = artifactManagement.findArtifact(artifactID);
-                        ArtifactView artifactView = new ArtifactView(artifact);
-                        page = new Page(title, artifactView.toString(), artifact.getName(), "manage_artifacts/view_artifact");
-                    } catch(Exception e){
+                        ViewArtifact artifactView = new ViewArtifact(artifact);
+                        page = new Page(title, artifactView.toString(), artifact.getName(),
+                                "manage_artifacts/view_artifact");
+                    } catch (Exception e) {
 
                     }
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
-                
-                } else if(wr.path.equalsIgnoreCase("manage_exhibits")){
 
-                    String[] menuOptions = {"Add Exhibit", "View Exhibit", "Update Exhibit", "Delete Exhibit"};
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/update_artifact")) {
+
+                    ArtifactsList artifactsList = new ArtifactsList(artifactManagement,
+                            "manage_artifacts/update_artifact");
+                    Page page = new Page(title, artifactsList.toString(), "Update Artifact", "manage_artifacts");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/update_artifact/update")) {
+
+                    int ID = Integer.parseInt(wr.parms.get("ID"));
+                    String myName = wr.parms.get("myNameInForm");
+                    String myType = wr.parms.get("myTypeInForm");
+                    String myTime = wr.parms.get("myTimeInForm");
+
+                    String url = "/manage_artifacts/update_artifact";
+
+                    artifactManagement.updateArtifactByID(myName, myType, myTime, ID);
+                    artifactManagement.refreshArtifactArray();
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.startsWith("manage_artifacts/update_artifact/")) {
+
+                    int artifactID = Integer.parseInt(wr.path.substring("manage_artifacts/update_artifact/".length()));
+
+                    Page page = new Page(title, "", "View Artifact", "manage_artifacts/update_artifact");
+                    try {
+                        Artifact artifact = artifactManagement.findArtifact(artifactID);
+                        UpdateArtifact updateArtifact = new UpdateArtifact(artifact);
+                        page = new Page(title, updateArtifact.toString(), artifact.getName(),
+                                "manage_artifacts/update_artifact");
+                    } catch (Exception e) {
+
+                    }
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/delete_artifact")) {
+
+                    ArtifactsList artifactsList = new ArtifactsList(artifactManagement,
+                            "manage_artifacts/delete_artifact");
+                    Page page = new Page(title, artifactsList.toString(), "Delete Artifact", "manage_artifacts");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.startsWith("manage_artifacts/delete_artifact/")) {
+                    int artifactID = Integer.parseInt(wr.path.substring("manage_artifacts/delete_artifact/".length()));
+                    String artifactName = "";
+                    try {
+                        artifactName = artifactManagement.findArtifact(artifactID).getName();
+                    } catch (Exception e) {
+
+                    }
+                    DeletedArtifact deletedArtifact = new DeletedArtifact(artifactName);
+                    Page page = new Page(title, deletedArtifact.toString(), "Delete Artifact",
+                            "manage_artifacts/delete_artifact");
+                    artifactManagement.removeArtifact(artifactID);
+                    artifactManagement.refreshArtifactArray();
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/search_artifact")) {
+
+                    String url = wr.parms.get("currentPage");
+                    url = url.replace("manage_artifacts/", "");
+                    int searchCriteria = Integer.valueOf(wr.parms.get("criteriaChoice"));
+
+                    String SearchValue = wr.parms.get("IDInput") + wr.parms.get("NameInput")+ wr.parms.get("TypeInput")+ wr.parms.get("TimeInput");
+                    if(!SearchValue.equals("")){
+                        artifactManagement.searchArtifacts(searchCriteria, SearchValue);
+                    }
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.equalsIgnoreCase("manage_artifacts/clear_search")) {
+
+                    String url = wr.parms.get("currentPage");
+                    url = url.replace("manage_artifacts/", "");
+                    artifactManagement.refreshArtifactArray();
+
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits")) {
+
+                    String[] menuOptions = { "Add Exhibit", "View Exhibit", "Update Exhibit", "Delete Exhibit" };
                     Menu mainMenu = new Menu(menuOptions, "manage_exhibits");
                     Page page = new Page(title, mainMenu.toString(), "Exhibit Management", "");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
-                } else if(wr.path.equalsIgnoreCase("manage_annual_plan")){
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/add_exhibit")) {
 
-                    String[] menuOptions = {"Create Annual Plan", "View Annual Plan", "Update Annual Plan", "Delete Annual Plan"};
+                    AddExhibit exhibitForm = new AddExhibit();
+                    Page page = new Page(title, exhibitForm.toString(), "Add Exhibit", "manage_exhibits");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/view_exhibit")) {
+
+                   ExhibitsList exhibitsList = new ExhibitsList(exhibitManagement, "manage_exhibits/view_exhibit");
+                    Page page = new Page(title, exhibitsList.toString(), "View Exhibits", "manage_exhibits");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.startsWith("manage_exhibits/view_exhibit/")) {
+                    int exhibitID = Integer.parseInt(wr.path.substring("manage_exhibits/view_exhibit/".length()));
+
+                    Page page = new Page(title, "", "View Exhibit", "manage_exhibits/view_exhibit");
+                    try {
+                        Exhibit exhibit = exhibitManagement.findExhibit(exhibitID);
+                       ViewExhibit viewExhibit = new ViewExhibit(exhibit, artifactManagement);
+                        page = new Page(title, viewExhibit.toString(), exhibit.getName(),
+                                "manage_artifacts/view_artifact");
+                    } catch (Exception e) {
+
+                    }
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/search_exhibit")) {
+
+                    String url = wr.parms.get("currentPage");
+                    url = url.replace("manage_exhibits/", "");
+                    int searchCriteria = Integer.valueOf(wr.parms.get("criteriaChoice"));
+
+                    String SearchValue = wr.parms.get("textInputInForm") + wr.parms.get("numberInputInForm");
+
+                    exhibitManagement.searchExhibits(searchCriteria, SearchValue);
+
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/clear_search")) {
+
+                    String url = wr.parms.get("currentPage");
+                    url = url.replace("manage_exhibits/", "");
+                    exhibitManagement.refreshExhibitArray();
+
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan")) {
+
+                    String[] menuOptions = { "Create Annual Plan", "View Annual Plan", "Update Annual Plan",
+                            "Delete Annual Plan" };
                     Menu mainMenu = new Menu(menuOptions, "manage_annual_plan");
                     Page page = new Page(title, mainMenu.toString(), "Annual Plan Management", "");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
                 }
-                
+
                 else {
                     // This code will look on disk for a file, change the ROOT variable to load
                     // files from a different directory
                     File f = new File(ROOT + wr.path);
+                    System.out.println(f.exists());
                     if (f.exists()) {
                         try {
                             long maxlen = f.length();

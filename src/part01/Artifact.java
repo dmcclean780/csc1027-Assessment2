@@ -105,6 +105,10 @@ public class Artifact{
         nextID = 0;
     }
 
+    public static int getNextID(){
+        return nextID;
+    }
+
 
 
 }
