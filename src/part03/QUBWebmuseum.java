@@ -2,14 +2,11 @@ package part03;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.Base64;
 
 import org.apache.commons.io.FileUtils;
 
@@ -72,7 +69,7 @@ public class QUBWebmuseum {
     }
 
     public void launchMuseumWebsite(String title) {
-        final String ROOT = "src/part03/";
+        final String ROOT = "src/";
         WebInterface winterface = new WebInterface(9990);
         ArrayList<WebRequest> wqueue = new ArrayList<WebRequest>();
 
@@ -118,11 +115,12 @@ public class QUBWebmuseum {
                     String image = wr.parms.get("image");
                     System.out.println(image);
                     Path source = FileSystems.getDefault().getPath(image);
-                    Path target = FileSystems.getDefault().getPath(ROOT, "images", "artifacts", Artifact.getNextID()+".jpeg");
-                    try{
+                    Path target = FileSystems.getDefault().getPath(ROOT, "images", "artifacts",
+                            Artifact.getNextID() + ".jpeg");
+                    try {
                         Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
-                        FileUtils.cleanDirectory(new File(ROOT+"images/temp"));
-                    } catch (Exception e){
+                        FileUtils.cleanDirectory(new File(ROOT + "images/temp"));
+                    } catch (Exception e) {
 
                     }
                     artifactManagement.addArtifact(myName, myType, myTime);
@@ -216,6 +214,14 @@ public class QUBWebmuseum {
                             "manage_artifacts/delete_artifact");
                     artifactManagement.removeArtifact(artifactID);
                     artifactManagement.refreshArtifactArray();
+
+                    File image = new File(ROOT + "images/artifacts/" + artifactID + ".jpeg");
+                    try {
+                        Files.deleteIfExists(image.toPath());
+                    } catch (Exception e) {
+                        System.err.println("No Such File Found");
+                    }
+
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
                 } else if (wr.path.equalsIgnoreCase("manage_artifacts/search_artifact")) {
@@ -224,8 +230,9 @@ public class QUBWebmuseum {
                     url = url.replace("manage_artifacts/", "");
                     int searchCriteria = Integer.valueOf(wr.parms.get("criteriaChoice"));
 
-                    String SearchValue = wr.parms.get("IDInput") + wr.parms.get("NameInput")+ wr.parms.get("TypeInput")+ wr.parms.get("TimeInput");
-                    if(!SearchValue.equals("")){
+                    String SearchValue = wr.parms.get("IDInput") + wr.parms.get("NameInput") + wr.parms.get("TypeInput")
+                            + wr.parms.get("TimeInput");
+                    if (!SearchValue.equals("")) {
                         artifactManagement.searchArtifacts(searchCriteria, SearchValue);
                     }
                     wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
@@ -254,15 +261,49 @@ public class QUBWebmuseum {
 
                 } else if (wr.path.equalsIgnoreCase("manage_exhibits/add_exhibit")) {
 
-                    AddExhibit exhibitForm = new AddExhibit();
+                    AddExhibit exhibitForm = new AddExhibit(artifactManagement);
                     Page page = new Page(title, exhibitForm.toString(), "Add Exhibit", "manage_exhibits");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/add_exhibit/create_exhibit")) {
+
+                    String url = "/manage_exhibits/add_exhibit";
+
+                    String myName = wr.parms.get("myNameInForm");
+                    int noArtifacts = Integer.parseInt(wr.parms.get("artifcatCount"));
+                    ArrayList<Integer> artifacts = new ArrayList<>();
+                    ArrayList<String> route = new ArrayList<>();
+                    for (int j = 0; j < noArtifacts; j++) {
+                        int artifact = Integer.parseInt(wr.parms.get("artifact" + j));
+                        String sign = wr.parms.get("sign" + j);
+                        artifacts.add(artifact);
+                        route.add(sign);
+                    }
+                    System.out.println(artifacts);
+                    System.out.println(route);
+                    String image = wr.parms.get("image");
+
+                    System.out.println(image);
+                    Path source = FileSystems.getDefault().getPath(image);
+                    Path target = FileSystems.getDefault().getPath(ROOT, "images", "exhibits",
+                            Exhibit.getNextID() + ".jpeg");
+                    try {
+                        Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+                        FileUtils.cleanDirectory(new File(ROOT + "images/temp"));
+                    } catch (Exception e) {
+
+                    }
+                    exhibitManagement.addExhibit(myName, artifacts, route);
+                    exhibitManagement.refreshExhibitArray();
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
 
                 } else if (wr.path.equalsIgnoreCase("manage_exhibits/view_exhibit")) {
 
-                   ExhibitsList exhibitsList = new ExhibitsList(exhibitManagement, "manage_exhibits/view_exhibit");
+                    ExhibitsList exhibitsList = new ExhibitsList(exhibitManagement, "manage_exhibits/view_exhibit");
                     Page page = new Page(title, exhibitsList.toString(), "View Exhibits", "manage_exhibits");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
@@ -273,11 +314,42 @@ public class QUBWebmuseum {
                     Page page = new Page(title, "", "View Exhibit", "manage_exhibits/view_exhibit");
                     try {
                         Exhibit exhibit = exhibitManagement.findExhibit(exhibitID);
-                       ViewExhibit viewExhibit = new ViewExhibit(exhibit, artifactManagement);
+                        ViewExhibit viewExhibit = new ViewExhibit(exhibit, artifactManagement);
                         page = new Page(title, viewExhibit.toString(), exhibit.getName(),
-                                "manage_artifacts/view_artifact");
+                                "manage_exhibits/view_exhibit");
                     } catch (Exception e) {
 
+                    }
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/delete_exhibit")) {
+
+                    ExhibitsList exhibitsList = new ExhibitsList(exhibitManagement,
+                            "manage_exhibits/delete_exhibit");
+                    Page page = new Page(title, exhibitsList.toString(), "Delete Exhibit", "manage_exhibits");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.startsWith("manage_exhibits/delete_exhibit/")) {
+                    int exhibitID = Integer.parseInt(wr.path.substring("manage_exhibits/delete_exhibit/".length()));
+                    String exhibitName = "";
+                    try {
+                        exhibitName = exhibitManagement.findExhibit(exhibitID).getName();
+                    } catch (Exception e) {
+
+                    }
+                    DeletedExhibit deletedExhibit = new DeletedExhibit(exhibitName);
+                    Page page = new Page(title, deletedExhibit.toString(), "Delete Exhibit",
+                            "manage_exhibits/delete_exhibit");
+                    exhibitManagement.removeExhibit(exhibitID);
+                    exhibitManagement.refreshExhibitArray();
+
+                    File image = new File(ROOT + "images/exhibits/" + exhibitID + ".jpeg");
+                    try {
+                        Files.deleteIfExists(image.toPath());
+                    } catch (Exception e) {
+                        System.err.println("No Such File Found");
                     }
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
@@ -288,10 +360,10 @@ public class QUBWebmuseum {
                     url = url.replace("manage_exhibits/", "");
                     int searchCriteria = Integer.valueOf(wr.parms.get("criteriaChoice"));
 
-                    String SearchValue = wr.parms.get("textInputInForm") + wr.parms.get("numberInputInForm");
-
-                    exhibitManagement.searchExhibits(searchCriteria, SearchValue);
-
+                    String searchValue = wr.parms.get("IDInput") + wr.parms.get("NameInput");
+                    if (!searchValue.equals("")) {
+                        exhibitManagement.searchExhibits(searchCriteria, searchValue);
+                    }
                     wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
                             "<html><body>Redirected: <a href=\"" + url + "\">" +
                                     url + "</a></body></html>");

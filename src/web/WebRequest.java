@@ -226,7 +226,7 @@ public class WebRequest implements Runnable {
 						System.out.println("multipart/form-data;");
 
 						parms.put("multipart", null);
-						saveMultipart("src/part03/images/temp");
+						saveMultipart("src/images/temp");
 					} else if (contentType.startsWith("application/octet-stream;")) {
 						System.out.println("application/octet-stream;");
 						// Don't parse as parameters

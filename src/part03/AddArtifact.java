@@ -20,7 +20,7 @@ public class AddArtifact {
                 this.HTML += "</div>";
                 this.HTML += "<div class = 'flex flex-row justify-around my-2 h-1/3'>";
                     this.HTML += "<LABEL for 'image' class='pr-4 font-bold text-xl'>Image:</LABEL>";
-                    this.HTML += "<INPUT  type='file' id='image' name='image' required class = 'w-2/3 rounded-md'>";
+                    this.HTML += "<INPUT  type='file' id='image' name='image' class = 'w-2/3 rounded-md'>";
                 this.HTML += "</div>";
                 this.HTML += "<INPUT  type='submit' value='Submit' class = ' rounded-md py-2 bg-green-500 font-bold text-white text-xl'>";
             this.HTML += "</FORM>";

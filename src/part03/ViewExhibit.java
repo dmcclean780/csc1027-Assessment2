@@ -32,7 +32,7 @@ public class ViewExhibit {
                         
                     this.HTML += "</div>";
                     this.HTML += "<div class = 'flex flex-col justify-center'>";
-                    this.HTML += "<img src='http://localhost:9990/images/exhibits/"+exhibit.getID()+".jpeg' class='rounded-md'>";
+                    this.HTML += "<img src='http://localhost:9990/images/exhibits/"+exhibit.getID()+".jpeg'  alt='No Image For this Exhibit' class='rounded-md'>";
                     this.HTML += "</div>";
                 this.HTML += "</div>";
                 this.HTML += "<div class = 'flex flex-col bg-green-700 py-4 px-4 rounded-md my-2 mr-4 w-full'>";

@@ -252,4 +252,8 @@ public class Exhibit {
         nextID = 0;
     }
 
+    public static int getNextID(){
+        return nextID;
+    }
+
 }

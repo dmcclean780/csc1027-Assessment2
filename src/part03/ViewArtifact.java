@@ -31,7 +31,7 @@ public class ViewArtifact {
                         this.HTML += "</div>";
                     this.HTML += "</div>";
                     this.HTML += "<div class = 'h-full bg-green-500'>";
-                    this.HTML += "<img src='http://localhost:9990/images/artifacts/"+artifact.getID()+".jpeg' class='rounded-md'>";
+                    this.HTML += "<img src='http://localhost:9990/images/artifacts/"+artifact.getID()+".jpeg' alt='No Image For this Artifact' class='rounded-md'>";
                     this.HTML += "</div>";
                 this.HTML += "</div>";
             this.HTML += "</div>";
