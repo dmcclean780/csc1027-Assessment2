@@ -378,6 +378,37 @@ public class ExhibitManagement {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    /**
+     * Update exhibit properties
+     * @param exhibitChoice index of exhibit in exhibitArray
+     * @param name new name -> "" will leave unchanged
+     * @param artifacts new artifact IDs list
+     * @param route new list of signs
+     * @return
+     */
+    public boolean updateExhibitByID(String name, ArrayList<Integer> artifacts,
+            ArrayList<String> route, int exhibitID) {
+
+        Exhibit exhibit = null;
+        try {
+            exhibit = findExhibit(exhibitID);
+
+        } catch (Exception e) {
+            System.err.println("exhibitChoice out of range");
+            return false;
+        }
+
+        try {
+            exhibit.setArtifactsAndRoute(artifacts, route);
+            if (!name.equals("")) {
+                exhibit.setName(name);
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 

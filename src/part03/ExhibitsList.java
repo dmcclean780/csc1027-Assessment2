@@ -9,16 +9,17 @@ public class ExhibitsList {
 
     public ExhibitsList(ExhibitManagement exhibitManagement, String current) {
         this.HTML = "<div class ='flex flex-row justify-center bg-green-700'>";
+        this.HTML += "<script src='http://localhost:9990/part03/exhibitsListFunctions.js'></script>";
         this.HTML += "<div class = 'flex flex-col justify-around w-5/6 overflow-hidden'>";
 
         this.HTML += "<form action='search_exhibit' class = 'flex flex-row m-4 justify-around max-w-full'>";
         this.HTML += "<label for 'criteriaChoice' class='pr-4 font-bold text-l'>Property To Search:</label>";
         this.HTML += "<div class = 'w-1/3'>";
 
-        this.HTML += "<input type='radio' id='id' name='criteriaChoice' value='1' onchange='showID(this, \"exhibit\")' checked> ";
+        this.HTML += "<input type='radio' id='id' name='criteriaChoice' value='1' onchange='showID(this)' checked> ";
         this.HTML += "<label for='id' class='pr-3'>ID</label> <br>";
 
-        this.HTML += "<input type='radio' id='name' name='criteriaChoice' value='2' onchange='showName(this, \"exhibit\")'> ";
+        this.HTML += "<input type='radio' id='name' name='criteriaChoice' value='2' onchange='showName(this)'> ";
         this.HTML += "<label for='name' class='pr-3'>Name</label> <br>";
 
         this.HTML += "</div>";

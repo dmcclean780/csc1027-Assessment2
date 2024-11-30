@@ -15,7 +15,7 @@ public class AddArtifact {
                     this.HTML += "<INPUT  type='text' id='myType' name='myTypeInForm' required class = 'w-2/3 rounded-md'>";
                 this.HTML += "</div>";
                 this.HTML += "<div class = 'flex flex-row justify-around my-2 h-1/3'>";
-                    this.HTML += "<LABEL for 'myTime' class='pr-4 font-bold text-xl'>Time:</LABEL>";
+                    this.HTML += "<LABEL for 'myTime' class='pr-4 font-bold text-xl'>Engagement Time:</LABEL>";
                     this.HTML += "<INPUT  type='number' id='myTime' name='myTimeInForm' min='1' max='60' required class = 'w-2/3 rounded-md'>";
                 this.HTML += "</div>";
                 this.HTML += "<div class = 'flex flex-row justify-around my-2 h-1/3'>";

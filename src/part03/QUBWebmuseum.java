@@ -16,6 +16,7 @@ import part01.DefaultData;
 import part01.Exhibit;
 import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
+import part02.ArraysMethods;
 import web.Response;
 import web.WebInterface;
 import web.WebRequest;
@@ -31,7 +32,7 @@ public class QUBWebmuseum {
         QUBWebmuseum museum = new QUBWebmuseum();
         museum.popArtifacts();
         museum.popExhibits();
-        // museum.popPlan();
+        museum.popPlan();
         museum.launchMuseumWebsite("QUB Museum");
     }
 
@@ -90,7 +91,7 @@ public class QUBWebmuseum {
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
                 } else if (wr.path.equalsIgnoreCase("manage_artifacts")) {
-
+                    artifactManagement.refreshArtifactArray();
                     String[] menuOptions = { "Add Artifact", "View Artifact", "Update Artifact", "Delete Artifact" };
                     Menu mainMenu = new Menu(menuOptions, "manage_artifacts");
                     Page page = new Page(title, mainMenu.toString(), "Artifact Management", "");
@@ -105,7 +106,7 @@ public class QUBWebmuseum {
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
                 } else if (wr.path.equalsIgnoreCase("manage_artifacts/add_artifact/create_artifact")) {
-
+                    
                     String url = "/manage_artifacts/add_artifact";
 
                     String myName = wr.parms.get("myNameInForm");
@@ -170,6 +171,20 @@ public class QUBWebmuseum {
 
                     String url = "/manage_artifacts/update_artifact";
 
+                    String image = wr.parms.get("image");
+
+                    if (!image.startsWith(ROOT + "images/temp/_")) {
+                        Path source = FileSystems.getDefault().getPath(image);
+                        Path target = FileSystems.getDefault().getPath(ROOT, "images", "artifacts",
+                                ID + ".jpeg");
+                        try {
+                            Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+                            FileUtils.cleanDirectory(new File(ROOT + "images/temp"));
+                        } catch (Exception e) {
+
+                        }
+                    }
+
                     artifactManagement.updateArtifactByID(myName, myType, myTime, ID);
                     artifactManagement.refreshArtifactArray();
                     wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
@@ -181,7 +196,7 @@ public class QUBWebmuseum {
 
                     int artifactID = Integer.parseInt(wr.path.substring("manage_artifacts/update_artifact/".length()));
 
-                    Page page = new Page(title, "", "View Artifact", "manage_artifacts/update_artifact");
+                    Page page = new Page(title, "", "Update Artifact", "manage_artifacts/update_artifact");
                     try {
                         Artifact artifact = artifactManagement.findArtifact(artifactID);
                         UpdateArtifact updateArtifact = new UpdateArtifact(artifact);
@@ -214,6 +229,8 @@ public class QUBWebmuseum {
                             "manage_artifacts/delete_artifact");
                     artifactManagement.removeArtifact(artifactID);
                     artifactManagement.refreshArtifactArray();
+                    exhibitManagement.removeArtifactsWithID(artifactID);
+                    exhibitManagement.refreshExhibitArray();
 
                     File image = new File(ROOT + "images/artifacts/" + artifactID + ".jpeg");
                     try {
@@ -252,7 +269,7 @@ public class QUBWebmuseum {
                     wr.r.addHeader("Location", url);
 
                 } else if (wr.path.equalsIgnoreCase("manage_exhibits")) {
-
+                    exhibitManagement.refreshExhibitArray();
                     String[] menuOptions = { "Add Exhibit", "View Exhibit", "Update Exhibit", "Delete Exhibit" };
                     Menu mainMenu = new Menu(menuOptions, "manage_exhibits");
                     Page page = new Page(title, mainMenu.toString(), "Exhibit Management", "");
@@ -267,7 +284,7 @@ public class QUBWebmuseum {
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 
                 } else if (wr.path.equalsIgnoreCase("manage_exhibits/add_exhibit/create_exhibit")) {
-
+                    System.out.println(wr.parms);
                     String url = "/manage_exhibits/add_exhibit";
 
                     String myName = wr.parms.get("myNameInForm");
@@ -280,8 +297,6 @@ public class QUBWebmuseum {
                         artifacts.add(artifact);
                         route.add(sign);
                     }
-                    System.out.println(artifacts);
-                    System.out.println(route);
                     String image = wr.parms.get("image");
 
                     System.out.println(image);
@@ -317,6 +332,68 @@ public class QUBWebmuseum {
                         ViewExhibit viewExhibit = new ViewExhibit(exhibit, artifactManagement);
                         page = new Page(title, viewExhibit.toString(), exhibit.getName(),
                                 "manage_exhibits/view_exhibit");
+                    } catch (Exception e) {
+
+                    }
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/update_exhibit")) {
+
+                    ExhibitsList artifactsList = new ExhibitsList(exhibitManagement,
+                            "manage_exhibits/update_exhibit");
+                    Page page = new Page(title, artifactsList.toString(), "Update Exhibit", "manage_exhibits");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_exhibits/update_exhibit/update")) {
+
+                    int ID = Integer.parseInt(wr.parms.get("exhibitID"));
+                    String myName = wr.parms.get("myNameInForm");
+                    System.out.println(myName);
+                    int noArtifacts = Integer.parseInt(wr.parms.get("artifcatCount"));
+                    ArrayList<Integer> artifacts = new ArrayList<>();
+                    ArrayList<String> route = new ArrayList<>();
+                    for (int j = 0; j < noArtifacts; j++) {
+                        int artifact = Integer.parseInt(wr.parms.get("artifact" + j));
+                        String sign = wr.parms.get("sign" + j);
+                        artifacts.add(artifact);
+                        route.add(sign);
+                    }
+
+                    String image = wr.parms.get("image");
+
+                    if (!image.startsWith(ROOT + "images/temp/_")) {
+                        Path source = FileSystems.getDefault().getPath(image);
+                        Path target = FileSystems.getDefault().getPath(ROOT, "images", "exhibits",
+                                ID + ".jpeg");
+                        try {
+                            Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+                            FileUtils.cleanDirectory(new File(ROOT + "images/temp"));
+                        } catch (Exception e) {
+
+                        }
+                    }
+
+                    String url = "/manage_exhibits/update_exhibit";
+
+                    exhibitManagement.updateExhibitByID(myName, artifacts, route, ID);
+                    exhibitManagement.refreshExhibitArray();
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.startsWith("manage_exhibits/update_exhibit/")) {
+
+                    int exhibitID = Integer.parseInt(wr.path.substring("manage_exhibits/update_exhibit/".length()));
+
+                    Page page = new Page(title, "", "Update Exhibit", "manage_exhibits/update_exhibit");
+                    try {
+                        Exhibit exhibit = exhibitManagement.findExhibit(exhibitID);
+                        UpdateExhibit updateExhibit = new UpdateExhibit(exhibit, artifactManagement);
+                        page = new Page(title, updateExhibit.toString(), exhibit.getName(),
+                                "manage_exhibits/update_exhibit");
                     } catch (Exception e) {
 
                     }
@@ -382,10 +459,73 @@ public class QUBWebmuseum {
 
                 } else if (wr.path.equalsIgnoreCase("manage_annual_plan")) {
 
-                    String[] menuOptions = { "Create Annual Plan", "View Annual Plan", "Update Annual Plan",
-                            "Delete Annual Plan" };
+                    String[] menuOptions = { "Create Annual Plan", "View Annual Plan", "Update Annual Plan"};
                     Menu mainMenu = new Menu(menuOptions, "manage_annual_plan");
                     Page page = new Page(title, mainMenu.toString(), "Annual Plan Management", "");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/create_annual_plan")) {
+                    CreateAnnualPlan createAnnualPlan = new CreateAnnualPlan(exhibitManagement);
+                    Page page = new Page(title, createAnnualPlan.toString(), "View Annual Plan", "manage_annual_plan");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/create_annual_plan/create")) {
+                    
+                    int halls = Integer.valueOf(wr.parms.get("hallNoInput"));
+                    int[][] exhibitPlan = new int[12][halls];
+                    int id=0;
+                    for(int j=0; j<12; j++){
+                        for(int k=0; k<halls; k++){
+                            exhibitPlan[j][k]=Integer.valueOf(wr.parms.get("exhibit"+id));
+                            id++;
+                        }
+                    }
+                    
+                    try{
+                        exhibitionPlan = new ExhibitionPlan(exhibitPlan, exhibitManagement);
+                    } catch(Exception e){
+                        System.out.println(e);
+                    }
+
+                    
+
+                    String url = "/manage_annual_plan/view_annual_plan";
+
+                   
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/view_annual_plan")) {
+
+                    String[] menuOptions = { "Entire Plan", "Entire Month", "Entire Hall"};
+                    Menu mainMenu = new Menu(menuOptions, "manage_annual_plan/view_annual_plan");
+                    Page page = new Page(title, mainMenu.toString(), "View Annual Plan", "manage_annual_plan");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/view_annual_plan/entire_plan")) {
+
+                    String[][] planNames = exhibitionPlan.getExhibitNames(exhibitManagement);
+                    ViewEntirePlan viewEntirePlan = new ViewEntirePlan(planNames);
+                    Page page = new Page(title, viewEntirePlan.toString(), "View Entire Plan", "manage_annual_plan/view_annual_plan");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/view_annual_plan/entire_month")) {
+                    String[][] planNames = exhibitionPlan.getExhibitNames(exhibitManagement);
+                    ViewEntireMonth viewEntireMonth = new ViewEntireMonth(planNames);
+                    Page page = new Page(title, viewEntireMonth.toString(), "View Entire Plan", "manage_annual_plan/view_annual_plan");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+ 
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/view_annual_plan/entire_hall")) {
+                    String[][] planNames = exhibitionPlan.getExhibitNames(exhibitManagement);
+                    ViewEntireHall viewEntireHall = new ViewEntireHall(planNames);
+                    Page page = new Page(title, viewEntireHall.toString(), "View Entire Plan", "manage_annual_plan/view_annual_plan");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
 

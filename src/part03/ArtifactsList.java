@@ -9,22 +9,23 @@ public class ArtifactsList {
 
     public ArtifactsList(ArtifactManagement artifactManagement, String current) {
         this.HTML = "<div class ='flex flex-row justify-center bg-green-700'>";
+        this.HTML += "<script src='http://localhost:9990/part03/artifactsListFunctions.js'></script>";
         this.HTML += "<div class = 'flex flex-col justify-around w-5/6 overflow-hidden'>";
 
         this.HTML += "<form action='search_artifact' class = 'flex flex-row m-4 justify-around max-w-full'>";
         this.HTML += "<label for 'criteriaChoice' class='pr-4 font-bold text-l'>Property To Search:</label>";
         this.HTML += "<div class = 'w-1/3'>";
 
-        this.HTML += "<input type='radio' id='id' name='criteriaChoice' value='1' onchange='showID(this, \"artifact\")' checked> ";
+        this.HTML += "<input type='radio' id='id' name='criteriaChoice' value='1' onchange='showID(this)' checked> ";
         this.HTML += "<label for='id' class='pr-3'>ID</label> <br>";
 
-        this.HTML += "<input type='radio' id='name' name='criteriaChoice' value='2' onchange='showName(this, \"artifact\")'> ";
+        this.HTML += "<input type='radio' id='name' name='criteriaChoice' value='2' onchange='showName(this)'> ";
         this.HTML += "<label for='name' class='pr-3'>Name</label> <br>";
 
-        this.HTML += "<input type='radio' id='type' name='criteriaChoice' value='3' onchange='showType(this, \"artifact\")'> ";
+        this.HTML += "<input type='radio' id='type' name='criteriaChoice' value='3' onchange='showType(this)'> ";
         this.HTML += "<label for='type' class='pr-3'>Type</label> <br>";
 
-        this.HTML += "<input type='radio' id='time' name='criteriaChoice' value='4' onchange='showTime(this, \"artifact\")'> ";
+        this.HTML += "<input type='radio' id='time' name='criteriaChoice' value='4' onchange='showTime(this)'> ";
         this.HTML += "<label for='time' class='pr-3'>Engagement Time</label> ";
         this.HTML += "</div>";
 
