@@ -1,16 +1,13 @@
 let id = 0
 
 window.onload = () => {
-    const hallInput = document.getElementById("hallNoInput");
-    
+    const hallInput = document.getElementById("hallNoInputHidden");
+    console.log(selectedExhibits)
     let options = "";
     for (let i = 0; i < exhibitData.length; i++) {
         const exhibit = exhibitData[i];
         options += `<option value='` + exhibit.ID + `'>` + exhibit.Name + `</option>`;
     }
-
-    hallInput.addEventListener('change', () => {
-
         const hallNo = parseInt(hallInput.value)
         document.getElementById('hallNoInputHidden').value = hallNo
         const planGrid = document.getElementById('planGrid')
@@ -22,7 +19,7 @@ window.onload = () => {
         for (let i = 0; i < hallNo; i++) {
             const hallTitle = document.createElement('div');
             const rigntBorder = (i % (hallNo - 1) == 0 && i != 0) ? "border-r-2" : "border-r";
-            hallTitle.className = 'font-bold bg-green-500 border-t-2 ' + rigntBorder + ' border-b pl-2'
+            hallTitle.className = 'flex grow font-bold bg-green-500 border-t-2 ' + rigntBorder + ' border-b pl-2'
             hallTitle.innerHTML = 'Hall ' + (i + 1)
             planGrid.appendChild(hallTitle)
         }
@@ -31,7 +28,7 @@ window.onload = () => {
             const month = document.createElement('div');
             const bottomBorder = (i % 11 == 0 && i != 0) ? "border-b-2 " : "";
             const colour = (i % 2 == 1) ? "green" : "gray";
-            month.className = 'bg-' + colour + '-400 px-2 font-bold border-l-2 border-r ' + bottomBorder
+            month.className = 'bg-' + colour + '-400 pl-2 flex grow font-bold border-l-2 border-r pr-2' + bottomBorder
             month.innerHTML = months[i]
             planGrid.appendChild(month)
             for (let j = 0; j < hallNo; j++) {
@@ -39,24 +36,21 @@ window.onload = () => {
                 id++
             }
         }
-    })
-    
-};
+    }
 
 function createExhibitSelector(id, i, j, hallNo, options) {
     const exhibit = document.createElement('div');
     const bottomBorder = (i % 11 == 0 && i != 0) ? "border-b-2 " : "";
     const rigntBorder = (j % (hallNo - 1) == 0 && j != 0) ? "border-r-2" : "border-r";
     const colour = (i % 2 == 1) ? "green" : "gray";
-    exhibit.className = 'bg-' + colour + '-400 ' + bottomBorder + rigntBorder + ' px-2 py-1 overflow-hidden'
-    exhibit.innerHTML = `<select id='` + id + `', name='exhibit` + id + `', class='rounded-sm'>` +
+    exhibit.className = 'bg-' + colour + '-400 ' + bottomBorder + rigntBorder + ' pl-2 overflow-hidden'
+    exhibit.innerHTML = `<select id='` + i + j + `', name='exhibit` + id + `', class='rounded-sm flex shrink'>` +
         options +
         `</select>`
     planGrid.appendChild(exhibit)
-    document.getElementById(""+id).selectedIndex = -1;
-    console.log(document.getElementById(""+id))
-    const selectElement = select = document.getElementById(""+id)
-
+    document.getElementById("" + i + j).selectedIndex = -1;
+    const selectElement = select = document.getElementById("" + i + j)
+    selectElement.value=selectedExhibits[id]
     selectElement.addEventListener('change', () => {
         preventDupes(i, hallNo)
     })
@@ -83,7 +77,10 @@ function updateOptions(selectElement, selectedValues) {
     for (let i = 0; i < selectedValues.length; i++) {
         if (selectedValues[i] != "") {
             const exhibitsThatShare = exhibitsSharingArtifacts[selectedValues[i]]
+            console.log(typeof exhibitsThatShare[0])
             for (let i = 0; i < options.length; i++) {
+                console.log(typeof options[i].value)
+                console.log(exhibitsThatShare.includes(Number(options[i].value)))
                 if (exhibitsThatShare.includes(Number(options[i].value))  && selectElement.value !== options[i].value) {
                     options[i].disabled = true; // Disable exhibit that share artifacts
                 } else {

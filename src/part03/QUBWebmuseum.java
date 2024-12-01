@@ -16,7 +16,6 @@ import part01.DefaultData;
 import part01.Exhibit;
 import part01.ExhibitManagement;
 import part01.ExhibitionPlan;
-import part02.ArraysMethods;
 import web.Response;
 import web.WebInterface;
 import web.WebRequest;
@@ -528,6 +527,39 @@ public class QUBWebmuseum {
                     Page page = new Page(title, viewEntireHall.toString(), "View Entire Plan", "manage_annual_plan/view_annual_plan");
 
                     wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/update_annual_plan")) {
+                    UpdateAnnualPlan updateAnnualPlan = new UpdateAnnualPlan(exhibitManagement, exhibitionPlan);
+                    Page page = new Page(title, updateAnnualPlan.toString(), "View Annual Plan", "manage_annual_plan");
+
+                    wr.r = new Response(WebRequest.HTTP_OK, WebRequest.MIME_HTML, page.toString());
+
+                } else if (wr.path.equalsIgnoreCase("manage_annual_plan/update_annual_plan/update")) {
+                    int halls = Integer.valueOf(wr.parms.get("hallNoInput"));
+                    int[][] exhibitPlan = new int[12][halls];
+                    int id=0;
+                    for(int j=0; j<12; j++){
+                        for(int k=0; k<halls; k++){
+                            exhibitPlan[j][k]=Integer.valueOf(wr.parms.get("exhibit"+id));
+                            id++;
+                        }
+                    }
+                    
+                    try{
+                        exhibitionPlan = new ExhibitionPlan(exhibitPlan, exhibitManagement);
+                    } catch(Exception e){
+                        System.out.println(e);
+                    }
+
+                    
+
+                    String url = "/manage_annual_plan/view_annual_plan";
+
+                   
+                    wr.r = new Response(WebRequest.HTTP_REDIRECT, WebRequest.MIME_HTML,
+                            "<html><body>Redirected: <a href=\"" + url + "\">" +
+                                    url + "</a></body></html>");
+                    wr.r.addHeader("Location", url);
 
                 }
 
