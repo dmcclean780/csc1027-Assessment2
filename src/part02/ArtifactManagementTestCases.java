@@ -24,16 +24,16 @@ public class ArtifactManagementTestCases {
         Artifact[] result = testArtifactManagement.getArtifactArray();
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
 
-       // if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tWhen: new ArtifactManagement() called");
-            System.err.println("\t\tThen: output of getArtifactArray() is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tWhen: new ArtifactManagement() called");
+        System.err.println("\t\tThen: output of getArtifactArray() is:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -49,16 +49,16 @@ public class ArtifactManagementTestCases {
         ArrayList<Artifact> result = testArtifactManagement.getArtifacts();
         boolean thisPassed = result.equals(expectedResult);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tWhen: new ArtifactManagement() called");
-            System.err.println("\t\tThen: output of getArtifacts() is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tWhen: new ArtifactManagement() called");
+        System.err.println("\t\tThen: output of getArtifacts() is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -80,16 +80,16 @@ public class ArtifactManagementTestCases {
         Artifact[] result = testArtifactManagement.getArtifactArray();
         boolean thisPassed = ArraysMethods.equals(result, expectedResult);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tWhen: new ArtifactManagement() called with " + artifactManagementData);
-            System.err.println("\t\tThen: output of getArtifactArray() is:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tWhen: new ArtifactManagement() called with " + artifactManagementData);
+        System.err.println("\t\tThen: output of getArtifactArray() is:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -102,8 +102,8 @@ public class ArtifactManagementTestCases {
      */
     public static boolean constructorTestCase(ArrayList<Artifact> artifactManagementData,
             ArrayList<Artifact> expectedResult, String scenario) {
-        
-                ArtifactManagement testArtifactManagement;
+
+        ArtifactManagement testArtifactManagement;
         String result = "";
         boolean thisPassed = false;
         try {
@@ -114,18 +114,17 @@ public class ArtifactManagementTestCases {
         } catch (Exception e) {
             result = e.getMessage();
         }
-        
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tWhen: new ArtifactManagement() called with " + artifactManagementData);
-            System.err.println("\t\tThen: output of getArtifacts() is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tWhen: new ArtifactManagement() called with " + artifactManagementData);
+        System.err.println("\t\tThen: output of getArtifacts() is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -137,8 +136,8 @@ public class ArtifactManagementTestCases {
      * @return passed
      */
     public static boolean constructorTestCase(ArrayList<Artifact> artifactManagementData,
-           String expectedResult, String scenario) {
-        
+            String expectedResult, String scenario) {
+
         ArtifactManagement testArtifactManagement;
         String result = "";
         boolean thisPassed = false;
@@ -151,18 +150,17 @@ public class ArtifactManagementTestCases {
             result = e.getMessage();
             thisPassed = result.equals(expectedResult);
         }
-        
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tWhen: new ArtifactManagement() called with " + artifactManagementData);
-            System.err.println("\t\tThen: output of getArtifacts() is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tWhen: new ArtifactManagement() called with " + artifactManagementData);
+        System.err.println("\t\tThen: output of getArtifacts() is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -179,17 +177,17 @@ public class ArtifactManagementTestCases {
         int result = testArtifactManagement.getArtifactArrayLength();
         boolean thisPassed = result == expectedResult;
 
-       // if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactArrayLength called");
-            System.err.println("\t\tThen: output is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactArrayLength called");
+        System.err.println("\t\tThen: output is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -215,17 +213,17 @@ public class ArtifactManagementTestCases {
             System.err.println(e);
         }
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactID called with " + testArtifacrIndex);
-            System.err.println("\t\tThen: output is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactID called with " + testArtifacrIndex);
+        System.err.println("\t\tThen: output is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -251,17 +249,17 @@ public class ArtifactManagementTestCases {
             thisPassed = result.equals(expectedResult);
         }
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactID called with " + testArtifacrIndex);
-            System.err.println("\t\tThen: output is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactID called with " + testArtifacrIndex);
+        System.err.println("\t\tThen: output is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -282,24 +280,24 @@ public class ArtifactManagementTestCases {
         boolean result = testArtifactManagement.addArtifact(testArtifactName, testArtifactType, testArtifactTime);
         boolean thisPassed = result == expectedResult;
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: addArtifact called with " + testArtifactName);
-            System.err.println("\t\tAnd: " + testArtifactType);
-            System.err.println("\t\tAnd: " + testArtifactTime);
-            System.err.println("\t\tThen: output is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: addArtifact called with " + testArtifactName);
+        System.err.println("\t\tAnd: " + testArtifactType);
+        System.err.println("\t\tAnd: " + testArtifactTime);
+        System.err.println("\t\tThen: output is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
     /**
-     * Test for updateArtifact method
+     * Test for updateArtifact method to check validity
      * 
      * @param testArtifactManagement
      * @param artifactChoice
@@ -318,25 +316,25 @@ public class ArtifactManagementTestCases {
                 testArtifactTime);
         boolean thisPassed = result == expectedResult;
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: updateArtifact called with " + artifactChoice);
-            System.err.println("\t\tAnd: " + testArtifactName);
-            System.err.println("\t\tAnd: " + testArtifactType);
-            System.err.println("\t\tAnd: " + testArtifactTime);
-            System.err.println("\t\tThen: output is:\n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: updateArtifact called with " + artifactChoice);
+        System.err.println("\t\tAnd: " + testArtifactName);
+        System.err.println("\t\tAnd: " + testArtifactType);
+        System.err.println("\t\tAnd: " + testArtifactTime);
+        System.err.println("\t\tThen: output is:\n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
     /**
-     * Test for updateArtifact method
+     * Test for updateArtifact method to check update
      * 
      * @param testArtifactManagement
      * @param artifactChoice
@@ -355,20 +353,98 @@ public class ArtifactManagementTestCases {
         String result = testArtifactManagement.getArtifactString(artifactChoice);
         boolean thisPassed = result.trim().equals(expectedResult.trim());
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: updateArtifact called with " + artifactChoice);
-            System.err.println("\t\tAnd: " + testArtifactName);
-            System.err.println("\t\tAnd: " + testArtifactType);
-            System.err.println("\t\tAnd: " + testArtifactTime);
-            System.err.println("\t\tThen: output of getArtifactString is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: updateArtifact called with " + artifactChoice);
+        System.err.println("\t\tAnd: " + testArtifactName);
+        System.err.println("\t\tAnd: " + testArtifactType);
+        System.err.println("\t\tAnd: " + testArtifactTime);
+        System.err.println("\t\tThen: output of getArtifactString is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
+        return thisPassed;
+    }
+
+    /**
+     * Test for updateArtifactByID method to check valididty
+     * 
+     * @param testArtifactManagement
+     * @param artifactID
+     * @param testArtifactName
+     * @param testArtifactType
+     * @param testArtifactTime
+     * @param artifactChoice
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
+    public static boolean updateArtifactByIDTestCase(ArtifactManagement testArtifactManagement, int artifactID,
+            String testArtifactName, String testArtifactType, String testArtifactTime, int artifactChoice,
+            boolean expectedResult,
+            String scenario) {
+
+        boolean result = testArtifactManagement.updateArtifactByID(testArtifactName, testArtifactType, testArtifactTime,
+                artifactID);
+        boolean thisPassed = result == expectedResult;
+
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: updateArtifactByID called with " + testArtifactName);
+        System.err.println("\t\tAnd: " + testArtifactType);
+        System.err.println("\t\tAnd: " + testArtifactTime);
+        System.err.println("\t\tAnd: " + artifactID);
+        System.err.println("\t\tThen: output is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
+        return thisPassed;
+    }
+
+    /**
+     * Test for updateArtifactByID method to check update
+     * 
+     * @param testArtifactManagement
+     * @param artifactID
+     * @param testArtifactName
+     * @param testArtifactType
+     * @param testArtifactTime
+     * @param artifactChoice
+     * @param expectedResult
+     * @param scenario
+     * @return passed
+     */
+    public static boolean updateArtifactByIDTestCase(ArtifactManagement testArtifactManagement, int artifactID,
+            String testArtifactName, String testArtifactType, String testArtifactTime, int artifactChoice,
+            String expectedResult,
+            String scenario) {
+
+        testArtifactManagement.updateArtifactByID(testArtifactName, testArtifactType, testArtifactTime, artifactID);
+        String result = testArtifactManagement.getArtifactString(artifactChoice);
+        boolean thisPassed = result.trim().equals(expectedResult.trim());
+
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: updateArtifactByID called with " + testArtifactName);
+        System.err.println("\t\tAnd: " + testArtifactType);
+        System.err.println("\t\tAnd: " + testArtifactTime);
+        System.err.println("\t\tAnd: " + artifactID);
+        System.err.println("\t\tThen: output of getArtifactString with " + artifactChoice + "is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -386,17 +462,17 @@ public class ArtifactManagementTestCases {
         String result = testArtifactManagement.getArtifactString(artifactChoice);
         boolean thisPassed = result.equals(expectedResult);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactString called with " + artifactChoice);
-            System.err.println("\t\tThen: output of getArtifactString is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactString called with " + artifactChoice);
+        System.err.println("\t\tThen: output of getArtifactString is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -432,17 +508,17 @@ public class ArtifactManagementTestCases {
         System.setOut(stdout);
         System.setIn(stdin);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactsMenu called");
-            System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactsMenu called");
+        System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -460,17 +536,17 @@ public class ArtifactManagementTestCases {
         Artifact[] result = testArtifactManagement.artifactsToArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: artifactsToArray called");
-            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: artifactsToArray called");
+        System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -489,17 +565,17 @@ public class ArtifactManagementTestCases {
         Artifact[] result = ArtifactManagement.artifactsToArray(testArtifactManagement);
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: artifactsToArray called");
-            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("E\t\txpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: artifactsToArray called");
+        System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("E\t\txpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -511,22 +587,23 @@ public class ArtifactManagementTestCases {
      * @param scenario
      * @return passed
      */
-    public static boolean artifactArrayToNameArrayTestCase(ArtifactManagement testArtifactManagement, String[] expectedResult,
+    public static boolean artifactArrayToNameArrayTestCase(ArtifactManagement testArtifactManagement,
+            String[] expectedResult,
             String scenario) {
         String[] result = testArtifactManagement.artifactArrayToNameArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: artifactsToArray called ");
-            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: artifactsToArray called ");
+        System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -544,17 +621,17 @@ public class ArtifactManagementTestCases {
         Artifact[] result = testArtifactManagement.getArtifactArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: sortArtifactsArray called ");
-            System.err.println("\t\tThen: output of getArtifactArray is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: sortArtifactsArray called ");
+        System.err.println("\t\tThen: output of getArtifactArray is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -574,18 +651,18 @@ public class ArtifactManagementTestCases {
         Artifact[] result = testArtifactManagement.getArtifactArray();
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: searchArtifacts called with " + criteriaChoice);
-            System.err.println("\t\tAnd: " + searchValue);
-            System.err.println("\t\tThen: output of getArtifactArray is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: searchArtifacts called with " + criteriaChoice);
+        System.err.println("\t\tAnd: " + searchValue);
+        System.err.println("\t\tThen: output of getArtifactArray is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -604,17 +681,17 @@ public class ArtifactManagementTestCases {
         ArrayList<Artifact> result = testArtifactManagement.getArtifacts();
         boolean thisPassed = result.equals(expectedResult);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: removeArtifact called with " + artifactChoice);
-            System.err.println("\t\tThen: output of getArtifacts is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: removeArtifact called with " + artifactChoice);
+        System.err.println("\t\tThen: output of getArtifacts is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -650,17 +727,17 @@ public class ArtifactManagementTestCases {
         System.setOut(stdout);
         System.setIn(stdin);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactMenu called");
-            System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactMenu called");
+        System.err.println("\t\tThen: display of getUserChoice is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -684,17 +761,17 @@ public class ArtifactManagementTestCases {
         boolean thisPassed = ArraysMethods.equals(expectedResult, result);
 
         System.setErr(stdout);
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getExhibitArtifacts called with " + exhibitArtifacts);
-            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getExhibitArtifacts called with " + exhibitArtifacts);
+        System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -719,17 +796,17 @@ public class ArtifactManagementTestCases {
             result = e.getMessage();
         }
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: findArtifact called with " + testID);
-            System.err.println("\t\tThen: output is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: findArtifact called with " + testID);
+        System.err.println("\t\tThen: output is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -754,17 +831,17 @@ public class ArtifactManagementTestCases {
             thisPassed = result.equals(expectedResult);
         }
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: findArtifact called with " + testID);
-            System.err.println("\t\tThen: output is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-       // }
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: findArtifact called with " + testID);
+        System.err.println("\t\tThen: output is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -789,17 +866,17 @@ public class ArtifactManagementTestCases {
 
         System.setErr(stdout);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getArtifactNames called with " + exhibitArtifacts);
-            System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
-            System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getArtifactNames called with " + exhibitArtifacts);
+        System.err.println("\t\tThen: output is: \n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + ArraysMethods.toString(expectedResult));
+        System.err.println("\t\tGiven Value:\n" + ArraysMethods.toString(result));
+        System.err.println();
+        // }
         return thisPassed;
     }
 
@@ -824,17 +901,17 @@ public class ArtifactManagementTestCases {
 
         System.setErr(stdout);
 
-        //if (!thisPassed) {
-            System.err.println();
-            System.err.println("\t\tScenario:" + scenario);
-            System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
-            System.err.println("\t\tWhen: getExhibitEngagmentTime called with " + exhibitArtifacts);
-            System.err.println("\t\tThen: output is: \n" + expectedResult);
-            System.err.println("\t\tPassed: " + thisPassed);
-            System.err.println("\t\tExpected Value:\n" + expectedResult);
-            System.err.println("\t\tGiven Value:\n" + result);
-            System.err.println();
-        //}
+        // if (!thisPassed) {
+        System.err.println();
+        System.err.println("\t\tScenario:" + scenario);
+        System.err.println("\t\tGiven: testArtifactManagement is " + testArtifactManagement);
+        System.err.println("\t\tWhen: getExhibitEngagmentTime called with " + exhibitArtifacts);
+        System.err.println("\t\tThen: output is: \n" + expectedResult);
+        System.err.println("\t\tPassed: " + thisPassed);
+        System.err.println("\t\tExpected Value:\n" + expectedResult);
+        System.err.println("\t\tGiven Value:\n" + result);
+        System.err.println();
+        // }
         return thisPassed;
     }
 }

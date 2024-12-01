@@ -18,6 +18,7 @@ public class ArtifactManagementTester {
         allPassed &= testGetArtifactID();
         allPassed &= testAddArtifact();
         allPassed &= testUpdateArtifact();
+        allPassed &= testUpdateArtifactByID();
         allPassed &= testGetArtifactString();
         allPassed &= testArtifactsMenu();
         allPassed &= testArtifactsToArray();
@@ -500,6 +501,167 @@ public class ArtifactManagementTester {
 
             allPassed &= ArtifactManagementTestCases.updateArtifactTestCase(testArtifactManagement, artifactChoice,
                     testArtifactName, testArtifactType, testArtifactTime, expectedResult, scenario);
+        }
+
+        System.out.println("\tFeature Passed: " + allPassed);
+        System.out.println();
+        return allPassed;
+    }
+
+    /**
+     * Test Suit for updateArtifactByID method
+     * @return all tests passed
+     */
+    public static boolean testUpdateArtifactByID() {
+        System.out.println("\tFeature: ArtifactManagement updateArtifactByID");
+        boolean allPassed = true;
+
+        /**
+         * Normal use
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "add Artifact";
+            String testArtifactType = "new Artifact";
+            String testArtifactTime = "6";
+            boolean expectedResult = true;
+            artifactsCreated += 10;
+            String scenario = "normal use";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+                    testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * Artifact ID is invalid
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated;
+            String testArtifactName = "add Artifact";
+            String testArtifactType = "new Artifact";
+            String testArtifactTime = "6";
+            boolean expectedResult = false;
+            artifactsCreated += 10;
+            String scenario = "Artifact Choice is negative";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+                    testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * Zero engagement time
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "add Artifact";
+            String testArtifactType = "new Artifact";
+            String testArtifactTime = "0";
+            boolean expectedResult = false;
+            artifactsCreated += 10;
+            String scenario = "Zero engagement time";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+            testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * Negative enagagement time
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "add Artifact";
+            String testArtifactType = "new Artifact";
+            String testArtifactTime = "-1";
+            boolean expectedResult = false;
+            artifactsCreated += 10;
+            String scenario = "Negative enagagement time";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+                    testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * Don't Update anything
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "";
+            String testArtifactType = "";
+            String testArtifactTime = "";
+            String expectedResult = "ID: " + (artifactsCreated+1)
+                    + ",\tName: test,\tType: artifact,\tEngagement Time: 4 minutes";
+            artifactsCreated += 10;
+            String scenario = "Don't Update anything";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+                    testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * update name
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "new name";
+            String testArtifactType = "";
+            String testArtifactTime = "";
+            String expectedResult = "ID: " + (artifactsCreated+1)
+                    + ",\tName: new name,\tType: artifact,\tEngagement Time: 4 minutes";
+            artifactsCreated += 10;
+            String scenario = "update name";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+            testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * update type
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "";
+            String testArtifactType = "new type";
+            String testArtifactTime = "";
+            String expectedResult = "ID: " + (artifactsCreated+1)
+                    + ",\tName: test,\tType: new type,\tEngagement Time: 4 minutes";
+            artifactsCreated += 10;
+            String scenario = "update type";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+                    testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
+        }
+
+        /**
+         * update time
+         */
+        {
+            ArtifactManagement testArtifactManagement = Resources.createTestArtifactManagement();
+            int artifactChoice = 0;
+            int artifactID = artifactsCreated+1;
+            String testArtifactName = "";
+            String testArtifactType = "";
+            String testArtifactTime = "9";
+            String expectedResult = "ID: " + (artifactsCreated+1)
+                    + ",\tName: test,\tType: artifact,\tEngagement Time: 9 minutes";
+            artifactsCreated += 10;
+            String scenario = "update time";
+
+            allPassed &= ArtifactManagementTestCases.updateArtifactByIDTestCase(testArtifactManagement, artifactID,
+                    testArtifactName, testArtifactType, testArtifactTime, artifactChoice, expectedResult, scenario);
         }
 
         System.out.println("\tFeature Passed: " + allPassed);

@@ -227,7 +227,10 @@ public class ExhibitManagement {
             for (int j = 0; j < 40 - artifactNames[i].length(); j++) {
                 exhibitString += " ";
             }
+            try{
             exhibitString += routeArray[i] + "\n";
+            } catch(Exception e){
+            }
         }
         exhibitString += "\nTotal Engagement Time: " + totalEngagementTime + " minutes\n";
         return exhibitString;

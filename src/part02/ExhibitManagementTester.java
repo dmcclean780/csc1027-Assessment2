@@ -34,6 +34,7 @@ public class ExhibitManagementTester {
         allPassed &= testGetExhibitArtifacts();
         allPassed &= testGetExhibitArtifactsByID();
         allPassed &= testUpdateExhibit();
+        allPassed &= testUpdateExhibitByID();
         allPassed &= testRemoveArtifactsWithID();
         allPassed &= testGetExhibitionExhibtNames();
         allPassed &= testFindExhibit();
@@ -1718,6 +1719,142 @@ public class ExhibitManagementTester {
             String scenario = " both are null";
 
             allPassed &= ExhibitManagementTestCases.updateExhibitTestCase(exhibitManagement, exhibitChoice,
+                    exhibitName, artifacts, route, expectedResult, scenario);
+        }
+
+        System.out.println("\tFeature Passed: " + allPassed);
+        System.out.println();
+        return allPassed;
+    }
+
+    /**
+     * Test Suit for updateExhibitByID method
+     * 
+     * @return all tests passed
+     */
+    public static boolean testUpdateExhibitByID() {
+        System.out.println("\tFeature: ArtifactManagement updateExhibitByID");
+        boolean allPassed = true;
+
+        /**
+         * Normal use
+         */
+        {
+
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+            exhibitsCreated += 10;
+            int exhibitID = exhibitsCreated;
+            String exhibitName = "update";
+            ArrayList<Integer> artifacts = new ArrayList<>();
+            artifacts.add(1);
+            ArrayList<String> route = new ArrayList<>();
+            route.add("a");
+            boolean expectedResult = true;
+            String scenario = "normal use";
+
+            allPassed &= ExhibitManagementTestCases.updateExhibitByIDTestCase(exhibitManagement, exhibitID,
+                    exhibitName, artifacts, route, expectedResult, scenario);
+        }
+
+        /**
+         * Route is longer
+         */
+        {
+
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+            exhibitsCreated += 10;
+            int exhibitID = exhibitsCreated;
+            String exhibitName = "update";
+            ArrayList<Integer> artifacts = new ArrayList<>();
+            artifacts.add(1);
+            ArrayList<String> route = new ArrayList<>();
+            route.add("a");
+            route.add("b");
+            boolean expectedResult = false;
+            String scenario = " Route is longer";
+
+            allPassed &= ExhibitManagementTestCases.updateExhibitByIDTestCase(exhibitManagement, exhibitID,
+                    exhibitName, artifacts, route, expectedResult, scenario);
+        }
+
+        /**
+         * artifacts is longer
+         */
+        {
+
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+            exhibitsCreated += 10;
+            int exhibitID = exhibitsCreated;
+            String exhibitName = "update";
+            ArrayList<Integer> artifacts = new ArrayList<>();
+            artifacts.add(1);
+            artifacts.add(2);
+            ArrayList<String> route = new ArrayList<>();
+            route.add("a");
+            boolean expectedResult = false;
+            String scenario = " artifacts is longer";
+
+            allPassed &= ExhibitManagementTestCases.updateExhibitByIDTestCase(exhibitManagement, exhibitID,
+                    exhibitName, artifacts, route, expectedResult, scenario);
+        }
+
+        /**
+         * both are empty
+         */
+        {
+
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+            exhibitsCreated += 10;
+            int exhibitID = exhibitsCreated;
+            String exhibitName = "update";
+            ArrayList<Integer> artifacts = new ArrayList<>();
+
+            ArrayList<String> route = new ArrayList<>();
+
+            boolean expectedResult = true;
+            String scenario = " both are empty";
+
+            allPassed &= ExhibitManagementTestCases.updateExhibitByIDTestCase(exhibitManagement, exhibitID,
+                    exhibitName, artifacts, route, expectedResult, scenario);
+        }
+
+        /**
+         * both are null
+         */
+        {
+
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+            exhibitsCreated += 10;
+            int exhibitID = exhibitsCreated;
+            String exhibitName = "update";
+            ArrayList<Integer> artifacts = null;
+
+            ArrayList<String> route = null;
+
+            boolean expectedResult = false;
+            String scenario = " both are null";
+
+            allPassed &= ExhibitManagementTestCases.updateExhibitByIDTestCase(exhibitManagement, exhibitID,
+                    exhibitName, artifacts, route, expectedResult, scenario);
+        }
+
+        /**
+         * invalid ID
+         */
+        {
+
+            ExhibitManagement exhibitManagement = Resources.createTestExhibitManagement();
+            exhibitsCreated += 10;
+            int exhibitID = exhibitsCreated+1;
+            String exhibitName = "update";
+            ArrayList<Integer> artifacts = null;
+
+            ArrayList<String> route = null;
+
+            boolean expectedResult = false;
+            String scenario = "invalid ID";
+
+            allPassed &= ExhibitManagementTestCases.updateExhibitByIDTestCase(exhibitManagement, exhibitID,
                     exhibitName, artifacts, route, expectedResult, scenario);
         }
 
