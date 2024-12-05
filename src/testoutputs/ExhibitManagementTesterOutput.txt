@@ -1,0 +1,1373 @@
+Class in Test: ExhibitManagement
+
+	Feature: ExhibitManagment default constructor
+
+		Scenario:Default Constructor Array Property
+		When: new ExhibitManagement() called
+		Then: output of getExhibitArray() is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:Default Constructor ArrayList Property
+		When: new ExhibitManagement() called
+		Then: output of getExhibits() is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitMangement constructor
+
+		Scenario:Constructor Array Property
+		When: new ExhibitManagement() called with [ID: 0	Name: test, ID: 1	Name: test, ID: 2	Name: test, ID: 3	Name: test, ID: 4	Name: test]
+		Then: output of getExhibitArray() is:
+[{ID: 0	Name: test}, {ID: 1	Name: test}, {ID: 2	Name: test}, {ID: 3	Name: test}, {ID: 4	Name: test}]
+		Passed: true
+		Expected Value:
+[{ID: 0	Name: test}, {ID: 1	Name: test}, {ID: 2	Name: test}, {ID: 3	Name: test}, {ID: 4	Name: test}]
+		Given Value:
+[{ID: 0	Name: test}, {ID: 1	Name: test}, {ID: 2	Name: test}, {ID: 3	Name: test}, {ID: 4	Name: test}]
+
+
+		Scenario:constructor ArrayList Property
+		When: new ExhibitManagement() called with [ID: 5	Name: test, ID: 6	Name: test, ID: 7	Name: test, ID: 8	Name: test, ID: 9	Name: test]
+		Then: output of getExhibits() is:
+[ID: 5	Name: test, ID: 6	Name: test, ID: 7	Name: test, ID: 8	Name: test, ID: 9	Name: test]
+		Passed: true
+		Expected Value:
+[ID: 5	Name: test, ID: 6	Name: test, ID: 7	Name: test, ID: 8	Name: test, ID: 9	Name: test]
+		Given Value:
+[ID: 5	Name: test, ID: 6	Name: test, ID: 7	Name: test, ID: 8	Name: test, ID: 9	Name: test]
+
+
+		Scenario:constructor with null in ArrayList
+		When: new ExhibitManagement() called with [null, null, null, null, null]
+		Then: output of getExhibits() is:
+exhibits cannot contain null
+		Passed: true
+		Expected Value:
+exhibits cannot contain null
+		Given Value:
+exhibits cannot contain null
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement getExhibitArrayLength
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 10	Name: test, ID: 11	Name: test, ID: 12	Name: test, ID: 13	Name: test, ID: 14	Name: test, ID: 15	Name: test, ID: 16	Name: test, ID: 17	Name: test, ID: 18	Name: test, ID: 19	Name: test]
+		When: getArtifactArrayLength called
+		Then: output is:
+10
+		Passed: true
+		Expected Value:
+10
+		Given Value:
+10
+
+
+		Scenario:normal use, empty ExhibitManagement
+		Given: testArtifactManagement is []
+		When: getArtifactArrayLength called
+		Then: output is:
+0
+		Passed: true
+		Expected Value:
+0
+		Given Value:
+0
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement addExhibit
+
+		Scenario:normal use
+		Given: testExhibitManagement is add Artifact
+		When: addExhibit called with add Artifact
+		And: [1, 2, 3]
+		And: [a, b, c]
+		Then: output is:
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario:Route is longer
+		Given: testExhibitManagement is add Artifact
+		When: addExhibit called with add Artifact
+		And: [1, 2]
+		And: [a, b, c]
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:artifacts is longer
+		Given: testExhibitManagement is add Artifact
+		When: addExhibit called with add Artifact
+		And: [1, 2, 3]
+		And: [a, b]
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:route and artifacts contain null
+		Given: testExhibitManagement is add Artifact
+		When: addExhibit called with add Artifact
+		And: [1, null, 3]
+		And: [a, null, c]
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:route and artifacts are null
+		Given: testExhibitManagement is add Artifact
+		When: addExhibit called with add Artifact
+		And: null
+		And: null
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement exhibitsMenu
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 71	Name: test, ID: 72	Name: test, ID: 73	Name: test, ID: 74	Name: test, ID: 75	Name: test, ID: 76	Name: test, ID: 77	Name: test, ID: 78	Name: test, ID: 79	Name: test, ID: 80	Name: test]
+		When: exhibitsMenu called
+		Then: display of getUserChoice is: 
+Exhibits
+++++++++
+1. test
+2. test
+3. test
+4. test
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
+11. Search
+12. Clear
+13. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Exhibits
+++++++++
+1. test
+2. test
+3. test
+4. test
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
+11. Search
+12. Clear
+13. Quit
+
+Enter Selection:
+		Given Value:
+Exhibits
+++++++++
+1. test
+2. test
+3. test
+4. test
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
+11. Search
+12. Clear
+13. Quit
+
+Enter Selection: 
+
+
+		Scenario:empty exhibitManagement use
+		Given: testExhibitManagement is []
+		When: exhibitsMenu called
+		Then: display of getUserChoice is: 
+Exhibits
+++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Exhibits
+++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Given Value:
+Exhibits
+++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection: 
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement exhibitsToArray
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 81	Name: test, ID: 82	Name: test, ID: 83	Name: test, ID: 84	Name: test, ID: 85	Name: test]
+		When: exhibitsToArray called
+		Then: output is: 
+[{ID: 81	Name: test}, {ID: 82	Name: test}, {ID: 83	Name: test}, {ID: 84	Name: test}, {ID: 85	Name: test}]
+		Passed: true
+		Expected Value:
+[{ID: 81	Name: test}, {ID: 82	Name: test}, {ID: 83	Name: test}, {ID: 84	Name: test}, {ID: 85	Name: test}]
+		Given Value:
+[{ID: 81	Name: test}, {ID: 82	Name: test}, {ID: 83	Name: test}, {ID: 84	Name: test}, {ID: 85	Name: test}]
+
+
+		Scenario:empty ExhibitManagement
+		Given: testExhibitManagement is []
+		When: exhibitsToArray called
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:normal use of static method
+		Given: testExhibitManagement is [ID: 86	Name: test, ID: 87	Name: test, ID: 88	Name: test, ID: 89	Name: test, ID: 90	Name: test]
+		When: exhibitsToArray called
+		Then: output is: 
+[{ID: 86	Name: test}, {ID: 87	Name: test}, {ID: 88	Name: test}, {ID: 89	Name: test}, {ID: 90	Name: test}]
+		Passed: true
+		Expected Value:
+[{ID: 86	Name: test}, {ID: 87	Name: test}, {ID: 88	Name: test}, {ID: 89	Name: test}, {ID: 90	Name: test}]
+		Given Value:
+[{ID: 86	Name: test}, {ID: 87	Name: test}, {ID: 88	Name: test}, {ID: 89	Name: test}, {ID: 90	Name: test}]
+
+
+		Scenario:empty array list with static method
+		Given: testExhibitManagement is []
+		When: exhibitsToArray called
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement exhibitArrayToNameArray
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 91	Name: test, ID: 92	Name: test, ID: 93	Name: test, ID: 94	Name: test, ID: 95	Name: test]
+		When: artifactsToArray called 
+		Then: output is: 
+["test", "test", "test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test", "test", "test"]
+		Given Value:
+["test", "test", "test", "test", "test"]
+
+
+		Scenario:empty array
+		Given: testExhibitManagement is []
+		When: artifactsToArray called 
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement sortExhibitArray
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 96	Name: test5, ID: 97	Name: test4, ID: 98	Name: test3, ID: 99	Name: test2, ID: 100	Name: test1]
+		When: sortExhibitArray called 
+		Then: output of getExhibitArray is: 
+[{ID: 100	Name: test1}, {ID: 99	Name: test2}, {ID: 98	Name: test3}, {ID: 97	Name: test4}, {ID: 96	Name: test5}]
+		Passed: true
+		Expected Value:
+[{ID: 100	Name: test1}, {ID: 99	Name: test2}, {ID: 98	Name: test3}, {ID: 97	Name: test4}, {ID: 96	Name: test5}]
+		Given Value:
+[{ID: 100	Name: test1}, {ID: 99	Name: test2}, {ID: 98	Name: test3}, {ID: 97	Name: test4}, {ID: 96	Name: test5}]
+
+
+		Scenario:normal use, empty array
+		Given: testExhibitManagement is []
+		When: sortExhibitArray called 
+		Then: output of getExhibitArray is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement searchExhibits
+
+		Scenario:normal use, criteria 1, search id
+		Given: testExhibitManagement is [ID: 101	Name: test5, ID: 102	Name: test4, ID: 103	Name: test3, ID: 104	Name: test2, ID: 105	Name: test1]
+		When: searchExhibits called with 1
+		And: 105
+		Then: output of getExhibitArray is: 
+[{ID: 105	Name: test1}]
+		Passed: true
+		Expected Value:
+[{ID: 105	Name: test1}]
+		Given Value:
+[{ID: 105	Name: test1}]
+
+
+		Scenario:normal use, criteria 2, search name
+		Given: testExhibitManagement is [ID: 106	Name: test5, ID: 107	Name: test4, ID: 108	Name: test3, ID: 109	Name: test2, ID: 110	Name: test1]
+		When: searchExhibits called with 2
+		And: 5
+		Then: output of getExhibitArray is: 
+[{ID: 106	Name: test5}]
+		Passed: true
+		Expected Value:
+[{ID: 106	Name: test5}]
+		Given Value:
+[{ID: 106	Name: test5}]
+
+
+		Scenario:normal use, criteria 5, no search
+		Given: testExhibitManagement is [ID: 111	Name: test5, ID: 112	Name: test4, ID: 113	Name: test3, ID: 114	Name: test2, ID: 115	Name: test1]
+		When: searchExhibits called with 5
+		And: 1
+		Then: output of getExhibitArray is: 
+[{ID: 111	Name: test5}, {ID: 112	Name: test4}, {ID: 113	Name: test3}, {ID: 114	Name: test2}, {ID: 115	Name: test1}]
+		Passed: true
+		Expected Value:
+[{ID: 111	Name: test5}, {ID: 112	Name: test4}, {ID: 113	Name: test3}, {ID: 114	Name: test2}, {ID: 115	Name: test1}]
+		Given Value:
+[{ID: 111	Name: test5}, {ID: 112	Name: test4}, {ID: 113	Name: test3}, {ID: 114	Name: test2}, {ID: 115	Name: test1}]
+
+
+		Scenario:normal use, criteria 0,  no search
+		Given: testExhibitManagement is [ID: 116	Name: test5, ID: 117	Name: test4, ID: 118	Name: test3, ID: 119	Name: test2, ID: 120	Name: test1]
+		When: searchExhibits called with 0
+		And: 1
+		Then: output of getExhibitArray is: 
+[{ID: 116	Name: test5}, {ID: 117	Name: test4}, {ID: 118	Name: test3}, {ID: 119	Name: test2}, {ID: 120	Name: test1}]
+		Passed: true
+		Expected Value:
+[{ID: 116	Name: test5}, {ID: 117	Name: test4}, {ID: 118	Name: test3}, {ID: 119	Name: test2}, {ID: 120	Name: test1}]
+		Given Value:
+[{ID: 116	Name: test5}, {ID: 117	Name: test4}, {ID: 118	Name: test3}, {ID: 119	Name: test2}, {ID: 120	Name: test1}]
+
+
+		Scenario:normal use, criteria -1,  no search
+		Given: testExhibitManagement is [ID: 121	Name: test5, ID: 122	Name: test4, ID: 123	Name: test3, ID: 124	Name: test2, ID: 125	Name: test1]
+		When: searchExhibits called with -1
+		And: 1
+		Then: output of getExhibitArray is: 
+[{ID: 121	Name: test5}, {ID: 122	Name: test4}, {ID: 123	Name: test3}, {ID: 124	Name: test2}, {ID: 125	Name: test1}]
+		Passed: true
+		Expected Value:
+[{ID: 121	Name: test5}, {ID: 122	Name: test4}, {ID: 123	Name: test3}, {ID: 124	Name: test2}, {ID: 125	Name: test1}]
+		Given Value:
+[{ID: 121	Name: test5}, {ID: 122	Name: test4}, {ID: 123	Name: test3}, {ID: 124	Name: test2}, {ID: 125	Name: test1}]
+
+	Feature Passed: true
+
+	Feature: ExhibitMenu getExhibitMenu
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 126	Name: test5, ID: 127	Name: test4, ID: 128	Name: test3, ID: 129	Name: test2, ID: 130	Name: test1]
+		When: exhibitsMenu called
+		Then: display of getUserChoice is: 
+Exhibits
+++++++++
+1. test1
+2. test2
+3. test3
+4. test4
+5. test5
+6. Search
+7. Clear
+8. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Exhibits
+++++++++
+1. test1
+2. test2
+3. test3
+4. test4
+5. test5
+6. Search
+7. Clear
+8. Quit
+
+Enter Selection:
+		Given Value:
+Exhibits
+++++++++
+1. test1
+2. test2
+3. test3
+4. test4
+5. test5
+6. Search
+7. Clear
+8. Quit
+
+Enter Selection: 
+
+
+		Scenario:empty artifactManagement use
+		Given: testExhibitManagement is []
+		When: exhibitsMenu called
+		Then: display of getUserChoice is: 
+Exhibits
+++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Exhibits
+++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Given Value:
+Exhibits
+++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection: 
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement getExhibitString
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 131	Name: test, ID: 132	Name: test, ID: 133	Name: test, ID: 134	Name: test, ID: 135	Name: test, ID: 136	Name: test, ID: 137	Name: test, ID: 138	Name: test, ID: 139	Name: test, ID: 140	Name: test]
+		When: getExhibitString called with 9
+		AND: [ID: 0,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 1,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 2,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 3,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 4,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 5,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 6,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 7,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 8,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 9,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output is: 
+ID: 140Name: testArtifacts for the ExhibittestRoute:Steps                                      Signs1. test                                    aTotal Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 140Name: testArtifacts for the ExhibittestRoute:Steps                                      Signs1. test                                    aTotal Engagement Time: 4 minutes
+		Given Value:
+ID: 140Name: testArtifacts for the ExhibittestRoute:Steps                                      Signs1. test                                    aTotal Engagement Time: 4 minutes
+
+
+		Scenario:choice exceeds created artifacts
+		Given: testExhibitManagement is [ID: 141	Name: test, ID: 142	Name: test, ID: 143	Name: test, ID: 144	Name: test, ID: 145	Name: test, ID: 146	Name: test, ID: 147	Name: test, ID: 148	Name: test, ID: 149	Name: test, ID: 150	Name: test]
+		When: getExhibitString called with 11
+		AND: [ID: 10,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 11,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 12,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 13,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 14,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 15,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 16,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 17,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 18,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 19,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output is: 
+exhibit choice out of range
+		Passed: true
+		Expected Value:
+exhibit choice out of range
+		Given Value:
+exhibit choice out of range
+
+
+		Scenario:choice below created artifacts
+		Given: testExhibitManagement is [ID: 151	Name: test, ID: 152	Name: test, ID: 153	Name: test, ID: 154	Name: test, ID: 155	Name: test, ID: 156	Name: test, ID: 157	Name: test, ID: 158	Name: test, ID: 159	Name: test, ID: 160	Name: test]
+		When: getExhibitString called with -10
+		AND: [ID: 20,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 21,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 22,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 23,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 24,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 25,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 26,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 27,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 28,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 29,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output is: 
+exhibit choice out of range
+		Passed: true
+		Expected Value:
+exhibit choice out of range
+		Given Value:
+exhibit choice out of range
+
+
+		Scenario:artifactIDs not in artifactManagement
+		Given: testExhibitManagement is [ID: 161	Name: test, ID: 162	Name: test, ID: 163	Name: test, ID: 164	Name: test, ID: 165	Name: test, ID: 166	Name: test, ID: 167	Name: test, ID: 168	Name: test, ID: 169	Name: test, ID: 170	Name: test]
+		When: getExhibitString called with 9
+		AND: [ID: 30,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 31,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 32,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 33,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 34,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 35,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 36,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 37,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 38,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 39,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output is: 
+ID: 170Name: testArtifacts for the ExhibitRoute:Steps                                      SignsTotal Engagement Time: 0 minutes
+		Passed: true
+		Expected Value:
+ID: 170Name: testArtifacts for the ExhibitRoute:Steps                                      SignsTotal Engagement Time: 0 minutes
+		Given Value:
+ID: 170Name: testArtifacts for the ExhibitRoute:Steps                                      SignsTotal Engagement Time: 0 minutes
+
+
+		Scenario:artifactManagement is null
+		Given: testExhibitManagement is [ID: 171	Name: test, ID: 172	Name: test, ID: 173	Name: test, ID: 174	Name: test, ID: 175	Name: test, ID: 176	Name: test, ID: 177	Name: test, ID: 178	Name: test, ID: 179	Name: test, ID: 180	Name: test]
+		When: getExhibitString called with 9
+		AND: null
+		Then: output is: 
+ID: 180Name: testArtifacts for the ExhibitRoute:Steps                                      SignsTotal Engagement Time: 0 minutes
+		Passed: true
+		Expected Value:
+ID: 180Name: testArtifacts for the ExhibitRoute:Steps                                      SignsTotal Engagement Time: 0 minutes
+		Given Value:
+ID: 180Name: testArtifacts for the ExhibitRoute:Steps                                      SignsTotal Engagement Time: 0 minutes
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement  removeExhibit
+
+Scenario:normal use
+Given: testExhibitManagement is [ID: 181	Name: test5, ID: 182	Name: test4, ID: 183	Name: test3, ID: 184	Name: test2]
+When: removeExhibit called with 185
+Then: output of getExhibits is: 
+[ID: 181	Name: test5, ID: 182	Name: test4, ID: 183	Name: test3, ID: 184	Name: test2]
+Passed: true
+Expected Value:
+[ID: 181	Name: test5, ID: 182	Name: test4, ID: 183	Name: test3, ID: 184	Name: test2]
+Given Value:
+[ID: 181	Name: test5, ID: 182	Name: test4, ID: 183	Name: test3, ID: 184	Name: test2]
+
+
+Scenario:out of range choice
+Given: testExhibitManagement is [ID: 186	Name: test5, ID: 187	Name: test4, ID: 188	Name: test3, ID: 189	Name: test2, ID: 190	Name: test1]
+When: removeExhibit called with -1
+Then: output of getExhibits is: 
+[ID: 186	Name: test5, ID: 187	Name: test4, ID: 188	Name: test3, ID: 189	Name: test2, ID: 190	Name: test1]
+Passed: true
+Expected Value:
+[ID: 186	Name: test5, ID: 187	Name: test4, ID: 188	Name: test3, ID: 189	Name: test2, ID: 190	Name: test1]
+Given Value:
+[ID: 186	Name: test5, ID: 187	Name: test4, ID: 188	Name: test3, ID: 189	Name: test2, ID: 190	Name: test1]
+
+
+Scenario:out of range choice
+Given: testExhibitManagement is [ID: 191	Name: test5, ID: 192	Name: test4, ID: 193	Name: test3, ID: 194	Name: test2, ID: 195	Name: test1]
+When: removeExhibit called with 5
+Then: output of getExhibits is: 
+[ID: 191	Name: test5, ID: 192	Name: test4, ID: 193	Name: test3, ID: 194	Name: test2, ID: 195	Name: test1]
+Passed: true
+Expected Value:
+[ID: 191	Name: test5, ID: 192	Name: test4, ID: 193	Name: test3, ID: 194	Name: test2, ID: 195	Name: test1]
+Given Value:
+[ID: 191	Name: test5, ID: 192	Name: test4, ID: 193	Name: test3, ID: 194	Name: test2, ID: 195	Name: test1]
+
+
+Scenario:empty exhibits
+Given: testExhibitManagement is []
+When: removeExhibit called with 2
+Then: output of getExhibits is: 
+[]
+Passed: true
+Expected Value:
+[]
+Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement getExhibitArtifactNames
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 196	Name: test, ID: 197	Name: test, ID: 198	Name: test, ID: 199	Name: test, ID: 200	Name: test, ID: 201	Name: test, ID: 202	Name: test, ID: 203	Name: test, ID: 204	Name: test, ID: 205	Name: test]
+		When: getExhibitArtifactNames called with 0
+		And: [ID: 40,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 41,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 42,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 43,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 44,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 45,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 46,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 47,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 48,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 49,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output is: 
+["test"]
+		Passed: true
+		Expected Value:
+["test"]
+		Given Value:
+["test"]
+
+
+		Scenario:exhibit Artifacts not in artifact management
+		Given: testExhibitManagement is [ID: 206	Name: test, ID: 207	Name: test, ID: 208	Name: test, ID: 209	Name: test, ID: 210	Name: test, ID: 211	Name: test, ID: 212	Name: test, ID: 213	Name: test, ID: 214	Name: test, ID: 215	Name: test]
+		When: getExhibitArtifactNames called with 0
+		And: [ID: 50,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 51,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 52,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 53,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 54,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 55,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 56,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 57,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 58,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 59,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:artifact management is null
+		Given: testExhibitManagement is [ID: 216	Name: test, ID: 217	Name: test, ID: 218	Name: test, ID: 219	Name: test, ID: 220	Name: test, ID: 221	Name: test, ID: 222	Name: test, ID: 223	Name: test, ID: 224	Name: test, ID: 225	Name: test]
+		When: getExhibitArtifactNames called with 0
+		And: null
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 226	Name: test, ID: 227	Name: test, ID: 228	Name: test, ID: 229	Name: test, ID: 230	Name: test, ID: 231	Name: test, ID: 232	Name: test, ID: 233	Name: test, ID: 234	Name: test, ID: 235	Name: test]
+		When: getExhibitArtifactNames called with -1
+		And: null
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 236	Name: test, ID: 237	Name: test, ID: 238	Name: test, ID: 239	Name: test, ID: 240	Name: test, ID: 241	Name: test, ID: 242	Name: test, ID: 243	Name: test, ID: 244	Name: test, ID: 245	Name: test]
+		When: getExhibitArtifactNames called with 10
+		And: null
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitMenu getExhibitArtifactMenu
+
+                Scenario:normal use
+                Given: testExhibitManagement is [ID: 246        Name: test, ID: 247     Name: test, ID: 248     Name: test, ID: 249     Name: test, ID: 250     Name: test, ID: 251     Name: test, ID: 252     Name: test, ID: 253     Name: test, ID: 254     Name: test, ID: 255     Name: test]
+                When: getExhibitArtifactMenu called
+                Then: display of getUserChoice is: 
+Artifact To Change
+++++++++++++++++++
+1. test
+2. Quit
+
+Enter Selection:
+                Passed: true
+                Expected Value:
+Artifact To Change
+++++++++++++++++++
+1. test
+2. Quit
+
+Enter Selection:
+                Given Value:
+Artifact To Change
+++++++++++++++++++
+1. test
+2. Quit
+
+Enter Selection: 
+
+
+                Scenario:empty artifactManagement use
+                Given: testExhibitManagement is [ID: 256        Name: test, ID: 257     Name: test, ID: 258     Name: test, ID: 259     Name: test, ID: 260     Name: test, ID: 261     Name: test, ID: 262     Name: test, ID: 263     Name: test, ID: 264     Name: test, ID: 265     Name: test]
+                When: getExhibitArtifactMenu called
+                Then: display of getUserChoice is: 
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Passed: true
+                Expected Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Given Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection: 
+
+
+                Scenario:artifact management is null
+                Given: testExhibitManagement is [ID: 266        Name: test, ID: 267     Name: test, ID: 268     Name: test, ID: 269     Name: test, ID: 270     Name: test, ID: 271     Name: test, ID: 272     Name: test, ID: 273     Name: test, ID: 274     Name: test, ID: 275     Name: test]
+                When: getExhibitArtifactMenu called
+                Then: display of getUserChoice is: 
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Passed: true
+                Expected Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Given Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection: 
+
+
+                Scenario:choice outside range
+                Given: testExhibitManagement is [ID: 276        Name: test, ID: 277     Name: test, ID: 278     Name: test, ID: 279     Name: test, ID: 280     Name: test, ID: 281     Name: test, ID: 282     Name: test, ID: 283     Name: test, ID: 284     Name: test, ID: 285     Name: test]
+                When: getExhibitArtifactMenu called
+                Then: display of getUserChoice is: 
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Passed: true
+                Expected Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Given Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection: 
+
+
+                Scenario:choice outside range
+                Given: testExhibitManagement is [ID: 286        Name: test, ID: 287     Name: test, ID: 288     Name: test, ID: 289     Name: test, ID: 290     Name: test, ID: 291     Name: test, ID: 292     Name: test, ID: 293     Name: test, ID: 294     Name: test, ID: 295     Name: test]
+                When: getExhibitArtifactMenu called
+                Then: display of getUserChoice is: 
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Passed: true
+                Expected Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection:
+                Given Value:
+Artifact To Change
+++++++++++++++++++
+1. Quit
+
+Enter Selection: 
+
+        Feature Passed: true
+
+	Feature: ExhibitMenu getArtifactNumber
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 296	Name: test, ID: 297	Name: test, ID: 298	Name: test, ID: 299	Name: test, ID: 300	Name: test, ID: 301	Name: test, ID: 302	Name: test, ID: 303	Name: test, ID: 304	Name: test, ID: 305	Name: test]
+		When: getArtifactNumber called with 0
+		Then: output is: 
+4
+		Passed: true
+		Expected Value:
+4
+		Given Value:
+4
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 306	Name: test, ID: 307	Name: test, ID: 308	Name: test, ID: 309	Name: test, ID: 310	Name: test, ID: 311	Name: test, ID: 312	Name: test, ID: 313	Name: test, ID: 314	Name: test, ID: 315	Name: test]
+		When: getArtifactNumber called with -1
+		Then: output is: 
+-1
+		Passed: true
+		Expected Value:
+-1
+		Given Value:
+-1
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 316	Name: test, ID: 317	Name: test, ID: 318	Name: test, ID: 319	Name: test, ID: 320	Name: test, ID: 321	Name: test, ID: 322	Name: test, ID: 323	Name: test, ID: 324	Name: test, ID: 325	Name: test]
+		When: getArtifactNumber called with 10
+		Then: output is: 
+-1
+		Passed: true
+		Expected Value:
+-1
+		Given Value:
+-1
+
+	Feature Passed: true
+
+	Feature: ExhibitMenu getExhibitRoute
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 326	Name: test, ID: 327	Name: test, ID: 328	Name: test, ID: 329	Name: test, ID: 330	Name: test, ID: 331	Name: test, ID: 332	Name: test, ID: 333	Name: test, ID: 334	Name: test, ID: 335	Name: test]
+		When: getExhibitRoute called with 0
+		Then: output is: 
+[a, b, c, d]
+		Passed: true
+		Expected Value:
+[a, b, c, d]
+		Given Value:
+[a, b, c, d]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 336	Name: test, ID: 337	Name: test, ID: 338	Name: test, ID: 339	Name: test, ID: 340	Name: test, ID: 341	Name: test, ID: 342	Name: test, ID: 343	Name: test, ID: 344	Name: test, ID: 345	Name: test]
+		When: getExhibitRoute called with -1
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 346	Name: test, ID: 347	Name: test, ID: 348	Name: test, ID: 349	Name: test, ID: 350	Name: test, ID: 351	Name: test, ID: 352	Name: test, ID: 353	Name: test, ID: 354	Name: test, ID: 355	Name: test]
+		When: getExhibitRoute called with 10
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitMenu getExhibitArtifacts
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 356	Name: test, ID: 357	Name: test, ID: 358	Name: test, ID: 359	Name: test, ID: 360	Name: test, ID: 361	Name: test, ID: 362	Name: test, ID: 363	Name: test, ID: 364	Name: test, ID: 365	Name: test]
+		When: getExhibitArtifacts called with 0
+		Then: output is: 
+[80]
+		Passed: true
+		Expected Value:
+[80]
+		Given Value:
+[80]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 366	Name: test, ID: 367	Name: test, ID: 368	Name: test, ID: 369	Name: test, ID: 370	Name: test, ID: 371	Name: test, ID: 372	Name: test, ID: 373	Name: test, ID: 374	Name: test, ID: 375	Name: test]
+		When: getExhibitArtifacts called with -1
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 376	Name: test, ID: 377	Name: test, ID: 378	Name: test, ID: 379	Name: test, ID: 380	Name: test, ID: 381	Name: test, ID: 382	Name: test, ID: 383	Name: test, ID: 384	Name: test, ID: 385	Name: test]
+		When: getExhibitArtifacts called with 10
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitMenu getExhibitArtifactsByID
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 386	Name: test, ID: 387	Name: test, ID: 388	Name: test, ID: 389	Name: test, ID: 390	Name: test, ID: 391	Name: test, ID: 392	Name: test, ID: 393	Name: test, ID: 394	Name: test, ID: 395	Name: test]
+		When: getExhibitArtifactsByID called with 386
+		Then: output is: 
+[90]
+		Passed: true
+		Expected Value:
+[90]
+		Given Value:
+[90]
+
+
+		Scenario:choice outside range
+		Given: testExhibitManagement is [ID: 396	Name: test, ID: 397	Name: test, ID: 398	Name: test, ID: 399	Name: test, ID: 400	Name: test, ID: 401	Name: test, ID: 402	Name: test, ID: 403	Name: test, ID: 404	Name: test, ID: 405	Name: test]
+		When: getExhibitArtifactsByID called with 406
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement updateExhibit
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 406	Name: update, ID: 407	Name: test, ID: 408	Name: test, ID: 409	Name: test, ID: 410	Name: test, ID: 411	Name: test, ID: 412	Name: test, ID: 413	Name: test, ID: 414	Name: test, ID: 415	Name: test]
+		When: updateExhibit called with 0
+		And: update
+		And: [1]
+		And: [a]
+		Then: output is: 
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario: Route is longer
+		Given: testExhibitManagement is [ID: 416	Name: test, ID: 417	Name: test, ID: 418	Name: test, ID: 419	Name: test, ID: 420	Name: test, ID: 421	Name: test, ID: 422	Name: test, ID: 423	Name: test, ID: 424	Name: test, ID: 425	Name: test]
+		When: updateExhibit called with 0
+		And: update
+		And: [1]
+		And: [a, b]
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario: artifacts is longer
+		Given: testExhibitManagement is [ID: 426	Name: test, ID: 427	Name: test, ID: 428	Name: test, ID: 429	Name: test, ID: 430	Name: test, ID: 431	Name: test, ID: 432	Name: test, ID: 433	Name: test, ID: 434	Name: test, ID: 435	Name: test]
+		When: updateExhibit called with 0
+		And: update
+		And: [1, 2]
+		And: [a]
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario: both are empty
+		Given: testExhibitManagement is [ID: 436	Name: update, ID: 437	Name: test, ID: 438	Name: test, ID: 439	Name: test, ID: 440	Name: test, ID: 441	Name: test, ID: 442	Name: test, ID: 443	Name: test, ID: 444	Name: test, ID: 445	Name: test]
+		When: updateExhibit called with 0
+		And: update
+		And: []
+		And: []
+		Then: output is: 
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario: both are null
+		Given: testExhibitManagement is [ID: 446	Name: test, ID: 447	Name: test, ID: 448	Name: test, ID: 449	Name: test, ID: 450	Name: test, ID: 451	Name: test, ID: 452	Name: test, ID: 453	Name: test, ID: 454	Name: test, ID: 455	Name: test]
+		When: updateExhibit called with 0
+		And: update
+		And: null
+		And: null
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement updateExhibitByID
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 456	Name: test, ID: 457	Name: test, ID: 458	Name: test, ID: 459	Name: test, ID: 460	Name: test, ID: 461	Name: test, ID: 462	Name: test, ID: 463	Name: test, ID: 464	Name: test, ID: 465	Name: update]
+		When: updateExhibitByID called with update
+		And: [1]
+		And: [a]
+		And: 465
+		Then: output is: 
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario: Route is longer
+		Given: testExhibitManagement is [ID: 466	Name: test, ID: 467	Name: test, ID: 468	Name: test, ID: 469	Name: test, ID: 470	Name: test, ID: 471	Name: test, ID: 472	Name: test, ID: 473	Name: test, ID: 474	Name: test, ID: 475	Name: test]
+		When: updateExhibitByID called with update
+		And: [1]
+		And: [a, b]
+		And: 475
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario: artifacts is longer
+		Given: testExhibitManagement is [ID: 476	Name: test, ID: 477	Name: test, ID: 478	Name: test, ID: 479	Name: test, ID: 480	Name: test, ID: 481	Name: test, ID: 482	Name: test, ID: 483	Name: test, ID: 484	Name: test, ID: 485	Name: test]
+		When: updateExhibitByID called with update
+		And: [1, 2]
+		And: [a]
+		And: 485
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario: both are empty
+		Given: testExhibitManagement is [ID: 486	Name: test, ID: 487	Name: test, ID: 488	Name: test, ID: 489	Name: test, ID: 490	Name: test, ID: 491	Name: test, ID: 492	Name: test, ID: 493	Name: test, ID: 494	Name: test, ID: 495	Name: update]
+		When: updateExhibitByID called with update
+		And: []
+		And: []
+		And: 495
+		Then: output is: 
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario: both are null
+		Given: testExhibitManagement is [ID: 496	Name: test, ID: 497	Name: test, ID: 498	Name: test, ID: 499	Name: test, ID: 500	Name: test, ID: 501	Name: test, ID: 502	Name: test, ID: 503	Name: test, ID: 504	Name: test, ID: 505	Name: test]
+		When: updateExhibitByID called with update
+		And: null
+		And: null
+		And: 505
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:invalid ID
+		Given: testExhibitManagement is [ID: 506	Name: test, ID: 507	Name: test, ID: 508	Name: test, ID: 509	Name: test, ID: 510	Name: test, ID: 511	Name: test, ID: 512	Name: test, ID: 513	Name: test, ID: 514	Name: test, ID: 515	Name: test]
+		When: updateExhibitByID called with update
+		And: null
+		And: null
+		And: 516
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement removeArtifactsWithID
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 516	Name: test, ID: 517	Name: test, ID: 518	Name: test, ID: 519	Name: test, ID: 520	Name: test, ID: 521	Name: test, ID: 522	Name: test, ID: 523	Name: test, ID: 524	Name: test, ID: 525	Name: test]
+		When: removeArtifactsWithID called with 109
+		Then: output of getExhibitArtifacts with: 
+9
+		is: []
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:negative id
+		Given: testExhibitManagement is [ID: 526	Name: test, ID: 527	Name: test, ID: 528	Name: test, ID: 529	Name: test, ID: 530	Name: test, ID: 531	Name: test, ID: 532	Name: test, ID: 533	Name: test, ID: 534	Name: test, ID: 535	Name: test]
+		When: removeArtifactsWithID called with -1
+		Then: output of getExhibitArtifacts with: 
+9
+		is: [119]
+		Passed: true
+		Expected Value:
+[119]
+		Given Value:
+[119]
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement getExhibitionExhibtNames
+
+		Scenario:normal use, 1D
+		Given: testExhibitManagement is [ID: 536	Name: test, ID: 537	Name: test, ID: 538	Name: test, ID: 539	Name: test, ID: 540	Name: test, ID: 541	Name: test, ID: 542	Name: test, ID: 543	Name: test, ID: 544	Name: test, ID: 545	Name: test]
+		When: getExhibitionExhibtNames called with [536, 537, 538]
+		Then: output is: 
+["test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test"]
+		Given Value:
+["test", "test", "test"]
+
+
+		Scenario:normal use, 2D
+		Given: testExhibitManagement is [ID: 546	Name: test, ID: 547	Name: test, ID: 548	Name: test, ID: 549	Name: test, ID: 550	Name: test, ID: 551	Name: test, ID: 552	Name: test, ID: 553	Name: test, ID: 554	Name: test, ID: 555	Name: test]
+		When: getExhibitionExhibtNames called with [ [546, 547, 548], [549, 550, 551], [552, 553, 554]]
+		Then: output is: 
+[[test, test, test], [test, test, test], [test, test, test]]
+		Passed: true
+		Expected Value:
+[[test, test, test], [test, test, test], [test, test, test]]
+		Given Value:
+[[test, test, test], [test, test, test], [test, test, test]]
+
+
+		Scenario:exhibitIDs is null, 1D
+		Given: testExhibitManagement is [ID: 556	Name: test, ID: 557	Name: test, ID: 558	Name: test, ID: 559	Name: test, ID: 560	Name: test, ID: 561	Name: test, ID: 562	Name: test, ID: 563	Name: test, ID: 564	Name: test, ID: 565	Name: test]
+		When: getExhibitionExhibtNames called with null
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:exhibitIDs is null, 2D
+		Given: testExhibitManagement is [ID: 566	Name: test, ID: 567	Name: test, ID: 568	Name: test, ID: 569	Name: test, ID: 570	Name: test, ID: 571	Name: test, ID: 572	Name: test, ID: 573	Name: test, ID: 574	Name: test, ID: 575	Name: test]
+		When: getExhibitionExhibtNames called with null
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:exhibitIDs contains null, 2D
+		Given: testExhibitManagement is [ID: 576	Name: test, ID: 577	Name: test, ID: 578	Name: test, ID: 579	Name: test, ID: 580	Name: test, ID: 581	Name: test, ID: 582	Name: test, ID: 583	Name: test, ID: 584	Name: test, ID: 585	Name: test]
+		When: getExhibitionExhibtNames called with [ null, null, null]
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:exhibitIDs contains null, 2D
+		Given: testExhibitManagement is [ID: 586	Name: test, ID: 587	Name: test, ID: 588	Name: test, ID: 589	Name: test, ID: 590	Name: test, ID: 591	Name: test, ID: 592	Name: test, ID: 593	Name: test, ID: 594	Name: test, ID: 595	Name: test]
+		When: getExhibitionExhibtNames called with [ null, [586, 587, 588], [590, 591, 592]]
+		Then: output is: 
+[null, [test, test, test], [test, test, test]]
+		Passed: true
+		Expected Value:
+[null, [test, test, test], [test, test, test]]
+		Given Value:
+[null, [test, test, test], [test, test, test]]
+
+
+		Scenario:Exhibit IDs don't exist, 1D
+		Given: testExhibitManagement is [ID: 596	Name: test, ID: 597	Name: test, ID: 598	Name: test, ID: 599	Name: test, ID: 600	Name: test, ID: 601	Name: test, ID: 602	Name: test, ID: 603	Name: test, ID: 604	Name: test, ID: 605	Name: test]
+		When: getExhibitionExhibtNames called with [1, 2, 3]
+		Then: output is: 
+["Exhibit not Found", "Exhibit not Found", "Exhibit not Found"]
+		Passed: true
+		Expected Value:
+["Exhibit not Found", "Exhibit not Found", "Exhibit not Found"]
+		Given Value:
+["Exhibit not Found", "Exhibit not Found", "Exhibit not Found"]
+
+
+		Scenario:Exhibit IDs don't exist, 2D
+		Given: testExhibitManagement is [ID: 606	Name: test, ID: 607	Name: test, ID: 608	Name: test, ID: 609	Name: test, ID: 610	Name: test, ID: 611	Name: test, ID: 612	Name: test, ID: 613	Name: test, ID: 614	Name: test, ID: 615	Name: test]
+		When: getExhibitionExhibtNames called with [ [1, 2, 3], [1, 2, 3], [1, 2, 3]]
+		Then: output is: 
+[[Exhibit not Found, Exhibit not Found, Exhibit not Found], [Exhibit not Found, Exhibit not Found, Exhibit not Found], [Exhibit not Found, Exhibit not Found, Exhibit not Found]]
+		Passed: true
+		Expected Value:
+[[Exhibit not Found, Exhibit not Found, Exhibit not Found], [Exhibit not Found, Exhibit not Found, Exhibit not Found], [Exhibit not Found, Exhibit not Found, Exhibit not Found]]
+		Given Value:
+[[Exhibit not Found, Exhibit not Found, Exhibit not Found], [Exhibit not Found, Exhibit not Found, Exhibit not Found], [Exhibit not Found, Exhibit not Found, Exhibit not Found]]
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement findExhibit
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 616	Name: test, ID: 617	Name: test, ID: 618	Name: test, ID: 619	Name: test, ID: 620	Name: test]
+		When: findExhibit called with 616
+		Then: output is: 
+ID: 616	Name: test
+		Passed: true
+		Expected Value:
+616
+		Given Value:
+ID: 616	Name: test
+
+
+		Scenario:normal use, exhibit not there
+		Given: testExhibitManagement is [ID: 621	Name: test, ID: 622	Name: test, ID: 623	Name: test, ID: 624	Name: test, ID: 625	Name: test]
+		When: findExhibit called with 619
+		Then: output is: 
+No mathcing id in list
+Passed: true
+		Expected Value:
+No mathcing id in list
+		Given Value:
+No mathcing id in list
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement getExhibitID
+
+		Scenario:normal use
+		Given: testExhibitManagement is [ID: 626	Name: test, ID: 627	Name: test, ID: 628	Name: test, ID: 629	Name: test, ID: 630	Name: test, ID: 631	Name: test, ID: 632	Name: test, ID: 633	Name: test, ID: 634	Name: test, ID: 635	Name: test]
+		When: getExhibitID called with 0
+		Then: output is: 
+626
+		Passed: true
+		Expected Value:
+626
+		Given Value:
+626
+
+
+		Scenario:normal use, choice out of range
+		Given: testExhibitManagement is [ID: 636	Name: test, ID: 637	Name: test, ID: 638	Name: test, ID: 639	Name: test, ID: 640	Name: test, ID: 641	Name: test, ID: 642	Name: test, ID: 643	Name: test, ID: 644	Name: test, ID: 645	Name: test]
+		When: getExhibitID called with 11
+		Then: output is: 
+-1
+		Passed: true
+		Expected Value:
+-1
+		Given Value:
+-1
+
+	Feature Passed: true
+
+	Feature: ExhibitManagement anyDuplicateArtifacts
+
+		Scenario:normal use, no duplicates
+		Given: testExhibitManagement is [ID: 646	Name: test, ID: 647	Name: test, ID: 648	Name: test, ID: 649	Name: test, ID: 650	Name: test, ID: 651	Name: test, ID: 652	Name: test, ID: 653	Name: test, ID: 654	Name: test, ID: 655	Name: test]
+		When: anyDuplicateArtifcats called with [655, 654, 653]
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:normal use, duplicates
+		Given: testExhibitManagement is [ID: 656	Name: test, ID: 657	Name: test, ID: 658	Name: test, ID: 659	Name: test, ID: 660	Name: test, ID: 661	Name: test, ID: 662	Name: test, ID: 663	Name: test, ID: 664	Name: test, ID: 665	Name: test]
+		When: anyDuplicateArtifcats called with [665, 664, 663]
+		Then: output is: 
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario:normal use, no duplicates
+        Given: testExhibitManagement is [ID: 666        Name: test, ID: 667     Name: test, ID: 668     Name: test, ID: 669     Name: test, ID: 670     Name: test, ID: 671     Name: test, ID: 672     Name: test, ID: 673     Name: test, ID: 674     Name: test, ID: 675     Name: test]
+        When: anyDuplicateArtifcats called with [675, 674, 673]
+        And: 672
+        And: 2
+        Then: output is: 
+false
+        Passed: true
+        Expected Value:
+false
+        Given Value:
+false
+
+
+        Scenario:normal use, duplicates
+        Given: testExhibitManagement is [ID: 676        Name: test, ID: 677     Name: test, ID: 678     Name: test, ID: 679     Name: test, ID: 680     Name: test, ID: 681     Name: test, ID: 682     Name: test, ID: 683     Name: test, ID: 684     Name: test, ID: 685     Name: test]
+        When: anyDuplicateArtifcats called with [685, 684, 683]
+        And: 682
+        And: 2
+        Then: output is: 
+true
+        Passed: true
+        Expected Value:
+true
+        Given Value:
+true
+
+        Feature Passed: true
+
+All Features Passed: true

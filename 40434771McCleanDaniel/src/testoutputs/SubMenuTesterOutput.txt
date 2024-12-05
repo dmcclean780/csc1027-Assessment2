@@ -1,0 +1,105 @@
+Class in Test: SubMenu
+
+	Feature: SubMenu constructor via getUserChoice
+
+		Scenario:Normal Construction
+		Given: given Menu is part01.SubMenu@19469ea2
+		When: menu.getUserChoice called
+		Then: output is:
+Manage Testers
+++++++++++++++
+1. Add Tester
+2. View Tester
+3. Update Tester
+4. Delete Tester
+5. Quit
+
+Enter Selection: 
+		Passed: true
+		Expected Value:
+Manage Testers
+++++++++++++++
+1. Add Tester
+2. View Tester
+3. Update Tester
+4. Delete Tester
+5. Quit
+
+Enter Selection: 
+		Given Value:
+Manage Testers
+++++++++++++++
+1. Add Tester
+2. View Tester
+3. Update Tester
+4. Delete Tester
+5. Quit
+
+Enter Selection: 
+
+
+		Scenario:Normal Construction
+		Given: given Menu is part01.SubMenu@1218025c
+		When: menu.getUserChoice called
+		Then: output is:
+Manage nulls
+++++++++++++
+1. Add null
+2. View null
+3. Update null
+4. Delete null
+5. Quit
+
+Enter Selection: 
+		Passed: true
+		Expected Value:
+Manage nulls
+++++++++++++
+1. Add null
+2. View null
+3. Update null
+4. Delete null
+5. Quit
+
+Enter Selection: 
+		Given Value:
+Manage nulls
+++++++++++++
+1. Add null
+2. View null
+3. Update null
+4. Delete null
+5. Quit
+
+Enter Selection: 
+
+	Feature Passed: true
+
+	Feature: SubMenu getType
+
+		Scenario:Normal Operation
+		Given: given Menu is part01.SubMenu@816f27d
+		When: menu.getUserChoice called
+		Then: output is:
+Tester
+		Passed: true
+		Expected Value:
+Tester
+		Given Value:
+Tester
+
+
+		Scenario:Normal Operation
+		Given: given Menu is part01.SubMenu@87aac27
+		When: menu.getUserChoice called
+		Then: output is:
+null
+		Passed: true
+		Expected Value:
+null
+		Given Value:
+null
+
+	Feature Passed: true
+
+All Features Passed: true

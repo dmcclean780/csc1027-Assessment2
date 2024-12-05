@@ -1,0 +1,1089 @@
+Class in Test: ExhibitionPlan
+
+	Feature: ExhibitionPlan constructor
+
+		Scenario:valid consruction
+		Given: exhibitionPlan data [ [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
+		When: new ExhibitionPlan with [ [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2]]
+		AND: [ID: 0	Name: test, ID: 1	Name: test, ID: 2	Name: test, ID: 3	Name: test, ID: 4	Name: test, ID: 5	Name: test, ID: 6	Name: test, ID: 7	Name: test, ID: 8	Name: test, ID: 9	Name: test]		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid consruction, not enough months
+		Given: exhibitionPlan data [ [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12]]
+		When: new ExhibitionPlan with [ [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12], [10, 11, 12]]
+		AND: [ID: 10	Name: test, ID: 11	Name: test, ID: 12	Name: test, ID: 13	Name: test, ID: 14	Name: test, ID: 15	Name: test, ID: 16	Name: test, ID: 17	Name: test, ID: 18	Name: test, ID: 19	Name: test]		Then: output is:
+Incorrect Months Exception
+		Passed: true
+		Expected Value:
+Incorrect Months Exception
+		Given Value:
+Incorrect Months Exception
+
+
+		Scenario:invalid consruction, too many months
+		Given: exhibitionPlan data [ [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22]]
+		When: new ExhibitionPlan with [ [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22], [20, 21, 22]]
+		AND: [ID: 20	Name: test, ID: 21	Name: test, ID: 22	Name: test, ID: 23	Name: test, ID: 24	Name: test, ID: 25	Name: test, ID: 26	Name: test, ID: 27	Name: test, ID: 28	Name: test, ID: 29	Name: test]		Then: output is:
+Incorrect Months Exception
+		Passed: true
+		Expected Value:
+Incorrect Months Exception
+		Given Value:
+Incorrect Months Exception
+
+
+		Scenario:invalid consruction, empty array
+		Given: exhibitionPlan data []
+		When: new ExhibitionPlan with []
+		AND: [ID: 30	Name: test, ID: 31	Name: test, ID: 32	Name: test, ID: 33	Name: test, ID: 34	Name: test, ID: 35	Name: test, ID: 36	Name: test, ID: 37	Name: test, ID: 38	Name: test, ID: 39	Name: test]		Then: output is:
+Incorrect Months Exception
+		Passed: true
+		Expected Value:
+Incorrect Months Exception
+		Given Value:
+Incorrect Months Exception
+
+
+		Scenario:invalid consruction, duplicate artifacts
+		Given: exhibitionPlan data [ [40, 40, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42]]
+		When: new ExhibitionPlan with [ [40, 40, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42], [40, 41, 42]]
+		AND: [ID: 40	Name: test, ID: 41	Name: test, ID: 42	Name: test, ID: 43	Name: test, ID: 44	Name: test, ID: 45	Name: test, ID: 46	Name: test, ID: 47	Name: test, ID: 48	Name: test, ID: 49	Name: test]		Then: output is:
+duplicate artifacts exception
+		Passed: true
+		Expected Value:
+duplicate artifacts exception
+		Given Value:
+duplicate artifacts exception
+
+
+		Scenario:valid consruction, no halls
+		Given: exhibitionPlan data [ null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+		When: new ExhibitionPlan with [ null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+		AND: [ID: 50	Name: test, ID: 51	Name: test, ID: 52	Name: test, ID: 53	Name: test, ID: 54	Name: test, ID: 55	Name: test, ID: 56	Name: test, ID: 57	Name: test, ID: 58	Name: test, ID: 59	Name: test]		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getNumberOfHalls
+
+		Scenario:normal use
+		Given: exhibitionPlan data part01.ExhibitionPlan@24d46ca6
+		When: getNumberOfHalls called
+		Then: output is:
+3
+		Passed: true
+		Expected Value:
+3
+		Given Value:
+3
+
+
+		Scenario:valid use, no halls in plan
+		Given: exhibitionPlan data part01.ExhibitionPlan@4517d9a3
+		When: getNumberOfHalls called
+		Then: output is:
+0
+		Passed: true
+		Expected Value:
+0
+		Given Value:
+0
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getExhibitionPlan
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@372f7a8d
+		When: getExhibitionPlan called
+		Then: output is:
+[ [80, 81, 82], [80, 82, 81], [81, 80, 82], [81, 82, 80], [82, 80, 81], [82, 81, 80], [80, 81, 83], [80, 83, 81], [81, 80, 83], [81, 83, 80], [83, 81, 80], [83, 80, 81]]
+		Passed: true
+		Expected Value:
+[ [80, 81, 82], [80, 82, 81], [81, 80, 82], [81, 82, 80], [82, 80, 81], [82, 81, 80], [80, 81, 83], [80, 83, 81], [81, 80, 83], [81, 83, 80], [83, 81, 80], [83, 80, 81]]
+		Given Value:
+[ [80, 81, 82], [80, 82, 81], [81, 80, 82], [81, 82, 80], [82, 80, 81], [82, 81, 80], [80, 81, 83], [80, 83, 81], [81, 80, 83], [81, 83, 80], [83, 81, 80], [83, 80, 81]]
+
+
+		Scenario:normal use but no halls
+		Given: exhibitionPlan is part01.ExhibitionPlan@2f92e0f4
+		When: getExhibitionPlan called
+		Then: output is:
+[ null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+		Passed: true
+		Expected Value:
+[ null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+		Given Value:
+[ null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+
+	Feature Passed: true
+
+	Feature: Exhibition Plan getExhibitsInMonth with Months enum
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@5305068a
+		When: getExhibitsInMonth called with Months enum December
+		Then: output is:
+[103, 100, 101]
+		Passed: true
+		Expected Value:
+[103, 100, 101]
+		Given Value:
+[103, 100, 101]
+
+
+		Scenario:empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@1f32e575
+		When: getExhibitsInMonth called with Months enum February
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: Exhibition Plan getExhibitsInMonth with Months String name
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@279f2327
+		When: getExhibitsInMonth called with Months enum December
+		Then: output is:
+[123, 120, 121]
+		Passed: true
+		Expected Value:
+[123, 120, 121]
+		Given Value:
+[123, 120, 121]
+
+
+		Scenario:empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@2ff4acd0
+		When: getExhibitsInMonth called with Months enum February
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:invalid month name
+		Given: exhibitionPlan is part01.ExhibitionPlan@54bedef2
+		When: getExhibitsInMonth called with Months enum Not a Valid Month
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:null month name
+		Given: exhibitionPlan is part01.ExhibitionPlan@5caf905d
+		When: getExhibitsInMonth called with Months enum null
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: Exhibition Plan getExhibitsInMonth with Months int id
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@27716f4
+		When: getExhibitsInMonth called with Months enum 11
+		Then: output is:
+[163, 160, 161]
+		Passed: true
+		Expected Value:
+[163, 160, 161]
+		Given Value:
+[163, 160, 161]
+
+
+		Scenario:empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@8efb846
+		When: getExhibitsInMonth called with Months enum 1
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:id exceeding range
+		Given: exhibitionPlan is part01.ExhibitionPlan@2a84aee7
+		When: getExhibitsInMonth called with Months enum 12
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:id below range
+		Given: exhibitionPlan is part01.ExhibitionPlan@a09ee92
+		When: getExhibitsInMonth called with Months enum -1
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getExhibitsInHall
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@30f39991
+		When: getExhibitsInHall called with hall num 3
+		Then: output is:
+[202, 201, 202, 200, 201, 200, 203, 201, 203, 200, 200, 201]
+		Passed: true
+		Expected Value:
+[202, 201, 202, 200, 201, 200, 203, 201, 203, 200, 200, 201]
+		Given Value:
+[202, 201, 202, 200, 201, 200, 203, 201, 203, 200, 200, 201]
+
+
+		Scenario:empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@452b3a41
+		When: getExhibitsInHall called with hall num 1
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:invalid hall number
+		Given: exhibitionPlan is part01.ExhibitionPlan@4a574795
+		When: getExhibitsInHall called with hall num 4
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:invalid hall number
+		Given: exhibitionPlan is part01.ExhibitionPlan@f6f4d33
+		When: getExhibitsInHall called with hall num -1
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: Exhibit getExhibitNames
+
+		Scenario:normal test
+		Given: exhibitionPlan is part01.ExhibitionPlan@23fc625e
+		When: getExhibitNames called with [ID: 240	Name: test, ID: 241	Name: test, ID: 242	Name: test, ID: 243	Name: test, ID: 244	Name: test, ID: 245	Name: test, ID: 246	Name: test, ID: 247	Name: test, ID: 248	Name: test, ID: 249	Name: test]
+		Then: output is:
+[[test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test]]
+		Passed: true
+		Expected Value:
+[[test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test]]
+		Given Value:
+[[test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test], [test, test, test]]
+
+
+		Scenario:empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@77459877
+		When: getExhibitNames called with [ID: 250	Name: test, ID: 251	Name: test, ID: 252	Name: test, ID: 253	Name: test, ID: 254	Name: test, ID: 255	Name: test, ID: 256	Name: test, ID: 257	Name: test, ID: 258	Name: test, ID: 259	Name: test]
+		Then: output is:
+[null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+		Passed: true
+		Expected Value:
+[null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+		Given Value:
+[null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, [], null, []]
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getExhibitNamesString
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@5b2133b1
+		When: getExhibitNamesString called with [ID: 260	Name: test, ID: 261	Name: test, ID: 262	Name: test, ID: 263	Name: test, ID: 264	Name: test, ID: 265	Name: test, ID: 266	Name: test, ID: 267	Name: test, ID: 268	Name: test, ID: 269	Name: test]
+		Then: output is:
+["test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test"]
+		Given Value:
+["test", "test", "test"]
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getExhibitNamesInMonth
+
+		Scenario:normal use int month
+		Given: exhibitionPlan is part01.ExhibitionPlan@72ea2f77
+		When: getExhibitNamesInMonth called with [ID: 270	Name: test, ID: 271	Name: test, ID: 272	Name: test, ID: 273	Name: test, ID: 274	Name: test, ID: 275	Name: test, ID: 276	Name: test, ID: 277	Name: test, ID: 278	Name: test, ID: 279	Name: test]
+		AND: 5
+		Then: output is:
+["test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test"]
+		Given Value:
+["test", "test", "test"]
+
+
+		Scenario:normal use int month empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@33c7353a
+		When: getExhibitNamesInMonth called with [ID: 280	Name: test, ID: 281	Name: test, ID: 282	Name: test, ID: 283	Name: test, ID: 284	Name: test, ID: 285	Name: test, ID: 286	Name: test, ID: 287	Name: test, ID: 288	Name: test, ID: 289	Name: test]
+		AND: 5
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:normal use Months month
+		Given: exhibitionPlan is part01.ExhibitionPlan@681a9515
+		When: getExhibitNamesInMonth called with [ID: 290	Name: test, ID: 291	Name: test, ID: 292	Name: test, ID: 293	Name: test, ID: 294	Name: test, ID: 295	Name: test, ID: 296	Name: test, ID: 297	Name: test, ID: 298	Name: test, ID: 299	Name: test]
+		AND: May
+		Then: output is:
+["test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test"]
+		Given Value:
+["test", "test", "test"]
+
+
+		Scenario:normal use Months month empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@3af49f1c
+		When: getExhibitNamesInMonth called with [ID: 300	Name: test, ID: 301	Name: test, ID: 302	Name: test, ID: 303	Name: test, ID: 304	Name: test, ID: 305	Name: test, ID: 306	Name: test, ID: 307	Name: test, ID: 308	Name: test, ID: 309	Name: test]
+		AND: May
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:normal use String month
+		Given: exhibitionPlan is part01.ExhibitionPlan@19469ea2
+		When: getExhibitNamesInMonth called with[ID: 310	Name: test, ID: 311	Name: test, ID: 312	Name: test, ID: 313	Name: test, ID: 314	Name: test, ID: 315	Name: test, ID: 316	Name: test, ID: 317	Name: test, ID: 318	Name: test, ID: 319	Name: test]
+		AND: March
+		Then: output is:
+["test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test"]
+		Given Value:
+["test", "test", "test"]
+
+
+		Scenario:normal use String month empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@13221655
+		When: getExhibitNamesInMonth called with [ID: 320	Name: test, ID: 321	Name: test, ID: 322	Name: test, ID: 323	Name: test, ID: 324	Name: test, ID: 325	Name: test, ID: 326	Name: test, ID: 327	Name: test, ID: 328	Name: test, ID: 329	Name: test]
+		AND: March
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getExhibitNamesInHall
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@2f2c9b19
+		When: getExhibitNamesInHall called with [ID: 330	Name: test, ID: 331	Name: test, ID: 332	Name: test, ID: 333	Name: test, ID: 334	Name: test, ID: 335	Name: test, ID: 336	Name: test, ID: 337	Name: test, ID: 338	Name: test, ID: 339	Name: test]
+		AND: 2
+		Then: output is:
+["test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
+		Given Value:
+["test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
+
+
+		Scenario:normal use and empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@31befd9f
+		When: getExhibitNamesInHall called with [ID: 340	Name: test, ID: 341	Name: test, ID: 342	Name: test, ID: 343	Name: test, ID: 344	Name: test, ID: 345	Name: test, ID: 346	Name: test, ID: 347	Name: test, ID: 348	Name: test, ID: 349	Name: test]
+		AND: 2
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:negative hall no
+		Given: exhibitionPlan is part01.ExhibitionPlan@1c20c684
+		When: getExhibitNamesInHall called with [ID: 350	Name: test, ID: 351	Name: test, ID: 352	Name: test, ID: 353	Name: test, ID: 354	Name: test, ID: 355	Name: test, ID: 356	Name: test, ID: 357	Name: test, ID: 358	Name: test, ID: 359	Name: test]
+		AND: -5
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:not created hall
+		Given: exhibitionPlan is part01.ExhibitionPlan@1fb3ebeb
+		When: getExhibitNamesInHall called with [ID: 360	Name: test, ID: 361	Name: test, ID: 362	Name: test, ID: 363	Name: test, ID: 364	Name: test, ID: 365	Name: test, ID: 366	Name: test, ID: 367	Name: test, ID: 368	Name: test, ID: 369	Name: test]
+		AND: 5
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getPlanString
+
+		Scenario:normal test
+		Given: exhibitionPlan is part01.ExhibitionPlan@548c4f57
+		When: getPlanString called with [ID: 370	Name: test, ID: 371	Name: test, ID: 372	Name: test, ID: 373	Name: test, ID: 374	Name: test, ID: 375	Name: test, ID: 376	Name: test, ID: 377	Name: test, ID: 378	Name: test, ID: 379	Name: test]
+		Then: output is:
+             Exhibit Hall 1                          Exhibit Hall 2                          Exhibit Hall 3                          
+January      test                                    test                                    test                                    
+February     test                                    test                                    test                                    
+March        test                                    test                                    test                                    
+April        test                                    test                                    test                                    
+May          test                                    test                                    test                                    
+June         test                                    test                                    test                                    
+July         test                                    test                                    test                                    
+August       test                                    test                                    test                                    
+September    test                                    test                                    test                                    
+October      test                                    test                                    test                                    
+November     test                                    test                                    test                                    
+December     test                                    test                                    test                                    
+		Passed: true
+		Expected Value:
+             Exhibit Hall 1                          Exhibit Hall 2                          Exhibit Hall 3                          
+January      test                                    test                                    test                                    
+February     test                                    test                                    test                                    
+March        test                                    test                                    test                                    
+April        test                                    test                                    test                                    
+May          test                                    test                                    test                                    
+June         test                                    test                                    test                                    
+July         test                                    test                                    test                                    
+August       test                                    test                                    test                                    
+September    test                                    test                                    test                                    
+October      test                                    test                                    test                                    
+November     test                                    test                                    test                                    
+December     test                                    test                                    test                                    
+		Given Value:
+             Exhibit Hall 1                          Exhibit Hall 2                          Exhibit Hall 3                          
+January      test                                    test                                    test                                    
+February     test                                    test                                    test                                    
+March        test                                    test                                    test                                    
+April        test                                    test                                    test                                    
+May          test                                    test                                    test                                    
+June         test                                    test                                    test                                    
+July         test                                    test                                    test                                    
+August       test                                    test                                    test                                    
+September    test                                    test                                    test                                    
+October      test                                    test                                    test                                    
+November     test                                    test                                    test                                    
+December     test                                    test                                    test                                    
+
+
+
+		Scenario:normal test and empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@1218025c
+		When: getPlanString called with [ID: 380	Name: test, ID: 381	Name: test, ID: 382	Name: test, ID: 383	Name: test, ID: 384	Name: test, ID: 385	Name: test, ID: 386	Name: test, ID: 387	Name: test, ID: 388	Name: test, ID: 389	Name: test]
+		Then: output is:
+             
+January      
+February     
+March        
+April        
+May          
+June         
+July         
+August       
+September    
+October      
+November     
+December     
+
+		Passed: true
+		Expected Value:
+             
+January      
+February     
+March        
+April        
+May          
+June         
+July         
+August       
+September    
+October      
+November     
+December     
+
+		Given Value:
+             
+January      
+February     
+March        
+April        
+May          
+June         
+July         
+August       
+September    
+October      
+November     
+December     
+
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getMonthPlanString
+
+		Scenario:normal use int month
+		Given: exhibitionPlan is part01.ExhibitionPlan@816f27d
+		When: getMonthPlanString called with [ID: 390	Name: test, ID: 391	Name: test, ID: 392	Name: test, ID: 393	Name: test, ID: 394	Name: test, ID: 395	Name: test, ID: 396	Name: test, ID: 397	Name: test, ID: 398	Name: test, ID: 399	Name: test]
+		Then: output is:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+June	test	test	test	
+		Passed: true
+		Expected Value:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+June	test	test	test	
+		Given Value:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+June	test	test	test	
+
+
+		Scenario:normal use int month and empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@87aac27
+		When: getMonthPlanString called with [ID: 400	Name: test, ID: 401	Name: test, ID: 402	Name: test, ID: 403	Name: test, ID: 404	Name: test, ID: 405	Name: test, ID: 406	Name: test, ID: 407	Name: test, ID: 408	Name: test, ID: 409	Name: test]
+		Then: output is:
+	
+June	
+		Passed: true
+		Expected Value:
+	
+June	
+		Given Value:
+	
+June	
+
+
+		Scenario:normal use Months month
+		Given: exhibitionPlan is part01.ExhibitionPlan@3e3abc88
+		When: getMonthPlanString called with [ID: 410	Name: test, ID: 411	Name: test, ID: 412	Name: test, ID: 413	Name: test, ID: 414	Name: test, ID: 415	Name: test, ID: 416	Name: test, ID: 417	Name: test, ID: 418	Name: test, ID: 419	Name: test]
+		Then: output is:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+May	test	test	test	
+		Passed: true
+		Expected Value:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+May	test	test	test	
+		Given Value:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+May	test	test	test	
+
+
+		Scenario:normal use Months month and empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@6ce253f1
+		When: getMonthPlanString called with [ID: 420	Name: test, ID: 421	Name: test, ID: 422	Name: test, ID: 423	Name: test, ID: 424	Name: test, ID: 425	Name: test, ID: 426	Name: test, ID: 427	Name: test, ID: 428	Name: test, ID: 429	Name: test]
+		Then: output is:
+	
+May	
+		Passed: true
+		Expected Value:
+	
+May	
+		Given Value:
+	
+May	
+
+
+		Scenario:normal use String month
+		Given: exhibitionPlan is part01.ExhibitionPlan@53d8d10a
+		When: getMonthPlanString called with [ID: 430	Name: test, ID: 431	Name: test, ID: 432	Name: test, ID: 433	Name: test, ID: 434	Name: test, ID: 435	Name: test, ID: 436	Name: test, ID: 437	Name: test, ID: 438	Name: test, ID: 439	Name: test]
+		Then: output is:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+March	test	test	test	
+		Passed: true
+		Expected Value:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+March	test	test	test	
+		Given Value:
+	Exhibit Hall 1	Exhibit Hall 2	Exhibit Hall 3	
+March	test	test	test	
+
+
+		Scenario:normal use String month empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@e9e54c2
+		When: getMonthPlanString called with [ID: 440	Name: test, ID: 441	Name: test, ID: 442	Name: test, ID: 443	Name: test, ID: 444	Name: test, ID: 445	Name: test, ID: 446	Name: test, ID: 447	Name: test, ID: 448	Name: test, ID: 449	Name: test]
+		Then: output is:
+	
+March	
+		Passed: true
+		Expected Value:
+	
+March	
+		Given Value:
+	
+March	
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan getExhibitNamesInHall
+
+		Scenario:normal use
+		Given: exhibitionPlan is part01.ExhibitionPlan@682a0b20
+		When: getHallPlanString called with [ID: 450	Name: test, ID: 451	Name: test, ID: 452	Name: test, ID: 453	Name: test, ID: 454	Name: test, ID: 455	Name: test, ID: 456	Name: test, ID: 457	Name: test, ID: 458	Name: test, ID: 459	Name: test]
+		Then: output is:
+	Exhibit Hall 2
+January	test
+February	test
+March	test
+April	test
+May	test
+June	test
+July	test
+August	test
+September	test
+October	test
+November	test
+December	test
+
+		Passed: true
+		Expected Value:
+	Exhibit Hall 2
+January	test
+February	test
+March	test
+April	test
+May	test
+June	test
+July	test
+August	test
+September	test
+October	test
+November	test
+December	test
+
+		Given Value:
+	Exhibit Hall 2
+January	test
+February	test
+March	test
+April	test
+May	test
+June	test
+July	test
+August	test
+September	test
+October	test
+November	test
+December	test
+
+
+
+		Scenario:normal use and empty plan
+		Given: exhibitionPlan is part01.ExhibitionPlan@448139f0
+		When: getHallPlanString called with [ID: 460	Name: test, ID: 461	Name: test, ID: 462	Name: test, ID: 463	Name: test, ID: 464	Name: test, ID: 465	Name: test, ID: 466	Name: test, ID: 467	Name: test, ID: 468	Name: test, ID: 469	Name: test]
+		Then: output is:
+	Exhibit Hall 2
+
+		Passed: true
+		Expected Value:
+	Exhibit Hall 2
+
+		Given Value:
+	Exhibit Hall 2
+
+
+
+		Scenario:-ve hall number
+		Given: exhibitionPlan is part01.ExhibitionPlan@7cca494b
+		When: getHallPlanString called with [ID: 470	Name: test, ID: 471	Name: test, ID: 472	Name: test, ID: 473	Name: test, ID: 474	Name: test, ID: 475	Name: test, ID: 476	Name: test, ID: 477	Name: test, ID: 478	Name: test, ID: 479	Name: test]
+		Then: output is:
+	Exhibit Hall -5
+
+		Passed: true
+		Expected Value:
+	Exhibit Hall -5
+
+		Given Value:
+	Exhibit Hall -5
+
+
+
+		Scenario:exceeding max hall
+		Given: exhibitionPlan is part01.ExhibitionPlan@7ba4f24f
+		When: getHallPlanString called with [ID: 480	Name: test, ID: 481	Name: test, ID: 482	Name: test, ID: 483	Name: test, ID: 484	Name: test, ID: 485	Name: test, ID: 486	Name: test, ID: 487	Name: test, ID: 488	Name: test, ID: 489	Name: test]
+		Then: output is:
+	Exhibit Hall 5
+
+		Passed: true
+		Expected Value:
+	Exhibit Hall 5
+
+		Given Value:
+	Exhibit Hall 5
+
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan addExhibit
+
+		Scenario:normal use int month
+		Given: exhibitionPlan is part01.ExhibitionPlan@3b9a45b3
+		When: addExhbit called with [ID: 490	Name: test, ID: 491	Name: test, ID: 492	Name: test, ID: 493	Name: test, ID: 494	Name: test, ID: 495	Name: test, ID: 496	Name: test, ID: 497	Name: test, ID: 498	Name: test, ID: 499	Name: test]
+		AND: 0
+		AND: 1
+		AND: 494
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid use int month
+		Given: exhibitionPlan is part01.ExhibitionPlan@7699a589
+		When: addExhbit called with [ID: 500	Name: test, ID: 501	Name: test, ID: 502	Name: test, ID: 503	Name: test, ID: 504	Name: test, ID: 505	Name: test, ID: 506	Name: test, ID: 507	Name: test, ID: 508	Name: test, ID: 509	Name: test]
+		AND: 0
+		AND: 1
+		AND: 501
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:normal use String month
+		Given: exhibitionPlan is part01.ExhibitionPlan@58372a00
+		When: addExhbit called with [ID: 510	Name: test, ID: 511	Name: test, ID: 512	Name: test, ID: 513	Name: test, ID: 514	Name: test, ID: 515	Name: test, ID: 516	Name: test, ID: 517	Name: test, ID: 518	Name: test, ID: 519	Name: test]
+		AND: January
+		AND: 1
+		AND: 514
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid use String month
+		Given: exhibitionPlan is part01.ExhibitionPlan@4dd8dc3
+		When: addExhbit called with [ID: 520	Name: test, ID: 521	Name: test, ID: 522	Name: test, ID: 523	Name: test, ID: 524	Name: test, ID: 525	Name: test, ID: 526	Name: test, ID: 527	Name: test, ID: 528	Name: test, ID: 529	Name: test]
+		AND: January
+		AND: 1
+		AND: 521
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use String month not a month
+		Given: exhibitionPlan is part01.ExhibitionPlan@6d03e736
+		When: addExhbit called with [ID: 530	Name: test, ID: 531	Name: test, ID: 532	Name: test, ID: 533	Name: test, ID: 534	Name: test, ID: 535	Name: test, ID: 536	Name: test, ID: 537	Name: test, ID: 538	Name: test, ID: 539	Name: test]
+		AND: invalid month name
+		AND: 1
+		AND: 531
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use String month is null
+		Given: exhibitionPlan is part01.ExhibitionPlan@568db2f2
+		When: addExhbit called with [ID: 540	Name: test, ID: 541	Name: test, ID: 542	Name: test, ID: 543	Name: test, ID: 544	Name: test, ID: 545	Name: test, ID: 546	Name: test, ID: 547	Name: test, ID: 548	Name: test, ID: 549	Name: test]
+		AND: null
+		AND: 1
+		AND: 541
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:normal use Months month
+		Given: exhibitionPlan is part01.ExhibitionPlan@378bf509
+		When: addExhbit called with [ID: 550	Name: test, ID: 551	Name: test, ID: 552	Name: test, ID: 553	Name: test, ID: 554	Name: test, ID: 555	Name: test, ID: 556	Name: test, ID: 557	Name: test, ID: 558	Name: test, ID: 559	Name: test]
+		AND: March
+		AND: 1
+		AND: 554
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid use Months month
+		Given: exhibitionPlan is part01.ExhibitionPlan@5fd0d5ae
+		When: addExhbit called with [ID: 560	Name: test, ID: 561	Name: test, ID: 562	Name: test, ID: 563	Name: test, ID: 564	Name: test, ID: 565	Name: test, ID: 566	Name: test, ID: 567	Name: test, ID: 568	Name: test, ID: 569	Name: test]
+		AND: January
+		AND: 1
+		AND: 561
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use, hall too large
+		Given: exhibitionPlan is part01.ExhibitionPlan@7ef20235
+		When: addExhbit called with [ID: 570	Name: test, ID: 571	Name: test, ID: 572	Name: test, ID: 573	Name: test, ID: 574	Name: test, ID: 575	Name: test, ID: 576	Name: test, ID: 577	Name: test, ID: 578	Name: test, ID: 579	Name: test]
+		AND: March
+		AND: 4
+		AND: 574
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use hall too small
+		Given: exhibitionPlan is part01.ExhibitionPlan@27d6c5e0
+		When: addExhbit called with [ID: 580	Name: test, ID: 581	Name: test, ID: 582	Name: test, ID: 583	Name: test, ID: 584	Name: test, ID: 585	Name: test, ID: 586	Name: test, ID: 587	Name: test, ID: 588	Name: test, ID: 589	Name: test]
+		AND: March
+		AND: 0
+		AND: 584
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use, plan is empty
+		Given: exhibitionPlan is part01.ExhibitionPlan@4f3f5b24
+		When: addExhbit called with [ID: 590	Name: test, ID: 591	Name: test, ID: 592	Name: test, ID: 593	Name: test, ID: 594	Name: test, ID: 595	Name: test, ID: 596	Name: test, ID: 597	Name: test, ID: 598	Name: test, ID: 599	Name: test]
+		AND: 0
+		AND: 1
+		AND: 594
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan addExhibitsToMonth
+
+		Scenario:normal use, int Month
+		Given: exhibitionPlan is part01.ExhibitionPlan@15aeb7ab
+		When: addExhbitsToMonth called with [604, 605, 606]
+		AND: 0
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid Use with int month, month too large
+		Given: exhibitionPlan is part01.ExhibitionPlan@7b23ec81
+		When: addExhbitsToMonth called with [614, 615, 616]
+		AND: 12
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid Use with int month, month too small
+		Given: exhibitionPlan is part01.ExhibitionPlan@6acbcfc0
+		When: addExhbitsToMonth called with [624, 625, 626]
+		AND: -5
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:valid Use with String month
+		Given: exhibitionPlan is part01.ExhibitionPlan@5f184fc6
+		When: addExhbitsToMonth called with [634, 635, 636]
+		AND: May
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid Use with String month, not a month
+		Given: exhibitionPlan is part01.ExhibitionPlan@3feba861
+		When: addExhbitsToMonth called with [644, 645, 646]
+		AND: not a month
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid Use with String month, null
+		Given: exhibitionPlan is part01.ExhibitionPlan@5b480cf9
+		When: addExhbitsToMonth called with [654, 655, 656]
+		AND: null
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:valid Use with Months month
+		Given: exhibitionPlan is part01.ExhibitionPlan@6f496d9f
+		When: addExhbitsToMonth called with [664, 665, 666]
+		AND: August
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+	Feature Passed: true
+
+	Feature: ExhibitionPlan addExhibitsToHall
+
+		Scenario:valid use
+		Given: exhibitionPlan is part01.ExhibitionPlan@723279cf
+		When: addExhbitsToMonth called with [674, 675, 676, 677, 678, 679, 670, 671, 672, 673, 675, 676]
+		AND: 2
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid Use hall too small
+		Given: exhibitionPlan is part01.ExhibitionPlan@10f87f48
+		When: addExhbitsToMonth called with [684, 685, 686, 687, 688, 689, 680, 681, 682, 683, 685, 686]
+		AND: 0
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid Use hall too large
+		Given: exhibitionPlan is part01.ExhibitionPlan@b4c966a
+		When: addExhbitsToMonth called with [694, 695, 696, 697, 698, 699, 690, 691, 692, 693, 695, 696]
+		AND: 4
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+	Feature Passed: true
+
+All Features Passed: true

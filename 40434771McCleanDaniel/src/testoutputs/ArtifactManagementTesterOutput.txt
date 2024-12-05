@@ -1,0 +1,1064 @@
+Class in Test: ArtifactManagement
+
+	Feature: ArtifactMangement default constructor
+
+		Scenario:Default Constructor Array Property
+		When: new ArtifactManagement() called
+		Then: output of getArtifactArray() is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:Default Constructor ArrayList Property
+		When: new ArtifactManagement() called
+		Then: output of getArtifacts() is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactMangement default constructor
+
+		Scenario:Constructor Array Property
+		When: new ArtifactManagement() called with [ID: 0,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 1,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 2,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 3,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 4,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output of getArtifactArray() is:
+[{ID: 0,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 1,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 2,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 3,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 4,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+		Passed: true
+		Expected Value:
+[Lpart01.Artifact;@a09ee92
+		Given Value:
+[Lpart01.Artifact;@30f39991
+
+
+		Scenario:constructor ArrayList Property
+		When: new ArtifactManagement() called with [ID: 5,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 6,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 7,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 8,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 9,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Then: output of getArtifacts() is:
+[ID: 5,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 6,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 7,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 8,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 9,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Passed: true
+		Expected Value:
+[ID: 5,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 6,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 7,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 8,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 9,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		Given Value:
+[ID: 5,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 6,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 7,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 8,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 9,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+
+
+		Scenario:constructor with null in ArrayList
+		When: new ArtifactManagement() called with [null, null, null, null, null]
+		Then: output of getArtifacts() is:
+artifacts cannot contain null
+		Passed: true
+		Expected Value:
+artifacts cannot contain null
+		Given Value:
+artifacts cannot contain null
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getArtifactArrayLength
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 10,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 11,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 12,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 13,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 14,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 15,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 16,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 17,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 18,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 19,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactArrayLength called
+		Then: output is:
+10
+		Passed: true
+		Expected Value:
+10
+		Given Value:
+10
+
+
+		Scenario:Normal Use with empty manager
+		Given: testArtifactManagement is []
+		When: getArtifactArrayLength called
+		Then: output is:
+0
+		Passed: true
+		Expected Value:
+0
+		Given Value:
+0
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getArtifactID
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 20,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 21,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 22,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 23,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 24,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 25,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 26,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 27,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 28,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 29,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactID called with 0
+		Then: output is:
+20
+		Passed: true
+		Expected Value:
+20
+		Given Value:
+20
+
+
+		Scenario:empty manager
+		Given: testArtifactManagement is []
+		When: getArtifactID called with 0
+		Then: output is:
+Artifact Choice Out of Range
+		Passed: true
+		Expected Value:
+Artifact Choice Out of Range
+		Given Value:
+Artifact Choice Out of Range
+
+
+		Scenario:negative index
+		Given: testArtifactManagement is [ID: 30,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 31,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 32,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 33,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 34,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 35,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 36,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 37,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 38,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 39,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactID called with -1
+		Then: output is:
+Artifact Choice Out of Range
+		Passed: true
+		Expected Value:
+Artifact Choice Out of Range
+		Given Value:
+Artifact Choice Out of Range
+
+
+		Scenario:index out of range
+		Given: testArtifactManagement is [ID: 40,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 41,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 42,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 43,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 44,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 45,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 46,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 47,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 48,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 49,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactID called with 11
+		Then: output is:
+Artifact Choice Out of Range
+		Passed: true
+		Expected Value:
+Artifact Choice Out of Range
+		Given Value:
+Artifact Choice Out of Range
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement addArtifact
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 50,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 51,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 52,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 53,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 54,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 55,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 56,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 57,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 58,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 59,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 60,	Name: add Artifact,	Type: new Artifact,	Engagement Time: 6 minutes]
+		When: addArtifact called with add Artifact
+		And: new Artifact
+		And: 6
+		Then: output is:
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario:Zero engagement time
+		Given: testArtifactManagement is [ID: 61,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 62,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 63,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 64,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 65,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 66,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 67,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 68,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 69,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 70,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: addArtifact called with add Artifact
+		And: new Artifact
+		And: 0
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Negative enagagement time
+		Given: testArtifactManagement is [ID: 71,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 72,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 73,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 74,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 75,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 76,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 77,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 78,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 79,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 80,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: addArtifact called with add Artifact
+		And: new Artifact
+		And: -1
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement updateArtifact
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 81,	Name: add Artifact,	Type: new Artifact,	Engagement Time: 6 minutes, ID: 82,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 83,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 84,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 85,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 86,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 87,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 88,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 89,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 90,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: add Artifact
+		And: new Artifact
+		And: 6
+		Then: output is:
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario:Artifact Choice is negative
+		Given: testArtifactManagement is [ID: 91,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 92,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 93,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 94,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 95,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 96,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 97,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 98,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 99,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 100,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with -1
+		And: add Artifact
+		And: new Artifact
+		And: 6
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Artifact Choice is greater than artifact no
+		Given: testArtifactManagement is [ID: 101,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 102,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 103,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 104,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 105,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 106,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 107,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 108,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 109,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 110,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 11
+		And: add Artifact
+		And: new Artifact
+		And: 6
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Zero engagement time
+		Given: testArtifactManagement is [ID: 111,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 112,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 113,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 114,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 115,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 116,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 117,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 118,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 119,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 120,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: add Artifact
+		And: new Artifact
+		And: 0
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Negative enagagement time
+		Given: testArtifactManagement is [ID: 121,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 122,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 123,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 124,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 125,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 126,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 127,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 128,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 129,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 130,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: add Artifact
+		And: new Artifact
+		And: -1
+		Then: output is:
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Don't Update anything
+		Given: testArtifactManagement is [ID: 131,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 132,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 133,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 134,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 135,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 136,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 137,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 138,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 139,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 140,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: 
+		And: 
+		And: 
+		Then: output of getArtifactString is: 
+ID: 131,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 131,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+		Given Value:
+ID: 131,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+
+
+		Scenario:update name
+		Given: testArtifactManagement is [ID: 141,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes, ID: 142,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 143,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 144,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 145,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 146,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 147,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 148,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 149,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 150,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: new name
+		And: 
+		And: 
+		Then: output of getArtifactString is: 
+ID: 141,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 141,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes
+		Given Value:
+ID: 141,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes
+
+
+		Scenario:update type
+		Given: testArtifactManagement is [ID: 151,	Name: test,	Type: new type,	Engagement Time: 4 minutes, ID: 152,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 153,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 154,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 155,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 156,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 157,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 158,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 159,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 160,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: 
+		And: new type
+		And: 
+		Then: output of getArtifactString is: 
+ID: 151,	Name: test,	Type: new type,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 151,	Name: test,	Type: new type,	Engagement Time: 4 minutes
+		Given Value:
+ID: 151,	Name: test,	Type: new type,	Engagement Time: 4 minutes
+
+
+		Scenario:update time
+		Given: testArtifactManagement is [ID: 161,	Name: test,	Type: artifact,	Engagement Time: 9 minutes, ID: 162,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 163,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 164,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 165,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 166,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 167,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 168,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 169,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 170,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifact called with 0
+		And: 
+		And: 
+		And: 9
+		Then: output of getArtifactString is: 
+ID: 161,	Name: test,	Type: artifact,	Engagement Time: 9 minutes
+		Passed: true
+		Expected Value:
+ID: 161,	Name: test,	Type: artifact,	Engagement Time: 9 minutes
+		Given Value:
+ID: 161,	Name: test,	Type: artifact,	Engagement Time: 9 minutes
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement updateArtifactByID
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 171,	Name: add Artifact,	Type: new Artifact,	Engagement Time: 6 minutes, ID: 172,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 173,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 174,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 175,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 176,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 177,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 178,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 179,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 180,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with add Artifact
+		And: new Artifact
+		And: 6
+		And: 171
+		Then: output is: 
+true
+		Passed: true
+		Expected Value:
+true
+		Given Value:
+true
+
+
+		Scenario:Artifact Choice is negative
+		Given: testArtifactManagement is [ID: 181,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 182,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 183,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 184,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 185,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 186,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 187,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 188,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 189,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 190,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with add Artifact
+		And: new Artifact
+		And: 6
+		And: 180
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Zero engagement time
+		Given: testArtifactManagement is [ID: 191,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 192,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 193,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 194,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 195,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 196,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 197,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 198,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 199,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 200,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with add Artifact
+		And: new Artifact
+		And: 0
+		And: 191
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Negative enagagement time
+		Given: testArtifactManagement is [ID: 201,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 202,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 203,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 204,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 205,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 206,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 207,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 208,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 209,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 210,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with add Artifact
+		And: new Artifact
+		And: -1
+		And: 201
+		Then: output is: 
+false
+		Passed: true
+		Expected Value:
+false
+		Given Value:
+false
+
+
+		Scenario:Don't Update anything
+		Given: testArtifactManagement is [ID: 211,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 212,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 213,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 214,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 215,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 216,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 217,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 218,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 219,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 220,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with 
+		And: 
+		And: 
+		And: 211
+		Then: output of getArtifactString with 0is: 
+ID: 211,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 211,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+		Given Value:
+ID: 211,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+
+
+		Scenario:update name
+		Given: testArtifactManagement is [ID: 221,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes, ID: 222,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 223,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 224,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 225,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 226,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 227,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 228,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 229,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 230,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with new name
+		And: 
+		And: 
+		And: 221
+		Then: output of getArtifactString with 0is: 
+ID: 221,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 221,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes
+		Given Value:
+ID: 221,	Name: new name,	Type: artifact,	Engagement Time: 4 minutes
+
+
+		Scenario:update type
+		Given: testArtifactManagement is [ID: 231,	Name: test,	Type: new type,	Engagement Time: 4 minutes, ID: 232,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 233,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 234,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 235,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 236,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 237,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 238,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 239,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 240,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with 
+		And: new type
+		And: 
+		And: 231
+		Then: output of getArtifactString with 0is: 
+ID: 231,	Name: test,	Type: new type,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 231,	Name: test,	Type: new type,	Engagement Time: 4 minutes
+		Given Value:
+ID: 231,	Name: test,	Type: new type,	Engagement Time: 4 minutes
+
+
+		Scenario:update time
+		Given: testArtifactManagement is [ID: 241,	Name: test,	Type: artifact,	Engagement Time: 9 minutes, ID: 242,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 243,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 244,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 245,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 246,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 247,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 248,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 249,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 250,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: updateArtifactByID called with 
+		And: 
+		And: 9
+		And: 241
+		Then: output of getArtifactString with 0is: 
+ID: 241,	Name: test,	Type: artifact,	Engagement Time: 9 minutes
+		Passed: true
+		Expected Value:
+ID: 241,	Name: test,	Type: artifact,	Engagement Time: 9 minutes
+		Given Value:
+ID: 241,	Name: test,	Type: artifact,	Engagement Time: 9 minutes
+
+	Feature Passed: true
+
+	Feature ArtifactManagement getArtifactString
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 251,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 252,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 253,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 254,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 255,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 256,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 257,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 258,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 259,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 260,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactString called with 0
+		Then: output of getArtifactString is: 
+ID: 251,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+		Passed: true
+		Expected Value:
+ID: 251,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+		Given Value:
+ID: 251,	Name: test,	Type: artifact,	Engagement Time: 4 minutes
+
+
+		Scenario:artifactChoice is negative
+		Given: testArtifactManagement is [ID: 261,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 262,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 263,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 264,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 265,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 266,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 267,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 268,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 269,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 270,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactString called with -1
+		Then: output of getArtifactString is: 
+Not A Valid Artifact Choice
+		Passed: true
+		Expected Value:
+Not A Valid Artifact Choice
+		Given Value:
+Not A Valid Artifact Choice
+
+
+		Scenario:artifactChoice exceeds last artifact
+		Given: testArtifactManagement is [ID: 271,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 272,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 273,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 274,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 275,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 276,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 277,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 278,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 279,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 280,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactString called with 10
+		Then: output of getArtifactString is: 
+Not A Valid Artifact Choice
+		Passed: true
+		Expected Value:
+Not A Valid Artifact Choice
+		Given Value:
+Not A Valid Artifact Choice
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getArtifactsMenu
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 281,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 282,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 283,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 284,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 285,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 286,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 287,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 288,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 289,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 290,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: getArtifactsMenu called
+		Then: display of getUserChoice is: 
+Artifacts
++++++++++
+1. test
+2. test
+3. test
+4. test
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
+11. Search
+12. Clear
+13. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Artifacts
++++++++++
+1. test
+2. test
+3. test
+4. test
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
+11. Search
+12. Clear
+13. Quit
+
+Enter Selection:
+		Given Value:
+Artifacts
++++++++++
+1. test
+2. test
+3. test
+4. test
+5. test
+6. test
+7. test
+8. test
+9. test
+10. test
+11. Search
+12. Clear
+13. Quit
+
+Enter Selection: 
+
+
+		Scenario:empty artifactManagement use
+		Given: testArtifactManagement is []
+		When: getArtifactsMenu called
+		Then: display of getUserChoice is: 
+Artifacts
++++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Artifacts
++++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Given Value:
+Artifacts
++++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection: 
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement artifactsToArray
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 291,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 292,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 293,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 294,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 295,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: artifactsToArray called
+		Then: output is: 
+[{ID: 291,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 292,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 293,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 294,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 295,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 291,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 292,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 293,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 294,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 295,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+		Given Value:
+[{ID: 291,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 292,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 293,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 294,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 295,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+
+
+		Scenario:empty ArtifactManagement
+		Given: testArtifactManagement is []
+		When: artifactsToArray called
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:normal use of static method
+		Given: testArtifactManagement is [ID: 296,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 297,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 298,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 299,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 300,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: artifactsToArray called
+		Then: output is: 
+[{ID: 296,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 297,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 298,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 299,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 300,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+		Passed: true
+E		xpected Value:
+[{ID: 296,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 297,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 298,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 299,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 300,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+		Given Value:
+[{ID: 296,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 297,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 298,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 299,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}, {ID: 300,	Name: test,	Type: artifact,	Engagement Time: 4 minutes}]
+
+
+		Scenario:empty array list with static method
+		Given: testArtifactManagement is []
+		When: artifactsToArray called
+		Then: output is: 
+[]
+		Passed: true
+E		xpected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement artifactArrayToNameArray
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 301,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 302,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 303,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 304,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 305,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 306,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 307,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 308,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 309,	Name: test,	Type: artifact,	Engagement Time: 4 minutes, ID: 310,	Name: test,	Type: artifact,	Engagement Time: 4 minutes]
+		When: artifactsToArray called 
+		Then: output is: 
+["test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
+		Passed: true
+		Expected Value:
+["test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
+		Given Value:
+["test", "test", "test", "test", "test", "test", "test", "test", "test", "test"]
+
+
+		Scenario:empty array
+		Given: testArtifactManagement is []
+		When: artifactsToArray called 
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement sortArtifactArray
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 311,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 312,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 313,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 314,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 315,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: sortArtifactsArray called 
+		Then: output of getArtifactArray is: 
+[{ID: 311,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 312,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 313,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 314,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 315,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 311,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 312,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 313,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 314,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 315,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Given Value:
+[{ID: 311,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 312,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 313,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 314,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 315,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+
+
+		Scenario:normal use, empty array
+		Given: testArtifactManagement is []
+		When: sortArtifactsArray called 
+		Then: output of getArtifactArray is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement searchArtifacts
+
+		Scenario:normal use, criteria 1, search id
+		Given: testArtifactManagement is [ID: 316,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 317,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 318,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 319,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 320,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with 1
+		And: 320
+		Then: output of getArtifactArray is: 
+[{ID: 320,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 320,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Given Value:
+[{ID: 320,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+
+
+		Scenario:normal use, criteria 2, search name
+		Given: testArtifactManagement is [ID: 321,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 322,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 323,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 324,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 325,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with 2
+		And: 1
+		Then: output of getArtifactArray is: 
+[{ID: 321,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 321,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}]
+		Given Value:
+[{ID: 321,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}]
+
+
+		Scenario:normal use, criteria 3, search type
+		Given: testArtifactManagement is [ID: 326,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 327,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 328,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 329,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 330,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with 3
+		And: 3
+		Then: output of getArtifactArray is: 
+[{ID: 328,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 328,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}]
+		Given Value:
+[{ID: 328,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}]
+
+
+		Scenario:normal use, criteria 4, search time
+		Given: testArtifactManagement is [ID: 331,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 332,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 333,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 334,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 335,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with 4
+		And: 8
+		Then: output of getArtifactArray is: 
+[{ID: 334,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 334,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}]
+		Given Value:
+[{ID: 334,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}]
+
+
+		Scenario:normal use, criteria 5, no search
+		Given: testArtifactManagement is [ID: 336,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 337,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 338,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 339,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 340,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with 5
+		And: 1
+		Then: output of getArtifactArray is: 
+[{ID: 336,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 337,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 338,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 339,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 340,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 336,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 337,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 338,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 339,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 340,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Given Value:
+[{ID: 336,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 337,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 338,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 339,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 340,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+
+
+		Scenario:normal use, criteria 0,  no search
+		Given: testArtifactManagement is [ID: 341,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 342,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 343,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 344,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 345,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with 0
+		And: 1
+		Then: output of getArtifactArray is: 
+[{ID: 341,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 342,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 343,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 344,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 345,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 341,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 342,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 343,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 344,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 345,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Given Value:
+[{ID: 341,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 342,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 343,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 344,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 345,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+
+
+		Scenario:normal use, criteria -1,  no search
+		Given: testArtifactManagement is [ID: 346,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 347,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 348,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 349,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 350,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: searchArtifacts called with -1
+		And: 1
+		Then: output of getArtifactArray is: 
+[{ID: 346,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 347,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 348,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 349,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 350,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 346,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 347,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 348,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 349,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 350,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+		Given Value:
+[{ID: 346,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 347,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 348,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 349,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}, {ID: 350,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes}]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement  removeArtifact
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 351,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 352,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 353,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 354,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes]
+		When: removeArtifact called with 355
+		Then: output of getArtifacts is: 
+[ID: 351,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 352,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 353,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 354,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes]
+		Passed: true
+		Expected Value:
+[ID: 351,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 352,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 353,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 354,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes]
+		Given Value:
+[ID: 351,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 352,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 353,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 354,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes]
+
+
+		Scenario:out of range choice
+		Given: testArtifactManagement is [ID: 356,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 357,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 358,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 359,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 360,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: removeArtifact called with -1
+		Then: output of getArtifacts is: 
+[ID: 356,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 357,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 358,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 359,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 360,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		Passed: true
+		Expected Value:
+[ID: 356,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 357,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 358,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 359,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 360,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		Given Value:
+[ID: 356,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 357,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 358,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 359,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 360,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+
+
+		Scenario:out of range choice
+		Given: testArtifactManagement is [ID: 361,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 362,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 363,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 364,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 365,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: removeArtifact called with 375
+		Then: output of getArtifacts is: 
+[ID: 361,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 362,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 363,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 364,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 365,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		Passed: true
+		Expected Value:
+[ID: 361,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 362,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 363,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 364,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 365,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		Given Value:
+[ID: 361,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 362,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 363,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 364,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 365,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+
+
+		Scenario:empty artifacts
+		Given: testArtifactManagement is []
+		When: removeArtifact called with 365
+		Then: output of getArtifacts is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getArtifactsMenu
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 366,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 367,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 368,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 369,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 370,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getArtifactsMenu called
+		Then: display of getUserChoice is: 
+Artifacts
++++++++++
+1. test1
+2. test2
+3. test3
+4. test4
+5. test5
+6. Search
+7. Clear
+8. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Artifacts
++++++++++
+1. test1
+2. test2
+3. test3
+4. test4
+5. test5
+6. Search
+7. Clear
+8. Quit
+
+Enter Selection:
+		Given Value:
+Artifacts
++++++++++
+1. test1
+2. test2
+3. test3
+4. test4
+5. test5
+6. Search
+7. Clear
+8. Quit
+
+Enter Selection: 
+
+
+		Scenario:empty artifactManagement use
+		Given: testArtifactManagement is []
+		When: getArtifactsMenu called
+		Then: display of getUserChoice is: 
+Artifacts
++++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+Artifacts
++++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection:
+		Given Value:
+Artifacts
++++++++++
+1. Search
+2. Clear
+3. Quit
+
+Enter Selection: 
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getExhibitArtifacts
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 371,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 372,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 374,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 375,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getExhibitArtifacts called with [371, 372, 373, 373, 374]
+		Then: output is: 
+[{ID: 371,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 372,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 374,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}]
+		Passed: true
+		Expected Value:
+[{ID: 371,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 372,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 374,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}]
+		Given Value:
+[{ID: 371,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes}, {ID: 372,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes}, {ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 373,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes}, {ID: 374,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes}]
+
+
+		Scenario:empty list of artifacts
+		Given: testArtifactManagement is [ID: 376,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 377,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 378,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 379,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 380,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getExhibitArtifacts called with []
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:empty artifactManagement
+		Given: testArtifactManagement is []
+		When: getExhibitArtifacts called with [381, 382, 383, 383, 384]
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement findArtifact
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 381,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 382,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 383,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 384,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 385,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: findArtifact called with 381
+		Then: output is: 
+ID: 381,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes
+		Passed: true
+		Expected Value:
+ID: 381,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes
+		Given Value:
+ID: 381,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes
+
+
+		Scenario:id not in list
+		Given: testArtifactManagement is [ID: 386,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 387,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 388,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 389,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 390,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: findArtifact called with 385
+		Then: output is: 
+No matching id in list
+		Passed: true
+		Expected Value:
+No matching id in list
+		Given Value:
+No matching id in list
+
+
+		Scenario:empty list of artifacts
+		Given: testArtifactManagement is []
+		When: findArtifact called with 391
+		Then: output is: 
+No matching id in list
+		Passed: true
+		Expected Value:
+No matching id in list
+		Given Value:
+No matching id in list
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getArtifactNames
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 391,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 392,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 393,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 394,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 395,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getArtifactNames called with [391, 392, 393, 393, 394]
+		Then: output is: 
+["test1", "test2", "test3", "test3", "test4"]
+		Passed: true
+		Expected Value:
+["test1", "test2", "test3", "test3", "test4"]
+		Given Value:
+["test1", "test2", "test3", "test3", "test4"]
+
+
+		Scenario:empty list of artifacts
+		Given: testArtifactManagement is [ID: 396,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 397,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 398,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 399,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 400,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getArtifactNames called with []
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+
+		Scenario:empty artifactManagement
+		Given: testArtifactManagement is []
+		When: getArtifactNames called with [401, 402, 403, 403, 404]
+		Then: output is: 
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: ArtifactManagement getExhibitEngagmentTime
+
+		Scenario:normal use
+		Given: testArtifactManagement is [ID: 401,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 402,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 403,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 404,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 405,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getExhibitEngagmentTime called with [401, 402, 403, 403, 404]
+		Then: output is: 
+33
+		Passed: true
+		Expected Value:
+33
+		Given Value:
+33
+
+
+		Scenario:empty list of artifacts
+		Given: testArtifactManagement is [ID: 406,	Name: test1,	Type: artifact1,	Engagement Time: 5 minutes, ID: 407,	Name: test2,	Type: artifact2,	Engagement Time: 6 minutes, ID: 408,	Name: test3,	Type: artifact3,	Engagement Time: 7 minutes, ID: 409,	Name: test4,	Type: artifact4,	Engagement Time: 8 minutes, ID: 410,	Name: test5,	Type: artifact5,	Engagement Time: 9 minutes]
+		When: getExhibitEngagmentTime called with []
+		Then: output is: 
+0
+		Passed: true
+		Expected Value:
+0
+		Given Value:
+0
+
+
+		Scenario:empty artifactManagement
+		Given: testArtifactManagement is []
+		When: getExhibitEngagmentTime called with [411, 412, 413, 413, 414]
+		Then: output is: 
+0
+		Passed: true
+		Expected Value:
+0
+		Given Value:
+0
+
+	Feature Passed: true
+
+All Features Passed: true

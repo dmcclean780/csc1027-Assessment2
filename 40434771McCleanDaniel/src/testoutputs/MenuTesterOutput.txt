@@ -1,0 +1,156 @@
+Class in Test: Menu
+
+	Feature: Menu getUserChoice
+
+		Scenario:Valid Input to menu
+		Given: given Menu is part01.Menu@1be6f5c3
+		When: menu.getUserChoice called
+		Then: output is:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection:
+		Given Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: 
+
+
+		Scenario:No Input then a Valid Input
+		Given: given Menu is part01.Menu@3af49f1c
+		When: menu.getUserChoice called
+		Then: output is:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection:
+		Passed: true
+		Expected Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection:
+		Given Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: 
+
+
+		Scenario:Value Greater Than Max Value then valid Value
+		Given: given Menu is part01.Menu@19469ea2
+		When: menu.getUserChoice called
+		Then: output is:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection:
+		Passed: true
+		Expected Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection:
+		Given Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection: 
+
+
+		Scenario:Value Greater Than Max Value then valid Value
+		Given: given Menu is part01.Menu@13221655
+		When: menu.getUserChoice called
+		Then: output is:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection:
+		Passed: true
+		Expected Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection:
+		Given Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection: 
+
+
+		Scenario:Value Greater Than Max Value then valid Value
+		Given: given Menu is part01.Menu@1218025c
+		When: menu.getUserChoice called
+		Then: output is:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection:
+		Passed: true
+		Expected Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection:
+		Given Value:
+test menu
++++++++++
+1. opt1
+2. opt2
+3. opt3
+
+Enter Selection: Enter Selection: 
+
+	Feature Passed: true
+
+All Features Passed: true

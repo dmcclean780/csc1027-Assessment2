@@ -1,0 +1,504 @@
+Class in Test: Exhibit
+
+	Feature: Exhibit Constructor
+
+		Scenario:valid Parameters
+		Given: exhibit name is test
+		AND: artifacts are [0, 1, 2, 3]
+		AND: route is [a, b, c, d]
+		When: new Artifact
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:more artifacts than route
+		Given: exhibit name is test
+		AND: artifacts are [0, 1, 2, 3]
+		AND: route is [a, b, c]
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:more route than artifacts
+		Given: exhibit name is test
+		AND: artifacts are [0, 1, 2]
+		AND: route is [a, b, c, d]
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:empty artifacts
+		Given: exhibit name is test
+		AND: artifacts are []
+		AND: route is [a, b, c, d]
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:empty route
+		Given: exhibit name is test
+		AND: artifacts are [0, 1, 2, 3]
+		AND: route is []
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:both empty
+		Given: exhibit name is test
+		AND: artifacts are []
+		AND: route is []
+		When: new Artifact
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:null artifacts
+		Given: exhibit name is test
+		AND: artifacts are null
+		AND: route is [a, b, c, d]
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:null route
+		Given: exhibit name is test
+		AND: artifacts are [0, 1, 2, 3]
+		AND: route is null
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:both null
+		Given: exhibit name is test
+		AND: artifacts are null
+		AND: route is null
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+	Feature Passed: true
+
+	Feature: Exhibit getID
+
+		Scenario:normal Exhibit
+		Given: testExhibit ID: 2	Name: test
+		When: testExhibit.getID
+		Then: output is:
+2
+		Passed: true
+		Expected Value:
+2
+		Given Value:
+2
+
+
+		Scenario:multiple Exhibits iterate the ID
+		Given: testExhibit ID: 3	Name: test
+		When: testExhibit.getID
+		Then: output is:
+3
+		Passed: true
+		Expected Value:
+3
+		Given Value:
+3
+
+
+		Scenario:multiple Exhibits iterate the ID
+		Given: testExhibit ID: 4	Name: test
+		When: testExhibit.getID
+		Then: output is:
+4
+		Passed: true
+		Expected Value:
+4
+		Given Value:
+4
+
+
+		Scenario:multiple Exhibits iterate the ID
+		Given: testExhibit ID: 5	Name: test
+		When: testExhibit.getID
+		Then: output is:
+5
+		Passed: true
+		Expected Value:
+5
+		Given Value:
+5
+
+	Feature Passed: true
+
+	Feature: Exhibit getName
+
+		Scenario:normal Exhibit
+		Given: testExhibit ID: 6	Name: test
+		When: testExhibit.getName
+		Then: output is:
+test
+		Passed: true
+		Expected Value:
+test
+		Given Value:
+test
+
+	Feature Passed: true
+
+	Feature: Artifact setName()
+
+		Scenario:normal exhibit
+		Given: testExhibit ID: 7	Name: set name test
+		When: testExhibit.setName callled with set name test
+		Then: output of getName is:
+set name test
+		Passed: true
+		Expected Value:
+set name test
+		Given Value:
+set name test
+
+
+		Scenario:set name to null
+		Given: testExhibit ID: 8	Name: null
+		When: testExhibit.setName callled with null
+		Then: output of getName is:
+null
+		Passed: true
+		Expected Value:
+null
+		Given Value:
+null
+
+	Feature Passed: true
+
+	Feature: Exhibit getArtifactsID
+
+		Scenario:normal exhibit
+		Given: testExhibit ID: 9	Name: test
+		When: testExhibit.getArtifactsID
+		Then: output is:
+[0, 1, 2, 3]
+		Passed: true
+		Expected Value:
+[0, 1, 2, 3]
+		Given Value:
+[0, 1, 2, 3]
+
+
+		Scenario:no artifacts
+		Given: testExhibit ID: 10	Name: test
+		When: testExhibit.getArtifactsID
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: Exhibit setArtifactsID
+
+		Scenario:normal valid use
+		Given: testExhibit ID: 11	Name: test
+		When: testExhibit.setArtifactsID called with [4, 5, 6, 7]
+		Then: output of getArtifactsID is:
+[4, 5, 6, 7]
+		Passed: true
+		Expected Value:
+[4, 5, 6, 7]
+		Given Value:
+[4, 5, 6, 7]
+
+
+		Scenario:invalid use, too few artifacts
+		Given: testExhibit ID: 12	Name: test
+		When: testExhibit.setArtifactsID called with [4, 5, 6]
+		Then: output of getArtifactsID is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use, too many artifacts
+		Given: testExhibit ID: 13	Name: test
+		When: testExhibit.setArtifactsID called with [4, 5, 6, 7, 8]
+		Then: output of getArtifactsID is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+	Feature Passed: true
+
+	Feature: Exhibit getRoute
+
+		Scenario:normal exhibit
+		Given: testExhibit ID: 14	Name: test
+		When: testExhibit.getRoute
+		Then: output is:
+[a, b, c, d]
+		Passed: true
+		Expected Value:
+[a, b, c, d]
+		Given Value:
+[a, b, c, d]
+
+
+		Scenario:no route
+		Given: testExhibit ID: 15	Name: test
+		When: testExhibit.getRoute
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+	Feature: Exhibit setRoute
+
+		Scenario:normal valid use
+		Given: testExhibit ID: 16	Name: test
+		When: testExhibit.setRoute called with [e, f, g, h]
+		Then: output of getRoute is:
+[e, f, g, h]
+		Passed: true
+		Expected Value:
+[e, f, g, h]
+		Given Value:
+[e, f, g, h]
+
+
+		Scenario:invalid use, too short route
+		Given: testExhibit ID: 17	Name: test
+		When: testExhibit.setRoute called with [e, f, g]
+		Then: output of getRoute is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid use, too long route
+		Given: testExhibit ID: 18	Name: test
+		When: testExhibit.setRoute called with [e, f, g, h, i]
+		Then: output of getRoute is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+	Feature Passed: true
+
+	Feature: Exhibit toString
+
+		Scenario:normal exhibit toString
+		Given: testExhibit ID: 19	Name: test
+		When: testExhibit.toString
+		Then: output is:
+ID: 19	Name: test
+		Passed: true
+		Expected Value:
+ID: 19	Name: test
+		Given Value:
+ID: 19	Name: test
+
+	Feature Passed: true
+
+	Feature: Exhibit removeArtifact
+
+		Scenario:Normal operation
+		Given: testExhibit ID: 20	Name: test
+		When: testExhibit.removeArtifact called with 2
+		Then: output is:
+[0, 1, 3]
+		Passed: true
+		Expected Value:
+[0, 1, 3]
+		Given Value:
+[0, 1, 3]
+
+
+		Scenario:Index to remove exceeds range - nothing done
+		Given: testExhibit ID: 21	Name: test
+		When: testExhibit.removeArtifact called with 4
+		Then: output is:
+[0, 1, 2, 3]
+		Passed: true
+		Expected Value:
+[0, 1, 2, 3]
+		Given Value:
+[0, 1, 2, 3]
+
+
+		Scenario:Index to remove below range - nothing done
+		Given: testExhibit ID: 22	Name: test
+		When: testExhibit.removeArtifact called with -1
+		Then: output is:
+[0, 1, 2, 3]
+		Passed: true
+		Expected Value:
+[0, 1, 2, 3]
+		Given Value:
+[0, 1, 2, 3]
+
+	Feature Passed: true
+
+	Feature: Exhibit removeSign
+
+		Scenario:Normal operation
+		Given: testExhibit ID: 23	Name: test
+		When: testExhibit.removeSign called with 2
+		Then: output is:
+[a, b, d]
+		Passed: true
+		Expected Value:
+[a, b, d]
+		Given Value:
+[a, b, d]
+
+
+		Scenario:Index to remove exceeds range - nothing done
+		Given: testExhibit ID: 24	Name: test
+		When: testExhibit.removeSign called with 4
+		Then: output is:
+[a, b, c, d]
+		Passed: true
+		Expected Value:
+[a, b, c, d]
+		Given Value:
+[a, b, c, d]
+
+
+		Scenario:Index to remove below range - nothing done
+		Given: testExhibit ID: 25	Name: test
+		When: testExhibit.removeSign called with -1
+		Then: output is:
+[a, b, c, d]
+		Passed: true
+		Expected Value:
+[a, b, c, d]
+		Given Value:
+[a, b, c, d]
+
+	Feature Passed: true
+
+	Feature: Exhibit findArtifactIndex
+
+		Scenario:normal use
+		Given: testExhibit ID: 26	Name: test
+		When: testExhibit.findArtifactIndex called with 0
+		Then: output is:
+0
+		Passed: true
+		Expected Value:
+0
+		Given Value:
+0
+
+
+		Scenario:artifact is not there
+		Given: testExhibit ID: 27	Name: test
+		When: testExhibit.findArtifactIndex called with 5
+		Then: output is:
+-1
+		Passed: true
+		Expected Value:
+-1
+		Given Value:
+-1
+
+	Feature Passed: true
+
+	Feature: Exhibit getRouteArray
+
+		Scenario:normal use
+		Given: testExhibit ID: 28	Name: test
+		When: testExhibit.getRouteArray
+		Then: output is:
+["a", "b", "c", "d"]
+		Passed: true
+		Expected Value:
+["a", "b", "c", "d"]
+		Given Value:
+["a", "b", "c", "d"]
+
+
+		Scenario:Route is empty
+		Given: testExhibit ID: 29	Name: test
+		When: testExhibit.getRouteArray
+		Then: output is:
+[]
+		Passed: true
+		Expected Value:
+[]
+		Given Value:
+[]
+
+	Feature Passed: true
+
+All Features Passed: true

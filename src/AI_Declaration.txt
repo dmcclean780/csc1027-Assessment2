@@ -1,0 +1,15 @@
+In this Assessment I have made use of AI in the following ways:
+
+PART 1
+    VERSION: GPT-4o mini
+    USE: Used for generating the example Data Strings to for Exhibits And Artifacts
+            in the DefaultData.java file
+
+PART 2
+    VERSION: GPT-4o mini
+    USE: Used to help debug and Generate the generateRandomInput() method of QUBMuseumTester.java
+
+PART 3
+    VERSION: GPT-4o mini
+    USE: Used to debug the tailwind styling and the JavaScript function to prevent duplicate artifacts being selected
+            when exhibits are being created

@@ -1,0 +1,300 @@
+Class in Test: Artifact
+
+	Feature: Artifact Constructor
+
+		Scenario:valid Parameters
+		Given: artifact name is test
+		AND: artifact type is artifact
+		AND: artifact engagementTime is 10
+		When: new Artifact
+		Then: output is:
+no exception
+		Passed: true
+		Expected Value:
+no exception
+		Given Value:
+no exception
+
+
+		Scenario:invalid parameters, time is 0
+		Given: artifact name is test
+		AND: artifact type is artifact
+		AND: artifact engagementTime is 0
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+
+		Scenario:invalid parameters, time is negative
+		Given: artifact name is test
+		AND: artifact type is artifact
+		AND: artifact engagementTime is -10
+		When: new Artifact
+		Then: output is:
+exception thrown
+		Passed: true
+		Expected Value:
+exception thrown
+		Given Value:
+exception thrown
+
+	Feature Passed: true
+
+	Feature: Artifact getID()
+
+		Scenario:normal Artifact
+		Given: testArtifact ID: 1,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getID
+		Then: output is:
+1
+		Passed: true
+		Expected Value:
+1
+		Given Value:
+1
+
+
+		Scenario:multiple Artifacts iterate the ID
+		Given: testArtifact ID: 2,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getID
+		Then: output is:
+2
+		Passed: true
+		Expected Value:
+2
+		Given Value:
+2
+
+
+		Scenario:multiple Artifacts iterate the ID
+		Given: testArtifact ID: 3,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getID
+		Then: output is:
+3
+		Passed: true
+		Expected Value:
+3
+		Given Value:
+3
+
+
+		Scenario:multiple Artifacts iterate the ID
+		Given: testArtifact ID: 4,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getID
+		Then: output is:
+4
+		Passed: true
+		Expected Value:
+4
+		Given Value:
+4
+
+
+		Scenario:null Properties
+		Given: testArtifact ID: 5,	Name: null,	Type: null,	Engagement Time: 1 minutes
+		When: testArtifact.getID
+		Then: output is:
+5
+		Passed: true
+		Expected Value:
+5
+		Given Value:
+5
+
+	Feature Passed: true
+
+	Feature: Artifact getName()
+
+		Scenario:normal Artifact
+		Given: testArtifact ID: 6,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getName
+		Then: output is:
+test
+		Passed: true
+		Expected Value:
+test
+		Given Value:
+test
+
+
+		Scenario:null name
+		Given: testArtifact ID: 7,	Name: null,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getName
+		Then: output is:
+null
+		Passed: true
+		Expected Value:
+null
+		Given Value:
+null
+
+	Feature Passed: true
+
+	Feature: Artifact setName()
+
+		Scenario:normal Artifact
+		Given: testArtifact ID: 8,	Name: set name test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.setName called with set name test
+		Then: output of getName is:
+set name test
+		Passed: true
+		Expected Value:
+set name test
+		Given Value:
+set name test
+
+
+		Scenario:set with initial name as null
+		Given: testArtifact ID: 9,	Name: set name test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.setName called with set name test
+		Then: output of getName is:
+set name test
+		Passed: true
+		Expected Value:
+set name test
+		Given Value:
+set name test
+
+
+		Scenario:set name to null
+		Given: testArtifact ID: 10,	Name: null,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.setName called with null
+		Then: output of getName is:
+null
+		Passed: true
+		Expected Value:
+null
+		Given Value:
+null
+
+	Feature Passed: true
+
+	Feature: Artifact getType()
+
+		Scenario:normal Artifact
+		Given: testArtifact ID: 11,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getType()
+		Then: output is:
+artifact
+		Passed: true
+		Expected Value:
+artifact
+		Given Value:
+artifact
+
+
+		Scenario:null type
+		Given: testArtifact ID: 12,	Name: test,	Type: null,	Engagement Time: 10 minutes
+		When: testArtifact.getType()
+		Then: output is:
+null
+		Passed: true
+		Expected Value:
+null
+		Given Value:
+null
+
+	Feature Passed: true
+
+	Feature: Artifact setType()
+
+		Scenario:normal Artifact
+		Given: testArtifact ID: 13,	Name: test,	Type: set type test,	Engagement Time: 10 minutes
+		When: testArtifact.setType() called with set type test
+		Then: output of getType() is:
+set type test
+		Passed: true
+		Expected Value:
+set type test
+		Given Value:
+set type test
+
+
+		Scenario:set with initial type as null
+		Given: testArtifact ID: 14,	Name: test,	Type: set name test,	Engagement Time: 10 minutes
+		When: testArtifact.setType() called with set name test
+		Then: output of getType() is:
+set name test
+		Passed: true
+		Expected Value:
+set name test
+		Given Value:
+set name test
+
+
+		Scenario:set type to null
+		Given: testArtifact ID: 15,	Name: test,	Type: null,	Engagement Time: 10 minutes
+		When: testArtifact.setType() called with null
+		Then: output of getType() is:
+null
+		Passed: true
+		Expected Value:
+null
+		Given Value:
+null
+
+	Feature Passed: true
+
+	Feature: Artifact getEngagementTime()
+
+		Scenario:normal Artifact
+		Given: testArtifact ID: 16,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.getEngagementTime()
+		Then: output is:
+10
+		Passed: true
+		Expected Value:
+10
+		Given Value:
+10
+
+	Feature Passed: true
+
+	Feature: Artifact setEngagementTime()
+
+		Scenario:normal use
+		Given: testArtifact ID: 17,	Name: test,	Type: artifact,	Engagement Time: 5 minutes
+		When: testArtifact.setEngagementTime() called with 5
+		Then: output of getEngagementTime() is:
+5
+		Passed: true
+		Expected Value:
+5
+		Given Value:
+5
+
+
+		Scenario:invalid time
+		Given: testArtifact ID: 18,	Name: test,	Type: null,	Engagement Time: 10 minutes
+		When: testArtifact.setEngagementTime() called with -5
+		Then: output of getEngagementTime() is:
+-1
+		Passed: true
+		Expected Value:
+-1
+		Given Value:
+-1
+
+	Feature Passed: true
+
+	Feature: Artifact toString()
+
+		Scenario:normal use
+		Given: testArtifact ID: 19,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		When: testArtifact.toString()
+		Then: output of toString() is:
+ID: 19,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		Passed: true
+		Expected Value:
+ID: 19,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+		Given Value:
+ID: 19,	Name: test,	Type: artifact,	Engagement Time: 10 minutes
+
+	Feature Passed: true
+
+All Features Passed: true

@@ -1,0 +1,486 @@
+Class in Test: Months
+
+	Feature: Months enum toString
+
+		Scenario: Months enum is January
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: January is returned
+		Passed: true
+		Expected Value: January
+		Given Value: January
+
+
+		Scenario: Months enum is February
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: February is returned
+		Passed: true
+		Expected Value: February
+		Given Value: February
+
+
+		Scenario: Months enum is March
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: March is returned
+		Passed: true
+		Expected Value: March
+		Given Value: March
+
+
+		Scenario: Months enum is April
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: April is returned
+		Passed: true
+		Expected Value: April
+		Given Value: April
+
+
+		Scenario: Months enum is May
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: May is returned
+		Passed: true
+		Expected Value: May
+		Given Value: May
+
+
+		Scenario: Months enum is June
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: June is returned
+		Passed: true
+		Expected Value: June
+		Given Value: June
+
+
+		Scenario: Months enum is July
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: July is returned
+		Passed: true
+		Expected Value: July
+		Given Value: July
+
+
+		Scenario: Months enum is August
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: August is returned
+		Passed: true
+		Expected Value: August
+		Given Value: August
+
+
+		Scenario: Months enum is September
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: September is returned
+		Passed: true
+		Expected Value: September
+		Given Value: September
+
+
+		Scenario: Months enum is October
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: October is returned
+		Passed: true
+		Expected Value: October
+		Given Value: October
+
+
+		Scenario: Months enum is November
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: November is returned
+		Passed: true
+		Expected Value: November
+		Given Value: November
+
+
+		Scenario: Months enum is December
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: month.toString() called
+		Then: December is returned
+		Passed: true
+		Expected Value: December
+		Given Value: December
+
+	Feature Passed: true
+
+	Feature: Months enum getId
+
+		Scenario: Months enum is January
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 0 is returned
+		Passed: true
+		Expected Value: 0
+		Given Value: 0
+
+
+		Scenario: Months enum is February
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 1 is returned
+		Passed: true
+		Expected Value: 1
+		Given Value: 1
+
+
+		Scenario: Months enum is March
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 2 is returned
+		Passed: true
+		Expected Value: 2
+		Given Value: 2
+
+
+		Scenario: Months enum is April
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 3 is returned
+		Passed: true
+		Expected Value: 3
+		Given Value: 3
+
+
+		Scenario: Months enum is May
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 4 is returned
+		Passed: true
+		Expected Value: 4
+		Given Value: 4
+
+
+		Scenario: Months enum is June
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 5 is returned
+		Passed: true
+		Expected Value: 5
+		Given Value: 5
+
+
+		Scenario: Months enum is July
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 6 is returned
+		Passed: true
+		Expected Value: 6
+		Given Value: 6
+
+
+		Scenario: Months enum is August
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 7 is returned
+		Passed: true
+		Expected Value: 7
+		Given Value: 7
+
+
+		Scenario: Months enum is September
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 8 is returned
+		Passed: true
+		Expected Value: 8
+		Given Value: 8
+
+
+		Scenario: Months enum is October
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 9 is returned
+		Passed: true
+		Expected Value: 9
+		Given Value: 9
+
+
+		Scenario: Months enum is November
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 10 is returned
+		Passed: true
+		Expected Value: 10
+		Given Value: 10
+
+
+		Scenario: Months enum is December
+		Given: expected ids are [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+		When: month.getid() called
+		Then: 11 is returned
+		Passed: true
+		Expected Value: 11
+		Given Value: 11
+
+	Feature Passed: true
+
+	Feature: Get Months enum by String
+
+		Scenario:valid String
+		Given: given id is January
+		When: Months.get() called with January
+		Then: m is January
+		Passed: true
+		Expected Value: January
+		Given Value: January
+
+
+		Scenario:valid String
+		Given: given id is February
+		When: Months.get() called with February
+		Then: m is February
+		Passed: true
+		Expected Value: February
+		Given Value: February
+
+
+		Scenario:valid String
+		Given: given id is March
+		When: Months.get() called with March
+		Then: m is March
+		Passed: true
+		Expected Value: March
+		Given Value: March
+
+
+		Scenario:valid String
+		Given: given id is April
+		When: Months.get() called with April
+		Then: m is April
+		Passed: true
+		Expected Value: April
+		Given Value: April
+
+
+		Scenario:valid String
+		Given: given id is May
+		When: Months.get() called with May
+		Then: m is May
+		Passed: true
+		Expected Value: May
+		Given Value: May
+
+
+		Scenario:valid String
+		Given: given id is June
+		When: Months.get() called with June
+		Then: m is June
+		Passed: true
+		Expected Value: June
+		Given Value: June
+
+
+		Scenario:valid String
+		Given: given id is July
+		When: Months.get() called with July
+		Then: m is July
+		Passed: true
+		Expected Value: July
+		Given Value: July
+
+
+		Scenario:valid String
+		Given: given id is August
+		When: Months.get() called with August
+		Then: m is August
+		Passed: true
+		Expected Value: August
+		Given Value: August
+
+
+		Scenario:valid String
+		Given: given id is September
+		When: Months.get() called with September
+		Then: m is September
+		Passed: true
+		Expected Value: September
+		Given Value: September
+
+
+		Scenario:valid String
+		Given: given id is October
+		When: Months.get() called with October
+		Then: m is October
+		Passed: true
+		Expected Value: October
+		Given Value: October
+
+
+		Scenario:valid String
+		Given: given id is November
+		When: Months.get() called with November
+		Then: m is November
+		Passed: true
+		Expected Value: November
+		Given Value: November
+
+
+		Scenario:valid String
+		Given: given id is December
+		When: Months.get() called with December
+		Then: m is December
+		Passed: true
+		Expected Value: December
+		Given Value: December
+
+
+		Scenario:invalid id given
+		Given: given id is abcdce
+		When: Months.get() called with abcdce
+		Then: m is null
+		Passed: true
+		Expected Value: null
+		Given Value: null
+
+
+		Scenario:invalid id given
+		Given: given id is null
+		When: Months.get() called with null
+		Then: m is null
+		Passed: true
+		Expected Value: null
+		Given Value: null
+
+	Feature Passed: true
+
+	Feature: Get Months enum by id
+
+		Scenario:valid id
+		Given: given id is 0
+		When: Months.get() called with 0
+		Then: m is January
+		Passed: true
+		Expected Value: January
+		Given Value: January
+
+
+		Scenario:valid id
+		Given: given id is 1
+		When: Months.get() called with 1
+		Then: m is February
+		Passed: true
+		Expected Value: February
+		Given Value: February
+
+
+		Scenario:valid id
+		Given: given id is 2
+		When: Months.get() called with 2
+		Then: m is March
+		Passed: true
+		Expected Value: March
+		Given Value: March
+
+
+		Scenario:valid id
+		Given: given id is 3
+		When: Months.get() called with 3
+		Then: m is April
+		Passed: true
+		Expected Value: April
+		Given Value: April
+
+
+		Scenario:valid id
+		Given: given id is 4
+		When: Months.get() called with 4
+		Then: m is May
+		Passed: true
+		Expected Value: May
+		Given Value: May
+
+
+		Scenario:valid id
+		Given: given id is 5
+		When: Months.get() called with 5
+		Then: m is June
+		Passed: true
+		Expected Value: June
+		Given Value: June
+
+
+		Scenario:valid id
+		Given: given id is 6
+		When: Months.get() called with 6
+		Then: m is July
+		Passed: true
+		Expected Value: July
+		Given Value: July
+
+
+		Scenario:valid id
+		Given: given id is 7
+		When: Months.get() called with 7
+		Then: m is August
+		Passed: true
+		Expected Value: August
+		Given Value: August
+
+
+		Scenario:valid id
+		Given: given id is 8
+		When: Months.get() called with 8
+		Then: m is September
+		Passed: true
+		Expected Value: September
+		Given Value: September
+
+
+		Scenario:valid id
+		Given: given id is 9
+		When: Months.get() called with 9
+		Then: m is October
+		Passed: true
+		Expected Value: October
+		Given Value: October
+
+
+		Scenario:valid id
+		Given: given id is 10
+		When: Months.get() called with 10
+		Then: m is November
+		Passed: true
+		Expected Value: November
+		Given Value: November
+
+
+		Scenario:valid id
+		Given: given id is 11
+		When: Months.get() called with 11
+		Then: m is December
+		Passed: true
+		Expected Value: December
+		Given Value: December
+
+
+		Scenario:invalid id given
+		Given: given id is 12
+		When: Months.get() called with 12
+		Then: m is null
+		Passed: true
+		Expected Value: null
+		Given Value: null
+
+	Feature Passed: true
+
+	Feature: toArray gives array of month names
+
+		Scenario: toArray called
+		Given: expected months are ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		When: toArray is called
+		Then: array is ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		Passed: true
+		Expected Value: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+		Given Value: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+	Feature Passed: true
+
+All Features Passed: true

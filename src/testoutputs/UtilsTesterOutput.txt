@@ -1,0 +1,392 @@
+Class in Test: Utils
+
+	Feature: concat 2 String[] arrays
+
+		Scenario: 2 normal arrays
+		Given: array 1 is ["This", "is", "a"]
+		And: array 2 is ["test", "string"]
+		When: toString is called
+		Then: result is ["This", "is", "a", "test", "string"]
+		Passed: true
+		Expected Value: ["This", "is", "a", "test", "string"]
+		Given Value: ["This", "is", "a", "test", "string"]
+
+
+		Scenario: empty array to normal array
+		Given: array 1 is ["This", "is", "a"]
+		And: array 2 is []
+		When: toString is called
+		Then: result is ["This", "is", "a"]
+		Passed: true
+		Expected Value: ["This", "is", "a"]
+		Given Value: ["This", "is", "a"]
+
+
+		Scenario: null array to normal array
+		Given: array 1 is ["This", "is", "a"]
+		And: array 2 is [null, null, null]
+		When: toString is called
+		Then: result is ["This", "is", "a", null, null, null]
+		Passed: true
+		Expected Value: ["This", "is", "a", null, null, null]
+		Given Value: ["This", "is", "a", null, null, null]
+
+
+		Scenario: string and null array to normal array
+		Given: array 1 is ["This", "is", "a"]
+		And: array 2 is [null, "test", null, "string", null]
+		When: toString is called
+		Then: result is ["This", "is", "a", null, "test", null, "string", null]
+		Passed: true
+		Expected Value: ["This", "is", "a", null, "test", null, "string", null]
+		Given Value: ["This", "is", "a", null, "test", null, "string", null]
+
+
+		Scenario: null to normal array
+		Given: array 1 is ["This", "is", "a"]
+		And: array 2 is null
+		When: toString is called
+		Then: result is ["This", "is", "a"]
+		Passed: true
+		Expected Value: ["This", "is", "a"]
+		Given Value: ["This", "is", "a"]
+
+
+		Scenario: normal array to empty array
+		Given: array 1 is []
+		And: array 2 is ["test", "string"]
+		When: toString is called
+		Then: result is ["test", "string"]
+		Passed: true
+		Expected Value: ["test", "string"]
+		Given Value: ["test", "string"]
+
+
+		Scenario: 2 empty arrays
+		Given: array 1 is []
+		And: array 2 is []
+		When: toString is called
+		Then: result is []
+		Passed: true
+		Expected Value: []
+		Given Value: []
+
+
+		Scenario: null array to empty array
+		Given: array 1 is []
+		And: array 2 is [null, null, null]
+		When: toString is called
+		Then: result is [null, null, null]
+		Passed: true
+		Expected Value: [null, null, null]
+		Given Value: [null, null, null]
+
+
+		Scenario: null and string array to empty array
+		Given: array 1 is []
+		And: array 2 is [null, "test", null, "string", null]
+		When: toString is called
+		Then: result is [null, "test", null, "string", null]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null]
+		Given Value: [null, "test", null, "string", null]
+
+
+		Scenario: null to empty array
+		Given: array 1 is []
+		And: array 2 is null
+		When: toString is called
+		Then: result is []
+		Passed: true
+		Expected Value: []
+		Given Value: []
+
+
+		Scenario: normal array to null array
+		Given: array 1 is [null, null, null]
+		And: array 2 is ["test", "string"]
+		When: toString is called
+		Then: result is [null, null, null, "test", "string"]
+		Passed: true
+		Expected Value: [null, null, null, "test", "string"]
+		Given Value: [null, null, null, "test", "string"]
+
+
+		Scenario: empty array to null array
+		Given: array 1 is [null, null, null]
+		And: array 2 is []
+		When: toString is called
+		Then: result is [null, null, null]
+		Passed: true
+		Expected Value: [null, null, null]
+		Given Value: [null, null, null]
+
+
+		Scenario: 2 null arrays
+		Given: array 1 is [null, null, null]
+		And: array 2 is [null, null, null]
+		When: toString is called
+		Then: result is [null, null, null, null, null, null]
+		Passed: true
+		Expected Value: [null, null, null, null, null, null]
+		Given Value: [null, null, null, null, null, null]
+
+
+		Scenario: null and string array to null array
+		Given: array 1 is [null, null, null]
+		And: array 2 is [null, "test", null, "string", null]
+		When: toString is called
+		Then: result is [null, null, null, null, "test", null, "string", null]
+		Passed: true
+		Expected Value: [null, null, null, null, "test", null, "string", null]
+		Given Value: [null, null, null, null, "test", null, "string", null]
+
+
+		Scenario: null to null array
+		Given: array 1 is [null, null, null]
+		And: array 2 is null
+		When: toString is called
+		Then: result is [null, null, null]
+		Passed: true
+		Expected Value: [null, null, null]
+		Given Value: [null, null, null]
+
+
+		Scenario: normal array to null and string array
+		Given: array 1 is [null, "test", null, "string", null]
+		And: array 2 is ["test", "string"]
+		When: toString is called
+		Then: result is [null, "test", null, "string", null, "test", "string"]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null, "test", "string"]
+		Given Value: [null, "test", null, "string", null, "test", "string"]
+
+
+		Scenario: empty array to null and string array
+		Given: array 1 is [null, "test", null, "string", null]
+		And: array 2 is []
+		When: toString is called
+		Then: result is [null, "test", null, "string", null]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null]
+		Given Value: [null, "test", null, "string", null]
+
+
+		Scenario: null array to null and string array
+		Given: array 1 is [null, "test", null, "string", null]
+		And: array 2 is [null, null, null]
+		When: toString is called
+		Then: result is [null, "test", null, "string", null, null, null, null]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null, null, null, null]
+		Given Value: [null, "test", null, "string", null, null, null, null]
+
+
+		Scenario: 2 null and string arrays
+		Given: array 1 is [null, "test", null, "string", null]
+		And: array 2 is [null, "test", null, "string", null]
+		When: toString is called
+		Then: result is [null, "test", null, "string", null, null, "test", null, "string", null]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null, null, "test", null, "string", null]
+		Given Value: [null, "test", null, "string", null, null, "test", null, "string", null]
+
+
+		Scenario: null to null and string array
+		Given: array 1 is [null, "test", null, "string", null]
+		And: array 2 is null
+		When: toString is called
+		Then: result is [null, "test", null, "string", null]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null]
+		Given Value: [null, "test", null, "string", null]
+
+
+		Scenario: normal array to null
+		Given: array 1 is null
+		And: array 2 is ["test", "string"]
+		When: toString is called
+		Then: result is ["test", "string"]
+		Passed: true
+		Expected Value: ["test", "string"]
+		Given Value: ["test", "string"]
+
+
+		Scenario: empty array to null
+		Given: array 1 is null
+		And: array 2 is []
+		When: toString is called
+		Then: result is []
+		Passed: true
+		Expected Value: []
+		Given Value: []
+
+
+		Scenario: null array to null
+		Given: array 1 is null
+		And: array 2 is [null, null, null]
+		When: toString is called
+		Then: result is [null, null, null]
+		Passed: true
+		Expected Value: [null, null, null]
+		Given Value: [null, null, null]
+
+
+		Scenario: null and string array to null
+		Given: array 1 is null
+		And: array 2 is [null, "test", null, "string", null]
+		When: toString is called
+		Then: result is [null, "test", null, "string", null]
+		Passed: true
+		Expected Value: [null, "test", null, "string", null]
+		Given Value: [null, "test", null, "string", null]
+
+
+		Scenario: 2 nulls
+		Given: array 1 is null
+		And: array 2 is null
+		When: toString is called
+		Then: result is null
+		Passed: true
+		Expected Value: null
+		Given Value: null
+
+	Feature Passed: true
+
+	Feature: ArrayList<Integer> contains an int
+
+		Scenario: int in normal list
+		Given: list is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+		And: search term is 5
+		When: contains() is called
+		Then: result is true
+		Passed: true
+		Expected Value: true
+		Given Value: true
+
+
+		Scenario: int not in normal list
+		Given: list is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+		And: search term is 11
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int not in empty list
+		Given: list is []
+		And: search term is 5
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int not in null
+		Given: list is null
+		And: search term is 5
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int in null list
+		Given: list is [null, null, null, null, null, null, null, null, null, null]
+		And: search term is 11
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int in list containing a null
+		Given: list is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null]
+		And: search term is 5
+		When: contains() is called
+		Then: result is true
+		Passed: true
+		Expected Value: true
+		Given Value: true
+
+
+		Scenario: int not in list containing a null
+		Given: list is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null]
+		And: search term is 11
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int in normal list
+		Given: list is [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1]
+		And: search term is -5
+		When: contains() is called
+		Then: result is true
+		Passed: true
+		Expected Value: true
+		Given Value: true
+
+	Feature Passed: true
+
+	Feature: int[] contains an int
+
+		Scenario: int in normal list
+		Given: list is [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		And: search term is 5
+		When: contains() is called
+		Then: result is true
+		Passed: true
+		Expected Value: true
+		Given Value: true
+
+
+		Scenario: int not in normal list
+		Given: list is [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		And: search term is 11
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int not in empty list
+		Given: list is []
+		And: search term is 5
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int not in null
+		Given: list is null
+		And: search term is 5
+		When: contains() is called
+		Then: result is false
+		Passed: true
+		Expected Value: false
+		Given Value: false
+
+
+		Scenario: int in normal list
+		Given: list is [-1, -2, -3, -4, -5, -6, -7, -8, -9]
+		And: search term is -5
+		When: contains() is called
+		Then: result is true
+		Passed: true
+		Expected Value: true
+		Given Value: true
+
+	Feature Passed: true
+
+All Features Passed: true

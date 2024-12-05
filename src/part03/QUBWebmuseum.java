@@ -69,7 +69,7 @@ public class QUBWebmuseum {
     }
 
     public void launchMuseumWebsite(String title) {
-        final String ROOT = "src/";
+        final String ROOT = "";
         WebInterface winterface = new WebInterface(9990);
         ArrayList<WebRequest> wqueue = new ArrayList<WebRequest>();
 
@@ -106,7 +106,7 @@ public class QUBWebmuseum {
 
                 } else if (wr.path.equalsIgnoreCase("manage_artifacts/add_artifact/create_artifact")) {
                     
-                    String url = "/manage_artifacts/add_artifact";
+                    String url = "/manage_artifacts/view_artifact/"+Artifact.getNextID();
 
                     String myName = wr.parms.get("myNameInForm");
                     String myType = wr.parms.get("myTypeInForm");
@@ -284,7 +284,7 @@ public class QUBWebmuseum {
 
                 } else if (wr.path.equalsIgnoreCase("manage_exhibits/add_exhibit/create_exhibit")) {
                     System.out.println(wr.parms);
-                    String url = "/manage_exhibits/add_exhibit";
+                    String url = "/manage_exhibits/view_exhibit/"+Exhibit.getNextID();
 
                     String myName = wr.parms.get("myNameInForm");
                     int noArtifacts = Integer.parseInt(wr.parms.get("artifcatCount"));
@@ -545,6 +545,10 @@ public class QUBWebmuseum {
                         }
                     }
                     
+                    /**
+                     * I have decided to just recreate the plan when it is updated as it holds no state information and this
+                     * requires less conditional operation than finding out what has changed when all the data is readily available
+                     */
                     try{
                         exhibitionPlan = new ExhibitionPlan(exhibitPlan, exhibitManagement);
                     } catch(Exception e){
